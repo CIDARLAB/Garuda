@@ -1,0 +1,605 @@
+{
+  "Entries": [
+    {
+      "variable": "Growth Rate",
+      "value": 0.15
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 23.43
+    },
+    {
+      "variable": "Purity",
+      "value": 0.78
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.7
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.35
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 38.11
+    },
+    {
+      "variable": "Purity",
+      "value": 0.55
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.22
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.27
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 97.29
+    },
+    {
+      "variable": "Purity",
+      "value": 0.8
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.62
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 1.0
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 45.46
+    },
+    {
+      "variable": "Purity",
+      "value": 0.61
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.64
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.46
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 32.18
+    },
+    {
+      "variable": "Purity",
+      "value": 0.83
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.39
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.81
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 3.17
+    },
+    {
+      "variable": "Purity",
+      "value": 0.91
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.25
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.16
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 30.43
+    },
+    {
+      "variable": "Purity",
+      "value": 0.9
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.85
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.62
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 92.74
+    },
+    {
+      "variable": "Purity",
+      "value": 0.97
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.6
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.35
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 65.93
+    },
+    {
+      "variable": "Purity",
+      "value": 0.66
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.32
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.79
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 67.09
+    },
+    {
+      "variable": "Purity",
+      "value": 0.67
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.25
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.01
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 90.82
+    },
+    {
+      "variable": "Purity",
+      "value": 0.89
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.14
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.48
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 77.3
+    },
+    {
+      "variable": "Purity",
+      "value": 0.89
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.8
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.37
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 13.75
+    },
+    {
+      "variable": "Purity",
+      "value": 0.65
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.15
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.11
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 84.09
+    },
+    {
+      "variable": "Purity",
+      "value": 0.98
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.58
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.66
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 39.36
+    },
+    {
+      "variable": "Purity",
+      "value": 0.84
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.06
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.87
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 63.21
+    },
+    {
+      "variable": "Purity",
+      "value": 0.75
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.0
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.64
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 44.52
+    },
+    {
+      "variable": "Purity",
+      "value": 0.93
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.41
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.56
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 17.98
+    },
+    {
+      "variable": "Purity",
+      "value": 0.54
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.16
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.23
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 33.92
+    },
+    {
+      "variable": "Purity",
+      "value": 0.89
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.33
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.5
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 20.71
+    },
+    {
+      "variable": "Purity",
+      "value": 0.93
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.97
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.45
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 51.46
+    },
+    {
+      "variable": "Purity",
+      "value": 0.68
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.94
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.69
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 47.55
+    },
+    {
+      "variable": "Purity",
+      "value": 0.73
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.06
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.64
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 74.42
+    },
+    {
+      "variable": "Purity",
+      "value": 0.73
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.47
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.56
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 87.34
+    },
+    {
+      "variable": "Purity",
+      "value": 0.69
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.65
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.0
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 52.46
+    },
+    {
+      "variable": "Purity",
+      "value": 0.76
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.08
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.57
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 20.58
+    },
+    {
+      "variable": "Purity",
+      "value": 0.51
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.98
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.36
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 55.5
+    },
+    {
+      "variable": "Purity",
+      "value": 0.91
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.51
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.93
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 29.72
+    },
+    {
+      "variable": "Purity",
+      "value": 0.77
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.46
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.21
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 94.29
+    },
+    {
+      "variable": "Purity",
+      "value": 0.71
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.09
+    },
+    {
+      "variable": "Growth Rate",
+      "value": 0.12
+    },
+    {
+      "variable": "Duration",
+      "value": 100.0
+    },
+    {
+      "variable": "Performance",
+      "value": 97.58
+    },
+    {
+      "variable": "Purity",
+      "value": 0.81
+    },
+    {
+      "variable": "Acidity",
+      "value": 0.67
+    }
+  ],
+  "Name": "Parameter"
+}

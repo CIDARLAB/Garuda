@@ -1,0 +1,15 @@
+{
+  "Entries": [
+    {
+      "author": "user1471964590140",
+      "name": "Science",
+      "description": ""
+    },
+    {
+      "author": "user1471964590140",
+      "name": "Nature",
+      "description": ""
+    }
+  ],
+  "Name": "Publication"
+}
