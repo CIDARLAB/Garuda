@@ -73,6 +73,21 @@
             <type>jar</type>
         </dependency>
         
+        <!--Table/Matrix
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>-->
+        
+        <!--Pearson Correlation-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.5</version>
+            <type>jar</type>
+        </dependency>
+        
         <!--Spring framework
         <dependency>
             <groupId>org.springframework.boot</groupId>

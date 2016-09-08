@@ -8,6 +8,7 @@ package org.cidarlab.main.thomoclotho.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -28,7 +29,7 @@ import org.clothocad.model.Module.ModuleRole;
 import org.clothocad.model.Parameter;
 import org.clothocad.model.Person;
 import org.clothocad.model.Variable;
-import org.json.simple.JSONArray;
+import net.sf.json.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
@@ -47,6 +48,7 @@ public class InitGeneratedData {
             FileWriter parJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-parameter.txt");
             FileWriter exdJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-experimentalDesign.txt");
             FileWriter cmpJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-compound.txt");
+            FileWriter proJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-project-update.txt");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject modJSON = new JSONObject();
@@ -70,8 +72,11 @@ public class InitGeneratedData {
             JSONObject cmpJSON = new JSONObject();
             JSONArray cmpArr = new JSONArray();
             
+            JSONObject proJSON = new JSONObject();
+            JSONArray proArr = new JSONArray();
+            
             //counter for clotho
-            int[] clothoCount = new int[8];
+            int[] clothoCount = new int[9];
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 
@@ -81,9 +86,8 @@ public class InitGeneratedData {
                 Set<Variable> controlled = new HashSet<Variable>();
                 
                 //-----medium----- [col 4]
-                //String med_id = "med" + System.currentTimeMillis(); //sequence id is generated
-                String med_id = row.getCell(4).getStringCellValue();
-                Medium newMed = new Medium (med_id, "", user);
+                String medname = row.getCell(4).getStringCellValue();
+                Medium newMed = new Medium (medname, "", user);
                 
                 JSONObject medObj = newMed.getJSON();
                 Map medMap = newMed.getMap();
@@ -97,10 +101,10 @@ public class InitGeneratedData {
                 int bioDesignIdx = (int) row.getCell(2).getNumericCellValue();
                 
                 //-----module-----
-                String mod_id = "mod" + System.currentTimeMillis();
+                String modname = "mod" + System.currentTimeMillis();
                 Set<Feature> features = new HashSet<Feature>();
                 features.add(constructsID.get(bioDesignIdx-1));
-                BasicModule newMod = new BasicModule(mod_id, "", ModuleRole.TRANSCRIPTION, features, user);
+                BasicModule newMod = new BasicModule(modname, "", ModuleRole.TRANSCRIPTION, features, user);
                 
                 JSONObject modObj = newMod.getJSON();
                 Map modMap = newMod.getMap();
@@ -111,8 +115,8 @@ public class InitGeneratedData {
                 modArr.add(modObj);
                 
                 //-----biodesign-----
-                String bio_id = "bio" + System.currentTimeMillis();
-                BioDesign newBiod = new BioDesign (bio_id, "", newMod, user);
+                String bioname = "bio" + System.currentTimeMillis();
+                BioDesign newBiod = new BioDesign (bioname, "", newMod, user);
                 //add the medium to the bioDesign
                 newBiod.addMedium(newMed);
                 
@@ -251,10 +255,10 @@ public class InitGeneratedData {
                 bioArr.add(bioObj);
                 
                 //------experimental design------ [col 3 & 10 for integration site & comment]
-                String exd_id = "exd" + System.currentTimeMillis();
+                String exdname = "exd" + System.currentTimeMillis();
                 int site = (int) row.getCell(3).getNumericCellValue();
                 String notes = row.getCell(10).getStringCellValue();
-                ExperimentalDesign newExd = new ExperimentalDesign (exd_id, "", response, controlled, newBiod, site, notes, user);
+                ExperimentalDesign newExd = new ExperimentalDesign (exdname, "", response, controlled, newBiod, site, notes, user);
                 
                 JSONObject exdObj = newExd.getJSON();
                 Map exdMap = newExd.getMap();
@@ -264,6 +268,23 @@ public class InitGeneratedData {
                 }
                 exdArr.add(exdObj);
                 
+                //------library------ [col 1] --updating projects
+                String libraryId = row.getCell(1).getStringCellValue();
+                Map queryMap = new HashMap();
+                queryMap.put("libraryId", libraryId);
+                JSONArray queryResults = (JSONArray) clothoObject.query (queryMap);
+                
+                for (int j=0; j<queryResults.size(); j++) {
+                    Map queryResult = (Map) queryResults.get(j);
+                    //String objectId = (String) queryResult.get("id");
+                    queryResult.put("experimentalDesign", exdname);
+                    String setResult = (String) clothoObject.set(queryResult);
+                    if (!setResult.equals(null)) {
+                        clothoCount[8]++;
+                    }
+                    proArr.add(queryResult);
+                }
+
                 //------protein and metabolite [col 12-...]------
                 int compounds = (int) row.getCell(11).getNumericCellValue();
                 
@@ -275,14 +296,14 @@ public class InitGeneratedData {
                         type = CompoundType.METABOLITE;
                     }
                     
-                    String cmp_id = "met" + System.currentTimeMillis();
+                    String cmpname = "met" + System.currentTimeMillis();
                     String desc = row.getCell(13+(j*6)+0).getStringCellValue();
                     boolean isProduct = row.getCell(13+(j*6)+1).getNumericCellValue()==1;
                     String identifier = row.getCell(13+(j*6)+2).getStringCellValue();
                     double level = row.getCell(13+(j*6)+3).getNumericCellValue();
                     String formula = row.getCell(13+(j*6)+4).getStringCellValue();
                     
-                    Compound newComp = new Compound(cmp_id, desc, user, type, isProduct, identifier, level, formula);
+                    Compound newComp = new Compound(cmpname, desc, user, type, isProduct, identifier, level, formula);
                     
                     JSONObject cmpObj = newComp.getJSON();
                     Map cmpMap = newComp.getMap();
@@ -304,7 +325,8 @@ public class InitGeneratedData {
                                 "Created " + clothoCount[4] + " Parameter objects" + "\n" +
                                 "Created " + clothoCount[5] + " Experimental Design objects" + "\n" +
                                 "Created " + clothoCount[6] + " Metabolite objects" + "\n" +
-                                "Created " + clothoCount[7] + " Protein objects");
+                                "Created " + clothoCount[7] + " Protein objects" + "\n" +
+                                "Updated " + clothoCount[8] + " Project objects");
             
             medJSON.put("Name", "Medium");
             medJSON.put("Entries", medArr);
@@ -349,6 +371,12 @@ public class InitGeneratedData {
             prettyJson = gson.toJson(cmpJSON);
             cmpJSONfile.write (prettyJson);
             
+            proJSON.put("Name", "Project");
+            proJSON.put("Entries", proArr);
+            
+            prettyJson = gson.toJson(proJSON);
+            proJSONfile.write (prettyJson);
+            
             System.out.println("Successfully wrote JSON objects entries from " + sheet.getSheetName () + " sheet.");
             
             medJSONfile.close();
@@ -358,6 +386,7 @@ public class InitGeneratedData {
             varJSONfile.close();
             exdJSONfile.close();
             cmpJSONfile.close();
+            proJSONfile.close();
         }
         
         catch (Exception ex) {

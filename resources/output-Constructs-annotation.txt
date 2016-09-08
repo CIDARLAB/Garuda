@@ -2,1353 +2,1503 @@
   "Entries": [
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann01471964596321",
-      "start": 0,
-      "description": "",
-      "end": 1028
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann11471964596368",
-      "start": 1029,
-      "description": "",
-      "end": 2354
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann21471964596396",
-      "start": 3384,
-      "description": "",
-      "end": 4709
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596197",
-      "author": "user1471964590140",
-      "name": "ann31471964596432",
-      "start": 8094,
-      "description": "",
-      "end": 8870
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann41471964596459",
-      "start": 16965,
-      "description": "",
-      "end": 17777
-    },
-    {
-      "isForwardStrand": false,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann01471964596538",
-      "start": 0,
-      "description": "",
-      "end": 2369
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596292",
-      "author": "user1471964590140",
-      "name": "ann11471964596562",
-      "start": 2370,
-      "description": "",
-      "end": 2813
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594878",
-      "author": "user1471964590140",
-      "name": "ann21471964596583",
-      "start": 5184,
-      "description": "",
-      "end": 7157
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann31471964596611",
-      "start": 12342,
-      "description": "",
-      "end": 12656
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann41471964596639",
-      "start": 24999,
-      "description": "",
-      "end": 26027
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann01471964596719",
-      "start": 0,
-      "description": "",
-      "end": 1028
-    },
-    {
-      "isForwardStrand": false,
-      "feature": "fea1471964595775",
-      "author": "user1471964590140",
-      "name": "ann11471964596777",
-      "start": 1029,
-      "description": "",
-      "end": 1589
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann21471964596809",
-      "start": 2619,
-      "description": "",
-      "end": 3371
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann31471964596854",
-      "start": 5991,
-      "description": "",
-      "end": 6803
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann41471964596890",
-      "start": 12795,
-      "description": "",
-      "end": 15164
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann01471964596998",
-      "start": 0,
-      "description": "",
-      "end": 548
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann11471964597028",
-      "start": 549,
-      "description": "",
-      "end": 1577
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann21471964597061",
-      "start": 2127,
-      "description": "",
-      "end": 3452
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann31471964597096",
-      "start": 5580,
-      "description": "",
-      "end": 8246
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596155",
-      "author": "user1471964590140",
-      "name": "ann41471964597117",
-      "start": 13827,
-      "description": "",
-      "end": 14900
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann01471964597245",
-      "start": 0,
-      "description": "",
-      "end": 314
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann11471964597269",
-      "start": 315,
-      "description": "",
-      "end": 863
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594752",
-      "author": "user1471964590140",
-      "name": "ann21471964597297",
-      "start": 1179,
-      "description": "",
-      "end": 3218
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann31471964597317",
-      "start": 4398,
-      "description": "",
-      "end": 5363
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595344",
-      "author": "user1471964590140",
-      "name": "ann41471964597348",
-      "start": 9762,
-      "description": "",
-      "end": 11165
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596155",
-      "author": "user1471964590140",
-      "name": "ann01471964597447",
-      "start": 0,
-      "description": "",
-      "end": 1073
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596017",
-      "author": "user1471964590140",
-      "name": "ann11471964597479",
-      "start": 1074,
-      "description": "",
-      "end": 5099
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann21471964597527",
-      "start": 6174,
-      "description": "",
-      "end": 6926
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann31471964597551",
-      "start": 13101,
-      "description": "",
-      "end": 14129
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594662",
-      "author": "user1471964590140",
-      "name": "ann41471964597575",
-      "start": 27231,
-      "description": "",
-      "end": 29156
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594797",
-      "author": "user1471964590140",
-      "name": "ann01471964597642",
-      "start": 0,
-      "description": "",
-      "end": 46
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594878",
-      "author": "user1471964590140",
-      "name": "ann11471964597658",
-      "start": 47,
-      "description": "",
-      "end": 2020
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann21471964597670",
-      "start": 2068,
-      "description": "",
-      "end": 2616
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594797",
-      "author": "user1471964590140",
-      "name": "ann31471964597681",
-      "start": 4685,
-      "description": "",
-      "end": 4731
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann41471964597705",
-      "start": 9417,
-      "description": "",
-      "end": 9731
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann01471964597750",
-      "start": 0,
-      "description": "",
-      "end": 2666
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann11471964597766",
-      "start": 2667,
-      "description": "",
-      "end": 3695
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595922",
-      "author": "user1471964590140",
-      "name": "ann21471964597782",
-      "start": 6363,
-      "description": "",
-      "end": 6992
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594925",
-      "author": "user1471964590140",
-      "name": "ann31471964597795",
-      "start": 13356,
-      "description": "",
-      "end": 13541
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann41471964597809",
-      "start": 26898,
-      "description": "",
-      "end": 28397
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595775",
-      "author": "user1471964590140",
-      "name": "ann01471964597875",
-      "start": 0,
-      "description": "",
-      "end": 560
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann11471964597889",
-      "start": 561,
-      "description": "",
-      "end": 1373
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596017",
-      "author": "user1471964590140",
-      "name": "ann21471964597905",
-      "start": 1935,
-      "description": "",
-      "end": 5960
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann31471964597919",
-      "start": 7896,
-      "description": "",
-      "end": 8444
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann41471964597934",
-      "start": 16341,
-      "description": "",
-      "end": 17186
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann01471964597977",
-      "start": 0,
-      "description": "",
-      "end": 1325
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594977",
-      "author": "user1471964590140",
-      "name": "ann11471964597995",
-      "start": 1326,
-      "description": "",
-      "end": 2126
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann21471964598021",
-      "start": 3453,
-      "description": "",
-      "end": 4205
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594752",
-      "author": "user1471964590140",
-      "name": "ann31471964598045",
-      "start": 7659,
-      "description": "",
-      "end": 9698
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann41471964598066",
-      "start": 17358,
-      "description": "",
-      "end": 18110
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596197",
-      "author": "user1471964590140",
-      "name": "ann01471964598117",
-      "start": 0,
-      "description": "",
-      "end": 776
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann11471964598140",
-      "start": 777,
-      "description": "",
-      "end": 1091
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596113",
-      "author": "user1471964590140",
-      "name": "ann21471964598157",
-      "start": 1869,
-      "description": "",
-      "end": 3524
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596155",
-      "author": "user1471964590140",
-      "name": "ann31471964598174",
-      "start": 5394,
-      "description": "",
-      "end": 6467
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann41471964598199",
-      "start": 11862,
-      "description": "",
-      "end": 12707
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595725",
-      "author": "user1471964590140",
-      "name": "ann01471964598247",
-      "start": 0,
-      "description": "",
-      "end": 1061
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595867",
-      "author": "user1471964590140",
-      "name": "ann11471964598266",
-      "start": 1062,
-      "description": "",
-      "end": 4103
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann21471964598286",
-      "start": 5166,
-      "description": "",
-      "end": 6011
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann31471964598316",
-      "start": 11178,
-      "description": "",
-      "end": 12206
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595775",
-      "author": "user1471964590140",
-      "name": "ann41471964598330",
-      "start": 23385,
-      "description": "",
-      "end": 23945
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595922",
-      "author": "user1471964590140",
-      "name": "ann01471964598376",
-      "start": 0,
-      "description": "",
-      "end": 629
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595867",
-      "author": "user1471964590140",
-      "name": "ann11471964598389",
-      "start": 630,
-      "description": "",
-      "end": 3671
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann21471964598403",
-      "start": 4302,
-      "description": "",
-      "end": 5114
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann31471964598419",
-      "start": 9417,
-      "description": "",
-      "end": 10916
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann41471964598439",
-      "start": 20334,
-      "description": "",
-      "end": 20882
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595036",
-      "author": "user1471964590140",
-      "name": "ann01471964598488",
-      "start": 0,
-      "description": "",
-      "end": 2234
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann11471964598504",
-      "start": 2235,
-      "description": "",
-      "end": 3080
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596017",
-      "author": "user1471964590140",
-      "name": "ann21471964598524",
-      "start": 5316,
-      "description": "",
-      "end": 9341
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann31471964598547",
-      "start": 14658,
-      "description": "",
-      "end": 15206
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann41471964598563",
-      "start": 29865,
-      "description": "",
-      "end": 30716
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann01471964598614",
-      "start": 0,
-      "description": "",
-      "end": 812
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann11471964598637",
-      "start": 813,
-      "description": "",
-      "end": 1664
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595344",
-      "author": "user1471964590140",
-      "name": "ann21471964598654",
-      "start": 2478,
-      "description": "",
-      "end": 3881
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann31471964598675",
-      "start": 6360,
-      "description": "",
-      "end": 6674
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann41471964598698",
-      "start": 13035,
-      "description": "",
-      "end": 14063
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594925",
-      "author": "user1471964590140",
-      "name": "ann01471964598755",
-      "start": 0,
-      "description": "",
-      "end": 185
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594662",
-      "author": "user1471964590140",
-      "name": "ann11471964598774",
-      "start": 186,
-      "description": "",
-      "end": 2111
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann21471964598795",
-      "start": 2298,
-      "description": "",
-      "end": 4964
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann31471964598815",
-      "start": 7263,
-      "description": "",
-      "end": 8762
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann41471964598831",
-      "start": 16026,
-      "description": "",
-      "end": 17525
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594925",
-      "author": "user1471964590140",
-      "name": "ann01471964598891",
-      "start": 0,
-      "description": "",
-      "end": 185
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann11471964598907",
-      "start": 186,
-      "description": "",
-      "end": 1037
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann21471964598927",
-      "start": 1224,
-      "description": "",
-      "end": 3890
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann31471964598945",
-      "start": 5115,
-      "description": "",
-      "end": 5966
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594838",
-      "author": "user1471964590140",
-      "name": "ann41471964598966",
-      "start": 11082,
-      "description": "",
-      "end": 11330
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann01471964599041",
-      "start": 0,
-      "description": "",
-      "end": 1028
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann11471964599060",
-      "start": 1029,
-      "description": "",
-      "end": 2528
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594925",
-      "author": "user1471964590140",
-      "name": "ann21471964599076",
-      "start": 3558,
-      "description": "",
-      "end": 3743
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann31471964599098",
-      "start": 7302,
-      "description": "",
-      "end": 9671
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann41471964599129",
-      "start": 16974,
-      "description": "",
-      "end": 17288
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann01471964599192",
-      "start": 0,
-      "description": "",
-      "end": 2369
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595036",
-      "author": "user1471964590140",
-      "name": "ann11471964599212",
-      "start": 2370,
-      "description": "",
-      "end": 4604
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann21471964599229",
-      "start": 6975,
-      "description": "",
-      "end": 8474
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann31471964599247",
-      "start": 15450,
-      "description": "",
-      "end": 16262
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann41471964599260",
-      "start": 31713,
-      "description": "",
-      "end": 32678
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann01471964599331",
-      "start": 0,
-      "description": "",
-      "end": 2369
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595922",
-      "author": "user1471964590140",
-      "name": "ann11471964599347",
-      "start": 2370,
-      "description": "",
-      "end": 2999
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann21471964599363",
-      "start": 5370,
-      "description": "",
-      "end": 6695
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann31471964599383",
-      "start": 12066,
-      "description": "",
-      "end": 12614
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann41471964599402",
-      "start": 24681,
-      "description": "",
-      "end": 25229
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595867",
-      "author": "user1471964590140",
-      "name": "ann01471964599453",
-      "start": 0,
-      "description": "",
-      "end": 3041
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595922",
-      "author": "user1471964590140",
-      "name": "ann11471964599474",
-      "start": 3042,
-      "description": "",
-      "end": 3671
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594797",
-      "author": "user1471964590140",
-      "name": "ann21471964599499",
-      "start": 6714,
-      "description": "",
-      "end": 6760
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595301",
-      "author": "user1471964590140",
-      "name": "ann31471964599526",
-      "start": 13475,
-      "description": "",
-      "end": 14974
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595344",
-      "author": "user1471964590140",
-      "name": "ann41471964599544",
-      "start": 28450,
-      "description": "",
-      "end": 29853
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann01471964599617",
-      "start": 0,
-      "description": "",
-      "end": 851
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594662",
-      "author": "user1471964590140",
-      "name": "ann11471964599643",
-      "start": 852,
-      "description": "",
-      "end": 2777
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596197",
-      "author": "user1471964590140",
-      "name": "ann21471964599666",
-      "start": 3630,
-      "description": "",
-      "end": 4406
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann31471964599693",
-      "start": 8037,
-      "description": "",
-      "end": 8789
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann41471964599726",
-      "start": 16827,
-      "description": "",
-      "end": 19196
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann01471964599806",
-      "start": 0,
-      "description": "",
-      "end": 2666
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595970",
-      "author": "user1471964590140",
-      "name": "ann11471964599828",
-      "start": 2667,
-      "description": "",
-      "end": 3992
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964596245",
-      "author": "user1471964590140",
-      "name": "ann21471964599846",
-      "start": 6660,
-      "description": "",
-      "end": 7511
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595467",
-      "author": "user1471964590140",
-      "name": "ann31471964599864",
-      "start": 14172,
-      "description": "",
-      "end": 16541
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann41471964599883",
-      "start": 30714,
-      "description": "",
-      "end": 31679
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann01471964599968",
-      "start": 0,
-      "description": "",
-      "end": 2666
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595229",
-      "author": "user1471964590140",
-      "name": "ann11471964599987",
-      "start": 2667,
-      "description": "",
-      "end": 3419
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594878",
-      "author": "user1471964590140",
-      "name": "ann21471964600005",
-      "start": 6087,
-      "description": "",
-      "end": 8060
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann31471964600024",
-      "start": 14148,
-      "description": "",
-      "end": 15176
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann41471964600043",
-      "start": 29325,
-      "description": "",
-      "end": 30290
-    },
-    {
-      "isForwardStrand": true,
-      "feature": "fea1471964594977",
-      "author": "user1471964590140",
-      "name": "ann01471964600108",
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann01472767116901",
       "start": 0,
       "description": "",
       "end": 800
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann11471964600126",
+      "feature": "fea1472767116263",
+      "lengthOfAnno": 2235,
+      "author": "user1472767109048",
+      "name": "ann11472767116929",
       "start": 801,
       "description": "",
-      "end": 1646
+      "end": 3035
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964596292",
-      "author": "user1471964590140",
-      "name": "ann21471964600144",
-      "start": 2448,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann21472767116949",
+      "start": 3036,
       "description": "",
-      "end": 2891
+      "end": 4439
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594662",
-      "author": "user1471964590140",
-      "name": "ann31471964600170",
-      "start": 5340,
+      "feature": "fea1472767116499",
+      "lengthOfAnno": 846,
+      "author": "user1472767109048",
+      "name": "ann31472767116967",
+      "start": 4440,
       "description": "",
-      "end": 7265
+      "end": 5285
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann41471964600196",
-      "start": 12606,
+      "feature": "fea1472767116744",
+      "lengthOfAnno": 1656,
+      "author": "user1472767109048",
+      "name": "ann41472767116983",
+      "start": 5286,
       "description": "",
-      "end": 13571
+      "end": 6941
     },
     {
-      "isForwardStrand": true,
-      "feature": "fea1471964596113",
-      "author": "user1471964590140",
-      "name": "ann01471964600251",
+      "isForwardStrand": false,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann01472767117032",
       "start": 0,
       "description": "",
-      "end": 1655
+      "end": 2369
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595036",
-      "author": "user1471964590140",
-      "name": "ann11471964600270",
-      "start": 1656,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann11472767117045",
+      "start": 2370,
       "description": "",
-      "end": 3890
+      "end": 2684
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595867",
-      "author": "user1471964590140",
-      "name": "ann21471964600288",
-      "start": 5547,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann21472767117063",
+      "start": 2685,
       "description": "",
-      "end": 8588
+      "end": 4088
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann31471964600318",
-      "start": 14136,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann31472767117087",
+      "start": 4089,
       "description": "",
-      "end": 14981
+      "end": 6458
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595150",
-      "author": "user1471964590140",
-      "name": "ann41471964600341",
-      "start": 29118,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann41472767117101",
+      "start": 6459,
       "description": "",
-      "end": 31784
+      "end": 7235
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann01471964600404",
+      "feature": "fea1472767116499",
+      "lengthOfAnno": 846,
+      "author": "user1472767109048",
+      "name": "ann01472767117149",
       "start": 0,
       "description": "",
-      "end": 1028
+      "end": 845
     },
     {
-      "isForwardStrand": true,
-      "feature": "fea1471964595344",
-      "author": "user1471964590140",
-      "name": "ann11471964600435",
-      "start": 1029,
+      "isForwardStrand": false,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann11472767117163",
+      "start": 846,
       "description": "",
-      "end": 2432
+      "end": 1406
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594752",
-      "author": "user1471964590140",
-      "name": "ann21471964600457",
-      "start": 3462,
+      "feature": "fea1472767116586",
+      "lengthOfAnno": 1029,
+      "author": "user1472767109048",
+      "name": "ann21472767117193",
+      "start": 1407,
       "description": "",
-      "end": 5501
+      "end": 2435
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595867",
-      "author": "user1471964590140",
-      "name": "ann31471964600471",
-      "start": 8964,
+      "feature": "fea1472767116162",
+      "lengthOfAnno": 249,
+      "author": "user1472767109048",
+      "name": "ann31472767117205",
+      "start": 2436,
       "description": "",
-      "end": 12005
+      "end": 2684
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594878",
-      "author": "user1471964590140",
-      "name": "ann41471964600493",
-      "start": 20970,
+      "feature": "fea1472767116834",
+      "lengthOfAnno": 852,
+      "author": "user1472767109048",
+      "name": "ann41472767117221",
+      "start": 2685,
       "description": "",
-      "end": 22943
+      "end": 3536
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595090",
-      "author": "user1471964590140",
-      "name": "ann01471964600568",
+      "feature": "fea1472767116263",
+      "lengthOfAnno": 2235,
+      "author": "user1472767109048",
+      "name": "ann01472767117263",
+      "start": 0,
+      "description": "",
+      "end": 2234
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann11472767117278",
+      "start": 2235,
+      "description": "",
+      "end": 2795
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann21472767117295",
+      "start": 2796,
+      "description": "",
+      "end": 5165
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann31472767117318",
+      "start": 5166,
+      "description": "",
+      "end": 5212
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann41472767117333",
+      "start": 5213,
+      "description": "",
+      "end": 5259
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116712",
+      "lengthOfAnno": 4026,
+      "author": "user1472767109048",
+      "name": "ann01472767117388",
+      "start": 0,
+      "description": "",
+      "end": 4025
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116049",
+      "lengthOfAnno": 1926,
+      "author": "user1472767109048",
+      "name": "ann11472767117402",
+      "start": 4026,
+      "description": "",
+      "end": 5951
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann21472767117423",
+      "start": 5952,
+      "description": "",
+      "end": 6917
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann31472767117439",
+      "start": 6918,
+      "description": "",
+      "end": 7547
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann41472767117454",
+      "start": 7548,
+      "description": "",
+      "end": 7594
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116768",
+      "lengthOfAnno": 1074,
+      "author": "user1472767109048",
+      "name": "ann01472767117518",
+      "start": 0,
+      "description": "",
+      "end": 1073
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann11472767117533",
+      "start": 1074,
+      "description": "",
+      "end": 1120
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann21472767117570",
+      "start": 1121,
+      "description": "",
+      "end": 2182
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116118",
+      "lengthOfAnno": 2040,
+      "author": "user1472767109048",
+      "name": "ann31472767117590",
+      "start": 2183,
+      "description": "",
+      "end": 4222
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116768",
+      "lengthOfAnno": 1074,
+      "author": "user1472767109048",
+      "name": "ann41472767117614",
+      "start": 4223,
+      "description": "",
+      "end": 5296
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116302",
+      "lengthOfAnno": 549,
+      "author": "user1472767109048",
+      "name": "ann01472767117687",
       "start": 0,
       "description": "",
       "end": 548
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594722",
-      "author": "user1471964590140",
-      "name": "ann11471964600594",
+      "feature": "fea1472767116184",
+      "lengthOfAnno": 1974,
+      "author": "user1472767109048",
+      "name": "ann11472767117717",
       "start": 549,
       "description": "",
-      "end": 1361
+      "end": 2522
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann21471964600625",
-      "start": 1911,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann21472767117747",
+      "start": 2523,
       "description": "",
-      "end": 2756
+      "end": 3152
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595344",
-      "author": "user1471964590140",
-      "name": "ann31471964600643",
-      "start": 4668,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann31472767117761",
+      "start": 3153,
       "description": "",
-      "end": 6071
+      "end": 3929
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595618",
-      "author": "user1471964590140",
-      "name": "ann41471964600664",
-      "start": 10740,
+      "feature": "fea1472767116184",
+      "lengthOfAnno": 1974,
+      "author": "user1472767109048",
+      "name": "ann41472767117777",
+      "start": 3930,
       "description": "",
-      "end": 11705
+      "end": 5903
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595399",
-      "author": "user1471964590140",
-      "name": "ann01471964600724",
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann01472767117830",
       "start": 0,
       "description": "",
-      "end": 314
+      "end": 800
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594977",
-      "author": "user1471964590140",
-      "name": "ann11471964600742",
-      "start": 315,
+      "feature": "fea1472767116084",
+      "lengthOfAnno": 813,
+      "author": "user1472767109048",
+      "name": "ann11472767117850",
+      "start": 801,
       "description": "",
-      "end": 1115
+      "end": 1613
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964596113",
-      "author": "user1471964590140",
-      "name": "ann21471964600768",
-      "start": 1431,
+      "feature": "fea1472767116302",
+      "lengthOfAnno": 549,
+      "author": "user1472767109048",
+      "name": "ann21472767117868",
+      "start": 1614,
       "description": "",
-      "end": 3086
+      "end": 2162
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595725",
-      "author": "user1471964590140",
-      "name": "ann31471964600787",
-      "start": 4518,
+      "feature": "fea1472767116210",
+      "lengthOfAnno": 186,
+      "author": "user1472767109048",
+      "name": "ann31472767117888",
+      "start": 2163,
       "description": "",
-      "end": 5579
+      "end": 2348
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964596113",
-      "author": "user1471964590140",
-      "name": "ann41471964600812",
-      "start": 10098,
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann41472767117974",
+      "start": 2349,
       "description": "",
-      "end": 11753
+      "end": 3149
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595922",
-      "author": "user1471964590140",
-      "name": "ann01471964600884",
+      "feature": "fea1472767116380",
+      "lengthOfAnno": 1500,
+      "author": "user1472767109048",
+      "name": "ann01472767118023",
+      "start": 0,
+      "description": "",
+      "end": 1499
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116768",
+      "lengthOfAnno": 1074,
+      "author": "user1472767109048",
+      "name": "ann11472767118039",
+      "start": 1500,
+      "description": "",
+      "end": 2573
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116084",
+      "lengthOfAnno": 813,
+      "author": "user1472767109048",
+      "name": "ann21472767118054",
+      "start": 2574,
+      "description": "",
+      "end": 3386
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116162",
+      "lengthOfAnno": 249,
+      "author": "user1472767109048",
+      "name": "ann31472767118068",
+      "start": 3387,
+      "description": "",
+      "end": 3635
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116687",
+      "lengthOfAnno": 1326,
+      "author": "user1472767109048",
+      "name": "ann41472767118091",
+      "start": 3636,
+      "description": "",
+      "end": 4961
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116712",
+      "lengthOfAnno": 4026,
+      "author": "user1472767109048",
+      "name": "ann01472767118139",
+      "start": 0,
+      "description": "",
+      "end": 4025
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116768",
+      "lengthOfAnno": 1074,
+      "author": "user1472767109048",
+      "name": "ann11472767118155",
+      "start": 4026,
+      "description": "",
+      "end": 5099
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116118",
+      "lengthOfAnno": 2040,
+      "author": "user1472767109048",
+      "name": "ann21472767118171",
+      "start": 5100,
+      "description": "",
+      "end": 7139
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116118",
+      "lengthOfAnno": 2040,
+      "author": "user1472767109048",
+      "name": "ann31472767118192",
+      "start": 7140,
+      "description": "",
+      "end": 9179
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116360",
+      "lengthOfAnno": 753,
+      "author": "user1472767109048",
+      "name": "ann41472767118212",
+      "start": 9180,
+      "description": "",
+      "end": 9932
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116330",
+      "lengthOfAnno": 2667,
+      "author": "user1472767109048",
+      "name": "ann01472767118265",
+      "start": 0,
+      "description": "",
+      "end": 2666
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116499",
+      "lengthOfAnno": 846,
+      "author": "user1472767109048",
+      "name": "ann11472767118283",
+      "start": 2667,
+      "description": "",
+      "end": 3512
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116868",
+      "lengthOfAnno": 444,
+      "author": "user1472767109048",
+      "name": "ann21472767118319",
+      "start": 3513,
+      "description": "",
+      "end": 3956
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116263",
+      "lengthOfAnno": 2235,
+      "author": "user1472767109048",
+      "name": "ann31472767118367",
+      "start": 3957,
+      "description": "",
+      "end": 6191
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann41472767118390",
+      "start": 6192,
+      "description": "",
+      "end": 8561
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann01472767118465",
+      "start": 0,
+      "description": "",
+      "end": 560
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann11472767118481",
+      "start": 561,
+      "description": "",
+      "end": 1622
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann21472767118499",
+      "start": 1623,
+      "description": "",
+      "end": 1937
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann31472767118512",
+      "start": 1938,
+      "description": "",
+      "end": 2903
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116687",
+      "lengthOfAnno": 1326,
+      "author": "user1472767109048",
+      "name": "ann41472767118539",
+      "start": 2904,
+      "description": "",
+      "end": 4229
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann01472767118612",
+      "start": 0,
+      "description": "",
+      "end": 2369
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116263",
+      "lengthOfAnno": 2235,
+      "author": "user1472767109048",
+      "name": "ann11472767118644",
+      "start": 2370,
+      "description": "",
+      "end": 4604
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann21472767118666",
+      "start": 4605,
+      "description": "",
+      "end": 5381
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116184",
+      "lengthOfAnno": 1974,
+      "author": "user1472767109048",
+      "name": "ann31472767118682",
+      "start": 5382,
+      "description": "",
+      "end": 7355
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann41472767118695",
+      "start": 7356,
+      "description": "",
+      "end": 7985
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann01472767118758",
       "start": 0,
       "description": "",
       "end": 629
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964596155",
-      "author": "user1471964590140",
-      "name": "ann11471964600905",
+      "feature": "fea1472767116834",
+      "lengthOfAnno": 852,
+      "author": "user1472767109048",
+      "name": "ann11472767118776",
       "start": 630,
       "description": "",
-      "end": 1703
+      "end": 1481
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595683",
-      "author": "user1471964590140",
-      "name": "ann21471964600933",
-      "start": 2334,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann21472767118789",
+      "start": 1482,
       "description": "",
-      "end": 3179
+      "end": 2042
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964594662",
-      "author": "user1471964590140",
-      "name": "ann31471964600951",
-      "start": 5514,
+      "feature": "fea1472767116744",
+      "lengthOfAnno": 1656,
+      "author": "user1472767109048",
+      "name": "ann31472767118803",
+      "start": 2043,
       "description": "",
-      "end": 7439
+      "end": 3698
     },
     {
       "isForwardStrand": true,
-      "feature": "fea1471964595822",
-      "author": "user1471964590140",
-      "name": "ann41471964600970",
-      "start": 12954,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann41472767118821",
+      "start": 3699,
       "description": "",
-      "end": 13982
+      "end": 4013
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116744",
+      "lengthOfAnno": 1656,
+      "author": "user1472767109048",
+      "name": "ann01472767118884",
+      "start": 0,
+      "description": "",
+      "end": 1655
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann11472767118901",
+      "start": 1656,
+      "description": "",
+      "end": 3059
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116360",
+      "lengthOfAnno": 753,
+      "author": "user1472767109048",
+      "name": "ann21472767118918",
+      "start": 3060,
+      "description": "",
+      "end": 3812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann31472767118935",
+      "start": 3813,
+      "description": "",
+      "end": 4589
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann41472767118951",
+      "start": 4590,
+      "description": "",
+      "end": 5555
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116499",
+      "lengthOfAnno": 846,
+      "author": "user1472767109048",
+      "name": "ann01472767119018",
+      "start": 0,
+      "description": "",
+      "end": 845
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116162",
+      "lengthOfAnno": 249,
+      "author": "user1472767109048",
+      "name": "ann11472767119035",
+      "start": 846,
+      "description": "",
+      "end": 1094
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann21472767119059",
+      "start": 1095,
+      "description": "",
+      "end": 2156
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann31472767119074",
+      "start": 2157,
+      "description": "",
+      "end": 2717
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann41472767119100",
+      "start": 2718,
+      "description": "",
+      "end": 3494
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116586",
+      "lengthOfAnno": 1029,
+      "author": "user1472767109048",
+      "name": "ann01472767119153",
+      "start": 0,
+      "description": "",
+      "end": 1028
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116744",
+      "lengthOfAnno": 1656,
+      "author": "user1472767109048",
+      "name": "ann11472767119169",
+      "start": 1029,
+      "description": "",
+      "end": 2684
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann21472767119185",
+      "start": 2685,
+      "description": "",
+      "end": 3650
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann31472767119215",
+      "start": 3651,
+      "description": "",
+      "end": 3697
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116613",
+      "lengthOfAnno": 3042,
+      "author": "user1472767109048",
+      "name": "ann41472767119232",
+      "start": 3698,
+      "description": "",
+      "end": 6739
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116084",
+      "lengthOfAnno": 813,
+      "author": "user1472767109048",
+      "name": "ann01472767119285",
+      "start": 0,
+      "description": "",
+      "end": 812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann11472767119301",
+      "start": 813,
+      "description": "",
+      "end": 1127
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116499",
+      "lengthOfAnno": 846,
+      "author": "user1472767109048",
+      "name": "ann21472767119319",
+      "start": 1128,
+      "description": "",
+      "end": 1973
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116049",
+      "lengthOfAnno": 1926,
+      "author": "user1472767109048",
+      "name": "ann31472767119332",
+      "start": 1974,
+      "description": "",
+      "end": 3899
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann41472767119350",
+      "start": 3900,
+      "description": "",
+      "end": 5303
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116768",
+      "lengthOfAnno": 1074,
+      "author": "user1472767109048",
+      "name": "ann01472767119431",
+      "start": 0,
+      "description": "",
+      "end": 1073
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann11472767119462",
+      "start": 1074,
+      "description": "",
+      "end": 2039
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116330",
+      "lengthOfAnno": 2667,
+      "author": "user1472767109048",
+      "name": "ann21472767119478",
+      "start": 2040,
+      "description": "",
+      "end": 4706
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116184",
+      "lengthOfAnno": 1974,
+      "author": "user1472767109048",
+      "name": "ann31472767119499",
+      "start": 4707,
+      "description": "",
+      "end": 6680
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116712",
+      "lengthOfAnno": 4026,
+      "author": "user1472767109048",
+      "name": "ann41472767119529",
+      "start": 6681,
+      "description": "",
+      "end": 10706
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116302",
+      "lengthOfAnno": 549,
+      "author": "user1472767109048",
+      "name": "ann01472767119601",
+      "start": 0,
+      "description": "",
+      "end": 548
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116868",
+      "lengthOfAnno": 444,
+      "author": "user1472767109048",
+      "name": "ann11472767119629",
+      "start": 549,
+      "description": "",
+      "end": 992
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116360",
+      "lengthOfAnno": 753,
+      "author": "user1472767109048",
+      "name": "ann21472767119649",
+      "start": 993,
+      "description": "",
+      "end": 1745
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116868",
+      "lengthOfAnno": 444,
+      "author": "user1472767109048",
+      "name": "ann31472767119666",
+      "start": 1746,
+      "description": "",
+      "end": 2189
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann41472767119683",
+      "start": 2190,
+      "description": "",
+      "end": 3155
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116380",
+      "lengthOfAnno": 1500,
+      "author": "user1472767109048",
+      "name": "ann01472767119736",
+      "start": 0,
+      "description": "",
+      "end": 1499
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann11472767119759",
+      "start": 1500,
+      "description": "",
+      "end": 2060
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann21472767119778",
+      "start": 2061,
+      "description": "",
+      "end": 3122
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116210",
+      "lengthOfAnno": 186,
+      "author": "user1472767109048",
+      "name": "ann31472767119792",
+      "start": 3123,
+      "description": "",
+      "end": 3308
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116687",
+      "lengthOfAnno": 1326,
+      "author": "user1472767109048",
+      "name": "ann41472767119810",
+      "start": 3309,
+      "description": "",
+      "end": 4634
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116084",
+      "lengthOfAnno": 813,
+      "author": "user1472767109048",
+      "name": "ann01472767119872",
+      "start": 0,
+      "description": "",
+      "end": 812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann11472767119894",
+      "start": 813,
+      "description": "",
+      "end": 1778
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116380",
+      "lengthOfAnno": 1500,
+      "author": "user1472767109048",
+      "name": "ann21472767119915",
+      "start": 1779,
+      "description": "",
+      "end": 3278
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann31472767119942",
+      "start": 3279,
+      "description": "",
+      "end": 4055
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116712",
+      "lengthOfAnno": 4026,
+      "author": "user1472767109048",
+      "name": "ann41472767119970",
+      "start": 4056,
+      "description": "",
+      "end": 8081
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann01472767120071",
+      "start": 0,
+      "description": "",
+      "end": 965
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann11472767120098",
+      "start": 966,
+      "description": "",
+      "end": 2027
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann21472767120116",
+      "start": 2028,
+      "description": "",
+      "end": 2828
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann31472767120138",
+      "start": 2829,
+      "description": "",
+      "end": 3890
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann41472767120159",
+      "start": 3891,
+      "description": "",
+      "end": 6260
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann01472767120241",
+      "start": 0,
+      "description": "",
+      "end": 1061
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann11472767120270",
+      "start": 1062,
+      "description": "",
+      "end": 1862
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116162",
+      "lengthOfAnno": 249,
+      "author": "user1472767109048",
+      "name": "ann21472767120299",
+      "start": 1863,
+      "description": "",
+      "end": 2111
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116360",
+      "lengthOfAnno": 753,
+      "author": "user1472767109048",
+      "name": "ann31472767120321",
+      "start": 2112,
+      "description": "",
+      "end": 2864
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann41472767120344",
+      "start": 2865,
+      "description": "",
+      "end": 3665
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116184",
+      "lengthOfAnno": 1974,
+      "author": "user1472767109048",
+      "name": "ann01472767120409",
+      "start": 0,
+      "description": "",
+      "end": 1973
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116613",
+      "lengthOfAnno": 3042,
+      "author": "user1472767109048",
+      "name": "ann11472767120428",
+      "start": 1974,
+      "description": "",
+      "end": 5015
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann21472767120459",
+      "start": 5016,
+      "description": "",
+      "end": 7385
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116330",
+      "lengthOfAnno": 2667,
+      "author": "user1472767109048",
+      "name": "ann31472767120479",
+      "start": 7386,
+      "description": "",
+      "end": 10052
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann41472767120494",
+      "start": 10053,
+      "description": "",
+      "end": 11114
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116834",
+      "lengthOfAnno": 852,
+      "author": "user1472767109048",
+      "name": "ann01472767120569",
+      "start": 0,
+      "description": "",
+      "end": 851
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann11472767120584",
+      "start": 852,
+      "description": "",
+      "end": 2255
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann21472767120603",
+      "start": 2256,
+      "description": "",
+      "end": 4625
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116330",
+      "lengthOfAnno": 2667,
+      "author": "user1472767109048",
+      "name": "ann31472767120629",
+      "start": 4626,
+      "description": "",
+      "end": 7292
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116084",
+      "lengthOfAnno": 813,
+      "author": "user1472767109048",
+      "name": "ann41472767120651",
+      "start": 7293,
+      "description": "",
+      "end": 8105
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann01472767120719",
+      "start": 0,
+      "description": "",
+      "end": 560
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116586",
+      "lengthOfAnno": 1029,
+      "author": "user1472767109048",
+      "name": "ann11472767120738",
+      "start": 561,
+      "description": "",
+      "end": 1589
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann21472767120758",
+      "start": 1590,
+      "description": "",
+      "end": 2555
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann31472767120787",
+      "start": 2556,
+      "description": "",
+      "end": 3959
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116233",
+      "lengthOfAnno": 801,
+      "author": "user1472767109048",
+      "name": "ann41472767120805",
+      "start": 3960,
+      "description": "",
+      "end": 4760
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116402",
+      "lengthOfAnno": 1404,
+      "author": "user1472767109048",
+      "name": "ann01472767120891",
+      "start": 0,
+      "description": "",
+      "end": 1403
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann11472767120914",
+      "start": 1404,
+      "description": "",
+      "end": 1450
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116137",
+      "lengthOfAnno": 47,
+      "author": "user1472767109048",
+      "name": "ann21472767120937",
+      "start": 1451,
+      "description": "",
+      "end": 1497
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116471",
+      "lengthOfAnno": 966,
+      "author": "user1472767109048",
+      "name": "ann31472767120957",
+      "start": 1498,
+      "description": "",
+      "end": 2463
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann41472767120982",
+      "start": 2464,
+      "description": "",
+      "end": 3093
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116586",
+      "lengthOfAnno": 1029,
+      "author": "user1472767109048",
+      "name": "ann01472767121056",
+      "start": 0,
+      "description": "",
+      "end": 1028
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann11472767121087",
+      "start": 1029,
+      "description": "",
+      "end": 1805
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116868",
+      "lengthOfAnno": 444,
+      "author": "user1472767109048",
+      "name": "ann21472767121111",
+      "start": 1806,
+      "description": "",
+      "end": 2249
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116798",
+      "lengthOfAnno": 777,
+      "author": "user1472767109048",
+      "name": "ann31472767121131",
+      "start": 2250,
+      "description": "",
+      "end": 3026
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann41472767121155",
+      "start": 3027,
+      "description": "",
+      "end": 3341
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116536",
+      "lengthOfAnno": 1062,
+      "author": "user1472767109048",
+      "name": "ann01472767121236",
+      "start": 0,
+      "description": "",
+      "end": 1061
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116652",
+      "lengthOfAnno": 630,
+      "author": "user1472767109048",
+      "name": "ann11472767121259",
+      "start": 1062,
+      "description": "",
+      "end": 1691
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116557",
+      "lengthOfAnno": 561,
+      "author": "user1472767109048",
+      "name": "ann21472767121278",
+      "start": 1692,
+      "description": "",
+      "end": 2252
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116445",
+      "lengthOfAnno": 2370,
+      "author": "user1472767109048",
+      "name": "ann31472767121301",
+      "start": 2253,
+      "description": "",
+      "end": 4622
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1472767116422",
+      "lengthOfAnno": 315,
+      "author": "user1472767109048",
+      "name": "ann41472767121339",
+      "start": 4623,
+      "description": "",
+      "end": 4937
     }
   ],
   "Name": "Annotation"

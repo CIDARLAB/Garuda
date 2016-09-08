@@ -15,6 +15,7 @@ import org.clothoapi.clotho3javaapi.Clotho;
 import org.clothocad.model.Grant;
 import org.clothocad.model.Institution;
 import org.clothocad.model.Person;
+import org.clothocad.model.Project;
 import org.clothocad.model.Publication;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,6 +33,7 @@ public class InitMetadata {
             FileWriter insJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-institution.txt");
             FileWriter graJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-grant.txt");
             FileWriter pubJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-publication.txt");
+            FileWriter proJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-project.txt");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject perJSON = new JSONObject();
@@ -46,8 +48,11 @@ public class InitMetadata {
             JSONObject pubJSON = new JSONObject();
             JSONArray pubArr = new JSONArray();
             
+            JSONObject proJSON = new JSONObject();
+            JSONArray proArr = new JSONArray();
+            
             //counter for clotho
-            int[] clothoCount = new int[4];
+            int[] clothoCount = new int[5];
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 
@@ -79,8 +84,8 @@ public class InitMetadata {
                 insArr.add(insObj);
                 
                 //-----grant----- [col 11]
-                //String ins_id = "ins" + System.currentTimeMillis();
-                Grant newGra = new Grant("", "", row.getCell(11).getStringCellValue(), user);
+                String grant = "gra" + System.currentTimeMillis();
+                Grant newGra = new Grant(grant, "", row.getCell(11).getStringCellValue(), user);
                 
                 JSONObject graObj = newGra.getJSON();
                 Map graMap = newGra.getMap();
@@ -89,6 +94,16 @@ public class InitMetadata {
                     clothoCount[2]++;
                 }
                 graArr.add(graObj);
+                
+                //-----project----- [col 0-8]
+                Project newPro = new Project("pro" + System.currentTimeMillis(), "", user,
+                                    row.getCell(0).getStringCellValue(), row.getCell(1).getStringCellValue(),
+                                    (int) row.getCell(2).getNumericCellValue(), row.getCell(4).getStringCellValue(),
+                                    row.getCell(8).getStringCellValue(), row.getCell(3).getStringCellValue(),
+                                    row.getCell(7).getStringCellValue(), row.getCell(5).getStringCellValue(),
+                                    row.getCell(6).getStringCellValue());
+                newPro.setPI(newPer);
+                newPro.setGrant(newGra);
                 
                 //-----publication----- [col 12-13]
                 String submitted = row.getCell(12).getStringCellValue();
@@ -101,6 +116,7 @@ public class InitMetadata {
                         clothoCount[3]++;
                     }
                     pubArr.add(pubObj);
+                    newPro.addPublication(newPub);
                 }
                 String published = row.getCell(13).getStringCellValue();
                 if(!published.equals(null) && !published.equals("NA")) {
@@ -112,85 +128,24 @@ public class InitMetadata {
                         clothoCount[3]++;
                     }
                     pubArr.add(pubObj);
+                    newPro.addPublication(newPub);
                 }
                 
-                /*Map libMap = new HashMap();
-                Map pubMap = new HashMap();
-                Map tesMap = new HashMap();
-                
-                JSONObject l_obj = new JSONObject();
-                JSONObject p_obj = new JSONObject();
-                JSONObject t_obj = new JSONObject();
-                
-                //extract, add to JSON, add to map
-                //publications
-                
-                int[] pubIdx = {9, 10, 11, 12, 13};
-                String pub_id = "pub" + System.currentTimeMillis();
-                pubMap.put("Publication ID", pub_id);
-                p_obj.put("Publication ID", pub_id);
-                
-                for (int j=0; j<pubIdx.length; j++) {
-                    Cell cell = row.getCell(pubIdx[j]);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String cellstr = cell.getStringCellValue();
-                    pubMap.put(tableHeader.get(pubIdx[j]), cellstr);
-                    p_obj.put(tableHeader.get(pubIdx[j]), cellstr);
+                JSONObject proObj = newPro.getJSON();
+                Map proMap = newPro.getMap();
+                String proClo = (String) clothoObject.create(proMap);
+                if (!proClo.equals(null)) {
+                    clothoCount[4]++;
                 }
-                p_arr.add(p_obj);
+                proArr.add(proObj);
                 
-                //test system
-                
-                int[] tesIdx = {3, 5, 6, 7, 8};
-                String tes_id = "tes" + System.currentTimeMillis();
-                tesMap.put("Test System ID", tes_id);
-                t_obj.put("Test System ID", tes_id);
-                
-                for (int j=0; j<tesIdx.length; j++) {
-                    Cell cell = row.getCell(tesIdx[j]);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String cellstr = cell.getStringCellValue();
-                    tesMap.put(tableHeader.get(tesIdx[j]), cellstr);
-                    t_obj.put(tableHeader.get(tesIdx[j]), cellstr);
-                }
-                t_arr.add(t_obj);
-                
-                //library
-                
-                int[] libIdx = {0, 1, 2, 4, 5};
-                for (int j=0; j<libIdx.length; j++) {
-                    Cell cell = row.getCell(libIdx[j]);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String cellstr = cell.getStringCellValue();
-                    libMap.put(tableHeader.get(libIdx[j]), cellstr);
-                    l_obj.put(tableHeader.get(libIdx[j]), cellstr);
-                }
-                libMap.put ("Publication ID", pub_id);
-                l_obj.put("Publication ID", pub_id);
-                libMap.put ("Test System ID", tes_id);
-                l_obj.put("Test System ID", tes_id);
-                
-                l_arr.add(l_obj);
-                
-                //add to clotho
-                String cloPub = (String) clothoObject.create(pubMap);
-                if (!cloPub.equals(null)) {
-                    clothoCount[0]++;
-                }
-                String cloTes = (String) clothoObject.create(tesMap);
-                if (!cloTes.equals(null)) {
-                    clothoCount[1]++;
-                }
-                String cloLib = (String) (clothoObject.create(libMap));
-                if (!cloLib.equals(null)) {
-                    clothoCount[2]++;
-                }*/
             }
             
             System.out.println("Created " + clothoCount[0] + " Person objects" + "\n" +
                                 "Created " + clothoCount[1] + " Institution objects" + "\n" +
                                 "Created " + clothoCount[2] + " Grant objects" + "\n" +
-                                "Created " + clothoCount[3] + " Publication objects");
+                                "Created " + clothoCount[3] + " Publication objects" + "\n" +
+                                "Created " + clothoCount[4] + " Project objects");
             
             perJSON.put("Name", "Person");
             perJSON.put("Entries", perArr);
@@ -217,12 +172,19 @@ public class InitMetadata {
             prettyJson = gson.toJson(pubJSON);
             pubJSONfile.write (prettyJson);
             
+            proJSON.put("Name", "Project");
+            proJSON.put("Entries", proArr);
+            
+            prettyJson = gson.toJson(proJSON);
+            proJSONfile.write (prettyJson);
+            
             System.out.println("Successfully wrote JSON objects entries from " + sheet.getSheetName () + " sheet.");
 
             perJSONfile.close();
             insJSONfile.close();
             graJSONfile.close();
             pubJSONfile.close();
+            proJSONfile.close();
         }
         
         catch (Exception ex) {

@@ -8,9 +8,6 @@ package org.cidarlab.main.thomoclotho.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -81,8 +78,8 @@ public class InitRNASeq {
                             double read_val = Double.parseDouble(expstr);
                             
                             //---expresion---
-                            String exp_id = "exp" + System.currentTimeMillis();
-                            Expression newExp = new Expression(exp_id, "", read_val, sheet.getRow(0).getCell(j).getStringCellValue(), biod, part, user);
+                            String expname = "exp" + System.currentTimeMillis();
+                            Expression newExp = new Expression(expname, "", read_val, sheet.getRow(0).getCell(j).getStringCellValue(), biod, part, user);
                             
                             JSONObject expObj = newExp.getJSON();
                             Map expMap = newExp.getMap();
@@ -91,88 +88,11 @@ public class InitRNASeq {
                                 clothoCount++;
                             }
                             expArr.add(expObj);
-                
-                            /*
-                            rnaMap.put("Reads", read_val);
-                            r_obj.put("Reads", read_val);
-                            
-                            //software
-                            Row row_soft = sheet.getRow(0);
-                            cell = row_soft.getCell(j);
-                            cell.setCellType(Cell.CELL_TYPE_STRING);
-                            cellstr = cell.getStringCellValue();
-                            rnaMap.put("Software", cellstr);
-                            r_obj.put("Software", cellstr);
-                            
-                            r_arr.add(r_obj);
-                            
-                            String cloRna = (String) clothoObject.create(rnaMap);
-                            if (!cloRna.equals(null)) {
-                                clothoCount++;
-                            }*/
                         }
                         catch (Exception ex) {
                             System.out.println("Error in parsing number in RNASeq...");
                         }
                     }
-                    /*Map rnaMap = new HashMap();
-                    
-                    JSONObject r_obj = new JSONObject();
-                    
-                    
-                    
-                    //generated data ID
-                    rnaMap.put("Generated Data ID", genDataID.get(j-10));
-                    r_obj.put("Generated Data ID", genDataID.get(j-10));
-                    
-                    
-                    
-                        rnaMap.put("Part ID", "None");
-                        r_obj.put("Part ID", "None");
-                    }
-                    else {
-                        try {
-                            int part_id = Integer.parseInt(cellstr);
-                            rnaMap.put("Part ID", partsID.get(part_id-1));
-                            r_obj.put("Part ID", partsID.get(part_id-1));
-                            
-                            //add transcript ID
-                        }
-                        catch (Exception ex) {
-                            System.out.println("Error of parsing part ID in RNASeq...");
-                        }
-                    }
-                    
-                    cell = row.getCell(j);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    cellstr = cell.getStringCellValue();
-                    
-                    if (!cellstr.equals("NA")) {
-                        try {
-                            //reads
-                            int read_val = Integer.parseInt(cellstr);
-                            rnaMap.put("Reads", read_val);
-                            r_obj.put("Reads", read_val);
-                            
-                            //software
-                            Row row_soft = sheet.getRow(0);
-                            cell = row_soft.getCell(j);
-                            cell.setCellType(Cell.CELL_TYPE_STRING);
-                            cellstr = cell.getStringCellValue();
-                            rnaMap.put("Software", cellstr);
-                            r_obj.put("Software", cellstr);
-                            
-                            r_arr.add(r_obj);
-                            
-                            String cloRna = (String) clothoObject.create(rnaMap);
-                            if (!cloRna.equals(null)) {
-                                clothoCount++;
-                            }
-                        }
-                        catch (Exception ex) {
-                            System.out.println("Error in parsing number in RNASeq...");
-                        }
-                    }*/
                 }
             }
             
