@@ -12,13 +12,12 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.genDataID;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.BioDesign;
+import org.cidarlab.main.thomoclotho.model.Expression;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Person;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.BioDesign;
-import org.clothocad.model.Expression;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Person;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -28,7 +27,7 @@ import org.json.simple.JSONObject;
  */
 public class InitRNASeq {
        
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
        
         try {
             FileWriter expJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-expression.txt");
@@ -57,7 +56,7 @@ public class InitRNASeq {
                 if (!cellstr.equals("NA")) {
                     try {
                         par_idx = Integer.parseInt(cellstr);
-                        part = partsID.get(par_idx-1);
+                        part = app.getPartsID().get(par_idx-1);
                     }
                     catch (Exception ex) {
                         System.out.println("Error of parsing part ID in RNASeq...");
@@ -66,7 +65,7 @@ public class InitRNASeq {
                 
                 for (int j=10; j<numOfExp+10; j++) {
                
-                    BioDesign biod = genDataID.get(j-10);
+                    BioDesign biod = app.getGenDataID().get(j-10);
                     
                     Cell exp = row.getCell(j);
                     exp.setCellType(Cell.CELL_TYPE_STRING);

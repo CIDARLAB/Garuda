@@ -11,12 +11,12 @@ import java.io.FileWriter;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.cidarlab.main.thomoclotho.model.Grant;
+import org.cidarlab.main.thomoclotho.model.Institution;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.Project;
+import org.cidarlab.main.thomoclotho.model.Publication;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.Grant;
-import org.clothocad.model.Institution;
-import org.clothocad.model.Person;
-import org.clothocad.model.Project;
-import org.clothocad.model.Publication;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

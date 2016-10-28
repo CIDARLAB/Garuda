@@ -12,13 +12,12 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.constructsID;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.Annotation;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.Sequence;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.Annotation;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Person;
-import org.clothocad.model.Sequence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -28,12 +27,14 @@ import org.json.simple.JSONObject;
  */
 public class InitConstructs {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
         
         try {
             FileWriter annJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-annotation.txt");
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter feaJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-feature.txt");
+            
+            FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_constructsdb.fsa");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject annJSON = new JSONObject();
@@ -72,9 +73,9 @@ public class InitConstructs {
                 //newSeq.setAnnotations(annotations);
                 
                 //alternatively, construct is obtained from combination of its parts
-                String seq_id = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
+                String seqname = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
                 String sequence = "";
-                Sequence newSeq = new Sequence (seq_id, "", user);
+                Sequence newSeq = new Sequence (seqname, "", user);
                 
                 //Set<Annotation> annotations = new HashSet<Annotation>();
                 int mark_begin = 0;
@@ -96,13 +97,11 @@ public class InitConstructs {
                     }
                     else
                         partVal = Integer.parseInt(cellstr);
-                 
-                    //System.out.println(partVal);
                     
                     //set the beginning and the end of the annotation, instantiate and assign the annotation
-                    String seqtemp = partsID.get(partVal-1).getSequence().getSequence();
+                    String seqtemp = app.getPartsID().get(partVal-1).getSequence().getSequence();
                     mark_end = mark_begin + seqtemp.length() - 1;
-                    Annotation anno = new Annotation(anoname, "", mark_begin, mark_end, orientation, partsID.get(partVal-1), user);
+                    Annotation anno = new Annotation(anoname, "", mark_begin, mark_end, orientation, app.getPartsID().get(partVal-1), user);
                     //anno.setFeature();
                     //annotations.add(anno);
                     newSeq.addAnnotation(anno);
@@ -137,6 +136,10 @@ public class InitConstructs {
                 }
                 seqArr.add(seqObj);
                 
+                //write to FASTA file for BLAST local database
+                seqFSAfile.write(">" + seqname + "\n");
+                seqFSAfile.write(sequence + "\n");
+                
                 //feature [role = col 1]
                 String feaname = "fea" + System.currentTimeMillis(); //sequence id is generated
                 Feature.FeatureRole role = Feature.FeatureRole.TOXICITY_TEST; //default feature role
@@ -144,7 +147,7 @@ public class InitConstructs {
                     role = Feature.FeatureRole.TOXICITY_TEST; //check for other types of role
                 }
                 Feature newFeature = new Feature (feaname, "", newSeq, role, user);
-                constructsID.add(newFeature);
+                app.getConstructsID().add(newFeature);
                 
                 JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();
@@ -184,6 +187,8 @@ public class InitConstructs {
             annJSONfile.close();
             seqJSONfile.close();
             feaJSONfile.close();
+            
+            seqFSAfile.close();
         }
         
         catch (Exception ex) {

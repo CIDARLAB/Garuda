@@ -1,12 +1,12 @@
 {
   "Entries": [
     {
-      "author": "user1472767109048",
+      "author": "user123",
       "name": "Science",
       "description": ""
     },
     {
-      "author": "user1472767109048",
+      "author": "user123",
       "name": "Nature",
       "description": ""
     }
