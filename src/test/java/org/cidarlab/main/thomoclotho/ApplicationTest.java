@@ -56,7 +56,11 @@ public class ApplicationTest {
         String inputFile = "resources/" + input + ".xlsx";
         String outputFile = "resources/" + output + "-";
         
-        Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
+        //Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
+        
+        //BLAST search
+        String blastpath = "/Users/mardian/Documents/CIDAR/Garuda/Master/Garuda";
+        System.out.println (new RunBlast (false, RunBlast.Filters.SUBSEQ_ID, blastpath).init());
         
         
         //assertEquals(expResult, result);

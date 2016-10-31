@@ -8,9 +8,6 @@ package org.cidarlab.main.thomoclotho.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -18,6 +15,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import static org.cidarlab.main.thomoclotho.Application.genDataID;
 import static org.cidarlab.main.thomoclotho.Application.partsID;
 import org.clothoapi.clotho3javaapi.Clotho;
+import org.clothocad.model.BioDesign;
+import org.clothocad.model.Feature;
+import org.clothocad.model.Person;
+import org.clothocad.model.QC;
+import org.clothocad.model.Sequence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,88 +29,93 @@ import org.json.simple.JSONObject;
  */
 public class InitQC {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
         
         try {
-            FileWriter qcJSON = new FileWriter(outputFileUrl + sheet.getSheetName () + "-qc.txt");
-            
-            List<String> tableHeader = new ArrayList<String>();
-
-            //read table header
-            Row firstRow = sheet.getRow(0);
-            for (int i=0; i<firstRow.getLastCellNum(); i++) {
-                Cell cell = firstRow.getCell(i);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                tableHeader.add(cell.getStringCellValue());
-            }
+            FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
+            FileWriter qcJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-qc.txt");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
-            JSONObject q_json = new JSONObject();
-            JSONArray q_arr = new JSONArray();
+            JSONObject seqJSON = new JSONObject();
+            JSONArray seqArr = new JSONArray();
+            
+            JSONObject qcJSON = new JSONObject();
+            JSONArray qcArr = new JSONArray();
             
             //counter for clotho
-            int clothoCount = 0;
+            int[] clothoCount = new int[2];
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
+                
                 Row row = sheet.getRow(i);
                 
-                Map qcMap = new HashMap();
+                //-----sequence----- [col 2]
+                String seqname = "seq" + System.currentTimeMillis(); //sequence id is generated
+                String sequence = row.getCell(2).getStringCellValue();
+                Sequence newSeq = new Sequence (seqname, "", sequence, user);
                 
-                JSONObject q_obj = new JSONObject();
+                JSONObject seqObj = newSeq.getJSON();
+                Map seqMap = newSeq.getMap();
+                String seqClo = (String) clothoObject.create(seqMap);
+                if (!seqClo.equals(null)) {
+                    clothoCount[0]++;
+                }
+                seqArr.add(seqObj);
+                
+                //-----genData and part ID----- [col 0 & 1]
+                BioDesign biod = null;
+                Feature feature = null;
                 
                 Cell cell = row.getCell(0);
                 if (cell.getCellType()==Cell.CELL_TYPE_NUMERIC) {
-                    qcMap.put("Generated ID", genDataID.get((int)cell.getNumericCellValue()-1));
-                    q_obj.put("Generated ID", genDataID.get((int)cell.getNumericCellValue()-1));
+                    int bioDesignIdx = (int) cell.getNumericCellValue();
+                    biod = genDataID.get(bioDesignIdx-1);
                 }
-                else if ((cell.getCellType()==Cell.CELL_TYPE_STRING) && cell.getStringCellValue().equals("NA")) {
-                    qcMap.put("Generated ID", "None");
-                    q_obj.put("Generated ID", "None");
-                }
-                
                 cell = row.getCell(1);
                 //somehow the cell data type is not numeric
                 cell.setCellType(Cell.CELL_TYPE_STRING);
-                if (cell.getStringCellValue().equals("NA")) {
-                    qcMap.put("Part ID", "None");
-                    q_obj.put("Part ID", "None");
-                }
-                else {
+                if (!cell.getStringCellValue().equals("NA")) {
                     try {
-                        int part_id = Integer.parseInt(cell.getStringCellValue());
-                        qcMap.put("Part ID", partsID.get(part_id-1));
-                        q_obj.put("Part ID", partsID.get(part_id-1));
+                        int partIdx = Integer.parseInt(cell.getStringCellValue());
+                        feature = partsID.get(partIdx-1);
                     }
                     catch (Exception ex) {
                         System.out.println("Error in parsing number for Part ID...");
                     }
                 }
                 
-                cell = row.getCell(2);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                qcMap.put("Sequence", cell.getStringCellValue());
-                q_obj.put("Sequence", cell.getStringCellValue());
+                String qcname = "qc" + System.currentTimeMillis();
+                QC newQC = new QC (qcname, "", newSeq, biod, feature, user);
                 
-                q_arr.add(q_obj);
-                
-                String cloQc = (String) clothoObject.create(qcMap);
-                if (!cloQc.equals(null)) {
-                    clothoCount++;
+                JSONObject qcObj = newQC.getJSON();
+                Map qcMap = newQC.getMap();
+                String qcClo = (String) clothoObject.create(qcMap);
+                if (!qcClo.equals(null)) {
+                    clothoCount[1]++;
                 }
+                qcArr.add(qcObj);
+                
             }
             
-            System.out.println("Created " + clothoCount + " objects at table QC");
+            System.out.println("Created " + clothoCount[0] + " Sequence objects" + "\n" +
+                                "Created " + clothoCount[1] + " QC objects");
             
-            q_json.put("Name", "qc");
-            q_json.put("Entries", q_arr);
-
+            seqJSON.put("Name", "Sequence");
+            seqJSON.put("Entries", seqArr);
+            
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String prettyJson = gson.toJson(q_json);
-            qcJSON.write (prettyJson);
+            String prettyJson = gson.toJson(seqJSON);
+            seqJSONfile.write (prettyJson);
+            
+            qcJSON.put("Name", "QC");
+            qcJSON.put("Entries", qcArr);
+            
+            prettyJson = gson.toJson(qcJSON);
+            qcJSONfile.write (prettyJson);
             
             System.out.println("Successfully wrote JSON objects entries from " + sheet.getSheetName () + " sheet.");
 
-            qcJSON.close();
+            qcJSONfile.close();
         }
         
         catch (Exception ex) {

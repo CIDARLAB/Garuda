@@ -13,7 +13,7 @@ public class ApplicationStarter {
     
     public static void main(String[] args) {
         
-        String input = "input-full";
+        String input = "input";
         String output = "output";
         
         String inputFile = "resources/" + input + ".xlsx";

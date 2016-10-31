@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -30,12 +31,14 @@ import org.json.simple.JSONObject;
  */
 public class InitConstructs {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
-        
+        public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
+      
         try {
             FileWriter annJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-annotation.txt");
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter feaJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-feature.txt");
+            
+            FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_constructsdb.fsa");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject annJSON = new JSONObject();
@@ -48,30 +51,45 @@ public class InitConstructs {
             JSONArray feaArr = new JSONArray();
             
             //counter for clotho
-            int[] clothoCount = {0, 0, 0};
+            int[] clothoCount = new int[3];
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 
                 Row row = sheet.getRow(i);
                 
-                //Map conMap = new HashMap();
-                //JSONObject c_obj = new JSONObject();
-                
                 //constructs
                 
                 //number of parts [col 5] and construct length [col 4]
                 int numOfParts = (int) row.getCell(5).getNumericCellValue();
-                int conLength = (int) row.getCell(4).getNumericCellValue();
+                //int conLength = (int) row.getCell(4).getNumericCellValue();
                 
-                Set<Annotation> annotations = new HashSet<Annotation>();
+                //additional check if the sequence starts with the barcode sequence [col 2]
+                if (!row.getCell(3).getStringCellValue().startsWith(row.getCell(2).getStringCellValue()))
+                    System.out.println("There is a barcode error in line " + i);
+                
+                //-----sequence [col 3]-----
+                /*String seq_id = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
+                String sequence = row.getCell(3).getStringCellValue(); //construct sequence is obtained directly from spreadsheet
+                if (sequence.length()!= conLength) { //additional checking if the construct length is not equal to the provided column
+                    System.out.println("Error of construct length at row " + i + "...");
+                }
+                Sequence newSeq = new Sequence (seq_id, "", sequence, user);*/
+                //newSeq.setAnnotations(annotations);
+                
+                //alternatively, construct is obtained from combination of its parts
+                String seqname = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
+                String sequence = "";
+                Sequence newSeq = new Sequence (seqname, "", user);
+                
+                //Set<Annotation> annotations = new HashSet<Annotation>();
                 int mark_begin = 0;
                 int mark_end = 0;
                 
                 for (int j=0; j<numOfParts; j++) {
                 
-                    String ano_id = "ann" + j + "" + System.currentTimeMillis(); //annotation id is automatically generated, somehow two annotations can be produced at the same time millis
+                    String anoname = "ann" + j + "" + System.currentTimeMillis(); //annotation id is automatically generated, somehow two annotations can be produced at the same time millis
                     
-                    //check whether the part is a forward or reverse strand
+                    //check whether the part is a forward (true) or reverse strand (false)
                     boolean orientation = true;
                     Cell cell = row.getCell(6+j); 
                     cell.setCellType(Cell.CELL_TYPE_STRING);
@@ -83,18 +101,22 @@ public class InitConstructs {
                     }
                     else
                         partVal = Integer.parseInt(cellstr);
-                 
-                    //set the beginning and the end of the annotation, instantiate and assign the annotation 
-                    //int len = partsID.get(partVal-1).getSequence().getSequence().length();
-                    mark_end = mark_begin + partsID.get(partVal-1).getSequence().getSequence().length();
-                    Annotation anno = new Annotation(ano_id, "", mark_begin, mark_end-1, orientation, user);
-                    anno.setFeature(partsID.get(partVal-1));
-                    annotations.add(anno);
-                    //System.out.println(ano_id +  "     " + value + "     " + len + "     " + partVal + "     " + mark_begin + "     " + mark_end);
-                    mark_begin += mark_end;
+                    
+                    //set the beginning and the end of the annotation, instantiate and assign the annotation
+                    String seqtemp = partsID.get(partVal-1).getSequence().getSequence();
+                    mark_end = mark_begin + seqtemp.length() - 1;
+                    Annotation anno = new Annotation(anoname, "", mark_begin, mark_end, orientation, partsID.get(partVal-1), user);
+                    //anno.setFeature();
+                    //annotations.add(anno);
+                    newSeq.addAnnotation(anno);
+                    
+                    //alternative way to obtain construct sequence
+                    sequence += seqtemp;
+                    mark_begin = mark_end + 1;
                     
                     JSONObject annObj = anno.getJSON();
                     Map annMap = anno.getMap();
+                    annObj.put("lengthOfAnno", seqtemp.length());
                     String annClo = (String) clothoObject.create(annMap);
                     if (!annClo.equals(null)) {
                         clothoCount[0]++;
@@ -102,38 +124,35 @@ public class InitConstructs {
                     annArr.add(annObj);
                 }
                 
-                //additional check if the sequence starts with the barcode sequence [col 2]
-                if (!row.getCell(3).getStringCellValue().startsWith(row.getCell(2).getStringCellValue()))
-                    System.out.println("There is a barcode error in line " + i);
-                
-                //sequence [col 3]
-                String seq_id = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
-                String sequence = row.getCell(3).getStringCellValue();
-                if (sequence.length()!= conLength) { //additional checking if the construct length is not equal to the provided column
+                //alternative way
+                /*if (sequence.length()!= conLength) { //additional checking if the construct length is not equal to the provided column
                     System.out.println("Error of construct length at row " + i + "...");
-                }
-                Sequence newSeq = new Sequence (seq_id, "", sequence, user);
-                newSeq.setAnnotations(annotations);
+                }*/
+                //System.out.println(sequence.length());
+                newSeq.setSequence(sequence);
                 
                 JSONObject seqObj = newSeq.getJSON();
                 Map seqMap = newSeq.getMap();
+                seqObj.put("counter", i);
                 String seqClo = (String) clothoObject.create(seqMap);
                 if (!seqClo.equals(null)) {
                     clothoCount[1]++;
                 }
                 seqArr.add(seqObj);
                 
+                //write to FASTA file for BLAST local database
+                seqFSAfile.write(">" + seqname + "\n");
+                seqFSAfile.write(sequence + "\n");
+                
                 //feature [role = col 1]
-                String fea_id = "fea" + System.currentTimeMillis(); //sequence id is generated
+                String feaname = "fea" + System.currentTimeMillis(); //sequence id is generated
                 Feature.FeatureRole role = Feature.FeatureRole.TOXICITY_TEST; //default feature role
                 if (row.getCell(1).getStringCellValue().equals("Toxicity Test")) {
                     role = Feature.FeatureRole.TOXICITY_TEST; //check for other types of role
                 }
-                //FeatureRole role = new String(row.getCell(3).getStringCellValue()).toUppercase().valueOf
-                Feature newFeature = new Feature (fea_id, "", newSeq, role, user);
+                Feature newFeature = new Feature (feaname, "", newSeq, role, user);
                 constructsID.add(newFeature);
                 
-                //Map conMap = newFeature.getMap();
                 JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();
                 String feaClo = (String) clothoObject.create(feaMap);
@@ -142,65 +161,6 @@ public class InitConstructs {
                 }
                 feaArr.add(feaObj);
                 
-                //System.out.println(feaObj);
-                
-                /*String con_id = "con" + System.currentTimeMillis();
-                
-                int[] conIdx = {0, 1, 2, 3};
-                for (int j=0; j<conIdx.length; j++) {
-                    Cell cell = row.getCell(conIdx[j]);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String cellstr = cell.getStringCellValue();
-                    conMap.put(tableHeader.get(conIdx[j]), cellstr);
-                    c_obj.put(tableHeader.get(conIdx[j]), cellstr);
-                }*/
-                
-                //add to clotho
-                /*String cloCon = (String) clothoObject.create(conMap);
-                if (!cloCon.equals(null)) {
-                    clothoCount[0]++;
-                }*/
-                
-                //constructs part
-                
-                //int partNum = 0;
-                //if (row.getCell(5).getCellType()==Cell.CELL_TYPE_NUMERIC) {
-                //   partNum = (int) row.getCell(5).getNumericCellValue();
-                //}
-                /*for (int j=0; j<numOfParts; j++) {
-                    
-                    JSONObject cp_obj = new JSONObject();
-                    
-                    Map cpaMap = new HashMap();
-                    
-                    char orientation = 'f';
-                    Cell cell = row.getCell(6+j); 
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String cellstr = cell.getStringCellValue();
-                    int partVal = -1;
-                    if (cellstr.indexOf('c')!=-1) {
-                        orientation = 'c';
-                        partVal = Integer.parseInt(cellstr.replaceAll("c", ""));
-                    }
-                    else
-                        partVal = Integer.parseInt(cellstr);
-                    
-                    cpaMap.put ("Construct ID", conMap.get(con_id));
-                    cpaMap.put ("Part ID", partsID.get(partVal-1));
-                    cpaMap.put ("Part Location", String.valueOf(j+1));
-                    cpaMap.put ("Part Orientation", String.valueOf(orientation));
-                    cp_obj.put("Construct ID", conMap.get(con_id));
-                    cp_obj.put("Part ID", partsID.get(partVal-1));
-                    cp_obj.put("Part Location", String.valueOf(j+1));
-                    cp_obj.put("Part Orientation", String.valueOf(orientation));
-                    
-                    cp_arr.add(cp_obj);
-                    
-                    //String cloCpa = (String) clothoObject.create(cpaMap);
-                    //if (!cloCpa.equals(null)) {
-                    //    clothoCount[1]++;
-                    // }
-                }*/
             }
             
             System.out.println("Created " + clothoCount[0] + " Annotation objects" + "\n" +
@@ -231,6 +191,8 @@ public class InitConstructs {
             annJSONfile.close();
             seqJSONfile.close();
             feaJSONfile.close();
+            
+            seqFSAfile.close();
         }
         
         catch (Exception ex) {
