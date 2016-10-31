@@ -17,7 +17,6 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.main.thomoclotho.RunBlast.Filters;
 import org.cidarlab.main.thomoclotho.util.InitConstructs;
 import org.cidarlab.main.thomoclotho.util.InitGeneratedData;
 import org.cidarlab.main.thomoclotho.util.InitMetadata;
@@ -99,7 +98,7 @@ public class Application {
             constructsID = new ArrayList<Feature> ();
             transcriptID = new ArrayList<String> ();
             genDataID = new ArrayList<BioDesign> ();
-                
+            
             for (int i=0; i<workbook.getNumberOfSheets(); i++) {
             //for (int i=0; i<4; i++) {
                 System.out.println("------" + i + "-----");
