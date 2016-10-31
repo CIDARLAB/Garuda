@@ -48,10 +48,4 @@ public class RESTController {
         return app.init(user, pass, inputFile, outputFile);
     }
     
-    
-    
-    /*@RequestMapping("/runblast")
-    public String greeting(@RequestParam(value="runblast", defaultValue="seq1") String runblast) {
-        return "runblast";
-    }*/
 }

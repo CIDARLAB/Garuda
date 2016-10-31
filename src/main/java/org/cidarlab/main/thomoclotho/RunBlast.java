@@ -28,6 +28,7 @@ public class RunBlast {
     
     private boolean initdb;
     private Filters outputformat;
+    
     private String path;
     
     public RunBlast(boolean initdb, Filters outputformat, String path) {
