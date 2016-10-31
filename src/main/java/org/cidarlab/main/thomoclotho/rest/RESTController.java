@@ -24,7 +24,8 @@ public class RESTController {
         
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index (Model model) {
-        RunBlast runblast = new RunBlast (false, RunBlast.Filters.SUBSEQ_ID);
+        String blastpath = "/Users/mardian/Documents/CIDAR/Garuda/Spring/Garuda";
+        RunBlast runblast = new RunBlast (false, RunBlast.Filters.SUBSEQ_ID, blastpath);
         model.addAttribute("runblast", runblast);
         return runblast.init();
     }
