@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.main.thomoclotho;
+package org.cidarlab.main.ml;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

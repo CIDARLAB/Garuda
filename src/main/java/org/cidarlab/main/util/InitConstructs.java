@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.main.thomoclotho.util;
+package org.cidarlab.main.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,8 +15,8 @@ import java.util.Set;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.constructsID;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import static org.cidarlab.main.garuda.Application.constructsID;
+import static org.cidarlab.main.garuda.Application.partsID;
 import org.clothoapi.clotho3javaapi.Clotho;
 import org.clothocad.model.Annotation;
 import org.clothocad.model.Feature;

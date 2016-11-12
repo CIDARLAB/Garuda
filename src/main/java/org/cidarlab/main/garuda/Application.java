@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.main.thomoclotho;
+package org.cidarlab.main.garuda;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,12 +17,12 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.main.thomoclotho.util.InitConstructs;
-import org.cidarlab.main.thomoclotho.util.InitGeneratedData;
-import org.cidarlab.main.thomoclotho.util.InitMetadata;
-import org.cidarlab.main.thomoclotho.util.InitParts;
-import org.cidarlab.main.thomoclotho.util.InitQC;
-import org.cidarlab.main.thomoclotho.util.InitRNASeq;
+import org.cidarlab.main.util.InitConstructs;
+import org.cidarlab.main.util.InitGeneratedData;
+import org.cidarlab.main.util.InitMetadata;
+import org.cidarlab.main.util.InitParts;
+import org.cidarlab.main.util.InitQC;
+import org.cidarlab.main.util.InitRNASeq;
 import org.clothoapi.clotho3javaapi.Clotho;
 import org.clothoapi.clotho3javaapi.ClothoConnection;
 import org.clothocad.model.BioDesign;

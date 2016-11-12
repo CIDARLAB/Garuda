@@ -5,6 +5,7 @@
  */
 package org.cidarlab.main.thomoclotho;
 
+import org.cidarlab.main.garuda.RecommendationEngine;
 import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -50,14 +51,17 @@ public class ApplicationTest {
         //boolean expResult = false;
         //boolean result = Application.initiate(username, password, fileurl);
         
-        String input = "input";
+    /*    String input = "input";
         String output = "output";
         
         String inputFile = "resources/" + input + ".xlsx";
         String outputFile = "resources/" + output + "-";
+        */
         
-        SpreadsheetParser.initiate(inputFile);
-        CollaborativeFake.init();
+    //    SpreadsheetParser.initiate(inputFile);
+    //    CollaborativeFake.init();
+        
+        RecommendationEngine recEngine = new RecommendationEngine();
         
         //Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
         

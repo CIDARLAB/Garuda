@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.main.thomoclotho.util;
+package org.cidarlab.main.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.util.Map;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import static org.cidarlab.main.garuda.Application.genDataID;
+import static org.cidarlab.main.garuda.Application.partsID;
 import org.clothoapi.clotho3javaapi.Clotho;
+import org.clothocad.model.BioDesign;
 import org.clothocad.model.Feature;
-import org.clothocad.model.Feature.FeatureRole;
 import org.clothocad.model.Person;
+import org.clothocad.model.QC;
 import org.clothocad.model.Sequence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -24,22 +27,20 @@ import org.json.simple.JSONObject;
  *
  * @author mardian
  */
-public class InitParts {
+public class InitQC {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
-    
+        
         try {
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
-            FileWriter feaJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-feature.txt");
-            
-            FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
+            FileWriter qcJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-qc.txt");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject seqJSON = new JSONObject();
             JSONArray seqArr = new JSONArray();
             
-            JSONObject feaJSON = new JSONObject();
-            JSONArray feaArr = new JSONArray();
+            JSONObject qcJSON = new JSONObject();
+            JSONArray qcArr = new JSONArray();
             
             //counter for clotho
             int[] clothoCount = new int[2];
@@ -48,17 +49,9 @@ public class InitParts {
                 
                 Row row = sheet.getRow(i);
                 
-                //parts
-                
-                //parts length [col 1]
-                int parLength = (int) row.getCell(1).getNumericCellValue();
-                
-                //sequence [col 2]
+                //-----sequence----- [col 2]
                 String seqname = "seq" + System.currentTimeMillis(); //sequence id is generated
                 String sequence = row.getCell(2).getStringCellValue();
-                if (sequence.length()!= parLength) { //additional checking if the part length is not equal to the provided column
-                    System.out.println("Error of part length at row " + i + "...");
-                }
                 Sequence newSeq = new Sequence (seqname, "", sequence, user);
                 
                 JSONObject seqObj = newSeq.getJSON();
@@ -69,52 +62,60 @@ public class InitParts {
                 }
                 seqArr.add(seqObj);
                 
-                //write to FASTA file for BLAST local database
-                seqFSAfile.write(">" + seqname + "\n");
-                seqFSAfile.write(sequence + "\n");
+                //-----genData and part ID----- [col 0 & 1]
+                BioDesign biod = null;
+                Feature feature = null;
                 
-                //feature [role = col 3]
-                String feaname = "fea" + System.currentTimeMillis(); //sequence id is generated
-                FeatureRole role = FeatureRole.CDS; //default feature role
-                if (row.getCell(3).getStringCellValue().equals("protein_coding")) {
-                    role = FeatureRole.CDS; //check for other types of role
+                Cell cell = row.getCell(0);
+                if (cell.getCellType()==Cell.CELL_TYPE_NUMERIC) {
+                    int bioDesignIdx = (int) cell.getNumericCellValue();
+                    biod = genDataID.get(bioDesignIdx-1);
                 }
-                Feature newFeature = new Feature (feaname, "", newSeq, role, user);
-                //add IDs to the static list, because they will be used in different methods
-                partsID.add(newFeature);
+                cell = row.getCell(1);
+                //somehow the cell data type is not numeric
+                cell.setCellType(Cell.CELL_TYPE_STRING);
+                if (!cell.getStringCellValue().equals("NA")) {
+                    try {
+                        int partIdx = Integer.parseInt(cell.getStringCellValue());
+                        feature = partsID.get(partIdx-1);
+                    }
+                    catch (Exception ex) {
+                        System.out.println("Error in parsing number for Part ID...");
+                    }
+                }
                 
-                JSONObject feaObj = newFeature.getJSON();
-                Map feaMap = newFeature.getMap();
-                String feaClo = (String) clothoObject.create(feaMap);
-                if (!feaClo.equals(null)) {
+                String qcname = "qc" + System.currentTimeMillis();
+                QC newQC = new QC (qcname, "", newSeq, biod, feature, user);
+                
+                JSONObject qcObj = newQC.getJSON();
+                Map qcMap = newQC.getMap();
+                String qcClo = (String) clothoObject.create(qcMap);
+                if (!qcClo.equals(null)) {
                     clothoCount[1]++;
                 }
-                feaArr.add(feaObj);
+                qcArr.add(qcObj);
                 
             }
             
             System.out.println("Created " + clothoCount[0] + " Sequence objects" + "\n" +
-                                "Created " + clothoCount[1] + " Feature objects");
+                                "Created " + clothoCount[1] + " QC objects");
             
             seqJSON.put("Name", "Sequence");
             seqJSON.put("Entries", seqArr);
-
+            
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String prettyJson = gson.toJson(seqJSON);
             seqJSONfile.write (prettyJson);
             
-            feaJSON.put("Name", "Feature");
-            feaJSON.put("Entries", feaArr);
-
-            prettyJson = gson.toJson(feaJSON);
-            feaJSONfile.write (prettyJson);
+            qcJSON.put("Name", "QC");
+            qcJSON.put("Entries", qcArr);
+            
+            prettyJson = gson.toJson(qcJSON);
+            qcJSONfile.write (prettyJson);
             
             System.out.println("Successfully wrote JSON objects entries from " + sheet.getSheetName () + " sheet.");
 
-            seqJSONfile.close();
-            feaJSONfile.close();
-            
-            seqFSAfile.close();
+            qcJSONfile.close();
         }
         
         catch (Exception ex) {

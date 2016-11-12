@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.main.thomoclotho;
+package org.cidarlab.main.ml;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.cidarlab.main.thomoclotho.SpreadsheetParser.perfgroData;
 
 /**
  *
@@ -15,7 +14,7 @@ import static org.cidarlab.main.thomoclotho.SpreadsheetParser.perfgroData;
  */
 public class CollaborativeFake {
     
-    public static void init() {
+    public static void init(double[][] perfgroData) {
         
         int toxic = 0;
         int small = 0;
