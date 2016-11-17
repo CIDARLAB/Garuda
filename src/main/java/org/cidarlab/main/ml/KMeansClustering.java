@@ -5,7 +5,7 @@
  */
 package org.cidarlab.main.ml;
 
-import org.cidarlab.main.dom.Point;
+import org.cidarlab.main.dom.Vector;
 import org.cidarlab.main.dom.Data;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +26,9 @@ public class KMeansClustering {
     private boolean zeroIsToxic;
             
     private List<Data> dataSet;
-    private List<Point> centroids;
+    private List<Vector> centroids;
     
-    public KMeansClustering (int cluster, double[][] inputData) {
+    public KMeansClustering (double[][] inputData, int cluster) {
         
         NUM_CLUSTERS = cluster;
         TOTAL_DATA = inputData.length;
@@ -38,7 +38,7 @@ public class KMeansClustering {
         zeroIsToxic = false;
         
         dataSet = new ArrayList<Data>();
-        centroids = new ArrayList<Point>();
+        centroids = new ArrayList<Vector>();
         
         start();
     }
@@ -61,31 +61,33 @@ public class KMeansClustering {
             for (int j=0; j<parameters.length; j++) {
                 parameters[j] = SAMPLES[rand[i]][j];
             }
-            centroids.add (new Point (parameters));
+            centroids.add (new Vector (parameters));
         }
         //System.out.println();
         
         kMeanCluster();
         
-        ////for 2 cluster only////
-        if (centroids.get(0).getPoint(0)<centroids.get(1).getPoint(0)) {
+        ////for 2 setCluster only////
+        if (centroids.get(0).getDimension(0)<centroids.get(1).getDimension(0)) {
             this.zeroIsToxic = true;
         }
         ////
         
         // Print out clustering results.
-    /*    for (int i=0; i<NUM_CLUSTERS; i++) {
+        for (int i=0; i<NUM_CLUSTERS; i++) {
             
             System.out.println("Cluster " + i + " includes:");
             for(int j=0; j<TOTAL_DATA; j++) {
                 
-                if (dataSet.get(j).cluster()==i) {
+                if (dataSet.get(j).getCluster()==i) {
                     
-                    System.out.println((dataSet.get(j).getId()+1));
+                    //System.out.println((dataSet.get(j).getId()+1));
+                    System.out.println((dataSet.get(j).getVector().getDimension(0) +
+                            "\t" + dataSet.get(j).getVector().getDimension(1)));
                 }
             } // j
             System.out.println();
-        } // i */
+        } // i /**/
         
     }
     
@@ -116,7 +118,7 @@ public class KMeansClustering {
                     cluster = i;
                 }
             }
-            newData.cluster(cluster);
+            newData.setCluster(cluster);
             
             // calculate new centroids.
             for (int i=0; i<NUM_CLUSTERS; i++) {
@@ -126,10 +128,10 @@ public class KMeansClustering {
                 
                 for (int j=0; j<dataSet.size(); j++) {
                     
-                    if (dataSet.get(j).cluster()==i) {
+                    if (dataSet.get(j).getCluster()==i) {
                         
                         for (int k=0; k<DIMENSION; k++) {
-                            total[k] += dataSet.get(j).getPoint().getPoint(k);
+                            total[k] += dataSet.get(j).getVector().getDimension(k);
                         }
                         totalInCluster++;
                     }
@@ -139,7 +141,7 @@ public class KMeansClustering {
                     
                     for (int k=0; k<DIMENSION; k++) {
                         
-                        centroids.get(i).setPoint((total[k]/totalInCluster), k);
+                        centroids.get(i).setDimension((total[k]/totalInCluster), k);
                     }
                 }
             }
@@ -156,10 +158,10 @@ public class KMeansClustering {
                 
                 for (int j=0; j<dataSet.size(); j++) {
                     
-                    if(dataSet.get(j).cluster()==i) {
+                    if(dataSet.get(j).getCluster()==i) {
                         
                         for (int k=0; k<DIMENSION; k++) {
-                            total[k] += dataSet.get(j).getPoint().getPoint(k);
+                            total[k] += dataSet.get(j).getVector().getDimension(k);
                         }
                         totalInCluster++;
                     }
@@ -167,7 +169,7 @@ public class KMeansClustering {
                 if (totalInCluster > 0) {
                     
                     for (int k=0; k<DIMENSION; k++) {
-                        centroids.get(i).setPoint((total[k]/totalInCluster), k);
+                        centroids.get(i).setDimension((total[k]/totalInCluster), k);
                     }
                 }
             }
@@ -189,11 +191,11 @@ public class KMeansClustering {
                         cluster = j;
                     }
                 }
-                tempData.cluster(cluster);
+                tempData.setCluster(cluster);
                 
-                if (tempData.cluster()!=cluster){
+                if (tempData.getCluster()!=cluster){
                     
-                    tempData.cluster(cluster);
+                    tempData.setCluster(cluster);
                     isStillMoving = true;
                 }
             }
@@ -206,16 +208,16 @@ public class KMeansClustering {
      * @param c - Centroid object.
      * @return - double value.
      */
-    private static double dist (Data d, Point c) {
+    private static double dist (Data d, Vector c) {
         
         double total = 0.0;
-        for (int i=0; i<c.pointLength(); i++) {
-            total += Math.pow((d.getPoint().getPoint(i) - c.getPoint(i)), 2);
+        for (int i=0; i<c.getSize(); i++) {
+            total += Math.pow((d.getVector().getDimension(i) - c.getDimension(i)), 2);
         }
         return Math.sqrt(total);
     }
     
-    public List<Data> getData () {
+    public List<Data> getClusterData () {
         
         //passed by reference
         return this.dataSet;

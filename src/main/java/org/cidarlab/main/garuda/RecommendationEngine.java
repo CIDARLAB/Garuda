@@ -6,11 +6,13 @@
 package org.cidarlab.main.garuda;
 
 import java.util.List;
-import org.cidarlab.main.dom.Data;
+import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 import org.cidarlab.main.ml.Backpropagation;
 import org.cidarlab.main.ml.ExpertSystem;
 import org.cidarlab.main.ml.NaiveBayes;
 import org.cidarlab.main.ml.KMeansClustering;
+import org.cidarlab.main.ml.LinearRegression;
+import org.cidarlab.main.ml.MultipleLinearRegression;
 
 /**
  *
@@ -18,29 +20,18 @@ import org.cidarlab.main.ml.KMeansClustering;
  */
 public class RecommendationEngine {
     
-    public RecommendationEngine (String inputFile) {
+    public RecommendationEngine (String folderName) {
         
-        //Backpropagation.neuralNetwork();
-        //init(inputFile);
-    }
-    
-    public RecommendationEngine () {
-        
-        String folderName = "20161108/";
         int numOfTrials = 1;
         
         for (int ext=1; ext<=numOfTrials;  ext++) {
             
-            String inputFile = "resources/" + folderName + "input-" + ext + ".xlsx";
-            int parts = 4;
-            int pnum = 20;
-            int cnum = 1000;
-            int cluster = 2;
+            String inputFile = "resources/" + folderName + "/input-" + ext + ".xlsx";
             
-    //        System.out.println(parts);
-    //        System.out.println(pnum);
-    //        System.out.println(cnum);
-    //        System.out.println();
+            int cluster = 2;
+            int cnum = 1000;
+            int pnum = 20;
+            int psize = 4;
             
     //        for (double i=0.1; i<=1.0; i=i+0.2) {
 
@@ -49,88 +40,122 @@ public class RecommendationEngine {
                 
     //            for (int j=0; j<=pnum; j=j+5) {
                     
-                    int numtoxic = 9;
-    //                int numtoxic = j;
+                    int toxic = 4;
+    //                int toxic = j;
     //                if (j==0)
-    //                    numtoxic = 1;
+    //                    toxic = 1;
 
-    //                System.out.println((numtoxic*100)/pnum);
-    //                System.out.println(threshold);
-
-                    SpreadsheetParser parser = new SpreadsheetParser(inputFile, parts, pnum, cnum, threshold, numtoxic);
-                    //CollaborativeFake.init(parser.getData());
-
+                    SpreadsheetParser parser = new SpreadsheetParser (inputFile, cnum, pnum, psize, threshold, toxic);
                     double[][] growthData = parser.getGrowth();
-                    /*for (int i=0; i<growthData.length; i++) {
-                        for (int j=0; j<growthData[0].length; j++) {
-                            //if (tempData[i][j]==0.0)
-                            //    tempData[i][j] = 1.0;
-                            System.out.print(growthData[i][j] + "\t");
-                        }
-                        System.out.println();
-                    }*/
+                    double[][] data = parser.getData();
+                    double[][] countData = parser.getCount();
                     
-                    Backpropagation nn = new Backpropagation (growthData, cluster);
+                //    KMeansClustering kmeans = new KMeansClustering (growthData, cluster);
+                //    Backpropagation backprop = new Backpropagation (growthData, cluster);
+                //    ExpertSystem expert = new ExpertSystem (growthData, threshold);
+               
+                    List<Integer> target = parser.getList();
                     
-                    
-                    /*List<Data> clusterData = nn.getData();
-                    
-                    for (int i=0; i<cluster; i++) {
-                        System.out.println ("+Cluster " + i + " consists of: ");
-                        for (int j=0; j<clusterData.size(); j++) {
-                            if (clusterData.get(j).cluster()==i) {
-                                System.out.println (clusterData.get(j).getId());
-                            }
-                        }
-                    }*/
-
-                    /*double[][] subsetData = new double[tempData.length][2];
-                    for (int i=0; i<subsetData.length; i++) {
-                        for (int j=0; j<subsetData[0].length; j++) {
-                            subsetData[i][j] = tempData[i][j];
-                        }
-                    }*/
-
-                    double[][] nbData = parser.getPartCount();
-                    
-                    //double[][] inputData = new double[][] {{1.0, 1.0}, {1.5, 2.0}, {3.0, 4.0}, {5.0, 7.0}, {3.5, 5.0}, {4.5, 5.0}, {3.5, 4.5}};
-
-                //    KMeansClustering clustering = new KMeansClustering (cluster, growthData);
-                //  BruteForce bruteforce = new BruteForce (clustering.getData(), clustering.isZeroToxic(), parser.getPartData());
-                
-                //    ExpertSystem exp = new ExpertSystem (growthData, cluster, threshold);
-                
-                //   System.out.println("K-Means:");
-                //    NaiveBayes kmeans = new NaiveBayes (clustering.getData(), nbData, cluster, parser.getNonEmpty());
-                    
+                //  BruteForce bruteforce = new BruteForce (kmeans.getClusterData(), kmeans.isZeroToxic(), parser.getPart());
+                 
+                /*    System.out.println("K-Means:");
+                    NaiveBayes kmbayes = new NaiveBayes (kmeans.getClusterData(), data, cluster, parser.getParticipant());
+                    System.out.println("#error: " + error (target, kmbayes.getList()));
                     
                     System.out.println("Backprop:");
-                    NaiveBayes backprop = new NaiveBayes (nn.getData(), nbData, cluster, parser.getNonEmpty());
+                    NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, parser.getParticipant());
+                    System.out.println("#error: " + error (target, bpbayes.getList()));
+                    
+                    System.out.println("Expert:");
+                    NaiveBayes expbayes = new NaiveBayes (expert.getClusterData(), data, cluster, parser.getParticipant());
+                    System.out.println("#error: " + error (target, expbayes.getList()));*/
+                
+                
                 
                     
-                    List<Integer> l1 = parser.getList();
-                    List<Integer> l2 = backprop.getList();
+                //    double[] x = new double[]{2,9,4,7,3,1,5,9,6,6,5,6,8};
+                //    double[] y = new double[]{9,23,13,19,11,7,15,23,17,17,15,17,21};
+                //    LinearRegression.init(x, y);
+                
                     
+                /*    double[][] x = { {  1,  10,  20 },
+                                     {  1,  20,  40 },
+                                     {  1,  40,  15 },
+                                     {  1,  80, 100 },
+                                     {  1, 160,  23 },
+                                     {  1, 200,  18 } };
+                    double[] y = { 243, 483, 508, 1503, 1764, 2129 };*/
+                
+                    double[] linGrowth = new double[growthData.length];
+                    for(int i=0; i<linGrowth.length; i++) {
+                        linGrowth[i] = growthData[i][0];
+                    }
+                
+            /*        MultipleLinearRegression regression = new MultipleLinearRegression(countData, linGrowth);
+
+                    double[] beta = new double[pnum];
+                    for (int i=0; i<pnum; i++) {
+                        beta[i] = regression.beta(i);
+                    }
                     
-                    int error = 0;
-                    System.out.println ();
-                    for (int x=0; x<l1.size(); x++) {
-                        if (!l2.contains(l1.get(x))) {
-                            error++;
+                    double[][] reg = new double[growthData.length][2];
+                    for (int i=0; i<growthData.length; i++) {
+                        reg[i][0] = growthData[i][0];
+                        reg[i][1] = 0;
+                        for (int j=0; j<beta.length; j++) {
+                            reg[i][1] += beta[j] * countData[i][j];
                         }
                     }
-                        System.out.println ("xxxxx" + error);
                     
-                //    System.out.println("Expert:");
-                //    NaiveBayes expbayes = new NaiveBayes (exp.getData(), nbData, cluster, parser.getNonEmpty());
-                
+                    int[] tracker = parser.getTracker();*/
+                    
+                    OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
+                    double[] y = new double[]{11.0, 12.0, 13.0, 14.0, 15.0, 16.0};
+                    double[][] x = new double[6][];
+                    x[0] = new double[]{0, 0, 0, 0, 0};
+                    x[1] = new double[]{2.0, 0, 0, 0, 0};
+                    x[2] = new double[]{0, 3.0, 0, 0, 0};
+                    x[3] = new double[]{0, 0, 4.0, 0, 0};
+                    x[4] = new double[]{0, 0, 0, 5.0, 0};
+                    x[5] = new double[]{0, 0, 0, 0, 6.0};          
+                    regression.newSampleData(linGrowth, countData);
+                    
+                    double[] beta = regression.estimateRegressionParameters();
+                    double[] residuals = regression.estimateResiduals();
+                    double[][] parametersVariance = regression.estimateRegressionParametersVariance();
+                    double regressandVariance = regression.estimateRegressandVariance();
+                    double rSquared = regression.calculateRSquared();
+                    double sigma = regression.estimateRegressionStandardError();
+                    
+                /*    for (int i=0; i<reg.length; i++) {
+                        if (tracker[i]>0)
+                            System.out.println(reg[i][0] + "\t" + reg[i][1]);
+                        else
+                            System.out.println(reg[i][0] + "\t\t" + reg[i][1]);
+                    }*/
+                    //System.out.println(reg[1][0] + "     " + reg[1][1]);
+                    //System.out.println(reg[2][0] + "     " + reg[2][1]);
+                    //System.out.println(reg[3][0] + "     " + reg[3][1]);
+                    //System.out.println(reg[4][0] + "     " + reg[4][1]);
+                    
+                    
+                    //double[][] yy = {{243,243}, {483,483}, {508,508}, {1503,1503}, {1764,1764}, {2129,2129}};
+                    
+                //    KMeansClustering nmeans = new KMeansClustering (reg, cluster);
     //            }
     //        }
         }
     }
     
-    /*public String toString() {
-        return ""; //New Recommendation Engine is succesfully created";
-    }*/
+    public int error (List<Integer> target, List<Integer> actual) {
+        
+        int error = 0;
+        for (int x=0; x<target.size(); x++) {
+            if (!actual.contains(target.get(x))) {
+                error++;
+            }
+        }
+        return error;
+    }
     
 }

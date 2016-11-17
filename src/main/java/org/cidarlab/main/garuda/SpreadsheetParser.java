@@ -8,6 +8,7 @@ package org.cidarlab.main.garuda;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -18,30 +19,31 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class SpreadsheetParser {
     
-    private double[][] perfgroData;
+    private double[][] data;
     
-    private int parts;
-    private int pnum;
     private int cnum;
+    private int pnum;
+    private int psize;
     private double threshold;
-    private int numtoxic;
+    private int toxic;
+    private int participant;
     
-    private int nonemptypart;
+    List<Integer> tlist;
     
-    List<Integer> newlist;
+    private int[] tracker;
     
-    public SpreadsheetParser (String inputUrl, int parts, int pnum, int cnum, double threshold, int numtoxic) {
-        this.parts = parts;
-        this.pnum = pnum;
+    public SpreadsheetParser (String inputUrl, int cnum, int pnum, int psize, double threshold, int toxic) {
+        
         this.cnum = cnum;
+        this.pnum = pnum;
+        this.psize = psize;
         this.threshold = threshold;
-        //this.threshold = Math.random();
-        this.numtoxic = numtoxic;
-        //this.numtoxic = (int)(Math.random() * (pnum+1));
+        this.toxic = toxic;
+        this.participant = 0;
         
-        this.perfgroData = new double[cnum][parts+2];
+        this.data = new double[cnum][psize+2];
         
-        this.nonemptypart = 0;
+        this.tracker = new int[cnum];
         
         init(inputUrl);
     }
@@ -52,31 +54,25 @@ public class SpreadsheetParser {
         for (int i=0; i<pnum; i++) {
             list.add(i+1);
         }
-        
-        newlist = new ArrayList<>();
-        
-        ///
-        //newlist.add(8);
-        //newlist.add(5);
-        //newlist.add(7);
-        ///
+        tlist = new ArrayList<>();
         
     //    System.out.println("List of toxic genes: ");
-        //for (int i=0; i<newlist.size(); i++) {
-        for (int i=0; i<numtoxic; i++) {
+        for (int i=0; i<toxic; i++) {
         
-            newlist.add (list.remove((int)(Math.random() * list.size())));
-            System.out.println(newlist.get(i));
+            tlist.add (list.remove((int)(Math.random() * list.size())));
+            System.out.println(tlist.get(i));
         }
-        System.out.println("Total " + numtoxic + " toxic genes, and " + (pnum-newlist.size()) + " non-toxic genes with threshold " + threshold);
+        System.out.println("Total " + toxic + " toxic genes, and " + (pnum-tlist.size()) + " non-toxic genes with threshold " + threshold);
         
-        int[] partcounter = new int[pnum];
+        int[] partCount = new int[pnum];
         
         try
         {
             FileInputStream inputFile = new FileInputStream(inputUrl);
             XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
             XSSFSheet sheet = workbook.getSheetAt(2);
+            
+            Random rand = new Random();
       
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
 
@@ -84,20 +80,23 @@ public class SpreadsheetParser {
                 
                 int size = (int) row.getCell(5).getNumericCellValue();
                 
-                perfgroData[i-1][1] = 1 - (Math.random() * threshold);
+            //    data[i-1][1] = 1 - (Math.random() * threshold);
+                data[i-1][1] = rand.nextGaussian()*0.1+0.3;
                 
                 for (int j=0; j<size; j++) {
                     
                     int part = (int) row.getCell(j+6).getNumericCellValue();
-                    perfgroData[i-1][j+2] = part;
+                    data[i-1][j+2] = part;
                     
-                    partcounter[part-1]++;
+                    partCount[part-1]++;
                     
-                    if (newlist.contains (part)) {
-                        perfgroData[i-1][1] = Math.random() * threshold;
+                    if (tlist.contains (part)) {
+                //        data[i-1][1] = rand.nextGaussian()*0.4+threshold;
+                        tracker[i-1]++;
                     }
 
                 }
+                //System.out.println(data[i-1][1]);
 
             }
             
@@ -108,15 +107,15 @@ public class SpreadsheetParser {
                 Row row = sheet.getRow(i);
                 
                 //performance
-                perfgroData[i-1][0] = row.getCell(7).getNumericCellValue();
+                datacopy[i-1][0] = row.getCell(7).getNumericCellValue();
                 //growth rate
-                //perfgroData[i-1][1] = row.getCell(5).getNumericCellValue();
+                //data[i-1][1] = row.getCell(5).getNumericCellValue();
 
             }*/
             
-            for (int i=0; i<partcounter.length; i++) {
-                if (partcounter[i]!=0) {
-                    nonemptypart++;
+            for (int i=0; i<partCount.length; i++) {
+                if (partCount[i]!=0) {
+                    participant++;
                 }
             }
             
@@ -129,110 +128,98 @@ public class SpreadsheetParser {
     
     public double[][] getData() {
         
-        double[][] data = new double[perfgroData.length][perfgroData[0].length];
-        for(int i=0; i<data.length; i++) {
-            for(int j=0; j<data[i].length; j++) {
-                data[i][j] = perfgroData[i][j];
+        double[][] datacopy = new double[cnum][psize+2];
+        for(int i=0; i<datacopy.length; i++) {
+            for(int j=0; j<datacopy[i].length; j++) {
+                datacopy[i][j] = this.data[i][j];
             }
         }
-        return data;
+        return datacopy;
     }
         
-    public double[][] getPartData() {
+    public double[][] getPart() {
         
-        double[][] data = new double[cnum][parts];
-        for(int i=0; i<data.length; i++) {
-            for(int j=0; j<data[i].length; j++) {
-                data[i][j] = perfgroData[i][j+2];
+        double[][] datacopy = new double[cnum][psize];
+        for(int i=0; i<datacopy.length; i++) {
+            for(int j=0; j<datacopy[i].length; j++) {
+                datacopy[i][j] = this.data[i][j+2];
             }
         }
-        return data;
+        return datacopy;
     }
      
     public double[][] getGrowth() {
         
-        double[][] data = new double[perfgroData.length][1];
-        for(int i=0; i<data.length; i++) {
-            data[i][0] = perfgroData[i][1];
+        double[][] datacopy = new double[cnum][1];
+        for(int i=0; i<datacopy.length; i++) {
+            datacopy[i][0] = this.data[i][1];
         }
-        return data;
+        return datacopy;
     }
     
-    public double[][] getPartCount() {
+    public double[][] getCount() {
         
-        double[][] data = new double[cnum][pnum+2];
-        for(int i=0; i<perfgroData.length; i++) {
-            for(int j=0; j<perfgroData[0].length; j++) {
-                if (j==0 || j==1) {
-                    data[i][j] = perfgroData[i][j];
-                }
-                else {
-                    data[i][((int)perfgroData[i][j]-1)+2] = 1;
-                }
+        double[][] datacopy = new double[cnum][pnum];
+        for(int i=0; i<this.data.length; i++) {
+            for(int j=2; j<this.data[0].length; j++) {
+                //if (j==0 || j==1) {
+                //    datacopy[i][j] = this.data[i][j];
+                //}
+                //else {
+                    datacopy[i][((int)this.data[i][j]-1)] = 1;
+                //}
             }
         }
-        
-        /*for(int i=0; i<data.length; i++) {
-            for(int j=0; j<data[i].length; j++) {
-                System.out.print (data[i][j] + "   ");
-            }
-            System.out.println();
-        }*/
-        
-        return data;
+        return datacopy;
     }
      
-    public double[][] transposeRaw() {
+    public double[][] transpose() {
         
-        double[][] data = new double[pnum][perfgroData.length]; 
+        double[][] datacopy = new double[pnum][cnum]; 
         
-        for (int i=0; i<perfgroData.length; i++) {
+        for (int i=0; i<this.data.length; i++) {
         
-            for (int j=2; j<perfgroData[0].length; j++) {
-                data[(int)perfgroData[i][j]-1][i] = perfgroData[i][1];
+            for (int j=2; j<this.data[0].length; j++) {
+                datacopy[(int)this.data[i][j]-1][i] = this.data[i][1];
             }
         }
-        
-        return data;
+        return datacopy;
     }
     
-    public double[][] transposeData() {
+    public double[][] transposeClean() {
         
-        double[][] data = new double[pnum][perfgroData.length]; 
+        double[][] dataRaw = this.transpose();
         
-        for (int i=0; i<perfgroData.length; i++) {
-        
-            for (int j=2; j<perfgroData[0].length; j++) {
-                data[(int)perfgroData[i][j]-1][i] = perfgroData[i][1];
-            }
-        }
-        
-        double[][] cleanData = new double[nonemptypart][cnum];
+        double[][] cleanData = new double[participant][cnum+1];
         
         int x = 0;
-        for (int i=0; i<data.length; i++) {
+        for (int i=0; i<dataRaw.length; i++) {
             int counter = 0;
-            for (int j=0; j<data[0].length; j++) {
-                if(data[i][j]!=0.0) {
+            for (int j=0; j<dataRaw[0].length; j++) {
+                if(dataRaw[i][j]!=0.0) {
                     counter++;
                 }  
             }
             if(counter!=0) {
-                for (int j=0; j<data[0].length; j++) {
-                    cleanData[x][j] = data[i][j];
+                cleanData[x][1] = i+1;  //extra column to store id+1
+                for (int j=0; j<dataRaw[0].length; j++) {
+                    cleanData[x][j+1] = dataRaw[i][j];
                 }
                 x++;
             }
         }
-        
         return cleanData;
     }
     
-    public int getNonEmpty () {
-        return nonemptypart;
+    public int getParticipant () {
+        return this.participant;
     }
     
     public List<Integer> getList() {
-        return this.newlist;
+        return this.tlist;
+    }
+    
+    public int[] getTracker() {
+        return this.tracker;
     }
 }

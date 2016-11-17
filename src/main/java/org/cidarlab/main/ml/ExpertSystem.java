@@ -16,34 +16,33 @@ import org.cidarlab.main.dom.Data;
 public class ExpertSystem {
     
     private double[][] rawData;
-    private List<Data> clusterData;
     private double threshold;
-    private int cluster;
     
-    public ExpertSystem (double[][] rawData, int cluster, double threshold) {
+    private List<Data> clusterData;
+    
+    public ExpertSystem (double[][] rawData, double threshold) {
+        
         this.rawData = rawData;
         this.threshold = threshold;
-        this.cluster = cluster;
-        clusterData = new ArrayList<Data>();
+        this.clusterData = new ArrayList<Data>();
+        
         init ();
     }
     
     public void init() {
         
         for (int i=0; i<rawData.length; i++) {
-            int mCluster = 0;
+            int cluster = 0;
             for (int j=0; j<rawData[0].length; j++) {
                 if (rawData[i][j]>threshold) {
-                    mCluster = 1;
+                    cluster = 1;
                 }
-                clusterData.add(new Data(rawData[i], i, mCluster));
-                //System.out.println((newlist.get(i)+1) + "     " + trainData[i][j]);
+                clusterData.add(new Data(rawData[i], i, cluster));
             }
         }
-        
     }
     
-    public List<Data> getData () {
+    public List<Data> getClusterData () {
         return this.clusterData;
     }
     

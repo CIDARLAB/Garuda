@@ -42,16 +42,16 @@ public class BruteForce {
         
     /*    System.out.println (zeroIsToxic);
         int NUM_CLUSTERS = 2;
-        //split list depends on their cluster
+        //split list depends on their setCluster
         for (int i=0; i<NUM_CLUSTERS; i++) {
             
             System.out.println("Cluster " + i + " includes:");
             for(int j=0; j<inputData.size(); j++) {
                 
-                if (inputData.get(j).cluster()==i) {
+                if (inputData.get(j).setCluster()==i) {
                     
                     System.out.println("** " + partData[j][0] + "     "  + partData[j][1] + "     "  + partData[j][2] + "     "  + partData[j][3] + "     " 
-                            + (inputData.get(j).getId()+1) + "     " + (inputData.get(j).getPoint().getPoint(0)));
+                            + (inputData.get(j).getId()+1) + "     " + (inputData.get(j).getVector().getVector(0)));
                 }
             } // j
             System.out.println();
@@ -64,7 +64,7 @@ public class BruteForce {
             nontoxic = 1;
         
         for (int i=0; i<partData.length; i++) {
-            if (inputData.get(i).cluster()==nontoxic) {
+            if (inputData.get(i).getCluster()==nontoxic) {
                 //System.out.println("++++++++non toxic");
                 for (int j=0; j<partData[0].length; j++) {
                     ntList.add ((int)partData[i][j]);
@@ -73,7 +73,7 @@ public class BruteForce {
             }
         }
         for (int i=0; i<partData.length; i++) {
-            if (inputData.get(i).cluster()!=nontoxic) {
+            if (inputData.get(i).getCluster()!=nontoxic) {
                 //System.out.println("--------toxic");
                 for (int j=0; j<partData[0].length; j++) {
                     if (!ntList.contains((int)partData[i][j])) {

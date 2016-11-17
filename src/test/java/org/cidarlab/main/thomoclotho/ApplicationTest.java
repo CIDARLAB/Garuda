@@ -61,7 +61,8 @@ public class ApplicationTest {
     //    SpreadsheetParser.initiate(inputFile);
     //    CollaborativeFake.init();
         
-        RecommendationEngine recEngine = new RecommendationEngine();
+        String folderName = "20161108";
+        RecommendationEngine recEngine = new RecommendationEngine (folderName);
         
         //Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
         

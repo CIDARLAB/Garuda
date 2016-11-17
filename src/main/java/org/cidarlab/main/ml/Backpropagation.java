@@ -42,23 +42,6 @@ public class Backpropagation {
     private double errh[];
 
     private final int MAX_SAMPLES = 300;
-
-    /*private final int trainInputs[][] = new int[][] {{1, 1, 1, 0}, 
-                                                      {1, 1, 0, 0}, 
-                                                      {0, 1, 1, 0}, 
-                                                      {1, 0, 1, 0}};
-    
-    
-    private final int testInputs[][] = new int[][] {{0, 0, 1, 1},
-                                                      {1, 1, 1, 0}, 
-                                                      {1, 1, 0, 0}, 
-                                                      {0, 1, 1, 0}};
-
-    private final int trainOutput[][] = new int[][] 
-                                        {{0, 0, 1}, 
-                                         {0, 0, 1}, 
-                                         {0, 1, 0}, 
-                                         {1, 0, 0}};*/
     
     private List<Data> clusterData;
     
@@ -384,7 +367,7 @@ public class Backpropagation {
         return (val * (1.0 - val));
     }
     
-    public List<Data> getData () {
+    public List<Data> getClusterData () {
         return this.clusterData;
     }
 

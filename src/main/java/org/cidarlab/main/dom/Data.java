@@ -13,20 +13,20 @@ package org.cidarlab.main.dom;
 public class Data
 {
     private int id;
-    private Point point;
-    private int mCluster;
+    private Vector vector;
+    private int cluster;
 
     public Data (double[] newX, int id) {
 
         this.id = id;
-        this.point = new Point (newX);
+        this.vector = new Vector (newX);
     }
 
     public Data (double[] newX, int id, int cluster) {
 
         this.id = id;
-        this.point = new Point (newX);
-        this.mCluster = cluster;
+        this.vector = new Vector (newX);
+        this.cluster = cluster;
     }
 
     public int getId () {
@@ -34,18 +34,18 @@ public class Data
         return this.id;
     }
 
-    public Point getPoint () {
+    public Vector getVector () {
 
-        return this.point;
+        return this.vector;
     }
 
-    public void cluster (int clusterNumber) {
+    public void setCluster (int clusterNumber) {
 
-        this.mCluster = clusterNumber;
+        this.cluster = clusterNumber;
     }
 
-    public int cluster () {
+    public int getCluster () {
 
-        return this.mCluster;
+        return this.cluster;
     }
 }
