@@ -1,152 +1,152 @@
 {
   "Entries": [
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     },
     {
-      "author": "user123",
+      "author": "",
       "name": "DARPA",
       "description": ""
     }

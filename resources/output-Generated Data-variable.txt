@@ -1,0 +1,755 @@
+{
+  "Entries": [
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Growth Rate",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Duration",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Performance",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Purity",
+      "description": ""
+    },
+    {
+      "author": "",
+      "name": "Acidity",
+      "description": ""
+    }
+  ],
+  "Name": "Variable"
+}

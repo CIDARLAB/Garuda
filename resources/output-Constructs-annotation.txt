@@ -1,0 +1,1505 @@
+{
+  "Entries": [
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann01481181300119",
+      "start": 0,
+      "description": "",
+      "end": 800
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299185",
+      "lengthOfAnno": 2235,
+      "author": "",
+      "name": "ann11481181300154",
+      "start": 801,
+      "description": "",
+      "end": 3035
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann21481181300188",
+      "start": 3036,
+      "description": "",
+      "end": 4439
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299451",
+      "lengthOfAnno": 846,
+      "author": "",
+      "name": "ann31481181300213",
+      "start": 4440,
+      "description": "",
+      "end": 5285
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299863",
+      "lengthOfAnno": 1656,
+      "author": "",
+      "name": "ann41481181300233",
+      "start": 5286,
+      "description": "",
+      "end": 6941
+    },
+    {
+      "isForwardStrand": false,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann01481181300332",
+      "start": 0,
+      "description": "",
+      "end": 2369
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann11481181300372",
+      "start": 2370,
+      "description": "",
+      "end": 2684
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann21481181300392",
+      "start": 2685,
+      "description": "",
+      "end": 4088
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann31481181300417",
+      "start": 4089,
+      "description": "",
+      "end": 6458
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann41481181300454",
+      "start": 6459,
+      "description": "",
+      "end": 7235
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299451",
+      "lengthOfAnno": 846,
+      "author": "",
+      "name": "ann01481181300542",
+      "start": 0,
+      "description": "",
+      "end": 845
+    },
+    {
+      "isForwardStrand": false,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann11481181300569",
+      "start": 846,
+      "description": "",
+      "end": 1406
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299609",
+      "lengthOfAnno": 1029,
+      "author": "",
+      "name": "ann21481181300590",
+      "start": 1407,
+      "description": "",
+      "end": 2435
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299000",
+      "lengthOfAnno": 249,
+      "author": "",
+      "name": "ann31481181300609",
+      "start": 2436,
+      "description": "",
+      "end": 2684
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300012",
+      "lengthOfAnno": 852,
+      "author": "",
+      "name": "ann41481181300629",
+      "start": 2685,
+      "description": "",
+      "end": 3536
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299185",
+      "lengthOfAnno": 2235,
+      "author": "",
+      "name": "ann01481181300676",
+      "start": 0,
+      "description": "",
+      "end": 2234
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann11481181300699",
+      "start": 2235,
+      "description": "",
+      "end": 2795
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann21481181300713",
+      "start": 2796,
+      "description": "",
+      "end": 5165
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann31481181300726",
+      "start": 5166,
+      "description": "",
+      "end": 5212
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann41481181300738",
+      "start": 5213,
+      "description": "",
+      "end": 5259
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299816",
+      "lengthOfAnno": 4026,
+      "author": "",
+      "name": "ann01481181300824",
+      "start": 0,
+      "description": "",
+      "end": 4025
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298819",
+      "lengthOfAnno": 1926,
+      "author": "",
+      "name": "ann11481181300844",
+      "start": 4026,
+      "description": "",
+      "end": 5951
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann21481181300860",
+      "start": 5952,
+      "description": "",
+      "end": 6917
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann31481181300885",
+      "start": 6918,
+      "description": "",
+      "end": 7547
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann41481181300920",
+      "start": 7548,
+      "description": "",
+      "end": 7594
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299916",
+      "lengthOfAnno": 1074,
+      "author": "",
+      "name": "ann01481181301010",
+      "start": 0,
+      "description": "",
+      "end": 1073
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann11481181301042",
+      "start": 1074,
+      "description": "",
+      "end": 1120
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann21481181301089",
+      "start": 1121,
+      "description": "",
+      "end": 2182
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298929",
+      "lengthOfAnno": 2040,
+      "author": "",
+      "name": "ann31481181301118",
+      "start": 2183,
+      "description": "",
+      "end": 4222
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299916",
+      "lengthOfAnno": 1074,
+      "author": "",
+      "name": "ann41481181301175",
+      "start": 4223,
+      "description": "",
+      "end": 5296
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299226",
+      "lengthOfAnno": 549,
+      "author": "",
+      "name": "ann01481181301314",
+      "start": 0,
+      "description": "",
+      "end": 548
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299046",
+      "lengthOfAnno": 1974,
+      "author": "",
+      "name": "ann11481181301341",
+      "start": 549,
+      "description": "",
+      "end": 2522
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann21481181301375",
+      "start": 2523,
+      "description": "",
+      "end": 3152
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann31481181301402",
+      "start": 3153,
+      "description": "",
+      "end": 3929
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299046",
+      "lengthOfAnno": 1974,
+      "author": "",
+      "name": "ann41481181301464",
+      "start": 3930,
+      "description": "",
+      "end": 5903
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann01481181301602",
+      "start": 0,
+      "description": "",
+      "end": 800
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298867",
+      "lengthOfAnno": 813,
+      "author": "",
+      "name": "ann11481181301644",
+      "start": 801,
+      "description": "",
+      "end": 1613
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299226",
+      "lengthOfAnno": 549,
+      "author": "",
+      "name": "ann21481181301682",
+      "start": 1614,
+      "description": "",
+      "end": 2162
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299104",
+      "lengthOfAnno": 186,
+      "author": "",
+      "name": "ann31481181301735",
+      "start": 2163,
+      "description": "",
+      "end": 2348
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann41481181301787",
+      "start": 2349,
+      "description": "",
+      "end": 3149
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299311",
+      "lengthOfAnno": 1500,
+      "author": "",
+      "name": "ann01481181301889",
+      "start": 0,
+      "description": "",
+      "end": 1499
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299916",
+      "lengthOfAnno": 1074,
+      "author": "",
+      "name": "ann11481181301918",
+      "start": 1500,
+      "description": "",
+      "end": 2573
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298867",
+      "lengthOfAnno": 813,
+      "author": "",
+      "name": "ann21481181301962",
+      "start": 2574,
+      "description": "",
+      "end": 3386
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299000",
+      "lengthOfAnno": 249,
+      "author": "",
+      "name": "ann31481181302000",
+      "start": 3387,
+      "description": "",
+      "end": 3635
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299763",
+      "lengthOfAnno": 1326,
+      "author": "",
+      "name": "ann41481181302023",
+      "start": 3636,
+      "description": "",
+      "end": 4961
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299816",
+      "lengthOfAnno": 4026,
+      "author": "",
+      "name": "ann01481181302105",
+      "start": 0,
+      "description": "",
+      "end": 4025
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299916",
+      "lengthOfAnno": 1074,
+      "author": "",
+      "name": "ann11481181302161",
+      "start": 4026,
+      "description": "",
+      "end": 5099
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298929",
+      "lengthOfAnno": 2040,
+      "author": "",
+      "name": "ann21481181302195",
+      "start": 5100,
+      "description": "",
+      "end": 7139
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298929",
+      "lengthOfAnno": 2040,
+      "author": "",
+      "name": "ann31481181302221",
+      "start": 7140,
+      "description": "",
+      "end": 9179
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299272",
+      "lengthOfAnno": 753,
+      "author": "",
+      "name": "ann41481181302245",
+      "start": 9180,
+      "description": "",
+      "end": 9932
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299247",
+      "lengthOfAnno": 2667,
+      "author": "",
+      "name": "ann01481181302434",
+      "start": 0,
+      "description": "",
+      "end": 2666
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299451",
+      "lengthOfAnno": 846,
+      "author": "",
+      "name": "ann11481181302467",
+      "start": 2667,
+      "description": "",
+      "end": 3512
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300060",
+      "lengthOfAnno": 444,
+      "author": "",
+      "name": "ann21481181302490",
+      "start": 3513,
+      "description": "",
+      "end": 3956
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299185",
+      "lengthOfAnno": 2235,
+      "author": "",
+      "name": "ann31481181302507",
+      "start": 3957,
+      "description": "",
+      "end": 6191
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann41481181302521",
+      "start": 6192,
+      "description": "",
+      "end": 8561
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann01481181302570",
+      "start": 0,
+      "description": "",
+      "end": 560
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann11481181302593",
+      "start": 561,
+      "description": "",
+      "end": 1622
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann21481181302613",
+      "start": 1623,
+      "description": "",
+      "end": 1937
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann31481181302631",
+      "start": 1938,
+      "description": "",
+      "end": 2903
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299763",
+      "lengthOfAnno": 1326,
+      "author": "",
+      "name": "ann41481181302654",
+      "start": 2904,
+      "description": "",
+      "end": 4229
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann01481181302701",
+      "start": 0,
+      "description": "",
+      "end": 2369
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299185",
+      "lengthOfAnno": 2235,
+      "author": "",
+      "name": "ann11481181302715",
+      "start": 2370,
+      "description": "",
+      "end": 4604
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann21481181302736",
+      "start": 4605,
+      "description": "",
+      "end": 5381
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299046",
+      "lengthOfAnno": 1974,
+      "author": "",
+      "name": "ann31481181302758",
+      "start": 5382,
+      "description": "",
+      "end": 7355
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann41481181302782",
+      "start": 7356,
+      "description": "",
+      "end": 7985
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann01481181302908",
+      "start": 0,
+      "description": "",
+      "end": 629
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300012",
+      "lengthOfAnno": 852,
+      "author": "",
+      "name": "ann11481181302937",
+      "start": 630,
+      "description": "",
+      "end": 1481
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann21481181302968",
+      "start": 1482,
+      "description": "",
+      "end": 2042
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299863",
+      "lengthOfAnno": 1656,
+      "author": "",
+      "name": "ann31481181303003",
+      "start": 2043,
+      "description": "",
+      "end": 3698
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann41481181303028",
+      "start": 3699,
+      "description": "",
+      "end": 4013
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299863",
+      "lengthOfAnno": 1656,
+      "author": "",
+      "name": "ann01481181303151",
+      "start": 0,
+      "description": "",
+      "end": 1655
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann11481181303185",
+      "start": 1656,
+      "description": "",
+      "end": 3059
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299272",
+      "lengthOfAnno": 753,
+      "author": "",
+      "name": "ann21481181303229",
+      "start": 3060,
+      "description": "",
+      "end": 3812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann31481181303274",
+      "start": 3813,
+      "description": "",
+      "end": 4589
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann41481181303338",
+      "start": 4590,
+      "description": "",
+      "end": 5555
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299451",
+      "lengthOfAnno": 846,
+      "author": "",
+      "name": "ann01481181303435",
+      "start": 0,
+      "description": "",
+      "end": 845
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299000",
+      "lengthOfAnno": 249,
+      "author": "",
+      "name": "ann11481181303468",
+      "start": 846,
+      "description": "",
+      "end": 1094
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann21481181303499",
+      "start": 1095,
+      "description": "",
+      "end": 2156
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann31481181303528",
+      "start": 2157,
+      "description": "",
+      "end": 2717
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann41481181303553",
+      "start": 2718,
+      "description": "",
+      "end": 3494
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299609",
+      "lengthOfAnno": 1029,
+      "author": "",
+      "name": "ann01481181303657",
+      "start": 0,
+      "description": "",
+      "end": 1028
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299863",
+      "lengthOfAnno": 1656,
+      "author": "",
+      "name": "ann11481181303696",
+      "start": 1029,
+      "description": "",
+      "end": 2684
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann21481181303741",
+      "start": 2685,
+      "description": "",
+      "end": 3650
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann31481181303773",
+      "start": 3651,
+      "description": "",
+      "end": 3697
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299658",
+      "lengthOfAnno": 3042,
+      "author": "",
+      "name": "ann41481181303815",
+      "start": 3698,
+      "description": "",
+      "end": 6739
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298867",
+      "lengthOfAnno": 813,
+      "author": "",
+      "name": "ann01481181303920",
+      "start": 0,
+      "description": "",
+      "end": 812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann11481181303954",
+      "start": 813,
+      "description": "",
+      "end": 1127
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299451",
+      "lengthOfAnno": 846,
+      "author": "",
+      "name": "ann21481181303983",
+      "start": 1128,
+      "description": "",
+      "end": 1973
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298819",
+      "lengthOfAnno": 1926,
+      "author": "",
+      "name": "ann31481181304018",
+      "start": 1974,
+      "description": "",
+      "end": 3899
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann41481181304063",
+      "start": 3900,
+      "description": "",
+      "end": 5303
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299916",
+      "lengthOfAnno": 1074,
+      "author": "",
+      "name": "ann01481181304180",
+      "start": 0,
+      "description": "",
+      "end": 1073
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann11481181304221",
+      "start": 1074,
+      "description": "",
+      "end": 2039
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299247",
+      "lengthOfAnno": 2667,
+      "author": "",
+      "name": "ann21481181304266",
+      "start": 2040,
+      "description": "",
+      "end": 4706
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299046",
+      "lengthOfAnno": 1974,
+      "author": "",
+      "name": "ann31481181304305",
+      "start": 4707,
+      "description": "",
+      "end": 6680
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299816",
+      "lengthOfAnno": 4026,
+      "author": "",
+      "name": "ann41481181304344",
+      "start": 6681,
+      "description": "",
+      "end": 10706
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299226",
+      "lengthOfAnno": 549,
+      "author": "",
+      "name": "ann01481181304448",
+      "start": 0,
+      "description": "",
+      "end": 548
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300060",
+      "lengthOfAnno": 444,
+      "author": "",
+      "name": "ann11481181304476",
+      "start": 549,
+      "description": "",
+      "end": 992
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299272",
+      "lengthOfAnno": 753,
+      "author": "",
+      "name": "ann21481181304516",
+      "start": 993,
+      "description": "",
+      "end": 1745
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300060",
+      "lengthOfAnno": 444,
+      "author": "",
+      "name": "ann31481181304559",
+      "start": 1746,
+      "description": "",
+      "end": 2189
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann41481181304613",
+      "start": 2190,
+      "description": "",
+      "end": 3155
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299311",
+      "lengthOfAnno": 1500,
+      "author": "",
+      "name": "ann01481181304723",
+      "start": 0,
+      "description": "",
+      "end": 1499
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann11481181304765",
+      "start": 1500,
+      "description": "",
+      "end": 2060
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann21481181304802",
+      "start": 2061,
+      "description": "",
+      "end": 3122
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299104",
+      "lengthOfAnno": 186,
+      "author": "",
+      "name": "ann31481181304834",
+      "start": 3123,
+      "description": "",
+      "end": 3308
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299763",
+      "lengthOfAnno": 1326,
+      "author": "",
+      "name": "ann41481181304871",
+      "start": 3309,
+      "description": "",
+      "end": 4634
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298867",
+      "lengthOfAnno": 813,
+      "author": "",
+      "name": "ann01481181304975",
+      "start": 0,
+      "description": "",
+      "end": 812
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann11481181305013",
+      "start": 813,
+      "description": "",
+      "end": 1778
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299311",
+      "lengthOfAnno": 1500,
+      "author": "",
+      "name": "ann21481181305067",
+      "start": 1779,
+      "description": "",
+      "end": 3278
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann31481181305109",
+      "start": 3279,
+      "description": "",
+      "end": 4055
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299816",
+      "lengthOfAnno": 4026,
+      "author": "",
+      "name": "ann41481181305146",
+      "start": 4056,
+      "description": "",
+      "end": 8081
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann01481181305268",
+      "start": 0,
+      "description": "",
+      "end": 965
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann11481181305303",
+      "start": 966,
+      "description": "",
+      "end": 2027
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann21481181305346",
+      "start": 2028,
+      "description": "",
+      "end": 2828
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann31481181305381",
+      "start": 2829,
+      "description": "",
+      "end": 3890
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann41481181305417",
+      "start": 3891,
+      "description": "",
+      "end": 6260
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann01481181305546",
+      "start": 0,
+      "description": "",
+      "end": 1061
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann11481181305581",
+      "start": 1062,
+      "description": "",
+      "end": 1862
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299000",
+      "lengthOfAnno": 249,
+      "author": "",
+      "name": "ann21481181305612",
+      "start": 1863,
+      "description": "",
+      "end": 2111
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299272",
+      "lengthOfAnno": 753,
+      "author": "",
+      "name": "ann31481181305653",
+      "start": 2112,
+      "description": "",
+      "end": 2864
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann41481181305701",
+      "start": 2865,
+      "description": "",
+      "end": 3665
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299046",
+      "lengthOfAnno": 1974,
+      "author": "",
+      "name": "ann01481181305829",
+      "start": 0,
+      "description": "",
+      "end": 1973
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299658",
+      "lengthOfAnno": 3042,
+      "author": "",
+      "name": "ann11481181305868",
+      "start": 1974,
+      "description": "",
+      "end": 5015
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann21481181305896",
+      "start": 5016,
+      "description": "",
+      "end": 7385
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299247",
+      "lengthOfAnno": 2667,
+      "author": "",
+      "name": "ann31481181305935",
+      "start": 7386,
+      "description": "",
+      "end": 10052
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann41481181305966",
+      "start": 10053,
+      "description": "",
+      "end": 11114
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300012",
+      "lengthOfAnno": 852,
+      "author": "",
+      "name": "ann01481181306102",
+      "start": 0,
+      "description": "",
+      "end": 851
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann11481181306153",
+      "start": 852,
+      "description": "",
+      "end": 2255
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann21481181306212",
+      "start": 2256,
+      "description": "",
+      "end": 4625
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299247",
+      "lengthOfAnno": 2667,
+      "author": "",
+      "name": "ann31481181306269",
+      "start": 4626,
+      "description": "",
+      "end": 7292
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298867",
+      "lengthOfAnno": 813,
+      "author": "",
+      "name": "ann41481181306328",
+      "start": 7293,
+      "description": "",
+      "end": 8105
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann01481181306443",
+      "start": 0,
+      "description": "",
+      "end": 560
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299609",
+      "lengthOfAnno": 1029,
+      "author": "",
+      "name": "ann11481181306483",
+      "start": 561,
+      "description": "",
+      "end": 1589
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann21481181306515",
+      "start": 1590,
+      "description": "",
+      "end": 2555
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann31481181306545",
+      "start": 2556,
+      "description": "",
+      "end": 3959
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299150",
+      "lengthOfAnno": 801,
+      "author": "",
+      "name": "ann41481181306584",
+      "start": 3960,
+      "description": "",
+      "end": 4760
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299345",
+      "lengthOfAnno": 1404,
+      "author": "",
+      "name": "ann01481181306711",
+      "start": 0,
+      "description": "",
+      "end": 1403
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann11481181306736",
+      "start": 1404,
+      "description": "",
+      "end": 1450
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181298968",
+      "lengthOfAnno": 47,
+      "author": "",
+      "name": "ann21481181306775",
+      "start": 1451,
+      "description": "",
+      "end": 1497
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299421",
+      "lengthOfAnno": 966,
+      "author": "",
+      "name": "ann31481181306803",
+      "start": 1498,
+      "description": "",
+      "end": 2463
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann41481181306834",
+      "start": 2464,
+      "description": "",
+      "end": 3093
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299609",
+      "lengthOfAnno": 1029,
+      "author": "",
+      "name": "ann01481181306886",
+      "start": 0,
+      "description": "",
+      "end": 1028
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann11481181306903",
+      "start": 1029,
+      "description": "",
+      "end": 1805
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181300060",
+      "lengthOfAnno": 444,
+      "author": "",
+      "name": "ann21481181306920",
+      "start": 1806,
+      "description": "",
+      "end": 2249
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299954",
+      "lengthOfAnno": 777,
+      "author": "",
+      "name": "ann31481181306947",
+      "start": 2250,
+      "description": "",
+      "end": 3026
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann41481181306981",
+      "start": 3027,
+      "description": "",
+      "end": 3341
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299496",
+      "lengthOfAnno": 1062,
+      "author": "",
+      "name": "ann01481181307073",
+      "start": 0,
+      "description": "",
+      "end": 1061
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299714",
+      "lengthOfAnno": 630,
+      "author": "",
+      "name": "ann11481181307089",
+      "start": 1062,
+      "description": "",
+      "end": 1691
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299538",
+      "lengthOfAnno": 561,
+      "author": "",
+      "name": "ann21481181307105",
+      "start": 1692,
+      "description": "",
+      "end": 2252
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299398",
+      "lengthOfAnno": 2370,
+      "author": "",
+      "name": "ann31481181307121",
+      "start": 2253,
+      "description": "",
+      "end": 4622
+    },
+    {
+      "isForwardStrand": true,
+      "feature": "fea1481181299376",
+      "lengthOfAnno": 315,
+      "author": "",
+      "name": "ann41481181307137",
+      "start": 4623,
+      "description": "",
+      "end": 4937
+    }
+  ],
+  "Name": "Annotation"
+}

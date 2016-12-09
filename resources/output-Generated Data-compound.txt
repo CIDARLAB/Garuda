@@ -1,0 +1,305 @@
+{
+  "Entries": [
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181307882",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181308823",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181309728",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181310833",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181311534",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181312600",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181313587",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181314550",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181315470",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181316613",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181317690",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181318739",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181319592",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181320802",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181322194",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181323263",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181324420",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181325195",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181325886",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181326690",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181327391",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181328062",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181328871",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181329584",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181330411",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181331209",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181331983",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181332835",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181333687",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    },
+    {
+      "level": 1.0,
+      "author": "",
+      "name": "met1481181334459",
+      "description": "Glucose",
+      "formula": "C6H12O6",
+      "isProduct": false,
+      "compoundType": "METABOLITE",
+      "pubChemId": "PubChem:5793"
+    }
+  ],
+  "Name": "Compound"
+}

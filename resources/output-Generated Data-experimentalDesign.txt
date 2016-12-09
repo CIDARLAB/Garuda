@@ -1,0 +1,305 @@
+{
+  "Entries": [
+    {
+      "site": 5,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181307278",
+      "name": "exd1481181307602",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 170,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181307944",
+      "name": "exd1481181308407",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 660,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181308895",
+      "name": "exd1481181309316",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 928,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181309853",
+      "name": "exd1481181310415",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 77,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181310956",
+      "name": "exd1481181311266",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 334,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181311669",
+      "name": "exd1481181312189",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 784,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181312732",
+      "name": "exd1481181313215",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 919,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181313650",
+      "name": "exd1481181314112",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 796,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181314609",
+      "name": "exd1481181315043",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 103,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181315613",
+      "name": "exd1481181316124",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 806,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181316737",
+      "name": "exd1481181317334",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 381,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181317774",
+      "name": "exd1481181318297",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 542,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181318844",
+      "name": "exd1481181319202",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 528,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181319688",
+      "name": "exd1481181320261",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 692,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181320960",
+      "name": "exd1481181321666",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 538,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181322301",
+      "name": "exd1481181322753",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 581,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181323367",
+      "name": "exd1481181323787",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 194,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181324542",
+      "name": "exd1481181324910",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 743,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181325276",
+      "name": "exd1481181325596",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 562,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181325985",
+      "name": "exd1481181326301",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 517,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181326774",
+      "name": "exd1481181327101",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 785,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181327475",
+      "name": "exd1481181327780",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 726,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181328157",
+      "name": "exd1481181328505",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 960,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181328960",
+      "name": "exd1481181329279",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 424,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181329703",
+      "name": "exd1481181330123",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 319,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181330497",
+      "name": "exd1481181330883",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 242,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181331307",
+      "name": "exd1481181331677",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 398,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181332073",
+      "name": "exd1481181332516",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 174,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181332955",
+      "name": "exd1481181333385",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    },
+    {
+      "site": 551,
+      "comments": "NA",
+      "author": "",
+      "bioDesign": "bio1481181333795",
+      "name": "exd1481181334151",
+      "description": "",
+      "responseVariables": 4,
+      "controlledVariables": 1
+    }
+  ],
+  "Name": "Experiment Design"
+}

@@ -2,182 +2,182 @@
   "Entries": [
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935613695",
+      "author": "",
+      "name": "gra1481181296266",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935614126",
+      "author": "",
+      "name": "gra1481181296384",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935614597",
+      "author": "",
+      "name": "gra1481181296451",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935615048",
+      "author": "",
+      "name": "gra1481181296558",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935615527",
+      "author": "",
+      "name": "gra1481181296640",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935615958",
+      "author": "",
+      "name": "gra1481181296720",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935616418",
+      "author": "",
+      "name": "gra1481181296795",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935616863",
+      "author": "",
+      "name": "gra1481181296851",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935617300",
+      "author": "",
+      "name": "gra1481181296895",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935617749",
+      "author": "",
+      "name": "gra1481181296962",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935618180",
+      "author": "",
+      "name": "gra1481181297035",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935618608",
+      "author": "",
+      "name": "gra1481181297088",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935619035",
+      "author": "",
+      "name": "gra1481181297166",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935619467",
+      "author": "",
+      "name": "gra1481181297253",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935620047",
+      "author": "",
+      "name": "gra1481181297361",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935620487",
+      "author": "",
+      "name": "gra1481181297458",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935620943",
+      "author": "",
+      "name": "gra1481181297542",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935621545",
+      "author": "",
+      "name": "gra1481181297629",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935621976",
+      "author": "",
+      "name": "gra1481181297717",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935622302",
+      "author": "",
+      "name": "gra1481181297815",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935622652",
+      "author": "",
+      "name": "gra1481181297886",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935622997",
+      "author": "",
+      "name": "gra1481181297985",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935623464",
+      "author": "",
+      "name": "gra1481181298085",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935623808",
+      "author": "",
+      "name": "gra1481181298191",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935624144",
+      "author": "",
+      "name": "gra1481181298273",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935624480",
+      "author": "",
+      "name": "gra1481181298340",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935624825",
+      "author": "",
+      "name": "gra1481181298443",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935625187",
+      "author": "",
+      "name": "gra1481181298531",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935625529",
+      "author": "",
+      "name": "gra1481181298632",
       "description": ""
     },
     {
       "sponsor": "DARPA",
-      "author": "user123",
-      "name": "gra1477935625873",
+      "author": "",
+      "name": "gra1481181298723",
       "description": ""
     }
   ],

@@ -57,50 +57,65 @@ public class ApplicationInit {
     @Getter
     private Person user;
     
-    public ApplicationInit(String username) {
+    @Setter
+    @Getter
+    private String message;
+    
+    @Setter
+    @Getter
+    private String username;
+    
+    public ApplicationInit() {
         
-        partsID = new ArrayList<Feature> ();
-        constructsID = new ArrayList<Feature> ();
-        genDataID = new ArrayList<BioDesign> ();
-        
-        user = new Person (username);
-        
-        //init (username, password, xlsInput, jsonOutput);
     }
     
-    public String init (String username, String password, String xlsInput, String jsonOutput) {
+    public void init (String username, String password, String xlsInput, String jsonOutput) {
+        
+        //user = new Person ("user123");
+        
+        user = new Person (this.username);
         
         ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////create user/////////
-        clothoObject.createUser(username, password);
+        clothoObject.createUser(this.username, password);
         
         /////////login/////////
-        Object loginRet = clothoObject.login(username, password);
+        Object loginRet = clothoObject.login(this.username, password);
         
         if (loginRet == null) {
             conn.closeConnection();
-            return "login failed!";
+            this.message = "login failed!";
+            return;
         }
         if (loginRet.toString().equals("null")) {
             conn.closeConnection();
-            return "login failed!";
+            this.message = "login failed!";
+            return;
         }
         if (loginRet.toString().startsWith("Authentication attempt failed for username")) {
             conn.closeConnection();
-            return "login failed";
+            this.message = "login failed!";
+            return;
         }
         
         //query if there has already been a person instance with the same username
         /////////fix me/////////
         
-        return XLSReader(xlsInput, jsonOutput);
+        String message = XLSReader(xlsInput, jsonOutput);
         
+        conn.closeConnection();
+        
+        this.message = this.username + "  ---  " + message;
         
     }
     
     public String XLSReader (String inputUrl, String outputUrl) {
+        
+        partsID = new ArrayList<Feature> ();
+        constructsID = new ArrayList<Feature> ();
+        genDataID = new ArrayList<BioDesign> ();
         
         try
         {

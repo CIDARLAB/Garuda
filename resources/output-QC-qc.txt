@@ -1,0 +1,245 @@
+{
+  "Entries": [
+    {
+      "sequence": "TCATGCAATTGATCGTACAATCAAGGAAGAGCTCTTTCCCGTTGCCTACACTACTGAAGAAGAGCAATATTTCAAAACTAACCCTAAACCTGCCTATATCG",
+      "feature": "fea1481181298867",
+      "author": "",
+      "bioDesign": "bio1481181307278",
+      "name": "qc1481181334551",
+      "description": ""
+    },
+    {
+      "sequence": "ACGTCCTTGGAGGGGCACTTCCTGCCTACAAGAATTGGAGATACCATAACCGTAGACCTGTCCAAGTTTATGAATAACGTCGTAAAATTTGACAAGCTGGA",
+      "feature": "fea1481181299816",
+      "author": "",
+      "bioDesign": "bio1481181307944",
+      "name": "qc1481181334617",
+      "description": ""
+    },
+    {
+      "sequence": "AAGATAGCAAATTATGAACAATTAATTATAAAAGAAAATAGCTCGAACTGTAAAGGAATAACAGAGAAAAATGATGAAAATAAATTTCAAAGAAGTCACAC",
+      "feature": "fea1481181298929",
+      "author": "",
+      "bioDesign": "bio1481181308895",
+      "name": "qc1481181334681",
+      "description": ""
+    },
+    {
+      "sequence": "AAATGCGAGTTATGTGGCAAGCGACTTTTATGCATGTGGTTTTCTGCAAGGGAAAGGTACAGAAACCAATGCGGGAATACATAATACAAGGCCTTCTCATT",
+      "feature": "fea1481181299658",
+      "author": "",
+      "bioDesign": "bio1481181309853",
+      "name": "qc1481181334749",
+      "description": ""
+    },
+    {
+      "sequence": "AAGGAGTCTTCAGAAAAGCACCATAAGGAGATATGGGTACAATTTGGCACCCCACATGTTTTTGTTACTACACGTAGATGAGCTATCGATTTTTTCTGCAT",
+      "feature": "fea1481181298929",
+      "author": "",
+      "bioDesign": "bio1481181310956",
+      "name": "qc1481181334816",
+      "description": ""
+    },
+    {
+      "sequence": "AGTTGAATTTAACTCAAGAGGCCAAGGACTTCTTGGCCAAATATGGTTATTCCGATGATATGGGTGCACGTCCACTGAACAGGTTAATTCAAAACGAAATT",
+      "feature": "fea1481181299247",
+      "author": "",
+      "bioDesign": "bio1481181311669",
+      "name": "qc1481181334890",
+      "description": ""
+    },
+    {
+      "sequence": "CCAGCATAATTCCTCGAACTTCTAGGAATAAAAAAACCTCCCCATCAAACTATCACCATTCGGTACTTTCACATCGGAAATCAAATGAATGGAATCAGGTC",
+      "feature": "fea1481181300060",
+      "author": "",
+      "bioDesign": "bio1481181312732",
+      "name": "qc1481181334950",
+      "description": ""
+    },
+    {
+      "sequence": "ACGATTACGATATCAATGCTTTAAAATATGTTTATAAGCTAAGAGAGTTCATGCAATTATCAAATATGTCGTTACAAAATAAATCTTTGGAAGATGGATCC",
+      "feature": "fea1481181299451",
+      "author": "",
+      "bioDesign": "bio1481181313650",
+      "name": "qc1481181335014",
+      "description": ""
+    },
+    {
+      "sequence": "AGATATCCTAACAAATGCCATTGTCATCTCCCGACATAGAAGAAAAGCAGTCAAGATAAATTCTGGTAGAAGAAGTGAAGTTTCTGCGGCTTTAAGAGCCA",
+      "feature": "fea1481181299226",
+      "author": "",
+      "bioDesign": "bio1481181314609",
+      "name": "qc1481181335086",
+      "description": ""
+    },
+    {
+      "sequence": "TGGTATCTTTACTGTCGTCCACCGATCCTGATGTTCAGTACTATTGTACTACTGCTTTATCAAATATAGCAGTGGATGAAGCCAATCGCAAGAAGTTGGCT",
+      "feature": "fea1481181299863",
+      "author": "",
+      "bioDesign": "bio1481181315613",
+      "name": "qc1481181335148",
+      "description": ""
+    },
+    {
+      "sequence": "AAAACAGGACGAAGACGGCGCAGAAACTGCCGCTACTACTCCTCTTCCATCTGCCGCTGCTACAAGCACGAAGCTAAATAAAAGCATGATCCTAGAAAAAG",
+      "feature": "fea1481181299104",
+      "author": "",
+      "bioDesign": "bio1481181316737",
+      "name": "qc1481181335214",
+      "description": ""
+    },
+    {
+      "sequence": "ATTTCATCAAGAATAAATATGAATATAAGAAGTGGATTGGTGACCTCTCCAGTATTGAAGGGTTAAATGATTCTACTGAACCAGTTCTGCATAAGCCGTCT",
+      "feature": "fea1481181299247",
+      "author": "",
+      "bioDesign": "bio1481181317774",
+      "name": "qc1481181335281",
+      "description": ""
+    },
+    {
+      "sequence": "AATCAAATTTCTAGAGCACCAAGTATTGCTATTTATTCTGTTGAATCCTTGGATATAACAGATAACAAATTTAAGGAAAGAAGTTTGATAGATGATTTGAA",
+      "feature": "fea1481181299398",
+      "author": "",
+      "bioDesign": "bio1481181318844",
+      "name": "qc1481181335347",
+      "description": ""
+    },
+    {
+      "sequence": "TTGAAGTCAAGTACAACTTTATTTAACAGAAGGAAAGACAAGCTTGCGACTTTATTTGGTTCTTTTTTCACGTCCAATTACGTCGCATTATGGGCCAAGTT",
+      "feature": "fea1481181299247",
+      "author": "",
+      "bioDesign": "bio1481181319688",
+      "name": "qc1481181335406",
+      "description": ""
+    },
+    {
+      "sequence": "CCCACTAAGGACTGATAGCAGAATAGACATATTATTCTCAAACATTAAGAATCTAATTTTTCAATCTTGTAAAGGTGAATTAATTGTCGTCATTCATATTC",
+      "feature": "fea1481181299916",
+      "author": "",
+      "bioDesign": "bio1481181320960",
+      "name": "qc1481181335523",
+      "description": ""
+    },
+    {
+      "sequence": "AGGAACAAAGCTACCTTATTGAGTCCACAATTCAGGACTATAAGAAGCAGCGTAGATTGGAGGAGATCGTCACACTTAATAAGAACTTAGAAGAATTGCAC",
+      "feature": "fea1481181299421",
+      "author": "",
+      "bioDesign": "bio1481181322301",
+      "name": "qc1481181335644",
+      "description": ""
+    },
+    {
+      "sequence": "TATGGGGTTGGAAAACAGAATTACGCAGCGATTCCATTCGGATACAATGTACCATGCAGTTGGACAAGGCGCCCTGGGTATAGAAATTAGAAAGGGTGACA",
+      "feature": "fea1481181299763",
+      "author": "",
+      "bioDesign": "bio1481181323367",
+      "name": "qc1481181335711",
+      "description": ""
+    },
+    {
+      "sequence": "GAAAACTTTGCCAAAGGTGAGCACATTTCGGCAATTGTTCCTGGTCAAAGCATTAGTGGAACATTGGAACTCAGTGCACAATTTAGAGTACCGCGTTATCA",
+      "feature": "fea1481181299658",
+      "author": "",
+      "bioDesign": "bio1481181324542",
+      "name": "qc1481181335776",
+      "description": ""
+    },
+    {
+      "sequence": "GGCGGATGGGTTGGTATTTAATGTGGTAACTCAAGATATGATAAACAAAAGTACTAAACCTTACAGAGGACACCGGTTTACAAAAGAAAATGTCCGAATAC",
+      "feature": "fea1481181299345",
+      "author": "",
+      "bioDesign": "bio1481181325276",
+      "name": "qc1481181335880",
+      "description": ""
+    },
+    {
+      "sequence": "GTATCTAAAAATTTTCAAACAAAAGTGCCACCTTATGCAAAACTTTTGACCAACCTAGACAAGATTAAACAAATAACAAACAATGCTCCATTGACACTAGC",
+      "feature": "fea1481181299954",
+      "author": "",
+      "bioDesign": "bio1481181325985",
+      "name": "qc1481181335976",
+      "description": ""
+    },
+    {
+      "sequence": "GCAACTAGAAGAAAAACATAGGACAAAAAAAAATGAAGAATACACTGCGTTGAAAATTTTAAGGGATGTCATAGGTCCCCTTTTATTAACTATAACTTCGT",
+      "feature": "fea1481181299863",
+      "author": "",
+      "bioDesign": "bio1481181326774",
+      "name": "qc1481181336081",
+      "description": ""
+    },
+    {
+      "sequence": "GGTTGAGAGAAATGAAAAAACTACATTATAAAGATCAATCAATTTTATTTTATTTTAAAAATTTCCGGTTTTTCGACATTATTGAAGCTTTTTATAATTTG",
+      "feature": "fea1481181299538",
+      "author": "",
+      "bioDesign": "bio1481181327475",
+      "name": "qc1481181336167",
+      "description": ""
+    },
+    {
+      "sequence": "AAACTGCTAGACATATTTCACAATTAGAAAAGGAAGTCCAGAGACTCATGGTAATAAAAGAAGCTTCAAAAGATTCAAATTTTCAAACAGCACGGCTTAAA",
+      "feature": "fea1481181299609",
+      "author": "",
+      "bioDesign": "bio1481181328157",
+      "name": "qc1481181336252",
+      "description": ""
+    },
+    {
+      "sequence": "TAGCATACGAACCCCTACGAGCTTGCAGCGGCAAAATTCTGACAGGCAATCTAATATGACATCCGTGTTTACGGATGACATTTCTACCATAGACGACAACT",
+      "feature": "fea1481181299398",
+      "author": "",
+      "bioDesign": "bio1481181328960",
+      "name": "qc1481181336322",
+      "description": ""
+    },
+    {
+      "sequence": "ATGGCACCGAAAAAGAAATCAAACGATAGAGCCATTCAGGCAAAAGGCTCAGAAG",
+      "feature": "fea1481181299272",
+      "author": "",
+      "bioDesign": "bio1481181329703",
+      "name": "qc1481181336391",
+      "description": ""
+    },
+    {
+      "sequence": "TCATAAAAGGGTTTGATACCTTCTCCAAGTCACACCACAGCCATGCAGATTCTGCATTCAATAACAATGATCGTATTTTTTCATTAAGTAGTGCTACGTAC",
+      "feature": "fea1481181299272",
+      "author": "",
+      "bioDesign": "bio1481181330497",
+      "name": "qc1481181336456",
+      "description": ""
+    },
+    {
+      "sequence": "AAACCAACTGCCGGCTGAAAGAGCTTGTGCAATGGGAGTGCCAATTCAAAGGAGCCGAATACGTCTGCTCGCCTTTTAAGAGGCTTTTTGAACACTGCATT",
+      "feature": "fea1481181299496",
+      "author": "",
+      "bioDesign": "bio1481181331307",
+      "name": "qc1481181336524",
+      "description": ""
+    },
+    {
+      "sequence": "TTTAACTAAAAGTTATACTGATAAAGAGGGTGGTTCTGATGAAATTATGCTCGAAGATGAAAGTGGGAGAGTGCTTCTAGTGGGAGATTTTATTCGGTCTA",
+      "feature": "fea1481181300012",
+      "author": "",
+      "bioDesign": "bio1481181332073",
+      "name": "qc1481181336588",
+      "description": ""
+    },
+    {
+      "sequence": "CAGCATCAAAGAGCACTCTACAACTATGGATGGTGCCAATGACCTCGGATTCACCGCCTCTGTTTCGAATCAAGAAAATGCAGGAACTGATATTGTGATGG",
+      "feature": "fea1481181299150",
+      "author": "",
+      "bioDesign": "bio1481181332955",
+      "name": "qc1481181336659",
+      "description": ""
+    },
+    {
+      "sequence": "GACTTCTCTTAGTGCCAATGCGGCTGCCATTTTTACTTTTTTGCACAAATTAGTGGAGGTATTAAGTGACTACTTAAAAACCGTTGAAGAAGAATCTATTA",
+      "feature": "fea1481181299046",
+      "author": "",
+      "bioDesign": "bio1481181333795",
+      "name": "qc1481181336724",
+      "description": ""
+    }
+  ],
+  "Name": "QC"
+}

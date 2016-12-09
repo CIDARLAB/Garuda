@@ -1,0 +1,23 @@
+{
+  "Entries": [
+    {
+      "software": "Tophat+HTSEQ",
+      "feature": "fea1481181299398",
+      "level": 10.0,
+      "author": "",
+      "bioDesign": "bio1481181325985",
+      "name": "exp1481181336774",
+      "description": ""
+    },
+    {
+      "software": "Tophat+HTSEQ",
+      "feature": "fea1481181299451",
+      "level": 27.0,
+      "author": "",
+      "bioDesign": "bio1481181320960",
+      "name": "exp1481181336827",
+      "description": ""
+    }
+  ],
+  "Name": "Expression"
+}
