@@ -176,12 +176,20 @@ and open the template in the editor.
                     <div class="">
                         <div class="page-title">
                             <div class="title_left utitle">
-                                <h3>Search Data</h3>
+                                <h3>Add Data</h3>
                             </div>
 
                             <div class="utitle_right">
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right">
-                                    <button class="btn btn-primary query-add">Add field</button>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
+                                    <select id="sheet" class="form-control">
+                                        <!--<option>Choose Schema</option>-->
+                                        <option value="add.html">Metadata</option>
+                                        <option value="add_parts.html">Parts</option>
+                                        <option value="add_constructs.html" selected="selected">Constructs</option>
+                                        <option value="add_gendata.html">Generated Data</option>
+                                        <option value="add_rna.html">RNA Seq</option>
+                                        <option value="add_qc.html">QC</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +199,7 @@ and open the template in the editor.
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Search query <!--<small>Choose your schema</small>--></h2>
+                                        <h2>Create Entry: Constructs <!--<small>Choose your schema</small>--></h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
@@ -210,129 +218,100 @@ and open the template in the editor.
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
-                                        <br />
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/result}" th:object="${app}" method="post">
+                                        <br/>
+                                        <form id="demo-form2" class="form-horizontal form-label-left">
 
-                                            <div class="query-container">
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqA}"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="construct_id">Construct ID <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="construct_id" required="required" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
-
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqB}"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query3" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query4" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query5" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
                                             </div>
-
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="function">Function
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="function" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="barcode">Barcode
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="barcode" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sequence">Sequence
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <textarea name="sequence" class="resizable_textarea form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="length">Length
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="length" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="num_of_parts">Number of Parts 
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="num_of_parts" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part1">Part 1
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part1" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part2">Part 2
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part2" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part3">Part 3
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part3" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part4">Part 4
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part4" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part5">Part 5
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part5" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part6">Part 6
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part6" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="part7">Part 7
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="part7" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
 
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
@@ -372,13 +351,6 @@ and open the template in the editor.
                     <p>Username: <input type="text" th:field="*{username}" /></p>
                    <input type="submit" value="Execute" />
                 </form>
-                
-                <form action="#" th:action="@{/result}" th:object="${app}" method="post">
-                    <p>Query 1: <input type="text" th:field="*{seqA}" /></p>
-                    <p>Query 2: <input type="text" th:field="*{seqB}" /></p>
-                    <input type="submit" value="Search" />
-                </form>
-                
                 </div>-->
 
             </div>
@@ -392,35 +364,33 @@ and open the template in the editor.
         <script src="js/nprogress.js"></script>
         <!-- bootstrap-progressbar -->
         <script src="js/bootstrap-progressbar.min.js"></script>
+        <!-- Autosize -->
+        <script src="js/autosize.min.js"></script>
 
         <!-- Custom Theme Scripts -->
         <script src="js/custom.min.js"></script>
         
-        <!-- Custom Function: OnClick, OnClose-->
+        <!-- Onchange combobox -->
         <script>
-            $(document).ready(function(){
-                
-                //$(".did1").hide();
-            
-            	$(".close-query").click (function () {
-                    alert("hai");
-                    var e=$(this).closest(".div-query");
-                    e.remove();
-                });
-		
-            	$(".query-add").click (function () {
-                    alert("hai");
-                    //$(".did1").show(1000);
-                    //$(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
-                    $(".query-container").append("<h2>TEST GA GUNA</h2>");
-                });
-			  
-                $(document).on('click', '.close-query', function(){
-                    var e=$(this).closest(".div-query");
-                    e.remove();
-                });
+            $(function(){
+              // bind change event to select
+              $('#sheet').on('change', function () {
+                  var url = $(this).val(); // get selected value
+                  if (url) { // require a URL
+                      window.location = url; // redirect
+                  }
+                  return false;
+              });
             });
         </script>
+        <!-- /Onchange combobox -->
+        <!-- Autosize -->
+        <script>
+          $(document).ready(function() {
+            autosize($('.resizable_textarea'));
+          });
+        </script>
+        <!-- /Autosize -->
     </body>
 
 </html>

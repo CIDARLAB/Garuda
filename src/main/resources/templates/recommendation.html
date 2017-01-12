@@ -170,18 +170,23 @@ and open the template in the editor.
                     </div>
                 </div>
                 <!-- /top navigation -->
-
+                
                 <!-- page content -->
                 <div class="right_col" role="main">
                     <div class="">
                         <div class="page-title">
                             <div class="title_left utitle">
-                                <h3>Search Data</h3>
+                                <h3>Analysis Results <small></small></h3>
                             </div>
 
-                            <div class="utitle_right">
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right">
-                                    <button class="btn btn-primary query-add">Add field</button>
+                            <div class="title_right">
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for..."/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -191,167 +196,69 @@ and open the template in the editor.
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Search query <!--<small>Choose your schema</small>--></h2>
+                                        <h2>Line graph<small>Sessions</small></h2>
                                         <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <!--<li class="dropdown">
-                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                              <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                              </ul>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>-->
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
-                                        <br />
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/result}" th:object="${app}" method="post">
-
-                                            <div class="query-container">
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqA}"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqB}"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query3" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query4" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query5" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-
-
-                                            <div class="ln_solid"></div>
-                                            <div class="form-group">
-                                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-primary">Cancel</button>
-                                                    <button type="submit" class="btn btn-success">Submit</button>
-                                                </div>
-                                            </div>
-
-                                        </form>
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="lineChart"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="row">
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Bar graph <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="mybarChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Donut Graph <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="canvasDoughnut"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
-
                 <!-- /page content -->
-
+                
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
@@ -372,22 +279,15 @@ and open the template in the editor.
                     <p>Username: <input type="text" th:field="*{username}" /></p>
                    <input type="submit" value="Execute" />
                 </form>
-                
-                <form action="#" th:action="@{/result}" th:object="${app}" method="post">
-                    <p>Query 1: <input type="text" th:field="*{seqA}" /></p>
-                    <p>Query 2: <input type="text" th:field="*{seqB}" /></p>
-                    <input type="submit" value="Search" />
-                </form>
-                
                 </div>-->
-
             </div>
         </div>
-
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="js/bootstrap.min.js"></script>
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
         <!-- NProgress -->
         <script src="js/nprogress.js"></script>
         <!-- bootstrap-progressbar -->
@@ -396,31 +296,109 @@ and open the template in the editor.
         <!-- Custom Theme Scripts -->
         <script src="js/custom.min.js"></script>
         
-        <!-- Custom Function: OnClick, OnClose-->
+        
+        <!-- Chart.js -->
         <script>
-            $(document).ready(function(){
-                
-                //$(".did1").hide();
-            
-            	$(".close-query").click (function () {
-                    alert("hai");
-                    var e=$(this).closest(".div-query");
-                    e.remove();
-                });
-		
-            	$(".query-add").click (function () {
-                    alert("hai");
-                    //$(".did1").show(1000);
-                    //$(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
-                    $(".query-container").append("<h2>TEST GA GUNA</h2>");
-                });
-			  
-                $(document).on('click', '.close-query', function(){
-                    var e=$(this).closest(".div-query");
-                    e.remove();
-                });
-            });
+          Chart.defaults.global.legend = {
+            enabled: false
+          };
+
+          // Line chart
+          var ctx = document.getElementById("lineChart");
+          var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [{
+                label: "My First dataset",
+                backgroundColor: "rgba(38, 185, 154, 0.31)",
+                borderColor: "rgba(38, 185, 154, 0.7)",
+                pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointBorderWidth: 1,
+                data: [31, 74, 6, 39, 20, 85, 7]
+              }, {
+                label: "My Second dataset",
+                backgroundColor: "rgba(3, 88, 106, 0.3)",
+                borderColor: "rgba(3, 88, 106, 0.70)",
+                pointBorderColor: "rgba(3, 88, 106, 0.70)",
+                pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(151,187,205,1)",
+                pointBorderWidth: 1,
+                data: [82, 23, 66, 9, 99, 4, 2]
+              }]
+            },
+          });
+
+          // Bar chart
+          var ctx = document.getElementById("mybarChart");
+          var mybarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [{
+                label: '# of Votes',
+                backgroundColor: "#26B99A",
+                data: [51, 30, 40, 28, 92, 50, 45]
+              }, {
+                label: '# of Votes',
+                backgroundColor: "#03586A",
+                data: [41, 56, 25, 48, 72, 34, 12]
+              }]
+            },
+
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+
+          // Doughnut chart
+          var ctx = document.getElementById("canvasDoughnut");
+          var data = {
+            labels: [
+              "Dark Grey",
+              "Purple Color",
+              "Gray Color",
+              "Green Color",
+              "Blue Color"
+            ],
+            datasets: [{
+              data: [120, 50, 140, 180, 100],
+              backgroundColor: [
+                "#455C73",
+                "#9B59B6",
+                "#BDC3C7",
+                "#26B99A",
+                "#3498DB"
+              ],
+              hoverBackgroundColor: [
+                "#34495E",
+                "#B370CF",
+                "#CFD4D8",
+                "#36CAAB",
+                "#49A9EA"
+              ]
+
+            }]
+          };
+
+          var canvasDoughnut = new Chart(ctx, {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: data
+          });
+
         </script>
+        <!-- /Chart.js -->
     </body>
 
 </html>

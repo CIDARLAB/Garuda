@@ -5,15 +5,449 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns:th="http://www.thymeleaf.org">
+
     <head>
-        <title>.: GARUDA - Results</title>
+        <title>GARUDA |</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/user.css"/>
+
+        <link rel="stylesheet" type="text/css" href="css/custom.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/nprogress.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-progressbar-3.3.4.min.css"/>
+        
     </head>
-   <body>
-        <h1>Garuda</h1>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="index.html" class="site_title"><!--<i class="fa fa-paw"></i>--> <span>GARUDA</span></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- menu profile quick info 
+                        <div class="profile">
+                            <div class="profile_pic">
+                                <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
+                            </div>
+                            <div class="profile_info">
+                                <span>Welcome,</span>
+                                <h2>John Doe</h2>
+                            </div>
+                        </div>-->
+                        <!-- /menu profile quick info -->
+                        <br/>
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <!--<h3>General</h3>-->
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="index.html">Dashboard</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-edit"></i> Data Entry <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="add.html">Add Data</a></li>
+                                            <li><a href="import.html">Import Spreadsheet</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-table"></i> Data Search <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="search.html">Query</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-bar-chart-o"></i> Analysis <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="recommender.html">Toxicity Analyzer</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu_section">
+                                <!--<h3>Miscellaneous</h3>-->
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-clone"></i> Help <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="page_404.html">Documentation</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-bug"></i> About <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="page_404.html">Developer Team</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /sidebar menu -->
+                    </div>
+                </div>
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="images/user.png" alt=""/>Rizki Mardian
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="javascript:;"> Profile</a></li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <!--<span class="badge bg-red pull-right">50%</span>-->
+                                                <span>Settings</span>
+                                            </a>
+                                        </li>
+                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    </ul>
+                                </li>
+
+                                <li role="presentation" class="dropdown">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <!--<span class="badge bg-green">6</span>-->
+                                    </a>
+                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                        <li>
+                                            <a>
+                                                <span class="image"><img src="images/user.png" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>user123</span>
+                                                    <span class="time">1 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image"><img src="images/user.png" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>user456</span>
+                                                    <span class="time">2 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image"><img src="images/user.png" alt="Profile Image" /></span>
+                                                <span>
+                                                    <span>user789</span>
+                                                    <span class="time">3 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Search results</h3>
+                            </div>
+
+                            <div class="title_right">
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Filter search..."/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Search results</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <!--<li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Settings 1</a>
+                                                    </li>
+                                                    <li><a href="#">Settings 2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>-->
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <p class="umessage" th:text="${app.getMessage()}"></p>
+                                        <div class="row">
+                                            
+                                            <!-- MAIL LIST -->
+                                            <div class="col-sm-3">
+                                                <button id="listview" class="btn btn-sm btn-success btn-block" type="button">LIST VIEW</button>
+                                                <br/>
+                                                <a href="#" th:each="plasmid: ${app.getResults()}" th:class="${plasmid.getIdx()}">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-circle-o-notch"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3 th:text="${plasmid.getId()}"></h3>
+                                                            <p th:text="${plasmid.getDescription()}"></p>
+                                                            <p th:text="${plasmid.getLength()}"></p>
+                                                            <p th:text="${plasmid.getAnnostring()}"></p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <!--<a href="#" class="entry1">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-circle-o-notch"></i> 
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>J04B8GFP_AE <small>3.00 PM</small></h3>
+                                                            <p>Plasmid metadata ...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="entry2">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-arrows-h"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>GFP_CD <small>4.09 PM</small></h3>
+                                                            <p><span class="badge">User123</span> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-arrows-h"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>GFP_CD <small>4.09 PM</small></h3>
+                                                            <p><span class="badge">User123</span> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>-->
+
+                                            </div>
+                                            <!-- /MAIL LIST -->
+
+                                            <!-- CONTENT MAIL -->
+                                            <div class="col-sm-9 mail_view inbox-body ucontainer">
+                                                <div class="plasmid1">
+                                                    <div class="mail_heading row">
+                                                        <div class="col-md-8">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-circle-o-notch"></i> Map View</button>
+                                                                <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i> Detailed View</button>
+                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i> Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-right">
+                                                            <button class="btn btn-sm btn-primary" type="button">Edit</button>
+                                                            <button class="btn btn-sm btn-default" type="button"><i class="fa fa-trash-o"></i> Delete</button>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <h4 class="uctitle"> J04B8BFP_AE 3 bp ds-DNA circular 11-DEC-2016 <span class="badge">User123</span></h4>
+                                                        </div>
+                                                        <div class="view-mail">
+                                                            <br/><br/>
+                                                            <br/><br/>  
+                                                        </div>
+
+                                                        <div ng-app="myApp" align="center">
+                                                            <div th:each="plasmid: ${app.getResults()}">
+                                                                <plasmid sequencelength="3000" plasmidheight="500" plasmidwidth="500">
+                                                                    <plasmidtrack trackstyle="#cccccc" width="7" radius="160"></plasmidtrack>
+                                                                    <plasmidtrack trackstyle="fill:rgba(200,200,200,0.7)" radius="150" th:each="anno: ${plasmid.getAnnotations()}">
+                                                                        <tracklabel text="HSP70" labelstyle='font-size:20px;font-weight:400'></tracklabel>
+                                                                        <tracklabel th:text="${plasmid.getLength()}" labelstyle='font-size:10px' vadjust="20"></tracklabel>
+
+                                                                        <!-- draw the main markers and labels -->
+                                                                        <trackmarker th:start="${anno.getStart()}" end="${anno.getEnd()}" markerstyle="fill:#F7464A" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="HSP70" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <!--<trackmarker start="120" end="190" markerstyle="fill:#46BFBD" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="NF1 Promote" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="200" end="230" markerstyle="fill:#FDB45C" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="Sig" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="250" end="300" markerstyle="fill:#949FB1" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="ColE1 Ori" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-25" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="325" end="345" markerstyle="fill:#3498db" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="P3" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>-->
+
+                                                                        <!-- draw the region boundaries lines for each marker 
+                                                                        <trackmarker start="10" markerstyle="stroke:rgba(128,64,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel red" text="50" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="95" markerstyle="stroke:rgba(128,64,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel red" text="95" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="120" markerstyle="stroke:rgba(128,64,128,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel purple" text="120" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="190" markerstyle="stroke:rgba(128,64,128,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel purple" text="190" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="200" markerstyle="stroke:rgba(64,128,128,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel blue" text="200" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="230" markerstyle="stroke:rgba(64,128,128,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel blue" text="230" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="250" markerstyle="stroke:rgba(64,128,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel green" text="250" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="300" markerstyle="stroke:rgba(64,128,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel green" text="300" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="325" markerstyle="stroke:rgba(128,128,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel gold" text="325" vadjust="30"></markerlabel>
+                                                                        </trackmarker>
+                                                                        <trackmarker start="345" markerstyle="stroke:rgba(128,128,64,0.8)" class="boundary" wadjust="15">
+                                                                            <markerlabel class="smlabel gold" text="345" vadjust="30"></markerlabel>
+                                                                        </trackmarker>-->
+
+                                                                        <!-- draw the scales 
+                                                                        <trackscale interval="5" style="stroke:#999999" direction="in" ticksize="3"></trackscale>
+                                                                        <trackscale interval="5" style="stroke:#999999" ticksize="3"></trackscale>
+                                                                        <trackscale interval="30" style="stroke:#ff0000" direction="in" labelstyle="fill:#999;stroke:none;text-anchor:middle;alignment-baseline:middle;font-size:10px"></trackscale>-->
+                                                                    </plasmidtrack>
+                                                                </plasmid>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="plasmid2" style="display:none">
+                                                    <div class="mail_heading row">
+                                                        <div class="col-md-8">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-circle-o-notch"></i> Map View</button>
+                                                                <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i> Detailed View</button>
+                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i> Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-right">
+                                                            <button class="btn btn-sm btn-primary" type="button">Edit</button>
+                                                            <button class="btn btn-sm btn-default" type="button"><i class="fa fa-trash-o"></i> Delete</button>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <h4> J04B8BFP_AE 4 bp ds-DNA circular 11-DEC-2016 <span class="badge">User123</span></h4>
+                                                        </div>
+                                                        <div class="view-mail">
+                                                            <br/><br/>
+                                                            <canvas id="canvasDoughnut"></canvas>
+                                                            <br/><br/>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+                                            </div>
+
+                                            <!-- /CONTENT MAIL -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        GARUDA &copy; CIDAR Lab and MIT Broad Foundry. 2017
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
+                <!--<div style="background-color:#ffaa00">
+                    <h1>Garuda</h1>
+                    <p th:text="${app.getMessage()}"></p>
+                </div>
+    
+                <div>
+                    <h2 class="test">Garuda</h2>
+                <form action="#" th:action="@{/entry}" th:object="${app}" method="post">
+                    <p>Username: <input type="text" th:field="*{username}" /></p>
+                   <input type="submit" value="Execute" />
+                </form>
+                </div>-->
+
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
         
-        <p th:text="'Results: ' + ${app.getMessage()}"></p>
-        
+         <!-- Angular Plasmid -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/angularplasmid.min.js'></script>
+	
+	<script>
+            var app = angular.module('myApp', ['angularplasmid']);
+	</script>
+    
     </body>
+
 </html>

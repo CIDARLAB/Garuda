@@ -3,11 +3,11 @@
     {
       "size": 34,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-1",
-      "name": "pro1481181296290",
+      "name": "pro1484083676453",
       "host": "PLAC861",
-      "plasmid": "pla1481181296294",
+      "plasmid": "pla1484083676463",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -15,11 +15,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-1",
-      "name": "pro1481181296403",
+      "name": "pro1484083676639",
       "host": "PLAC861",
-      "plasmid": "pla1481181296404",
+      "plasmid": "pla1484083676639",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -27,11 +27,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-1",
-      "name": "pro1481181296471",
+      "name": "pro1484083676675",
       "host": "PLAC861",
-      "plasmid": "pla1481181296473",
+      "plasmid": "pla1484083676676",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -39,11 +39,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-2",
-      "name": "pro1481181296604",
+      "name": "pro1484083676726",
       "host": "PLAC861",
-      "plasmid": "pla1481181296604",
+      "plasmid": "pla1484083676727",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -51,11 +51,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-2",
-      "name": "pro1481181296662",
+      "name": "pro1484083676776",
       "host": "PLAC861",
-      "plasmid": "pla1481181296662",
+      "plasmid": "pla1484083676776",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -63,11 +63,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-2",
-      "name": "pro1481181296744",
+      "name": "pro1484083676821",
       "host": "PLAC861",
-      "plasmid": "pla1481181296745",
+      "plasmid": "pla1484083676821",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -75,11 +75,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-3",
-      "name": "pro1481181296804",
+      "name": "pro1484083676873",
       "host": "PLAC861",
-      "plasmid": "pla1481181296805",
+      "plasmid": "pla1484083676874",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -87,11 +87,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-3",
-      "name": "pro1481181296860",
+      "name": "pro1484083676911",
       "host": "PLAC861",
-      "plasmid": "pla1481181296860",
+      "plasmid": "pla1484083676911",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -99,11 +99,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-3",
-      "name": "pro1481181296908",
+      "name": "pro1484083676948",
       "host": "PLAC861",
-      "plasmid": "pla1481181296908",
+      "plasmid": "pla1484083676948",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -111,11 +111,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-4",
-      "name": "pro1481181296983",
+      "name": "pro1484083676988",
       "host": "PLAC861",
-      "plasmid": "pla1481181296984",
+      "plasmid": "pla1484083676988",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -123,11 +123,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-4",
-      "name": "pro1481181297045",
+      "name": "pro1484083677037",
       "host": "PLAC861",
-      "plasmid": "pla1481181297046",
+      "plasmid": "pla1484083677037",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -135,11 +135,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-4",
-      "name": "pro1481181297098",
+      "name": "pro1484083677076",
       "host": "PLAC861",
-      "plasmid": "pla1481181297098",
+      "plasmid": "pla1484083677077",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -147,11 +147,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-5",
-      "name": "pro1481181297179",
+      "name": "pro1484083677121",
       "host": "PLAC861",
-      "plasmid": "pla1481181297179",
+      "plasmid": "pla1484083677121",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -159,11 +159,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-5",
-      "name": "pro1481181297265",
+      "name": "pro1484083677163",
       "host": "PLAC861",
-      "plasmid": "pla1481181297266",
+      "plasmid": "pla1484083677164",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -171,11 +171,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-5",
-      "name": "pro1481181297385",
+      "name": "pro1484083677220",
       "host": "PLAC861",
-      "plasmid": "pla1481181297389",
+      "plasmid": "pla1484083677221",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -183,11 +183,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-6",
-      "name": "pro1481181297480",
+      "name": "pro1484083677267",
       "host": "PLAC861",
-      "plasmid": "pla1481181297480",
+      "plasmid": "pla1484083677268",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -195,11 +195,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-6",
-      "name": "pro1481181297563",
+      "name": "pro1484083677308",
       "host": "PLAC861",
-      "plasmid": "pla1481181297563",
+      "plasmid": "pla1484083677308",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -207,11 +207,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-6",
-      "name": "pro1481181297640",
+      "name": "pro1484083677349",
       "host": "PLAC861",
-      "plasmid": "pla1481181297641",
+      "plasmid": "pla1484083677349",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -219,11 +219,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-7",
-      "name": "pro1481181297739",
+      "name": "pro1484083677393",
       "host": "PLAC861",
-      "plasmid": "pla1481181297740",
+      "plasmid": "pla1484083677393",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -231,11 +231,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-7",
-      "name": "pro1481181297832",
+      "name": "pro1484083677459",
       "host": "PLAC861",
-      "plasmid": "pla1481181297832",
+      "plasmid": "pla1484083677460",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -243,11 +243,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-7",
-      "name": "pro1481181297900",
+      "name": "pro1484083677505",
       "host": "PLAC861",
-      "plasmid": "pla1481181297901",
+      "plasmid": "pla1484083677506",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -255,11 +255,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-8",
-      "name": "pro1481181297998",
+      "name": "pro1484083677557",
       "host": "PLAC861",
-      "plasmid": "pla1481181297998",
+      "plasmid": "pla1484083677557",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -267,11 +267,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-8",
-      "name": "pro1481181298112",
+      "name": "pro1484083677607",
       "host": "PLAC861",
-      "plasmid": "pla1481181298113",
+      "plasmid": "pla1484083677607",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -279,11 +279,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-8",
-      "name": "pro1481181298213",
+      "name": "pro1484083677653",
       "host": "PLAC861",
-      "plasmid": "pla1481181298217",
+      "plasmid": "pla1484083677653",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -291,11 +291,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-9",
-      "name": "pro1481181298286",
+      "name": "pro1484083677702",
       "host": "PLAC861",
-      "plasmid": "pla1481181298286",
+      "plasmid": "pla1484083677702",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -303,11 +303,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-9",
-      "name": "pro1481181298367",
+      "name": "pro1484083677747",
       "host": "PLAC861",
-      "plasmid": "pla1481181298368",
+      "plasmid": "pla1484083677747",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -315,11 +315,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-9",
-      "name": "pro1481181298460",
+      "name": "pro1484083677806",
       "host": "PLAC861",
-      "plasmid": "pla1481181298460",
+      "plasmid": "pla1484083677806",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -327,11 +327,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "BN-10",
-      "name": "pro1481181298552",
+      "name": "pro1484083677862",
       "host": "PLAC861",
-      "plasmid": "pla1481181298552",
+      "plasmid": "pla1484083677862",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -339,11 +339,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "CN-10",
-      "name": "pro1481181298645",
+      "name": "pro1484083677904",
       "host": "PLAC861",
-      "plasmid": "pla1481181298646",
+      "plasmid": "pla1484083677904",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -351,11 +351,11 @@
     {
       "size": 33,
       "purpose": "NRPS production",
-      "author": "",
+      "author": "user123",
       "libraryId": "FN-10",
-      "name": "pro1481181298737",
+      "name": "pro1484083677954",
       "host": "PLAC861",
-      "plasmid": "pla1481181298737",
+      "plasmid": "pla1484083677954",
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"

@@ -2,20 +2,20 @@
   "Entries": [
     {
       "software": "Tophat+HTSEQ",
-      "feature": "fea1481181299398",
+      "feature": "fea1484083678386",
       "level": 10.0,
-      "author": "",
-      "bioDesign": "bio1481181325985",
-      "name": "exp1481181336774",
+      "author": "user123",
+      "bioDesign": "bio1484083695096",
+      "name": "exp1484083705375",
       "description": ""
     },
     {
       "software": "Tophat+HTSEQ",
-      "feature": "fea1481181299451",
+      "feature": "fea1484083678440",
       "level": 27.0,
-      "author": "",
-      "bioDesign": "bio1481181320960",
-      "name": "exp1481181336827",
+      "author": "user123",
+      "bioDesign": "bio1484083691416",
+      "name": "exp1484083705413",
       "description": ""
     }
   ],

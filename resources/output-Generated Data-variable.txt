@@ -1,752 +1,752 @@
 {
   "Entries": [
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Growth Rate",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Duration",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Performance",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Purity",
       "description": ""
     },
     {
-      "author": "",
+      "author": "user123",
       "name": "Acidity",
       "description": ""
     }

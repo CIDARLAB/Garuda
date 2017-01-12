@@ -3,9 +3,9 @@
     {
       "site": 5,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181307278",
-      "name": "exd1481181307602",
+      "author": "user123",
+      "bioDesign": "bio1484083683162",
+      "name": "exd1484083683403",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -13,9 +13,9 @@
     {
       "site": 170,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181307944",
-      "name": "exd1481181308407",
+      "author": "user123",
+      "bioDesign": "bio1484083683826",
+      "name": "exd1484083684163",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -23,9 +23,9 @@
     {
       "site": 660,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181308895",
-      "name": "exd1481181309316",
+      "author": "user123",
+      "bioDesign": "bio1484083684409",
+      "name": "exd1484083684605",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -33,9 +33,9 @@
     {
       "site": 928,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181309853",
-      "name": "exd1481181310415",
+      "author": "user123",
+      "bioDesign": "bio1484083684864",
+      "name": "exd1484083685090",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -43,9 +43,9 @@
     {
       "site": 77,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181310956",
-      "name": "exd1481181311266",
+      "author": "user123",
+      "bioDesign": "bio1484083685356",
+      "name": "exd1484083685654",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -53,9 +53,9 @@
     {
       "site": 334,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181311669",
-      "name": "exd1481181312189",
+      "author": "user123",
+      "bioDesign": "bio1484083685898",
+      "name": "exd1484083686116",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -63,9 +63,9 @@
     {
       "site": 784,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181312732",
-      "name": "exd1481181313215",
+      "author": "user123",
+      "bioDesign": "bio1484083686401",
+      "name": "exd1484083686749",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -73,9 +73,9 @@
     {
       "site": 919,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181313650",
-      "name": "exd1481181314112",
+      "author": "user123",
+      "bioDesign": "bio1484083687012",
+      "name": "exd1484083687246",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -83,9 +83,9 @@
     {
       "site": 796,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181314609",
-      "name": "exd1481181315043",
+      "author": "user123",
+      "bioDesign": "bio1484083687589",
+      "name": "exd1484083687860",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -93,9 +93,9 @@
     {
       "site": 103,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181315613",
-      "name": "exd1481181316124",
+      "author": "user123",
+      "bioDesign": "bio1484083688150",
+      "name": "exd1484083688409",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -103,9 +103,9 @@
     {
       "site": 806,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181316737",
-      "name": "exd1481181317334",
+      "author": "user123",
+      "bioDesign": "bio1484083688757",
+      "name": "exd1484083689086",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -113,9 +113,9 @@
     {
       "site": 381,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181317774",
-      "name": "exd1481181318297",
+      "author": "user123",
+      "bioDesign": "bio1484083689535",
+      "name": "exd1484083689807",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -123,9 +123,9 @@
     {
       "site": 542,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181318844",
-      "name": "exd1481181319202",
+      "author": "user123",
+      "bioDesign": "bio1484083690182",
+      "name": "exd1484083690475",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -133,9 +133,9 @@
     {
       "site": 528,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181319688",
-      "name": "exd1481181320261",
+      "author": "user123",
+      "bioDesign": "bio1484083690813",
+      "name": "exd1484083691096",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -143,9 +143,9 @@
     {
       "site": 692,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181320960",
-      "name": "exd1481181321666",
+      "author": "user123",
+      "bioDesign": "bio1484083691416",
+      "name": "exd1484083691728",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -153,9 +153,9 @@
     {
       "site": 538,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181322301",
-      "name": "exd1481181322753",
+      "author": "user123",
+      "bioDesign": "bio1484083692101",
+      "name": "exd1484083692467",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -163,9 +163,9 @@
     {
       "site": 581,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181323367",
-      "name": "exd1481181323787",
+      "author": "user123",
+      "bioDesign": "bio1484083692959",
+      "name": "exd1484083693279",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -173,9 +173,9 @@
     {
       "site": 194,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181324542",
-      "name": "exd1481181324910",
+      "author": "user123",
+      "bioDesign": "bio1484083693650",
+      "name": "exd1484083693983",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -183,9 +183,9 @@
     {
       "site": 743,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181325276",
-      "name": "exd1481181325596",
+      "author": "user123",
+      "bioDesign": "bio1484083694331",
+      "name": "exd1484083694660",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -193,9 +193,9 @@
     {
       "site": 562,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181325985",
-      "name": "exd1481181326301",
+      "author": "user123",
+      "bioDesign": "bio1484083695096",
+      "name": "exd1484083695459",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -203,9 +203,9 @@
     {
       "site": 517,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181326774",
-      "name": "exd1481181327101",
+      "author": "user123",
+      "bioDesign": "bio1484083695813",
+      "name": "exd1484083696188",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -213,9 +213,9 @@
     {
       "site": 785,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181327475",
-      "name": "exd1481181327780",
+      "author": "user123",
+      "bioDesign": "bio1484083696557",
+      "name": "exd1484083696914",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -223,9 +223,9 @@
     {
       "site": 726,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181328157",
-      "name": "exd1481181328505",
+      "author": "user123",
+      "bioDesign": "bio1484083697262",
+      "name": "exd1484083697577",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -233,9 +233,9 @@
     {
       "site": 960,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181328960",
-      "name": "exd1481181329279",
+      "author": "user123",
+      "bioDesign": "bio1484083697995",
+      "name": "exd1484083698316",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -243,9 +243,9 @@
     {
       "site": 424,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181329703",
-      "name": "exd1481181330123",
+      "author": "user123",
+      "bioDesign": "bio1484083698710",
+      "name": "exd1484083699093",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -253,9 +253,9 @@
     {
       "site": 319,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181330497",
-      "name": "exd1481181330883",
+      "author": "user123",
+      "bioDesign": "bio1484083699478",
+      "name": "exd1484083699815",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -263,9 +263,9 @@
     {
       "site": 242,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181331307",
-      "name": "exd1481181331677",
+      "author": "user123",
+      "bioDesign": "bio1484083700189",
+      "name": "exd1484083700548",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -273,9 +273,9 @@
     {
       "site": 398,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181332073",
-      "name": "exd1481181332516",
+      "author": "user123",
+      "bioDesign": "bio1484083700943",
+      "name": "exd1484083701301",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -283,9 +283,9 @@
     {
       "site": 174,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181332955",
-      "name": "exd1481181333385",
+      "author": "user123",
+      "bioDesign": "bio1484083701709",
+      "name": "exd1484083702066",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -293,9 +293,9 @@
     {
       "site": 551,
       "comments": "NA",
-      "author": "",
-      "bioDesign": "bio1481181333795",
-      "name": "exd1481181334151",
+      "author": "user123",
+      "bioDesign": "bio1484083702476",
+      "name": "exd1484083702846",
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1

@@ -1,27 +1,27 @@
 {
   "Entries": [
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-1",
       "measurement": "LCMS",
-      "name": "pro1481181296290",
-      "plasmid": "pla1481181296294",
+      "name": "pro1484083676453",
+      "plasmid": "pla1484083676463",
       "purpose": "NRPS production",
       "size": 34,
-      "id": "58490870d4c615e685d40a50",
+      "id": "587551dcd4c6b690d661597f",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -31,30 +31,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181307602"
+      "experimentalDesign": "exd1484083683403"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-1",
       "measurement": "LCMS",
-      "name": "pro1481181296403",
-      "plasmid": "pla1481181296404",
+      "name": "pro1484083676639",
+      "plasmid": "pla1484083676639",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a54",
+      "id": "587551dcd4c6b690d6615983",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -64,30 +64,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181308407"
+      "experimentalDesign": "exd1484083684163"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-1",
       "measurement": "LCMS",
-      "name": "pro1481181296471",
-      "plasmid": "pla1481181296473",
+      "name": "pro1484083676675",
+      "plasmid": "pla1484083676676",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a58",
+      "id": "587551dcd4c6b690d6615987",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -97,30 +97,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181309316"
+      "experimentalDesign": "exd1484083684605"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-2",
       "measurement": "LCMS",
-      "name": "pro1481181296604",
-      "plasmid": "pla1481181296604",
+      "name": "pro1484083676726",
+      "plasmid": "pla1484083676727",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a5c",
+      "id": "587551dcd4c6b690d661598b",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -130,30 +130,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181310415"
+      "experimentalDesign": "exd1484083685090"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-2",
       "measurement": "LCMS",
-      "name": "pro1481181296662",
-      "plasmid": "pla1481181296662",
+      "name": "pro1484083676776",
+      "plasmid": "pla1484083676776",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a60",
+      "id": "587551dcd4c6b690d661598f",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -163,30 +163,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181311266"
+      "experimentalDesign": "exd1484083685654"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-2",
       "measurement": "LCMS",
-      "name": "pro1481181296744",
-      "plasmid": "pla1481181296745",
+      "name": "pro1484083676821",
+      "plasmid": "pla1484083676821",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a64",
+      "id": "587551dcd4c6b690d6615993",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -196,30 +196,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181312189"
+      "experimentalDesign": "exd1484083686116"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-3",
       "measurement": "LCMS",
-      "name": "pro1481181296804",
-      "plasmid": "pla1481181296805",
+      "name": "pro1484083676873",
+      "plasmid": "pla1484083676874",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a68",
+      "id": "587551dcd4c6b690d6615997",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -229,30 +229,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181313215"
+      "experimentalDesign": "exd1484083686749"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-3",
       "measurement": "LCMS",
-      "name": "pro1481181296860",
-      "plasmid": "pla1481181296860",
+      "name": "pro1484083676911",
+      "plasmid": "pla1484083676911",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a6c",
+      "id": "587551dcd4c6b690d661599b",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -262,30 +262,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181314112"
+      "experimentalDesign": "exd1484083687246"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-3",
       "measurement": "LCMS",
-      "name": "pro1481181296908",
-      "plasmid": "pla1481181296908",
+      "name": "pro1484083676948",
+      "plasmid": "pla1484083676948",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a70",
+      "id": "587551dcd4c6b690d661599f",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -295,30 +295,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181315043"
+      "experimentalDesign": "exd1484083687860"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-4",
       "measurement": "LCMS",
-      "name": "pro1481181296983",
-      "plasmid": "pla1481181296984",
+      "name": "pro1484083676988",
+      "plasmid": "pla1484083676988",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490870d4c615e685d40a74",
+      "id": "587551dcd4c6b690d66159a3",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -328,30 +328,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181316124"
+      "experimentalDesign": "exd1484083688409"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-4",
       "measurement": "LCMS",
-      "name": "pro1481181297045",
-      "plasmid": "pla1481181297046",
+      "name": "pro1484083677037",
+      "plasmid": "pla1484083677037",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a78",
+      "id": "587551ddd4c6b690d66159a7",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -361,30 +361,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181317334"
+      "experimentalDesign": "exd1484083689086"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-4",
       "measurement": "LCMS",
-      "name": "pro1481181297098",
-      "plasmid": "pla1481181297098",
+      "name": "pro1484083677076",
+      "plasmid": "pla1484083677077",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a7c",
+      "id": "587551ddd4c6b690d66159ab",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -394,30 +394,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181318297"
+      "experimentalDesign": "exd1484083689807"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-5",
       "measurement": "LCMS",
-      "name": "pro1481181297179",
-      "plasmid": "pla1481181297179",
+      "name": "pro1484083677121",
+      "plasmid": "pla1484083677121",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a80",
+      "id": "587551ddd4c6b690d66159af",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -427,30 +427,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181319202"
+      "experimentalDesign": "exd1484083690475"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-5",
       "measurement": "LCMS",
-      "name": "pro1481181297265",
-      "plasmid": "pla1481181297266",
+      "name": "pro1484083677163",
+      "plasmid": "pla1484083677164",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a85",
+      "id": "587551ddd4c6b690d66159b4",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -460,30 +460,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181320261"
+      "experimentalDesign": "exd1484083691096"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-5",
       "measurement": "LCMS",
-      "name": "pro1481181297385",
-      "plasmid": "pla1481181297389",
+      "name": "pro1484083677220",
+      "plasmid": "pla1484083677221",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a89",
+      "id": "587551ddd4c6b690d66159b8",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -493,30 +493,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181321666"
+      "experimentalDesign": "exd1484083691728"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-6",
       "measurement": "LCMS",
-      "name": "pro1481181297480",
-      "plasmid": "pla1481181297480",
+      "name": "pro1484083677267",
+      "plasmid": "pla1484083677268",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a8d",
+      "id": "587551ddd4c6b690d66159bc",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -526,30 +526,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181322753"
+      "experimentalDesign": "exd1484083692467"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-6",
       "measurement": "LCMS",
-      "name": "pro1481181297563",
-      "plasmid": "pla1481181297563",
+      "name": "pro1484083677308",
+      "plasmid": "pla1484083677308",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a91",
+      "id": "587551ddd4c6b690d66159c0",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -559,30 +559,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181323787"
+      "experimentalDesign": "exd1484083693279"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-6",
       "measurement": "LCMS",
-      "name": "pro1481181297640",
-      "plasmid": "pla1481181297641",
+      "name": "pro1484083677349",
+      "plasmid": "pla1484083677349",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a95",
+      "id": "587551ddd4c6b690d66159c4",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -592,30 +592,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181324910"
+      "experimentalDesign": "exd1484083693983"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-7",
       "measurement": "LCMS",
-      "name": "pro1481181297739",
-      "plasmid": "pla1481181297740",
+      "name": "pro1484083677393",
+      "plasmid": "pla1484083677393",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a99",
+      "id": "587551ddd4c6b690d66159c8",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -625,30 +625,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181325596"
+      "experimentalDesign": "exd1484083694660"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-7",
       "measurement": "LCMS",
-      "name": "pro1481181297832",
-      "plasmid": "pla1481181297832",
+      "name": "pro1484083677459",
+      "plasmid": "pla1484083677460",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40a9d",
+      "id": "587551ddd4c6b690d66159cc",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -658,30 +658,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181326301"
+      "experimentalDesign": "exd1484083695459"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-7",
       "measurement": "LCMS",
-      "name": "pro1481181297900",
-      "plasmid": "pla1481181297901",
+      "name": "pro1484083677505",
+      "plasmid": "pla1484083677506",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490871d4c615e685d40aa1",
+      "id": "587551ddd4c6b690d66159d0",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -691,30 +691,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181327101"
+      "experimentalDesign": "exd1484083696188"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-8",
       "measurement": "LCMS",
-      "name": "pro1481181297998",
-      "plasmid": "pla1481181297998",
+      "name": "pro1484083677557",
+      "plasmid": "pla1484083677557",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40aa6",
+      "id": "587551ddd4c6b690d66159d5",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -724,30 +724,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181327780"
+      "experimentalDesign": "exd1484083696914"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-8",
       "measurement": "LCMS",
-      "name": "pro1481181298112",
-      "plasmid": "pla1481181298113",
+      "name": "pro1484083677607",
+      "plasmid": "pla1484083677607",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40aaa",
+      "id": "587551ddd4c6b690d66159d9",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -757,30 +757,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181328505"
+      "experimentalDesign": "exd1484083697577"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-8",
       "measurement": "LCMS",
-      "name": "pro1481181298213",
-      "plasmid": "pla1481181298217",
+      "name": "pro1484083677653",
+      "plasmid": "pla1484083677653",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40aae",
+      "id": "587551ddd4c6b690d66159dd",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -790,30 +790,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181329279"
+      "experimentalDesign": "exd1484083698316"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-9",
       "measurement": "LCMS",
-      "name": "pro1481181298286",
-      "plasmid": "pla1481181298286",
+      "name": "pro1484083677702",
+      "plasmid": "pla1484083677702",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40ab2",
+      "id": "587551ddd4c6b690d66159e1",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -823,30 +823,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181330123"
+      "experimentalDesign": "exd1484083699093"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-9",
       "measurement": "LCMS",
-      "name": "pro1481181298367",
-      "plasmid": "pla1481181298368",
+      "name": "pro1484083677747",
+      "plasmid": "pla1484083677747",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40ab6",
+      "id": "587551ddd4c6b690d66159e5",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -856,30 +856,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181330883"
+      "experimentalDesign": "exd1484083699815"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-9",
       "measurement": "LCMS",
-      "name": "pro1481181298460",
-      "plasmid": "pla1481181298460",
+      "name": "pro1484083677806",
+      "plasmid": "pla1484083677806",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40aba",
+      "id": "587551ddd4c6b690d66159e9",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -889,30 +889,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181331677"
+      "experimentalDesign": "exd1484083700548"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "BN-10",
       "measurement": "LCMS",
-      "name": "pro1481181298552",
-      "plasmid": "pla1481181298552",
+      "name": "pro1484083677862",
+      "plasmid": "pla1484083677862",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40abe",
+      "id": "587551ddd4c6b690d66159ed",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -922,30 +922,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181332516"
+      "experimentalDesign": "exd1484083701301"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "CN-10",
       "measurement": "LCMS",
-      "name": "pro1481181298645",
-      "plasmid": "pla1481181298646",
+      "name": "pro1484083677904",
+      "plasmid": "pla1484083677904",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40ac2",
+      "id": "587551ddd4c6b690d66159f1",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -955,30 +955,30 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181333385"
+      "experimentalDesign": "exd1484083702066"
     },
     {
-      "author": "",
+      "author": "user123",
       "description": "",
       "doe": "NA",
       "host": "PLAC861",
       "libraryId": "FN-10",
       "measurement": "LCMS",
-      "name": "pro1481181298737",
-      "plasmid": "pla1481181298737",
+      "name": "pro1484083677954",
+      "plasmid": "pla1484083677954",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "58490872d4c615e685d40ac6",
+      "id": "587551ddd4c6b690d66159f5",
       "$$permissions": {
         "mine": [
-          "run",
           "edit",
-          "grant",
+          "delete",
           "view",
-          "delete"
+          "grant",
+          "run"
         ],
         "user": {
-          "": [
+          "user123": [
             "view",
             "run",
             "edit",
@@ -988,7 +988,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1481181334151"
+      "experimentalDesign": "exd1484083702846"
     }
   ],
   "Name": "Project"

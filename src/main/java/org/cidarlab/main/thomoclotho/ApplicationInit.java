@@ -65,49 +65,91 @@ public class ApplicationInit {
     @Getter
     private String username;
     
+    @Setter
+    @Getter
+    private String filename;
+    
     public ApplicationInit() {
+    }
+    
+    public ApplicationInit (String message) {
+        this.message = message;
+    }
+    
+    public void register (String username, String email, String password) {
+        
+        user = new Person (username);
         
     }
     
-    public void init (String username, String password, String xlsInput, String jsonOutput) {
-        
-        //user = new Person ("user123");
-        
-        user = new Person (this.username);
+    public void testLogin (String username, String password) {
         
         ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////create user/////////
-        clothoObject.createUser(this.username, password);
+        user = new Person (username);
+        clothoObject.createUser(username, password);
+        //clothoObject.logout();
         
         /////////login/////////
-        Object loginRet = clothoObject.login(this.username, password);
+        Object loginRet = clothoObject.login(username, password);
         
         if (loginRet == null) {
-            conn.closeConnection();
-            this.message = "login failed!";
+            this.message = "Login failed!";
             return;
         }
         if (loginRet.toString().equals("null")) {
             conn.closeConnection();
-            this.message = "login failed!";
+            this.message = "Login failed!";
             return;
         }
         if (loginRet.toString().startsWith("Authentication attempt failed for username")) {
             conn.closeConnection();
-            this.message = "login failed!";
+            this.message = "Login failed!";
+            return;
+        }
+        
+        //clothoObject.logout();
+        conn.closeConnection();
+        
+        return;
+    }
+    
+    public void init (String username, String password, String jsonOutput) {
+        
+        ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
+        clothoObject = new Clotho(conn);
+        
+        /////////login/////////
+        user = new Person (username);
+        Object loginRet = clothoObject.login(username, password);
+        
+        if (loginRet == null) {
+            conn.closeConnection();
+            this.message = "Login failed!";
+            return;
+        }
+        if (loginRet.toString().equals("null")) {
+            conn.closeConnection();
+            this.message = "Login failed!";
+            return;
+        }
+        if (loginRet.toString().startsWith("Authentication attempt failed for username")) {
+            conn.closeConnection();
+            this.message = "Login failed!";
             return;
         }
         
         //query if there has already been a person instance with the same username
         /////////fix me/////////
         
-        String message = XLSReader(xlsInput, jsonOutput);
+        String message = XLSReader("resources/" + this.filename, jsonOutput);
         
+        //clothoObject.logout();
         conn.closeConnection();
         
-        this.message = this.username + "  ---  " + message;
+        this.message = message;
         
     }
     
@@ -173,7 +215,7 @@ public class ApplicationInit {
             ex.printStackTrace ();
         }
         finally {
-            return "Database created by: " + user;
+            return "Data successfully added!";
         }
     }
     
