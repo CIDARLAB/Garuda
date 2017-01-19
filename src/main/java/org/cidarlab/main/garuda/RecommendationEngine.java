@@ -5,7 +5,14 @@
  */
 package org.cidarlab.main.garuda;
 
+import Jama.LUDecomposition;
+import Jama.Matrix;
+import Jama.QRDecomposition;
 import java.util.List;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.ArrayRealVector;
+import org.apache.commons.math3.linear.RealMatrix;
+import org.apache.commons.math3.linear.RealVector;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 import org.cidarlab.main.ml.Backpropagation;
 import org.cidarlab.main.ml.ExpertSystem;
@@ -13,6 +20,7 @@ import org.cidarlab.main.ml.NaiveBayes;
 import org.cidarlab.main.ml.KMeansClustering;
 import org.cidarlab.main.ml.LinearRegression;
 import org.cidarlab.main.ml.MultipleLinearRegression;
+import org.cidarlab.main.ml.TestStatistic;
 
 /**
  *
@@ -51,8 +59,8 @@ public class RecommendationEngine {
                     double[][] countData = parser.getCount();
                     
                 //    KMeansClustering kmeans = new KMeansClustering (growthData, cluster);
-                //    Backpropagation backprop = new Backpropagation (growthData, cluster);
-                //    ExpertSystem expert = new ExpertSystem (growthData, threshold);
+                    Backpropagation backprop = new Backpropagation (growthData, cluster);
+                    ExpertSystem expert = new ExpertSystem (growthData, threshold);
                
                     List<Integer> target = parser.getList();
                     
@@ -60,7 +68,7 @@ public class RecommendationEngine {
                  
                 /*    System.out.println("K-Means:");
                     NaiveBayes kmbayes = new NaiveBayes (kmeans.getClusterData(), data, cluster, parser.getParticipant());
-                    System.out.println("#error: " + error (target, kmbayes.getList()));
+                    System.out.println("#error: " + error (target, kmbayes.getList()));*/
                     
                     System.out.println("Backprop:");
                     NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, parser.getParticipant());
@@ -68,80 +76,147 @@ public class RecommendationEngine {
                     
                     System.out.println("Expert:");
                     NaiveBayes expbayes = new NaiveBayes (expert.getClusterData(), data, cluster, parser.getParticipant());
-                    System.out.println("#error: " + error (target, expbayes.getList()));*/
+                    System.out.println("#error: " + error (target, expbayes.getList()));
                 
                 
                 
                     
-                //    double[] x = new double[]{2,9,4,7,3,1,5,9,6,6,5,6,8};
+            /*    //    double[] x = new double[]{2,9,4,7,3,1,5,9,6,6,5,6,8};
                 //    double[] y = new double[]{9,23,13,19,11,7,15,23,17,17,15,17,21};
                 //    LinearRegression.init(x, y);
                 
                     
-                /*    double[][] x = { {  1,  10,  20 },
-                                     {  1,  20,  40 },
-                                     {  1,  40,  15 },
-                                     {  1,  80, 100 },
-                                     {  1, 160,  23 },
-                                     {  1, 200,  18 } };
-                    double[] y = { 243, 483, 508, 1503, 1764, 2129 };*/
-                
-                    double[] linGrowth = new double[growthData.length];
-                    for(int i=0; i<linGrowth.length; i++) {
-                        linGrowth[i] = growthData[i][0];
-                    }
-                
-            /*        MultipleLinearRegression regression = new MultipleLinearRegression(countData, linGrowth);
-
-                    double[] beta = new double[pnum];
-                    for (int i=0; i<pnum; i++) {
-                        beta[i] = regression.beta(i);
+                    double[][] x = {{  1.0,  1.0,  1.0,  0.0 },
+                                    {  1.0,  0.0,  1.0,  1.0 },
+                                    {  1.0,  0.0,  1.0,  1.0 },
+                                    {  1.0,  0.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  1.0,  1.0 },
+                                    {  1.0,  1.0,  1.0,  0.0 },
+                                    {  1.0,  0.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  0.0,  0.0 },
+                                    {  1.0,  0.0,  1.0,  0.0 },
+                                    {  0.0,  0.0,  1.0,  1.0 },
+                                    {  1.0,  0.0,  1.0,  1.0 },
+                                    {  1.0,  1.0,  0.0,  0.0 },
+                                    {  0.0,  1.0,  1.0,  1.0 },
+                                    {  0.0,  1.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  0.0,  1.0 },
+                                    {  0.0,  1.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  0.0,  0.0 },
+                                    {  1.0,  0.0,  1.0,  0.0 },
+                                    {  1.0,  1.0,  1.0,  0.0 }};
+                    double[] y = {  1.290597, 0.705448, 0.756301, 0.975495, 0.431538,
+                                    0.449176, 0.996787, 0.909818, 0.806789, 0.838380,
+                                    1.346145, 1.432767, 0.931832, 0.899699, 0.981474,
+                                    0.668313, 1.288758, 0.958625, 0.661333, 0.717386 };
+                    
+                    double[] actual = new double[growthData.length];
+                    for(int i=0; i<actual.length; i++) {
+                        actual[i] = growthData[i][0];
                     }
                     
-                    double[][] reg = new double[growthData.length][2];
-                    for (int i=0; i<growthData.length; i++) {
-                        reg[i][0] = growthData[i][0];
-                        reg[i][1] = 0;
-                        for (int j=0; j<beta.length; j++) {
-                            reg[i][1] += beta[j] * countData[i][j];
+                //    MultipleLinearRegression regression = new MultipleLinearRegression(countData, actual);
+                    
+                    OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
+                    regression.newSampleData(y, x);
+                    double[] beta = regression.estimateRegressionParameters();
+                    double[] stderr = regression.estimateRegressionParametersStandardErrors();
+                    
+                    double[] predicted = new double[x.length];
+                    for (int i=0; i<x.length; i++) {
+                        predicted[i] = beta[0];
+                        for (int j=1; j<beta.length; j++) {
+                            predicted[i] += (beta[j] * x[i][j-1]);
                         }
                     }
                     
-                    int[] tracker = parser.getTracker();*/
                     
-                    OLSMultipleLinearRegression regression = new OLSMultipleLinearRegression();
-                    double[] y = new double[]{11.0, 12.0, 13.0, 14.0, 15.0, 16.0};
-                    double[][] x = new double[6][];
-                    x[0] = new double[]{0, 0, 0, 0, 0};
-                    x[1] = new double[]{2.0, 0, 0, 0, 0};
-                    x[2] = new double[]{0, 3.0, 0, 0, 0};
-                    x[3] = new double[]{0, 0, 4.0, 0, 0};
-                    x[4] = new double[]{0, 0, 0, 5.0, 0};
-                    x[5] = new double[]{0, 0, 0, 0, 6.0};          
-                    regression.newSampleData(linGrowth, countData);
+                    for (int i=0; i<stderr.length; i++) {
+                        System.out.println ("Std: " + stderr[i]);
+                    }
                     
-                    double[] beta = regression.estimateRegressionParameters();
-                    double[] residuals = regression.estimateResiduals();
-                    double[][] parametersVariance = regression.estimateRegressionParametersVariance();
-                    double regressandVariance = regression.estimateRegressandVariance();
-                    double rSquared = regression.calculateRSquared();
-                    double sigma = regression.estimateRegressionStandardError();
+                    double sse = 0.0;
+                    for (int i=0; i<y.length; i++) {
+                        sse += ((y[i] - predicted[i]) * (y[i] - predicted[i]));
+                    }
+                    double mse = sse / (pnum - psize);
                     
-                /*    for (int i=0; i<reg.length; i++) {
+                    ////////////
+                    
+                    int p = x[0].length;
+                    
+                    double[][] testBeta = new QRDecomposition(new Matrix(x)).solve(new Matrix(y, y.length)).getArray();
+                    double[] testBeta2 = new org.apache.commons.math3.linear.QRDecomposition(new Array2DRowRealMatrix(x)).getSolver().solve(new ArrayRealVector(y)).toArray();
+                    
+                    
+                    for (int i=0; i<testBeta2.length; i++) {
+                            System.out.println("$////////////" + beta[i] + "   " + testBeta2[i]);
+                    }
+                    
+                    
+                    Matrix Raug = new QRDecomposition(new Matrix(x)).getR().getMatrix(0, p-1 , 0, p-1);
+                    LUDecomposition lud = new LUDecomposition(Raug);
+                    int dimension = lud.getPivot().length;
+                    Matrix B = Matrix.identity(dimension, dimension);
+                    Matrix Rinv = lud.solve(B);
+                    
+                    double[][] betaVar = Rinv.times(Rinv.transpose()).getArray();
+                    
+                    RealMatrix Raug2 = new org.apache.commons.math3.linear.QRDecomposition(new Array2DRowRealMatrix(x)).getR().getSubMatrix(0, p-1 , 0, p-1);
+                    RealMatrix Rinv2 = new org.apache.commons.math3.linear.LUDecomposition(Raug2).getSolver().getInverse();
+                    
+                    double[][] betaVar2 = Rinv2.multiply(Rinv2.transpose()).getData();
+                    
+                    for (int i=0; i<betaVar.length; i++) {
+                        for (int j=0; j<betaVar[0].length; j++) {
+                            System.out.println("$$$" + betaVar[i][j] + "      " + betaVar2[i][j]);
+                        }
+                    }
+                    
+                    int len = betaVar[0].length;
+                    double[] rslt = new double[len];
+                    for (int i = 0; i < len; i++) {
+                        rslt[i] = Math.sqrt(mse * betaVar[i][i]);
+                        System.out.println("******" + rslt[i]);
+                    }
+                    
+                    
+                    //////////
+                    
+                    RealVector vb = new ArrayRealVector(beta);
+                    
+                //   double[] stderr = regression.estimateRegressionParametersStandardErrors();
+                /*     for (int i=0; i<stderr.length; i++) {
+                        System.out.println("***" + stderr[i]);
+                    }
+
+                /*    double[] beta = new double[pnum+1];
+                    for (int i=0; i<=pnum; i++) {
+                        beta[i] = regression.beta(i);
+                        System.out.println("***" + i);
+                    }
+                    
+                    int[] tracker = parser.getTracker();
+                    
+                   for (int i=0; i<predicted.length; i++) {
                         if (tracker[i]>0)
-                            System.out.println(reg[i][0] + "\t" + reg[i][1]);
+                            System.out.println(actual[i] + "\t" + predicted[i]);
                         else
-                            System.out.println(reg[i][0] + "\t\t" + reg[i][1]);
-                    }*/
-                    //System.out.println(reg[1][0] + "     " + reg[1][1]);
-                    //System.out.println(reg[2][0] + "     " + reg[2][1]);
-                    //System.out.println(reg[3][0] + "     " + reg[3][1]);
-                    //System.out.println(reg[4][0] + "     " + reg[4][1]);
+                            System.out.println(actual[i] + "\t\t" + predicted[i]);
+                    }
+                   
+                    System.out.println(TestStatistic.chisq(predicted, actual));*/
+            
+                    //System.out.println(predicted[1][0] + "     " + predicted[1][1]);
+                    //System.out.println(predicted[2][0] + "     " + predicted[2][1]);
+                    //System.out.println(predicted[3][0] + "     " + predicted[3][1]);
+                    //System.out.println(predicted[4][0] + "     " + predicted[4][1]);
                     
                     
                     //double[][] yy = {{243,243}, {483,483}, {508,508}, {1503,1503}, {1764,1764}, {2129,2129}};
                     
-                //    KMeansClustering nmeans = new KMeansClustering (reg, cluster);
+                //    KMeansClustering nmeans = new KMeansClustering (predicted, cluster);
     //            }
     //        }
         }

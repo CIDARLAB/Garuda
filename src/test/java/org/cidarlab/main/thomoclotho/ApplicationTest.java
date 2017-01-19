@@ -7,6 +7,7 @@ package org.cidarlab.main.thomoclotho;
 
 import org.cidarlab.main.garuda.RecommendationEngine;
 import java.util.Map;
+import org.cidarlab.main.garuda.PythonRunner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -63,6 +64,8 @@ public class ApplicationTest {
         
         String folderName = "20161108";
         RecommendationEngine recEngine = new RecommendationEngine (folderName);
+        
+    //    PythonRunner pyrun = new PythonRunner();
         
         //Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
         
