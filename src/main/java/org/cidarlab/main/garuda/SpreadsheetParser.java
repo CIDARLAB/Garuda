@@ -23,46 +23,35 @@ public class SpreadsheetParser {
     
     private int cnum;
     private int pnum;
-    private int psize;
+    private int size;
     private double threshold;
     private int toxic;
+    
     private int participant;
     
-    List<Integer> tlist;
+    List<Integer> tlist;    //list of randomly picked random genes
     
     private int[] tracker;
     
-    public SpreadsheetParser (String inputUrl, int cnum, int pnum, int psize, double threshold, int toxic) {
+    public SpreadsheetParser (String inputUrl, int cnum, int pnum, int size, int toxic, double healthy_mean, double healthy_sd, double toxic_mean, double toxic_sd) {
         
         this.cnum = cnum;
         this.pnum = pnum;
-        this.psize = psize;
+        this.size = size;
         this.threshold = threshold;
         this.toxic = toxic;
+        
+        this.data = new double[cnum][size+2];
+        
         this.participant = 0;
+        //this.tracker = new int[cnum];
         
-        this.data = new double[cnum][psize+2];
-        
-        this.tracker = new int[cnum];
-        
-        init(inputUrl);
+        init(inputUrl, healthy_mean, healthy_sd, toxic_mean, toxic_sd);
     }
     
-    private void init (String inputUrl) {
+    private void init (String inputUrl, double healthy_mean, double healthy_sd, double toxic_mean, double toxic_sd) {
         
-        List<Integer> list = new ArrayList<>();
-        for (int i=0; i<pnum; i++) {
-            list.add(i+1);
-        }
-        tlist = new ArrayList<>();
-        
-    //    System.out.println("List of toxic genes: ");
-        for (int i=0; i<toxic; i++) {
-        
-            tlist.add (list.remove((int)(Math.random() * list.size())));
-            System.out.println(tlist.get(i));
-        }
-        System.out.println("Total " + toxic + " toxic genes, and " + (pnum-tlist.size()) + " non-toxic genes with threshold " + threshold);
+        generateToxic();
         
         int[] partCount = new int[pnum];
         
@@ -70,6 +59,7 @@ public class SpreadsheetParser {
         {
             FileInputStream inputFile = new FileInputStream(inputUrl);
             XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+            //construct sheet
             XSSFSheet sheet = workbook.getSheetAt(2);
             
             Random rand = new Random();
@@ -80,8 +70,9 @@ public class SpreadsheetParser {
                 
                 int size = (int) row.getCell(5).getNumericCellValue();
                 
-            //    data[i-1][1] = 1 - (Math.random() * threshold);
-                data[i-1][1] = rand.nextGaussian()*0.1+0.3;
+                //randomized growth rate
+                //data[i-1][1] = 1 - (Math.random() * threshold);
+                data[i-1][1] = rand.nextGaussian() * healthy_sd + healthy_mean;     //find out how gaussian random works
                 
                 for (int j=0; j<size; j++) {
                     
@@ -91,13 +82,12 @@ public class SpreadsheetParser {
                     partCount[part-1]++;
                     
                     if (tlist.contains (part)) {
-                //        data[i-1][1] = rand.nextGaussian()*0.4+threshold;
-                        tracker[i-1]++;
-                    }
-
+                        data[i-1][1] = rand.nextGaussian() * toxic_sd + toxic_mean;
+                        //data[i-1][1] = Math.random() * threshold;
+                        //tracker[i-1]++;
+                    }/**/
                 }
                 //System.out.println(data[i-1][1]);
-
             }
             
             /*sheet = workbook.getSheetAt(3);
@@ -118,7 +108,6 @@ public class SpreadsheetParser {
                     participant++;
                 }
             }
-            
             inputFile.close();
         }
         catch (Exception e) {
@@ -126,9 +115,29 @@ public class SpreadsheetParser {
         }
     }
     
+    private void generateToxic () {
+        
+        //generate list of numbers from 1 to number of available parts
+        List<Integer> list = new ArrayList<>();
+        for (int i=0; i<pnum; i++) {
+            list.add(i+1);
+        }
+        tlist = new ArrayList<>();
+        
+        System.out.println("List of toxic genes: ");
+        for (int i=0; i<toxic; i++) {
+            //randomly pick numbers from the list as toxic genes
+            tlist.add (list.remove((int)(Math.random() * list.size())));
+            System.out.println("--- " + tlist.get(i));
+        }
+        System.out.println("Total " + toxic + " toxic genes, and " + (pnum - tlist.size()) + " non-toxic genes");
+        
+    }
+    
+    //get data array as it is
     public double[][] getData() {
         
-        double[][] datacopy = new double[cnum][psize+2];
+        double[][] datacopy = new double[cnum][size+2];
         for(int i=0; i<datacopy.length; i++) {
             for(int j=0; j<datacopy[i].length; j++) {
                 datacopy[i][j] = this.data[i][j];
@@ -136,10 +145,11 @@ public class SpreadsheetParser {
         }
         return datacopy;
     }
-        
+    
+    //get data array, parts only
     public double[][] getPart() {
         
-        double[][] datacopy = new double[cnum][psize];
+        double[][] datacopy = new double[cnum][size];
         for(int i=0; i<datacopy.length; i++) {
             for(int j=0; j<datacopy[i].length; j++) {
                 datacopy[i][j] = this.data[i][j+2];
@@ -147,38 +157,35 @@ public class SpreadsheetParser {
         }
         return datacopy;
     }
-     
+    
+    //get growth rate data as 2d array
     public double[][] getGrowth() {
         
         double[][] datacopy = new double[cnum][1];
         for(int i=0; i<datacopy.length; i++) {
             datacopy[i][0] = this.data[i][1];
+            System.out.println("** " + datacopy[i][0]);
         }
         return datacopy;
     }
     
+    //get matrix of parts-count
     public double[][] getCount() {
         
         double[][] datacopy = new double[cnum][pnum];
         for(int i=0; i<this.data.length; i++) {
             for(int j=2; j<this.data[0].length; j++) {
-                //if (j==0 || j==1) {
-                //    datacopy[i][j] = this.data[i][j];
-                //}
-                //else {
-                    datacopy[i][((int)this.data[i][j]-1)] = 1;
-                //}
+                datacopy[i][((int)this.data[i][j]-1)] = 1;  //should this be a counter instead of hardcoding with 1?
             }
         }
         return datacopy;
     }
-     
+    
+    //get transpose matrix of parts (value will be growth rate)
     public double[][] transpose() {
         
-        double[][] datacopy = new double[pnum][cnum]; 
-        
+        double[][] datacopy = new double[pnum][cnum];
         for (int i=0; i<this.data.length; i++) {
-        
             for (int j=2; j<this.data[0].length; j++) {
                 datacopy[(int)this.data[i][j]-1][i] = this.data[i][1];
             }
@@ -186,11 +193,11 @@ public class SpreadsheetParser {
         return datacopy;
     }
     
+    //clean the transpose matrix with only existed parts
     public double[][] transposeClean() {
         
         double[][] dataRaw = this.transpose();
-        
-        double[][] cleanData = new double[participant][cnum+1];
+        double[][] cleanData = new double[participant][cnum];
         
         int x = 0;
         for (int i=0; i<dataRaw.length; i++) {
@@ -201,9 +208,9 @@ public class SpreadsheetParser {
                 }  
             }
             if(counter!=0) {
-                cleanData[x][1] = i+1;  //extra column to store id+1
+                //cleanData[x][1] = i+1;  //extra column to store id+1
                 for (int j=0; j<dataRaw[0].length; j++) {
-                    cleanData[x][j+1] = dataRaw[i][j];
+                    cleanData[x][j] = dataRaw[i][j];
                 }
                 x++;
             }
@@ -215,11 +222,11 @@ public class SpreadsheetParser {
         return this.participant;
     }
     
-    public List<Integer> getList() {
+    public List<Integer> getToxicList() {
         return this.tlist;
     }
     
-    public int[] getTracker() {
+    /*public int[] getTracker() {
         return this.tracker;
-    }
+    }*/
 }

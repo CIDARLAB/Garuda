@@ -13,13 +13,7 @@ public class ApplicationStarter {
     
     public static void main(String[] args) {
         
-        String input = "input";
-        String output = "output";
-        
-        String inputFile = "resources/" + input + ".xlsx";
-        String outputFile = "resources/" + output + "-";
-        
-        Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
+        System.out.println("***System is running!***");
     }
     
 }

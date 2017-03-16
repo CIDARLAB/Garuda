@@ -7,7 +7,10 @@ package org.cidarlab.main.thomoclotho;
 
 import org.cidarlab.main.garuda.RecommendationEngine;
 import java.util.Map;
+import java.util.Random;
 import org.cidarlab.main.garuda.PythonRunner;
+import org.cidarlab.main.ml.CollaborativeFake;
+import org.cidarlab.main.ml.CollaborativeFiltering;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,12 +48,6 @@ public class ApplicationTest {
      */
     @Test
     public void testInitiate() {
-        //System.out.println("initiate");
-        //String username = "";
-        //String password = "";
-        //String fileurl = "";
-        //boolean expResult = false;
-        //boolean result = Application.initiate(username, password, fileurl);
         
     /*    String input = "input";
         String output = "output";
@@ -60,48 +57,22 @@ public class ApplicationTest {
         */
         
     //    SpreadsheetParser.initiate(inputFile);
-    //    CollaborativeFake.init();
+    //    CollaborativeFiltering.start("resources/cf_test.csv");
         
         String folderName = "20161108";
         RecommendationEngine recEngine = new RecommendationEngine (folderName);
         
-    //    PythonRunner pyrun = new PythonRunner();
+    /*    Random rand = new Random();
+    
+        for (int i=0; i<1000; i++) {
+            System.out.println(rand.nextGaussian()*20+50);
+        }*/
         
-        //Application.initiate("user" + System.currentTimeMillis(), "pass", inputFile, outputFile);
+    //    PythonRunner pyrun = new PythonRunner();
         
         //BLAST search
         //String blastpath = "/Users/mardian/Documents/CIDAR/Garuda/Master/Garuda";
         //System.out.println (new RunBlast (false, RunBlast.Filters.SUBSEQ_ID, blastpath).init());
         
-        
-        //assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of parseXLSinput method, of class Application.
-     */
-    //@org.junit.Test
-    //public void testParseXLSinput() {
-    //    System.out.println("parseXLSinput");
-    //    String fileurl = "";
-    //    Map expResult = null;
-    //    Map result = Application.parseXLSinput(fileurl);
-    //    assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-    //    fail("The test case is a prototype.");
-    //}
-
-    /**
-     * Test of insertData method, of class Application.
-     */
-    //@org.junit.Test
-    //public void testInsertData() {
-    //    System.out.println("insertData");
-    //   Application.insertData();
-        // TODO review the generated test code and remove the default call to fail.
-    //    fail("The test case is a prototype.");
-    //}
-    
 }

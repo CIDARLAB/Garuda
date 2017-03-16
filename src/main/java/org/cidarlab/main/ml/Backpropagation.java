@@ -23,7 +23,7 @@ public class Backpropagation {
 
     private final double LEARN_RATE = 0.2;    // Rho.
     //private final double NOISE_FACTOR = 0.45;
-    private final int TRAINING_REPS = 100000;
+    private final int TRAINING_REPS = 1000;
 
     // Input to Hidden Weights (with Biases).
     private double wih[][];
@@ -41,7 +41,7 @@ public class Backpropagation {
     private double erro[];
     private double errh[];
 
-    private final int MAX_SAMPLES = 300;
+    private final int MAX_SAMPLES = 100;
     
     private List<Data> clusterData;
     
@@ -68,7 +68,7 @@ public class Backpropagation {
         errh = new double[HIDDEN_NEURONS];
         
         this.rawData = rawData;
-        this.numOfTrain = 300;
+        this.numOfTrain = 100;
         this.expThreshold = 0.5;
         
         neuralNetwork();
@@ -371,4 +371,16 @@ public class Backpropagation {
         return this.clusterData;
     }
 
+    public void printClusterData() {
+        int cluster0 = 0;
+        int cluster1 = 0;
+        for (int i=0; i<clusterData.size(); i++) {
+            if (clusterData.get(i).getCluster() == 0)
+                cluster0++;
+            else if (clusterData.get(i).getCluster() == 1)
+                cluster1++;
+        }
+        System.out.println("Backprop Number of 1st cluster: " + cluster0 + " and 2nd cluster: " + cluster1);
+    }
+    
 }

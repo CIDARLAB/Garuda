@@ -8,70 +8,58 @@ import statsmodels.formula.api as smf
 import statsmodels.api         as sm
 
 
-numdesigns = 20
-numgenes   = 4
+numdesigns = 300
+numgenes   = 300
+pathwaylen = 4
+num_toxicgenes = 4
+
 healthy_mean = 0.9
 healthy_sd   = 0.3
+sick_mean    = 0.4
+sick_sd      = 0.4
 
-genenames = list("ABCD")
-geneidxs   = range(len(genenames))
+genenames = ['gene%d'%x for x in range(numgenes)]
+geneidxs   = range(numgenes)
 
-fakedata = np.zeros(shape=(numdesigns,len(genenames)))
-
-fakedata2 = [[ 1, 1, 1, 0 ],
- [ 1, 0, 1, 1 ],
- [ 1, 0, 1, 1 ],
- [ 1, 0, 1, 0 ],
- [ 1, 1, 1, 1 ],
- [ 1, 1, 1, 0 ],
- [ 1, 0, 1, 0 ],
- [ 1, 1, 1, 0 ],
- [ 1, 1, 0, 0 ],
- [ 1, 0, 1, 0 ],
- [ 0, 0, 1, 1 ],
- [ 1, 0, 1, 1 ],
- [ 1, 1, 0, 0 ],
- [ 0, 1, 1, 1 ],
- [ 0, 1, 1, 0 ],
- [ 1, 1, 0, 1 ],
- [ 0, 1, 1, 0 ],
- [ 1, 1, 0, 0 ],
- [ 1, 0, 1, 0 ],
- [ 1, 1, 1, 0 ]]
+fakedata = np.zeros(shape=(numdesigns,numgenes))
 
 for i in range(numdesigns):
     genes = set()
-    for j in range(numgenes):
+    for j in range(pathwaylen):
         geneidx = choice(geneidxs)
         genes.add(geneidx)
     for geneidx in genes:
         fakedata[i,geneidx] = 1.0
-        
-print fakedata2
-
+    
+toxic_genes = genenames[3:num_toxicgenes+3]
+toxic_idxs  = [genenames.index(x) for x in toxic_genes]
 growth_rates = np.zeros(numdesigns)
 
+sick_designs = np.zeros(numdesigns,dtype=bool)
+
 for i in range(numdesigns):
-    growth_rates[i] = np.random.normal(size=1,loc=healthy_mean,scale=healthy_sd)
-    
-growth_rates2 = [ 1.29059717,  0.70544841,  0.75630101,  0.97549496,  0.43153817,  0.44917647,
-  0.99678689,  0.90981844,  0.80678932,  0.83838037,  1.34614472,  1.43276749,
-  0.93183209,  0.89969879,  0.98147421,  0.66831309,  1.28875777,  0.958625,
-  0.66133257,  0.71738615]
+    sick_flag = False
+    for toxic_idx in toxic_idxs:
+        if fakedata[i,toxic_idx] != 0:
+            sick_flag = True
+    if sick_flag:
+        growth_rates[i] = np.random.normal(size=1,loc=sick_mean,scale=sick_sd)[0]
+        sick_designs[i] = True
+    else:
+        growth_rates[i] = np.random.normal(size=1,loc=healthy_mean,scale=healthy_sd)[0]
 
-print growth_rates2
+df = pandas.DataFrame(fakedata,columns=genenames)
+df['growth_rate'] = pandas.Series(growth_rates, index=df.index)
+df['sick_design'] = pandas.Series(sick_designs, index=df.index) 
 
-df = pandas.DataFrame(fakedata2,columns=genenames)
-df['growth_rate'] = pandas.Series(growth_rates2, index=df.index)
-
-print df
+#print df
 
 model_txt = 'growth_rate ~ ' + ' + '.join(genenames)
 print model_txt
 print 
 res = smf.ols(formula=model_txt, data=df).fit()
 
-print res.summary()
+#print res.summary()
 
 for gene in res.pvalues.keys():
     pvalue = res.pvalues[gene]
