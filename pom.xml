@@ -13,6 +13,15 @@
     </parent>-->
     
     <dependencies>
+
+        <!--Cello-->
+        <dependency>
+            <groupId>org.cidarlab</groupId>
+            <artifactId>celloadapter</artifactId>
+            <version>0.1</version>
+            <type>jar</type>
+        </dependency>
+
         <!--Clotho
         <dependency>
             <groupId>org.clothocad</groupId>
