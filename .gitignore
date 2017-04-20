@@ -6,3 +6,5 @@ target/
 
 .idea/
 *.iml
+
+cello_data/
