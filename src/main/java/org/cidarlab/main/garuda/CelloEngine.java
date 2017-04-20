@@ -25,6 +25,7 @@ public class CelloEngine {
     private static List<String> verilogfiles;
     private static String stagingpath = "/Users/krishna/CIDAR/CelloStaging";
     private static String ucfpath = "/Users/krishna/CIDAR/CelloStaging/ucf.json";
+    private static List<GarudaResults> garudaResults = new ArrayList<>();
 
     /**
      *
@@ -124,16 +125,21 @@ public class CelloEngine {
             }
 
             //Sleep for a little while
-            TimeUnit.HOURS.sleep(1);
+            TimeUnit.MINUTES.sleep(1);
 
             //Serialize the results for the python process
             try {
-                GarudaResults garudaResults = cellosomething.getGarudaResults(j.getJobID());
+                System.out.println("Printing the output");
+                GarudaResults garudaResult = cellosomething.getGarudaResults(j.getJobID());
+                garudaResults.add(garudaResult);
+
+                System.out.println("Finished adding the output to the results.");
+
             } catch (UnirestException e) {
                 e.printStackTrace();
             }
 
-            System.exit(5000);
+
         }
 
 
