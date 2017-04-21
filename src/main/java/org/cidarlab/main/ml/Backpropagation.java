@@ -49,7 +49,7 @@ public class Backpropagation {
     private int numOfTrain;
     private double expThreshold;
     
-    public Backpropagation (double[][] rawData, int cluster) {
+    public Backpropagation (double[][] rawData, int cluster, double threshold) {
         
         INPUT_NEURONS = rawData[0].length;
         OUTPUT_NEURONS = cluster;
@@ -69,7 +69,7 @@ public class Backpropagation {
         
         this.rawData = rawData;
         this.numOfTrain = 100;
-        this.expThreshold = 0.5;
+        this.expThreshold = threshold;
         
         neuralNetwork();
     }

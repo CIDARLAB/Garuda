@@ -7,11 +7,16 @@ package org.cidarlab.main.garuda;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.cidarlab.main.dom.Distribution;
+import org.cidarlab.main.ml.ExpectationMaximization;
+import org.cidarlab.main.ml.GaussianMembership;
 
 /**
  *
@@ -30,8 +35,11 @@ public class SpreadsheetParser {
     private int participant;
     
     List<Integer> tlist;    //list of randomly picked random genes
+    List<Integer> ntlist;
     
     private int[] tracker;
+    
+    private List<Integer> healthy_for_sure;
     
     public SpreadsheetParser (String inputUrl, int cnum, int pnum, int size, int toxic, double healthy_mean, double healthy_sd, double toxic_mean, double toxic_sd) {
         
@@ -55,6 +63,33 @@ public class SpreadsheetParser {
         
         int[] partCount = new int[pnum];
         
+        double[][] value = new double[data.length][2];
+        
+        double[] em_val = new double[data.length];
+        
+    /*    double[] em_val = new double[] {
+            0.832929805,
+            0.390600905,
+            0.114650134,
+            0.28567905,
+            1.103741955,
+            0.65547295,
+            0.175233945,
+            0.018946372,
+            -0.012313338,
+            0.889151427,
+        };*/
+        
+        double[] mu = new double[] {
+            0.0,
+            1.0
+        };
+        
+        double[] sigma = new double[] {
+            0.1,
+            0.1
+        };
+        
         try
         {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -62,8 +97,11 @@ public class SpreadsheetParser {
             //construct sheet
             XSSFSheet sheet = workbook.getSheetAt(2);
             
-            Random rand = new Random();
-      
+            Random rand1 = new Random();
+            Random rand2 = new Random();
+            
+            ExpectationMaximization em = new ExpectationMaximization(mu, sigma, true);  //create 2 gaussian mixture with uniform prior
+            
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
 
                 Row row = sheet.getRow(i);
@@ -72,7 +110,8 @@ public class SpreadsheetParser {
                 
                 //randomized growth rate
                 //data[i-1][1] = 1 - (Math.random() * threshold);
-                data[i-1][1] = rand.nextGaussian() * healthy_sd + healthy_mean;     //find out how gaussian random works
+                data[i-1][1] = rand1.nextGaussian() * healthy_sd + healthy_mean;     //find out how gaussian random works
+                double flag = 1.0;
                 
                 for (int j=0; j<size; j++) {
                     
@@ -82,12 +121,34 @@ public class SpreadsheetParser {
                     partCount[part-1]++;
                     
                     if (tlist.contains (part)) {
-                        data[i-1][1] = rand.nextGaussian() * toxic_sd + toxic_mean;
+                        data[i-1][1] = rand2.nextGaussian() * toxic_sd + toxic_mean;
+                        flag = 0.0;
+                        
                         //data[i-1][1] = Math.random() * threshold;
                         //tracker[i-1]++;
                     }/**/
                 }
+                
+                em_val[i-1] = data[i-1][1];
+                value[i-1][0] = data[i-1][1];
+                value[i-1][1] = flag;
+                String flagstring = (flag==0.0) ? "toxic" : "healthy";
+                //System.out.println (data[i-1][1] + "\t" + flagstring + "\t" + value[i-1][0]);
                 //System.out.println(data[i-1][1]);
+            }
+            
+        //    healthy_for_sure = GaussianMembership.test(value);
+            
+            int em_sim = -1;
+            do {
+                em_sim = em.iterate(em_val);
+                System.out.println (em_sim);
+            } while (em_sim!=1);
+            
+            Distribution[] em_dist = em.getDistribution();
+            
+            for (int t=0; t<em_dist.length; t++) {
+                System.out.println("++ mu: " + em_dist[t].getMu() + " sigma: " + em_dist[t].getSigma());
             }
             
             /*sheet = workbook.getSheetAt(3);
@@ -117,20 +178,28 @@ public class SpreadsheetParser {
     
     private void generateToxic () {
         
-        //generate list of numbers from 1 to number of available parts
-        List<Integer> list = new ArrayList<>();
+        //generate ntlist of numbers from 1 to number of available parts
+        ntlist = new ArrayList<>();
         for (int i=0; i<pnum; i++) {
-            list.add(i+1);
+            ntlist.add(i+1);
         }
         tlist = new ArrayList<>();
         
         System.out.println("List of toxic genes: ");
         for (int i=0; i<toxic; i++) {
-            //randomly pick numbers from the list as toxic genes
-            tlist.add (list.remove((int)(Math.random() * list.size())));
-            System.out.println("--- " + tlist.get(i));
+            //randomly pick numbers from the ntlist as toxic genes
+            tlist.add (ntlist.remove((int)(Math.random() * ntlist.size())));
+            System.out.print ("-- " + tlist.get(i) + " ");
         }
-        System.out.println("Total " + toxic + " toxic genes, and " + (pnum - tlist.size()) + " non-toxic genes");
+        System.out.println();
+        
+        System.out.println("List of non-toxic genes: ");
+        for (int i=0; i<ntlist.size(); i++) {
+            System.out.print ("++ " + ntlist.get(i) + " ");
+        }
+        System.out.println();
+        
+        System.out.println("Total " + toxic + " toxic genes, and " + ntlist.size() + " non-toxic genes");
         
     }
     
@@ -164,7 +233,7 @@ public class SpreadsheetParser {
         double[][] datacopy = new double[cnum][1];
         for(int i=0; i<datacopy.length; i++) {
             datacopy[i][0] = this.data[i][1];
-            System.out.println("** " + datacopy[i][0]);
+            //System.out.println("** " + datacopy[i][0]);
         }
         return datacopy;
     }
@@ -226,7 +295,27 @@ public class SpreadsheetParser {
         return this.tlist;
     }
     
+    public List<Integer> getNonToxicList() {
+        return this.ntlist;
+    }
+    
     /*public int[] getTracker() {
         return this.tracker;
     }*/
+    
+    public void getHealthyPart() {
+        
+        Set<Double> healthy_set = new HashSet<Double>();
+        double[][] parts = getPart();
+        
+        for (int i=0; i<healthy_for_sure.size(); i++) {
+            for (int j=0; j<parts[0].length; j++) {
+                healthy_set.add(parts[healthy_for_sure.get(i)][j]);
+            }
+        }
+        
+        for (Double d : healthy_set) {
+            System.out.println("Absolute healthy: " + d);
+        }
+    }
 }

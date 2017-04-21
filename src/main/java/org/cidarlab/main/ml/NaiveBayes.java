@@ -62,7 +62,7 @@ public class NaiveBayes {
                     clusterCount[i]++;
                     
                     for(int k=0; k<matrixData[0].length; k++) {
-                        if (matrixData[j][k]==1.0) {
+                        if (matrixData[j][k]!=0.0) {
                             partCount[k]++;
                             count++;
                         }
@@ -97,12 +97,13 @@ public class NaiveBayes {
         }
         
         for (int i=0; i<cluster; i++) {
+            
             System.out.println("***Toxicity " + i + " contains: ");
             for (int j=0; j<classList.size(); j++) {
                 if (classList.get(j).getCluster()==i) {
                     System.out.println(classList.get(j).getId()+1 + "\t" + classList.get(j).getVector().getDimension(0));
                 }
-                if (classList.get(j).getCluster()==0) {
+                if (classList.get(j).getCluster()==0 && i==0) {
                     toxicList.add(classList.get(j).getId()+1);
                 }
             }
@@ -118,6 +119,22 @@ public class NaiveBayes {
             }
         }
         this.matrixData = datacopy;
+        /*double[][] new_datacopy = PrincipleComponentAnalysis.pca(datacopy, 10);
+        
+        System.out.println("*** original naive bayes data");
+        for(int i=0; i<datacopy.length; i++) {
+            for(int j=0; j<datacopy[0].length; j++) {  //j=2 if inputData includes growth rate and performance parameters
+                System.out.print (datacopy[i][j] + "  "); //shouldn't it be ++?
+            }
+            System.out.println();
+        }
+        System.out.println("*** pca naive bayes data");
+        for(int i=0; i<new_datacopy.length; i++) {
+            for(int j=0; j<new_datacopy[0].length; j++) {  //j=2 if inputData includes growth rate and performance parameters
+                System.out.print (new_datacopy[i][j] + "  "); //shouldn't it be ++?
+            }
+            System.out.println();
+        }*/
     }
     
     public List<Integer> getToxicList() {

@@ -8,6 +8,7 @@ package org.cidarlab.main.garuda;
 import Jama.LUDecomposition;
 import Jama.Matrix;
 import Jama.QRDecomposition;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.ArrayRealVector;
@@ -37,20 +38,20 @@ public class RecommendationEngine {
             
             String inputFile = "resources/" + folderName + "/input-" + ext + "-sm.xlsx";
             
-            int cluster = 2;
-            int cnum = 10;
-            int pnum = 20;
-            int size = 4;
+            int cluster = 2;    //toxic and healthy cluster
+            int cnum = 10;    //number of constructs
+            int pnum = 20;      //number of candidates for parts
+            int size = 4;       //number of parts within a construct
             
             double healthy_mean = 0.9;
             double healthy_sd = 0.3;
             
-            double toxic_mean = 0.3;
-            double toxic_sd = 0.4;
+            double toxic_mean = 0.2;
+            double toxic_sd = 0.3;
             
     //        for (double i=0.1; i<=1.0; i=i+0.2) {
 
-                double threshold = 0.5;
+                double threshold = 0.7;
     //            double threshold = i;
                 
     //            for (int j=0; j<=pnum; j=j+5) {
@@ -61,12 +62,14 @@ public class RecommendationEngine {
     //                    toxic = 1;
 
                     SpreadsheetParser parser = new SpreadsheetParser (inputFile, cnum, pnum, size, toxic, healthy_mean, healthy_sd, toxic_mean, toxic_sd);
+                //    parser.getHealthyPart();
                     
                     double[][] growthData = parser.getGrowth();
                     double[][] data = parser.getData();
                     double[][] countData = parser.getCount();
                     
-                    double[][] cfData = parser.transposeClean();
+                    
+                /*    double[][] cfData = parser.transposeClean();
                     String[] constructs_name = new String[cnum];
                     String[] parts_name = new String[pnum];
                     
@@ -79,29 +82,32 @@ public class RecommendationEngine {
                         parts_name[x] = "part" + (x+1);
                     }
                     
-                    CollaborativeFiltering.test(cfData, constructs_name, parts_name);
+                    CollaborativeFiltering.test(cfData, constructs_name, parts_name);*/
                     
-                    List<Integer> target = parser.getToxicList();    //list of toxic genes
+                    List<Integer> tlist = parser.getToxicList();    //list of toxic genes
+                    List<Integer> ntlist = parser.getNonToxicList();    //list of toxic genes
                     
                 //    KMeansClustering kmeans = new KMeansClustering (growthData, cluster);
-                //    Backpropagation backprop = new Backpropagation (growthData, cluster);
-                    ExpertSystem expert = new ExpertSystem (growthData, threshold);
+                    Backpropagation backprop = new Backpropagation (growthData, cluster, threshold);
+                //    ExpertSystem expert = new ExpertSystem (growthData, threshold);
                
                 //    backprop.printClusterData();
                
                 //  BruteForce bruteforce = new BruteForce (kmeans.getClusterData(), kmeans.isZeroToxic(), parser.getPart());
                  
-                    System.out.println("K-Means:");
+                //    System.out.println("K-Means:");
                 //    NaiveBayes kmbayes = new NaiveBayes (kmeans.getClusterData(), data, cluster, parser.getParticipant(), pnum);
-                //    System.out.println("#error: " + error (target, kmbayes.getToxicList()));
+                //    System.out.println("#predictive: " + predictive (tlist, kmbayes.getToxicList()));
                     
-                /*    System.out.println("Backprop:");
-                    NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, parser.getParticipant(), pnum);
-                    System.out.println("#error: " + error (target, bpbayes.getToxicList()));*/
+                //    System.out.println("Backprop:");
+                //    NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, parser.getParticipant(), pnum);
+                //    System.out.println("#predictive: " + predictive (tlist, ntlist, bpbayes.getToxicList()));
+                //    System.out.println("#accurate: " + accurate(tlist, ntlist, bpbayes.getToxicList()));
                     
-                    System.out.println("Expert:");
+                /*    System.out.println("Expert:");
                     NaiveBayes expbayes = new NaiveBayes (expert.getClusterData(), data, cluster, parser.getParticipant(), pnum);
-                    System.out.println("#error: " + error (target, expbayes.getToxicList()));
+                    System.out.println("#predictive: " + predictive (tlist, ntlist, expbayes.getToxicList()));
+                    System.out.println("#accurate: " + accurate(tlist, ntlist, expbayes.getToxicList()));*/
                 
                 
                 
@@ -247,15 +253,66 @@ public class RecommendationEngine {
         }
     }
     
-    public int error (List<Integer> target, List<Integer> actual) {
+    public double predictive (List<Integer> tlist, List<Integer> ntlist, List<Integer> actual) {
         
-        int error = 0;
-        for (int x=0; x<target.size(); x++) {
-            if (!actual.contains(target.get(x))) {
-                error++;
+        int pred_intoxic = 0;
+        int pred_inhealthy = 0;
+        
+        /*System.out.println("List of actual toxic genes: ");
+        for (int i=0; i<actual.size(); i++) {
+            System.out.print ("- " + actual.get(i));
+        }
+        System.out.println();
+        
+        
+        System.out.println("List of real toxic genes: ");
+        for (int i=0; i<tlist.size(); i++) {
+            System.out.print ("- " + tlist.get(i));
+        }
+        System.out.println();
+        
+        System.out.println("List of real nontoxic genes: ");
+        for (int i=0; i<ntlist.size(); i++) {
+            System.out.print ("+ " + ntlist.get(i));
+        }
+        System.out.println();*/
+        
+        
+        for (int x=0; x<actual.size(); x++) {
+            if (tlist.contains(actual.get(x))) {
+                pred_intoxic++;
+            }
+            if (ntlist.contains(actual.get(x))) {
+                pred_inhealthy++;
             }
         }
-        return error;
+        
+        return (double) pred_intoxic / (pred_intoxic + pred_inhealthy);
     }
     
+    public double accurate (List<Integer> tlist, List<Integer> ntlist, List<Integer> actual) {
+        
+        int pred_intoxic = 0;
+        int remains = 0;
+        
+        List<Integer> newList = new ArrayList<Integer>();
+        newList.addAll(tlist);
+        newList.addAll(ntlist);
+        
+        int total = newList.size();
+        
+        for (int x=0; x<actual.size(); x++) {
+            if (tlist.contains(actual.get(x))) {
+                pred_intoxic++;
+            }
+        }
+        
+        for (int x=0; x<newList.size(); x++) {
+            if (!tlist.contains(newList.get(x)) && !actual.contains(newList.get(x))) {
+                remains++;
+            }
+        }
+        
+        return (double) (pred_intoxic + remains) / total;
+    }
 }
