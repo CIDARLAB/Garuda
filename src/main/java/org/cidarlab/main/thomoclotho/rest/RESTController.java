@@ -14,6 +14,7 @@ import org.cidarlab.main.thomoclotho.ApplicationInit;
 import org.cidarlab.main.thomoclotho.ApplicationUsage;
 import org.cidarlab.main.thomoclotho.Plasmid;
 import org.cidarlab.main.thomoclotho.PlasmidList;
+import org.cidarlab.main.thomoclotho.RecommendationEngine;
 import org.cidarlab.main.thomoclotho.RunBlast;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,20 @@ public class RESTController {
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String init (Model model) {
         
-        //String user = "user123";
+        model.addAttribute("app", new ApplicationInit());
+        return "index";
+    }
+    
+    @RequestMapping(value="/index", method=RequestMethod.GET)
+    public String index (Model model) {
+        
+        model.addAttribute("app", new ApplicationInit());
+        return "index";
+    }
+    
+    @RequestMapping(value="/home", method=RequestMethod.GET)
+    public String home (Model model) {
+        
         model.addAttribute("app", new ApplicationInit());
         return "index";
     }
@@ -43,21 +57,29 @@ public class RESTController {
     @RequestMapping(value="/login", method=RequestMethod.GET)
     public String login (Model model) {
         
-        String user = "user123";
-        String pass = "pass";
+        model.addAttribute("app", new ApplicationInit());
+        return "login";
+    }
+    
+    @RequestMapping(value="/login", method=RequestMethod.POST)
+    public String login_post (@ModelAttribute ApplicationInit app, Model model) {
         
-        ApplicationInit app = new ApplicationInit();
-        app.testLogin (user, pass);
+        //String user = "user123";
+        //String pass = "pass";
+        
+        app.login ();
         model.addAttribute("app", app);
         
         return "login";
-        
     }
     
-    @RequestMapping(value="/index", method=RequestMethod.GET)
-    public String index () {
+    @RequestMapping(value="/register", method=RequestMethod.POST)
+    public String register (@ModelAttribute ApplicationInit app, Model model) {
         
-        return "index";
+        app.register ();
+        model.addAttribute("app", app);
+        
+        return "login";
     }
     
     @RequestMapping(value="/add", method=RequestMethod.GET)
@@ -114,7 +136,8 @@ public class RESTController {
         //String inputFile = "resources/" + input + ".xlsx";
         String outputFile = "resources/" + output + "-";
         
-        app.init(user, pass, outputFile);
+        //app.init(user, pass, outputFile);
+        app.createPart();
         model.addAttribute("app", app);
         return "import";
     }
@@ -153,9 +176,10 @@ public class RESTController {
         return "recommender";
     }
     
-    @RequestMapping(value="/recommendation", method=RequestMethod.GET)
-    public String recommendation () {
+    @RequestMapping(value="/recommendation", method=RequestMethod.POST)
+    public String recommendation (@ModelAttribute RecommendationEngine app, Model model) {
         
+        model.addAttribute("app", app);
         return "recommendation";
     }
     

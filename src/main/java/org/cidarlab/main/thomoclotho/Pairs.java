@@ -22,8 +22,18 @@ public class Pairs {
     @Getter
     private int end;
     
-    public Pairs (int s, int e) {
+    @Setter
+    @Getter
+    private String label;
+    
+    @Setter
+    @Getter
+    private String color;
+    
+    public Pairs (int s, int e, String label, String color) {
         this.start = s;
         this.end = e;
+        this.label = label;
+        this.color = color;
     }
 }

@@ -43,16 +43,21 @@ public class SearchResult {
     
     @Setter
     @Getter
+    private String author;
+    
+    @Setter
+    @Getter
     private List<Pairs> annotations;
     
-    public SearchResult (String id, String idx, int length, String sequence, List<Integer> annotations) {
+    public SearchResult (String id, String idx, int length, String sequence, List<Integer> annotations, List<String> labels, List<String> colors, String author) {
         this.id = id;
         this.idx = idx;
         this.length = length;
         this.sequence = sequence;
+        this.author = author;
         this.annotations = new ArrayList<Pairs>();
         for (int i=0; i<annotations.size()-1; i++) {
-            this.annotations.add (new Pairs(annotations.get(i), annotations.get(i+1)));
+            this.annotations.add (new Pairs(annotations.get(i), annotations.get(i+1), labels.get(i), colors.get(i)));
         }
     }
     

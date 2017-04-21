@@ -22,10 +22,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.main.thomoclotho.model.BioDesign;
 import org.cidarlab.main.thomoclotho.model.Feature;
 import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.rest.RESTRequest;
 import org.cidarlab.main.thomoclotho.util.InitConstructs;
+import org.cidarlab.main.thomoclotho.util.InitConstructs_backup;
 import org.cidarlab.main.thomoclotho.util.InitGeneratedData;
 import org.cidarlab.main.thomoclotho.util.InitMetadata;
 import org.cidarlab.main.thomoclotho.util.InitParts;
+import org.cidarlab.main.thomoclotho.util.InitParts_backup;
 import org.cidarlab.main.thomoclotho.util.InitQC;
 import org.cidarlab.main.thomoclotho.util.InitRNASeq;
 import org.clothoapi.clotho3javaapi.Clotho;
@@ -36,6 +39,10 @@ import org.clothoapi.clotho3javaapi.ClothoConnection;
  * @author mardian
  */
 public class ApplicationInit {
+    
+    @Setter
+    @Getter
+    private RESTRequest rest;
     
     @Setter
     @Getter
@@ -67,24 +74,66 @@ public class ApplicationInit {
     
     @Setter
     @Getter
+    private String password;
+    
+    @Setter
+    @Getter
+    private String email;
+    
+    @Setter
+    @Getter
     private String filename;
     
     public ApplicationInit() {
+        
+        rest = new RESTRequest();
     }
     
     public ApplicationInit (String message) {
+        
+        rest = new RESTRequest();
         this.message = message;
     }
     
-    public void register (String username, String email, String password) {
+    public void register () {
         
-        user = new Person (username);
+        //user = new Person (username);
+        
+        //RESTRequest rest = new RESTRequest();
+        try {
+            rest.createUser(username, email, password);
+            this.message = "User is succesfully created. Please login to continue!";
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         
     }
     
-    public void testLogin (String username, String password) {
+    public void login () {
         
-        ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
+        //System.out.println("************** It goes here with " + username + "    " + password);
+        try {
+            long startTime = System.currentTimeMillis();
+            for (int i=0; i<100; i++) {
+                System.out.println ("***" + i + " " + rest.createSequence());
+            }
+            System.out.println ("*** Finished at: " + (System.currentTimeMillis()-startTime)/1000 + " seconds.");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        if (username.equals("user123") && password.equals("pass"))
+            this.message = "login successful";
+        
+        else
+            this.message = "login failed";
+        
+        //to be added new login/logout function --session login
+        
+    /*    ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////create user/////////
@@ -111,14 +160,30 @@ public class ApplicationInit {
         }
         
         //clothoObject.logout();
-        conn.closeConnection();
+        conn.closeConnection();*/
         
         return;
     }
     
+    public void createPart () {
+        
+        //try {
+            this.message = RestSheetParser("resources/" + this.filename, "resources/output-");
+        //}
+        //catch (Exception e) {e.printStackTrace();}
+    }
+    
+    public void createConstruct () {
+        
+        try {
+            
+        }
+        catch (Exception e) {e.printStackTrace();}
+    }
+    
     public void init (String username, String password, String jsonOutput) {
         
-        ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
+    /*    ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////login/////////
@@ -139,18 +204,79 @@ public class ApplicationInit {
             conn.closeConnection();
             this.message = "Login failed!";
             return;
-        }
+        }*/
         
         //query if there has already been a person instance with the same username
         /////////fix me/////////
         
-        String message = XLSReader("resources/" + this.filename, jsonOutput);
+        String message = RestSheetParser("resources/" + this.filename, jsonOutput);
         
         //clothoObject.logout();
-        conn.closeConnection();
+        //conn.closeConnection();
         
         this.message = message;
         
+    }
+    
+    
+    public String RestSheetParser (String inputUrl, String outputUrl) {
+        
+        partsID = new ArrayList<Feature> ();
+        constructsID = new ArrayList<Feature> ();
+        genDataID = new ArrayList<BioDesign> ();
+        
+        try
+        {
+            FileInputStream inputFile = new FileInputStream(inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+             
+            for (int i=0; i<workbook.getNumberOfSheets(); i++) {
+                
+                System.out.println("------" + i + "-----");
+                //Get first/desired sheet from the workbook
+                XSSFSheet sheet = workbook.getSheetAt(i);
+                String sheetName = sheet.getSheetName ();
+                
+                switch (sheetName) {
+                    case "Metadata":
+                    case "metadata":
+                        //InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
+                        break;
+                    case "Parts":
+                    case "parts":
+                        InitParts.instantiate (sheet, outputUrl);
+                        break;
+                    case "Constructs":
+                    case "constructs":
+                        //InitConstructs.instantiate (sheet, outputUrl);
+                        break;
+                    case "Generated Data":
+                    case "generated data":
+                        //InitGeneratedData.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        break;
+                    case "RNASeq":
+                    case "rnaseq":
+                        //InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        break;
+                    case "QC":
+                    case "qc":
+                        //InitQC.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            inputFile.close();
+        } 
+        catch (FileNotFoundException e) {
+            return "File not found! Please enter the correct file name or url!";
+        }
+        catch (Exception ex) {
+            ex.printStackTrace ();
+        }
+        finally {
+            return "Data successfully added!";
+        }
     }
     
     public String XLSReader (String inputUrl, String outputUrl) {
@@ -184,11 +310,11 @@ public class ApplicationInit {
                         break;
                     case "Parts":
                     case "parts":
-                        InitParts.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        InitParts_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "Constructs":
                     case "constructs":
-                        InitConstructs.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        InitConstructs_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "Generated Data":
                     case "generated data":

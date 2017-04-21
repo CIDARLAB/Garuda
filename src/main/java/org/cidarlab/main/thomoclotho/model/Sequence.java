@@ -84,6 +84,7 @@ public class Sequence extends SharableObjBase {
                 map.put("start" + i, ann.getStart());
                 map.put("end" + i, ann.getEnd());
                 map.put("sequence" + i, ann.getFeature().getSequence().getSequence());
+                map.put("name" + i, ann.getFeature().getName());
                 i++;
             }
         }

@@ -30,7 +30,7 @@ public class InitQC {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
         
-        try {
+    /*    try {
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter qcJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-qc.txt");
             
@@ -39,7 +39,7 @@ public class InitQC {
             JSONArray seqArr = new JSONArray();
             
             JSONObject qcJSON = new JSONObject();
-            JSONArray qcArr = new JSONArray();
+            JSONArray qcArr = new JSONArray();*/
             
             //counter for clotho
             int[] clothoCount = new int[2];
@@ -53,13 +53,13 @@ public class InitQC {
                 String sequence = row.getCell(2).getStringCellValue();
                 Sequence newSeq = new Sequence (seqname, "", sequence, user);
                 
-                JSONObject seqObj = newSeq.getJSON();
+            //    JSONObject seqObj = newSeq.getJSON();
                 Map seqMap = newSeq.getMap();
                 String seqClo = (String) clothoObject.create(seqMap);
                 if (!seqClo.equals(null)) {
                     clothoCount[0]++;
                 }
-                seqArr.add(seqObj);
+            //    seqArr.add(seqObj);
                 
                 //-----genData and part ID----- [col 0 & 1]
                 BioDesign biod = null;
@@ -86,20 +86,20 @@ public class InitQC {
                 String qcname = "qc" + System.currentTimeMillis();
                 QC newQC = new QC (qcname, "", newSeq, biod, feature, user);
                 
-                JSONObject qcObj = newQC.getJSON();
+            //    JSONObject qcObj = newQC.getJSON();
                 Map qcMap = newQC.getMap();
                 String qcClo = (String) clothoObject.create(qcMap);
                 if (!qcClo.equals(null)) {
                     clothoCount[1]++;
                 }
-                qcArr.add(qcObj);
+            //    qcArr.add(qcObj);
                 
             }
             
             System.out.println("Created " + clothoCount[0] + " Sequence objects" + "\n" +
                                 "Created " + clothoCount[1] + " QC objects");
             
-            seqJSON.put("Name", "Sequence");
+        /*    seqJSON.put("Name", "Sequence");
             seqJSON.put("Entries", seqArr);
             
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -119,6 +119,6 @@ public class InitQC {
         
         catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 }

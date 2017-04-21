@@ -17,8 +17,11 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import net.sf.json.JSONArray;
+import org.cidarlab.main.thomoclotho.Part.Orientation;
+import org.cidarlab.main.thomoclotho.Part.PartType;
 import org.clothoapi.clotho3javaapi.Clotho;
 import org.clothoapi.clotho3javaapi.ClothoConnection;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -89,6 +92,18 @@ public class ApplicationUsage {
         
         this.message = message;
         
+        //to be deleted
+        Part a = new Part("pid001", PartType.PROMOTER, Orientation.FORWARD, new PartProperty ("sid001", "AAACCCGGGTTT"));
+        Part b = new Part("pid002", PartType.RBS, Orientation.FORWARD, new PartProperty ("sid002", "CCCGGGTTTAAA"));
+        Part c = new Part("pid003", PartType.TERMINATOR, Orientation.FORWARD, new PartProperty ("sid003", "TTTAAACCCGGG"));
+        
+        List<Part> listofpart = new ArrayList<Part>();
+        listofpart.add(a);
+        listofpart.add(b);
+        listofpart.add(c);
+        GeneticConstruct device = new GeneticConstruct("device_name", listofpart);
+        System.out.println(GenBankExporter.writeGenBank(device, "random_project"));
+        
     }
     
     /*public String[] getAnnotations() {
@@ -103,6 +118,74 @@ public class ApplicationUsage {
         return anno;
     }*/
 
+    public String[] getAnnotations() {
+        
+        String[] anno = new String[results.size()];
+        for (int i=0; i<anno.length; i++) {
+            anno[i] = results.get(i).getAnnostring();
+        }
+        return anno;
+    }
+    
+    /*public JSONArray getJSONArray(){
+        
+        JSONArray jsonarr = new JSONArray();
+        
+        JSONObject obj1 = new JSONObject();
+        obj1.put("first", "rizki");
+        obj1.put("last", "mardian");
+        obj1.put("weight", 64);
+        
+        JSONObject obj2 = new JSONObject();
+        obj2.put("first", "iki");
+        obj2.put("last", "mardi");
+        obj2.put("weight", 60);
+        
+        jsonarr.add(obj1);
+        jsonarr.add(obj2);
+        
+        return jsonarr;
+    }*/
+    
+    public JSONArray getJSONArray (){
+        
+        if (results!=null) {
+        
+            JSONArray arr = new JSONArray();
+            
+            for (int i=0; i<results.size(); i++) {
+
+                JSONObject obj = new JSONObject();
+                obj.put("id", results.get(i).getId());
+                obj.put("author", results.get(i).getAuthor());
+                obj.put("length", results.get(i).getLength());
+                obj.put("sequence", results.get(i).getSequence());
+                
+                JSONArray inner_arr = new JSONArray();
+                
+                for (int j=0; j<results.get(i).getAnnotations().size(); j++) {
+                    
+                    JSONObject inner_obj = new JSONObject();
+                    inner_obj.put("start", results.get(i).getAnnotations().get(j).getStart());
+                    inner_obj.put("end", results.get(i).getAnnotations().get(j).getEnd());
+                    inner_obj.put("label", results.get(i).getAnnotations().get(j).getLabel());
+                    inner_obj.put("color", results.get(i).getAnnotations().get(j).getColor());
+                    
+                    inner_arr.add(inner_obj);
+                    
+                }
+                
+                obj.put("annotations", inner_arr);
+
+                arr.add(obj);
+            }
+            
+            return arr;
+        }
+        else
+            return null;
+    }
+    
     public void contains (String sequence) {
         
         int numOfAnno = 5;
@@ -146,6 +229,9 @@ public class ApplicationUsage {
             Map queryMapA = new HashMap();
             queryMapA.put("sequence" + i, sequenceA);
             JSONArray queryResultsA = (JSONArray) clothoObject.query (queryMapA);
+            
+            //System.out.println("*** " + queryResultsA);
+            
             for (int j=0; j<queryResultsA.size(); j++) {
                 Map queryResultA = (Map) queryResultsA.get(j);
                 //resultsA.add((String) queryResultA.get("name"));
@@ -177,17 +263,31 @@ public class ApplicationUsage {
                     + "created by: " + map.get("author") + "\n";*/
             
             List<Integer> annotations = new ArrayList<Integer>();
+            List<String> labels = new ArrayList<String>();
+            List<String> colors = new ArrayList<String>();
+            colors.add("#F7464A");
+            colors.add("#46BFBD");
+            colors.add("#FDB45C");
+            colors.add("#949FB1");
+            colors.add("#3498db");
+            
             int annolength = (int) map.get("annotation");
+            annotations.add(0); //to add the beginning of the annotations
             for (int i=0; i<annolength; i++) {
                 annotations.add((int) map.get("end" + i) + 1);
+                labels.add((String) map.get("name" + i));
             }
+            
             //Arrays.sort(annotations);
             Collections.sort(annotations);
             
             /*for (int i=0; i<annotations.length; i++) {
                 output += annotations[i] + "\n";
             }*/
-            results.add(new SearchResult ((String) map.get("name"), "entry" + idx, (int) map.get("length"), (String) map.get("sequence"), annotations));
+        //    System.out.println("****** " + annotations.size());
+        //    System.out.println(map);
+        
+            results.add(new SearchResult ((String) map.get("name"), "entry" + idx, (int) map.get("length"), (String) map.get("sequence"), annotations, labels, colors, (String) map.get("author")));
             idx++;
         }
         

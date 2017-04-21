@@ -26,20 +26,20 @@ and open the template in the editor.
             <div class="main_container">
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><!--<i class="fa fa-paw"></i>--> <span>GARUDA</span></a>
-                        </div>
+                        <div class="navbar nav_title" style="border:0;"></div>
                         <div class="clearfix"></div>
-                        <!-- menu profile quick info 
-                        <div class="profile">
-                            <div class="profile_pic">
+                        <!-- menu profile quick info -->
+                        <div class="profile" style="text-align:center">
+                            <a href="index.html"><!--<i class="fa fa-paw"></i>--> <img src="images/garuda.png" alt=""/></a>
+                        
+                            <!--<div class="profile_pic">
                                 <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
                             </div>
                             <div class="profile_info">
                                 <span>Welcome,</span>
                                 <h2>John Doe</h2>
-                            </div>
-                        </div>-->
+                            </div>-->
+                        </div>
                         <!-- /menu profile quick info -->
                         <br/>
                         <!-- sidebar menu -->
@@ -225,7 +225,7 @@ and open the template in the editor.
                                             <div class="col-sm-3">
                                                 <button id="listview" class="btn btn-sm btn-success btn-block" type="button">LIST VIEW</button>
                                                 <br/>
-                                                <a href="#" th:each="plasmid: ${app.getResults()}" th:class="${plasmid.getIdx()}">
+                                                <a href="#" th:each="plasmid, iter: ${app.getResults()}" th:class="'entry' + ${iter.index}">
                                                     <div class="mail_list">
                                                         <div class="left">
                                                             <i class="fa fa-circle-o-notch"></i>
@@ -276,14 +276,21 @@ and open the template in the editor.
                                             <!-- /MAIL LIST -->
 
                                             <!-- CONTENT MAIL -->
-                                            <div class="col-sm-9 mail_view inbox-body ucontainer">
-                                                <div class="plasmid1">
-                                                    <div class="mail_heading row">
+                                            <div ng-app="myApp" ng-controller="myCtrl" class="col-sm-9 mail_view inbox-body ucontainer">
+                                                
+                                                <div class="plasmidx">
+                                                    <div id="uprintable" class="mail_heading row">
+                                                        <h3 class="usearchres">Click on entries to see detailed information</h3>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div ng-repeat="re in results" class="plasmid{{$index}}" style="display:none">
+                                                    <div id="uprintable" class="mail_heading row">
                                                         <div class="col-md-8">
                                                             <div class="btn-group">
                                                                 <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-circle-o-notch"></i> Map View</button>
                                                                 <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i> Detailed View</button>
-                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i> Export</button>
+                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print" onclick="printJS('uprintable', 'html')"><i class="fa fa-print"></i> Export</button>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 text-right">
@@ -291,104 +298,32 @@ and open the template in the editor.
                                                             <button class="btn btn-sm btn-default" type="button"><i class="fa fa-trash-o"></i> Delete</button>
                                                         </div>
                                                         <div class="col-md-12">
-                                                            <h4 class="uctitle"> J04B8BFP_AE 3 bp ds-DNA circular 11-DEC-2016 <span class="badge">User123</span></h4>
+                                                            <h4 class="uctitle"> {{re.id}} {{re.length}} bp ds-DNA circular 11-DEC-2016 <span class="badge">{{re.author}}</span></h4>
                                                         </div>
-                                                        <div class="view-mail">
-                                                            <br/><br/>
-                                                            <br/><br/>  
-                                                        </div>
-
-                                                        <div ng-app="myApp" align="center">
-                                                            <div th:each="plasmid: ${app.getResults()}">
-                                                                <plasmid sequencelength="3000" plasmidheight="500" plasmidwidth="500">
+                                                        <div align="center">
+                                                            <div>
+                                                                <plasmid sequencelength="{{re.length}}" plasmidheight="500" plasmidwidth="500">
                                                                     <plasmidtrack trackstyle="#cccccc" width="7" radius="160"></plasmidtrack>
-                                                                    <plasmidtrack trackstyle="fill:rgba(200,200,200,0.7)" radius="150" th:each="anno: ${plasmid.getAnnotations()}">
-                                                                        <tracklabel text="HSP70" labelstyle='font-size:20px;font-weight:400'></tracklabel>
-                                                                        <tracklabel th:text="${plasmid.getLength()}" labelstyle='font-size:10px' vadjust="20"></tracklabel>
-
-                                                                        <!-- draw the main markers and labels -->
-                                                                        <trackmarker th:start="${anno.getStart()}" end="${anno.getEnd()}" markerstyle="fill:#F7464A" arrowendlength="5" wadjust="10" vadjust="-4">
-                                                                            <markerlabel text="HSP70" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                    <plasmidtrack trackstyle="fill:rgba(200,200,200,0.7)" radius="150">
+                                                                        <tracklabel text="{{re.id}}" labelstyle='font-size:20px;font-weight:400'></tracklabel>
+                                                                        <tracklabel text="{{re.length}}" labelstyle='font-size:10px' vadjust="20"></tracklabel>
+                                                                        <!--draw the main markers and labels-->
+                                                                        <trackmarker ng-repeat="x in re.annotations" start="{{x.start}}" end="{{x.end}}" markerstyle="fill:{{x.color}}" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="{{x.label}}" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
                                                                         </trackmarker>
-                                                                        <!--<trackmarker start="120" end="190" markerstyle="fill:#46BFBD" arrowendlength="5" wadjust="10" vadjust="-4">
-                                                                            <markerlabel text="NF1 Promote" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="200" end="230" markerstyle="fill:#FDB45C" arrowendlength="5" wadjust="10" vadjust="-4">
-                                                                            <markerlabel text="Sig" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="250" end="300" markerstyle="fill:#949FB1" arrowendlength="5" wadjust="10" vadjust="-4">
-                                                                            <markerlabel text="ColE1 Ori" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-25" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="325" end="345" markerstyle="fill:#3498db" arrowendlength="5" wadjust="10" vadjust="-4">
-                                                                            <markerlabel text="P3" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
-                                                                        </trackmarker>-->
-
-                                                                        <!-- draw the region boundaries lines for each marker 
-                                                                        <trackmarker start="10" markerstyle="stroke:rgba(128,64,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel red" text="50" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="95" markerstyle="stroke:rgba(128,64,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel red" text="95" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="120" markerstyle="stroke:rgba(128,64,128,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel purple" text="120" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="190" markerstyle="stroke:rgba(128,64,128,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel purple" text="190" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="200" markerstyle="stroke:rgba(64,128,128,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel blue" text="200" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="230" markerstyle="stroke:rgba(64,128,128,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel blue" text="230" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="250" markerstyle="stroke:rgba(64,128,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel green" text="250" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="300" markerstyle="stroke:rgba(64,128,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel green" text="300" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="325" markerstyle="stroke:rgba(128,128,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel gold" text="325" vadjust="30"></markerlabel>
-                                                                        </trackmarker>
-                                                                        <trackmarker start="345" markerstyle="stroke:rgba(128,128,64,0.8)" class="boundary" wadjust="15">
-                                                                            <markerlabel class="smlabel gold" text="345" vadjust="30"></markerlabel>
-                                                                        </trackmarker>-->
-
-                                                                        <!-- draw the scales 
-                                                                        <trackscale interval="5" style="stroke:#999999" direction="in" ticksize="3"></trackscale>
-                                                                        <trackscale interval="5" style="stroke:#999999" ticksize="3"></trackscale>
-                                                                        <trackscale interval="30" style="stroke:#ff0000" direction="in" labelstyle="fill:#999;stroke:none;text-anchor:middle;alignment-baseline:middle;font-size:10px"></trackscale>-->
                                                                     </plasmidtrack>
                                                                 </plasmid>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
+                                                
+                                                
+                                                <!--<button type="button" onclick="printJS('uprintable', 'html')">
+                                                    Print Form
+                                                </button>-->
 
-                                                <!--<div class="plasmid2" style="display:none">
-                                                    <div class="mail_heading row">
-                                                        <div class="col-md-8">
-                                                            <div class="btn-group">
-                                                                <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-circle-o-notch"></i> Map View</button>
-                                                                <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i> Detailed View</button>
-                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i> Export</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 text-right">
-                                                            <button class="btn btn-sm btn-primary" type="button">Edit</button>
-                                                            <button class="btn btn-sm btn-default" type="button"><i class="fa fa-trash-o"></i> Delete</button>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <h4> J04B8BFP_AE 4 bp ds-DNA circular 11-DEC-2016 <span class="badge">User123</span></h4>
-                                                        </div>
-                                                        <div class="view-mail">
-                                                            <br/><br/>
-                                                            <canvas id="canvasDoughnut"></canvas>
-                                                            <br/><br/>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
                                             </div>
 
                                             <!-- /CONTENT MAIL -->
@@ -443,10 +378,174 @@ and open the template in the editor.
          <!-- Angular Plasmid -->
 	<script src='js/angular.min.js'></script>
 	<script src='js/angularplasmid.min.js'></script>
+	<script src='js/print.min.js'></script>
 	
-	<script>
-            var app = angular.module('myApp', ['angularplasmid']);
+	<script th:inline="javascript">
+            /*<![CDATA[*/
+            var ang = angular.module('myApp', ['angularplasmid']);
+            
+            //var annotations = [[${app.getAnnotations()}]];
+            
+            //alert(annotations.length);
+            
+            ang.controller('myCtrl', function($scope) {
+                /*$scope.length = 360;
+                $scope.title = "My Plasmid";
+                $scope.annotations = [{
+                        "start" : 0,
+                        "end" : 80,
+                        "color" : "#F7464A",
+                        "label" : "HSP70"
+                    },{
+                        "start" : 120,
+                        "end" : 190,
+                        "color" : "#46BFBD",
+                        "label" : "NF1 Promote"
+                    },{
+                        "start" : 200,
+                        "end" : 230,
+                        "color" : "#FDB45C",
+                        "label" : "Sig"
+                    },{
+                        "start" : 250,
+                        "end" : 300,
+                        "color" : "#949FB1",
+                        "label" : "ColE1"
+                    },{
+                        "start" : 325,
+                        "end" : 345,
+                        "color" : "#3498db",
+                        "label" : "P3"
+                    }];*/
+                //$scope.test = [[${app.getJSONArray()}]];
+                
+                
+                $scope.results = [[${app.getJSONArray()}]];
+                //alert($scope.dummy[0].length);
+                /*$scope.length = $scope.results[0].length;
+                $scope.name = $scope.results[0].id;
+                $scope.author = $scope.results[0].author;
+                $scope.annotations = [];
+                
+                angular.forEach($scope.results[0].annotations, function(anno, index) {
+                    $scope.annotations.push(anno);
+                });*/
+        
+                
+                $('[class^="entry"]').on('click', function(e){
+                    
+                    
+                    e.preventDefault();
+                   
+                    var num = this.className.replace('entry', '');
+                    
+                    /*$scope.length = $scope.results[num].length;
+                    $scope.name = $scope.results[num].id;
+                    $scope.author = $scope.results[num].author;
+                    
+                    angular.forEach($scope.results[num].annotations, function(anno, index) {
+                        $scope.annotations.push(anno);
+                    });*/
+                    
+                    $('[class^="plasmid"]').hide();
+                    $('.plasmid' + num).show();
+                    
+                
+                });
+            });
+            /*]]>*/
 	</script>
+        
+        <!-- Chart.js -->
+        <script>
+            // Doughnut chart
+            var randomScalingFactor = function() {
+                return Math.round(Math.random() * 100);
+            };
+            var randomColorFactor = function() {
+                return Math.round(Math.random() * 255);
+            };
+            var randomColor = function(opacity) {
+                return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
+            };
+
+            var config = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                        ],
+                        backgroundColor: [
+                            "#F7464A",
+                            "#46BFBD",
+                            "#FDB45C",
+                            "#949FB1",
+                            "#4D5360",
+                        ],
+                        label: 'Dataset'
+                    }],
+                    labels: [
+                        "Red",
+                        "Green",
+                        "Yellow",
+                        "Grey",
+                        "Dark Grey"
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'CHART'
+                    },
+                    animation: {
+                        animateScale: false,
+                        animateRotate: true
+                    }
+                }
+            };
+
+            window.onload = function() {
+                var ctx = document.getElementById("canvasDoughnut").getContext("2d");
+                window.myDoughnut = new Chart(ctx, config);
+            };
+
+
+            //Chart.js
+
+            /*$('[class^="entry"]').on('click', function(e){
+                e.preventDefault();
+                var numb = this.className.replace('entry', '');
+                $('[class^="plasmid"]').hide();
+                $('.plasmid' + numb).show();
+            });
+
+            $('.entry1').click(function() {	
+                $.each(config.data.datasets, function(i, dataset) {
+                    dataset.data = [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                        ];
+
+                            //dataset.backgroundColor = dataset.backgroundColor.map(function() {
+                            //	return randomColor(0.7);
+                                    //});
+                });
+                window.myDoughnut.update();
+                alert("test non angular");
+            });*/
+        </script>
     
     </body>
 

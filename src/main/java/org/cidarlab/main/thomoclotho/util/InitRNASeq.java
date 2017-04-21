@@ -29,12 +29,12 @@ public class InitRNASeq {
        
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
        
-        try {
+    /*    try {
             FileWriter expJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-expression.txt");
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject expJSON = new JSONObject();
-            JSONArray expArr = new JSONArray();
+            JSONArray expArr = new JSONArray();*/
             
             //get the number of RNA sequencing entries
             int numOfExp = (int) sheet.getRow(0).getCell(1).getNumericCellValue();
@@ -80,13 +80,13 @@ public class InitRNASeq {
                             String expname = "exp" + System.currentTimeMillis();
                             Expression newExp = new Expression(expname, "", read_val, sheet.getRow(0).getCell(j).getStringCellValue(), biod, part, user);
                             
-                            JSONObject expObj = newExp.getJSON();
+                        //    JSONObject expObj = newExp.getJSON();
                             Map expMap = newExp.getMap();
                             String expClo = (String) clothoObject.create(expMap);
                             if (!expClo.equals(null)) {
                                 clothoCount++;
                             }
-                            expArr.add(expObj);
+                        //    expArr.add(expObj);
                         }
                         catch (Exception ex) {
                             System.out.println("Error in parsing number in RNASeq...");
@@ -97,7 +97,7 @@ public class InitRNASeq {
             
             System.out.println("Created " + clothoCount + " Expression objects");
             
-            expJSON.put("Name", "Expression");
+        /*    expJSON.put("Name", "Expression");
             expJSON.put("Entries", expArr);
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -111,6 +111,6 @@ public class InitRNASeq {
         
         catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 }

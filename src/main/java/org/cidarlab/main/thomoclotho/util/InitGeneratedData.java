@@ -39,7 +39,7 @@ public class InitGeneratedData {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
         
-        try {
+        /*try {
             FileWriter medJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-medium.txt");
             FileWriter modJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-module.txt");
             FileWriter bioJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-bioDesign.txt");
@@ -72,7 +72,7 @@ public class InitGeneratedData {
             JSONArray cmpArr = new JSONArray();
             
             JSONObject proJSON = new JSONObject();
-            JSONArray proArr = new JSONArray();
+            JSONArray proArr = new JSONArray();*/
             
             //counter for clotho
             int[] clothoCount = new int[9];
@@ -88,13 +88,13 @@ public class InitGeneratedData {
                 String medname = row.getCell(4).getStringCellValue();
                 Medium newMed = new Medium (medname, "", user);
                 
-                JSONObject medObj = newMed.getJSON();
+            //    JSONObject medObj = newMed.getJSON();
                 Map medMap = newMed.getMap();
                 String medClo = (String) clothoObject.create(medMap);
                 if (!medClo.equals(null)) {
                     clothoCount[0]++;
                 }
-                medArr.add(medObj);
+            //    medArr.add(medObj);
                 
                 //-----transforming from construct to module/biodesign [col 2]
                 int bioDesignIdx = (int) row.getCell(2).getNumericCellValue();
@@ -105,13 +105,13 @@ public class InitGeneratedData {
                 features.add(app.getConstructsID().get(bioDesignIdx-1));
                 BasicModule newMod = new BasicModule(modname, "", ModuleRole.TRANSCRIPTION, features, user);
                 
-                JSONObject modObj = newMod.getJSON();
+            //    JSONObject modObj = newMod.getJSON();
                 Map modMap = newMod.getMap();
                 String modClo = (String) clothoObject.create(modMap);
                 if (!modClo.equals(null)) {
                     clothoCount[1]++;
                 }
-                modArr.add(modObj);
+            //    modArr.add(modObj);
                 
                 //-----biodesign-----
                 String bioname = "bio" + System.currentTimeMillis();
@@ -126,24 +126,24 @@ public class InitGeneratedData {
                     response.add(newVar);
                     Parameter newParam = new Parameter(param, newVar);
                     
-                    JSONObject varObj = newVar.getJSON();
+                //    JSONObject varObj = newVar.getJSON();
                     Map varMap = newVar.getMap();
                     String varClo = (String) clothoObject.create(varMap);
                     if (!varClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    varArr.add(varObj);
+                //    varArr.add(varObj);
                     
                     //add the parameter to the bioDesign
                     newBiod.addParameter(newParam);
                     
-                    JSONObject parObj = newParam.getJSON();
+                //    JSONObject parObj = newParam.getJSON();
                     Map parMap = newParam.getMap();
                     String parClo = (String) clothoObject.create(parMap);
                     if (!parClo.equals(null)) {
                         clothoCount[4]++;
                     }
-                    parArr.add(parObj);
+                //    parArr.add(parObj);
                     
                 //6   
                     param = row.getCell(6).getNumericCellValue();
@@ -151,24 +151,24 @@ public class InitGeneratedData {
                     controlled.add(newVar);
                     newParam = new Parameter(param, newVar);
                     
-                    varObj = newVar.getJSON();
+                //    varObj = newVar.getJSON();
                     varMap = newVar.getMap();
                     varClo = (String) clothoObject.create(varMap);
                     if (!varClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    varArr.add(varObj);
+                //    varArr.add(varObj);
                     
                     //add the parameter to the bioDesign
                     newBiod.addParameter(newParam);
                     
-                    parObj = newParam.getJSON();
+                //    parObj = newParam.getJSON();
                     parMap = newParam.getMap();
                     parClo = (String) clothoObject.create(parMap);
                     if (!parClo.equals(null)) {
                         clothoCount[4]++;
                     }
-                    parArr.add(parObj);
+                //    parArr.add(parObj);
                     
                 //7    
                     param = row.getCell(7).getNumericCellValue();
@@ -176,24 +176,24 @@ public class InitGeneratedData {
                     response.add(newVar);
                     newParam = new Parameter(param, newVar);
                     
-                    varObj = newVar.getJSON();
+                 //   varObj = newVar.getJSON();
                     varMap = newVar.getMap();
                     varClo = (String) clothoObject.create(varMap);
                     if (!varClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    varArr.add(varObj);
+                //    varArr.add(varObj);
                     
                     //add the parameter to the bioDesign
                     newBiod.addParameter(newParam);
                     
-                    parObj = newParam.getJSON();
+                //    parObj = newParam.getJSON();
                     parMap = newParam.getMap();
                     parClo = (String) clothoObject.create(parMap);
                     if (!parClo.equals(null)) {
                         clothoCount[4]++;
                     }
-                    parArr.add(parObj);
+                //    parArr.add(parObj);
                     
                 //8    
                     param = row.getCell(8).getNumericCellValue();
@@ -201,21 +201,21 @@ public class InitGeneratedData {
                     response.add(newVar);
                     newParam = new Parameter(param, newVar);
                     
-                    varObj = newVar.getJSON();
+                //    varObj = newVar.getJSON();
                     varMap = newVar.getMap();
                     varClo = (String) clothoObject.create(varMap);
                     if (!varClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    varArr.add(varObj);
+                //    varArr.add(varObj);
                     
-                    parObj = newParam.getJSON();
+                //    parObj = newParam.getJSON();
                     parMap = newParam.getMap();
                     parClo = (String) clothoObject.create(parMap);
                     if (!parClo.equals(null)) {
                         clothoCount[4]++;
                     }
-                    parArr.add(parObj);
+                //    parArr.add(parObj);
                     
                 //9
                     param = row.getCell(9).getNumericCellValue();
@@ -223,35 +223,35 @@ public class InitGeneratedData {
                     response.add(newVar);
                     newParam = new Parameter(param, newVar);
                     
-                    varObj = newVar.getJSON();
+                //    varObj = newVar.getJSON();
                     varMap = newVar.getMap();
                     varClo = (String) clothoObject.create(varMap);
                     if (!varClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    varArr.add(varObj);
+                //    varArr.add(varObj);
                     
                     //add the parameter to the bioDesign
                     newBiod.addParameter(newParam);
                     
-                    parObj = newParam.getJSON();
+                //    parObj = newParam.getJSON();
                     parMap = newParam.getMap();
                     parClo = (String) clothoObject.create(parMap);
                     if (!parClo.equals(null)) {
                         clothoCount[4]++;
                     }
-                    parArr.add(parObj);
+                //    parArr.add(parObj);
                     
                 app.getGenDataID().add(newBiod);
                 
                 //add bioDesign to JSON and clotho later
-                JSONObject bioObj = newBiod.getJSON();
+            //    JSONObject bioObj = newBiod.getJSON();
                 Map bioMap = newBiod.getMap();
                 String bioClo = (String) clothoObject.create(bioMap);
                 if (!bioClo.equals(null)) {
                     clothoCount[2]++;
                 }
-                bioArr.add(bioObj);
+            //    bioArr.add(bioObj);
                 
                 //------experimental design------ [col 3 & 10 for integration site & comment]
                 String exdname = "exd" + System.currentTimeMillis();
@@ -259,13 +259,13 @@ public class InitGeneratedData {
                 String notes = row.getCell(10).getStringCellValue();
                 ExperimentalDesign newExd = new ExperimentalDesign (exdname, "", response, controlled, newBiod, site, notes, user);
                 
-                JSONObject exdObj = newExd.getJSON();
+            //    JSONObject exdObj = newExd.getJSON();
                 Map exdMap = newExd.getMap();
                 String exdClo = (String) clothoObject.create(exdMap);
                 if (!exdClo.equals(null)) {
                     clothoCount[5]++;
                 }
-                exdArr.add(exdObj);
+            //    exdArr.add(exdObj);
                 
                 //------library------ [col 1] --updating projects
                 String libraryId = row.getCell(1).getStringCellValue();
@@ -281,7 +281,7 @@ public class InitGeneratedData {
                     if (!setResult.equals(null)) {
                         clothoCount[8]++;
                     }
-                    proArr.add(queryResult);
+            //        proArr.add(queryResult);
                 }
 
                 //------protein and metabolite [col 12-...]------
@@ -304,7 +304,7 @@ public class InitGeneratedData {
                     
                     Compound newComp = new Compound(cmpname, desc, user, type, isProduct, identifier, level, formula);
                     
-                    JSONObject cmpObj = newComp.getJSON();
+                //    JSONObject cmpObj = newComp.getJSON();
                     Map cmpMap = newComp.getMap();
                     String cmpClo = (String) clothoObject.create(cmpMap);
                     if (!cmpClo.equals(null)) {
@@ -313,7 +313,7 @@ public class InitGeneratedData {
                         else if (type==CompoundType.PROTEIN)
                             clothoCount[7]++;
                     }
-                    cmpArr.add(cmpObj);
+                //    cmpArr.add(cmpObj);
                 }
             }
             
@@ -327,7 +327,7 @@ public class InitGeneratedData {
                                 "Created " + clothoCount[7] + " Protein objects" + "\n" +
                                 "Updated " + clothoCount[8] + " Project objects");
             
-            medJSON.put("Name", "Medium");
+        /*    medJSON.put("Name", "Medium");
             medJSON.put("Entries", medArr);
             
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -390,6 +390,6 @@ public class InitGeneratedData {
         
         catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 }

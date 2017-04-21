@@ -28,8 +28,8 @@ public class InitMetadata {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
         
-        try {
-            FileWriter perJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-person.txt");
+        //try {
+        /*    FileWriter perJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-person.txt");
             FileWriter insJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-institution.txt");
             FileWriter graJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-grant.txt");
             FileWriter pubJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-publication.txt");
@@ -49,7 +49,7 @@ public class InitMetadata {
             JSONArray pubArr = new JSONArray();
             
             JSONObject proJSON = new JSONObject();
-            JSONArray proArr = new JSONArray();
+            JSONArray proArr = new JSONArray();*/
             
             //counter for clotho
             int[] clothoCount = new int[5];
@@ -63,37 +63,37 @@ public class InitMetadata {
                 Person newPer = new Person(username, user);
                 newPer.setSurName(row.getCell(9).getStringCellValue());
                 
-                JSONObject perObj = newPer.getJSON();
+            //    JSONObject perObj = newPer.getJSON();
                 Map perMap = newPer.getMap();
                 String perClo = (String) clothoObject.create(perMap);
                 if (!perClo.equals(null)) {
                     clothoCount[0]++;
                 }
-                perArr.add(perObj);
+            //    perArr.add(perObj);
                 
                 //-----institution----- [col 10]
                 //String ins_id = "ins" + System.currentTimeMillis();
                 Institution newIns = new Institution(row.getCell(10).getStringCellValue(), "", user);
                 
-                JSONObject insObj = newIns.getJSON();
+            //    JSONObject insObj = newIns.getJSON();
                 Map insMap = newIns.getMap();
                 String insClo = (String) clothoObject.create(insMap);
                 if (!insClo.equals(null)) {
                     clothoCount[1]++;
                 }
-                insArr.add(insObj);
+            //    insArr.add(insObj);
                 
                 //-----grant----- [col 11]
                 String grant = "gra" + System.currentTimeMillis();
                 Grant newGra = new Grant(grant, "", row.getCell(11).getStringCellValue(), user);
                 
-                JSONObject graObj = newGra.getJSON();
+            //    JSONObject graObj = newGra.getJSON();
                 Map graMap = newGra.getMap();
                 String graClo = (String) clothoObject.create(graMap);
                 if (!graClo.equals(null)) {
                     clothoCount[2]++;
                 }
-                graArr.add(graObj);
+            //    graArr.add(graObj);
                 
                 //-----project----- [col 0-8]
                 Project newPro = new Project("pro" + System.currentTimeMillis(), "", user,
@@ -109,35 +109,35 @@ public class InitMetadata {
                 String submitted = row.getCell(12).getStringCellValue();
                 if(!submitted.equals(null) && !submitted.equals("NA")) {
                     Publication newPub = new Publication(submitted, "", user);
-                    JSONObject pubObj = newPub.getJSON();
+                //    JSONObject pubObj = newPub.getJSON();
                     Map pubMap = newPub.getMap();
                     String pubClo = (String) clothoObject.create(pubMap);
                     if (!pubClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    pubArr.add(pubObj);
+                //    pubArr.add(pubObj);
                     newPro.addPublication(newPub);
                 }
                 String published = row.getCell(13).getStringCellValue();
                 if(!published.equals(null) && !published.equals("NA")) {
                     Publication newPub = new Publication(published, "", user);
-                    JSONObject pubObj = newPub.getJSON();
+                //    JSONObject pubObj = newPub.getJSON();
                     Map pubMap = newPub.getMap();
                     String pubClo = (String) clothoObject.create(pubMap);
                     if (!pubClo.equals(null)) {
                         clothoCount[3]++;
                     }
-                    pubArr.add(pubObj);
+                //    pubArr.add(pubObj);
                     newPro.addPublication(newPub);
                 }
                 
-                JSONObject proObj = newPro.getJSON();
+            //   JSONObject proObj = newPro.getJSON();
                 Map proMap = newPro.getMap();
                 String proClo = (String) clothoObject.create(proMap);
                 if (!proClo.equals(null)) {
                     clothoCount[4]++;
                 }
-                proArr.add(proObj);
+            //    proArr.add(proObj);
                 
             }
             
@@ -147,7 +147,7 @@ public class InitMetadata {
                                 "Created " + clothoCount[3] + " Publication objects" + "\n" +
                                 "Created " + clothoCount[4] + " Project objects");
             
-            perJSON.put("Name", "Person");
+        /*    perJSON.put("Name", "Person");
             perJSON.put("Entries", perArr);
             
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -189,6 +189,6 @@ public class InitMetadata {
         
         catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 }

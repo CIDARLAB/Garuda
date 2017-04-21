@@ -7,11 +7,11 @@
       "host": "PLAC861",
       "libraryId": "BN-1",
       "measurement": "LCMS",
-      "name": "pro1484083676453",
-      "plasmid": "pla1484083676463",
+      "name": "pro1484260932288",
+      "plasmid": "pla1484260932301",
       "purpose": "NRPS production",
       "size": 34,
-      "id": "587551dcd4c6b690d661597f",
+      "id": "58780644d4c61eed93f3527b",
       "$$permissions": {
         "mine": [
           "edit",
@@ -31,7 +31,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083683403"
+      "experimentalDesign": "exd1484260940630"
     },
     {
       "author": "user123",
@@ -40,11 +40,11 @@
       "host": "PLAC861",
       "libraryId": "CN-1",
       "measurement": "LCMS",
-      "name": "pro1484083676639",
-      "plasmid": "pla1484083676639",
+      "name": "pro1484260932353",
+      "plasmid": "pla1484260932354",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d6615983",
+      "id": "58780644d4c61eed93f3527f",
       "$$permissions": {
         "mine": [
           "edit",
@@ -64,7 +64,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083684163"
+      "experimentalDesign": "exd1484260941783"
     },
     {
       "author": "user123",
@@ -73,11 +73,11 @@
       "host": "PLAC861",
       "libraryId": "FN-1",
       "measurement": "LCMS",
-      "name": "pro1484083676675",
-      "plasmid": "pla1484083676676",
+      "name": "pro1484260932402",
+      "plasmid": "pla1484260932402",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d6615987",
+      "id": "58780644d4c61eed93f35283",
       "$$permissions": {
         "mine": [
           "edit",
@@ -97,7 +97,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083684605"
+      "experimentalDesign": "exd1484260942734"
     },
     {
       "author": "user123",
@@ -106,11 +106,11 @@
       "host": "PLAC861",
       "libraryId": "BN-2",
       "measurement": "LCMS",
-      "name": "pro1484083676726",
-      "plasmid": "pla1484083676727",
+      "name": "pro1484260932446",
+      "plasmid": "pla1484260932446",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d661598b",
+      "id": "58780644d4c61eed93f35287",
       "$$permissions": {
         "mine": [
           "edit",
@@ -130,7 +130,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083685090"
+      "experimentalDesign": "exd1484260943817"
     },
     {
       "author": "user123",
@@ -139,11 +139,11 @@
       "host": "PLAC861",
       "libraryId": "CN-2",
       "measurement": "LCMS",
-      "name": "pro1484083676776",
-      "plasmid": "pla1484083676776",
+      "name": "pro1484260932509",
+      "plasmid": "pla1484260932509",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d661598f",
+      "id": "58780644d4c61eed93f3528b",
       "$$permissions": {
         "mine": [
           "edit",
@@ -163,7 +163,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083685654"
+      "experimentalDesign": "exd1484260945087"
     },
     {
       "author": "user123",
@@ -172,11 +172,11 @@
       "host": "PLAC861",
       "libraryId": "FN-2",
       "measurement": "LCMS",
-      "name": "pro1484083676821",
-      "plasmid": "pla1484083676821",
+      "name": "pro1484260932550",
+      "plasmid": "pla1484260932551",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d6615993",
+      "id": "58780644d4c61eed93f3528f",
       "$$permissions": {
         "mine": [
           "edit",
@@ -196,7 +196,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083686116"
+      "experimentalDesign": "exd1484260945894"
     },
     {
       "author": "user123",
@@ -205,11 +205,11 @@
       "host": "PLAC861",
       "libraryId": "BN-3",
       "measurement": "LCMS",
-      "name": "pro1484083676873",
-      "plasmid": "pla1484083676874",
+      "name": "pro1484260932594",
+      "plasmid": "pla1484260932594",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d6615997",
+      "id": "58780644d4c61eed93f35293",
       "$$permissions": {
         "mine": [
           "edit",
@@ -229,7 +229,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083686749"
+      "experimentalDesign": "exd1484260946779"
     },
     {
       "author": "user123",
@@ -238,11 +238,11 @@
       "host": "PLAC861",
       "libraryId": "CN-3",
       "measurement": "LCMS",
-      "name": "pro1484083676911",
-      "plasmid": "pla1484083676911",
+      "name": "pro1484260932647",
+      "plasmid": "pla1484260932647",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d661599b",
+      "id": "58780644d4c61eed93f35297",
       "$$permissions": {
         "mine": [
           "edit",
@@ -262,7 +262,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083687246"
+      "experimentalDesign": "exd1484260947407"
     },
     {
       "author": "user123",
@@ -271,11 +271,11 @@
       "host": "PLAC861",
       "libraryId": "FN-3",
       "measurement": "LCMS",
-      "name": "pro1484083676948",
-      "plasmid": "pla1484083676948",
+      "name": "pro1484260932707",
+      "plasmid": "pla1484260932707",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d661599f",
+      "id": "58780644d4c61eed93f3529b",
       "$$permissions": {
         "mine": [
           "edit",
@@ -295,7 +295,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083687860"
+      "experimentalDesign": "exd1484260948471"
     },
     {
       "author": "user123",
@@ -304,11 +304,11 @@
       "host": "PLAC861",
       "libraryId": "BN-4",
       "measurement": "LCMS",
-      "name": "pro1484083676988",
-      "plasmid": "pla1484083676988",
+      "name": "pro1484260932767",
+      "plasmid": "pla1484260932767",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551dcd4c6b690d66159a3",
+      "id": "58780644d4c61eed93f3529f",
       "$$permissions": {
         "mine": [
           "edit",
@@ -328,7 +328,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083688409"
+      "experimentalDesign": "exd1484260949568"
     },
     {
       "author": "user123",
@@ -337,11 +337,11 @@
       "host": "PLAC861",
       "libraryId": "CN-4",
       "measurement": "LCMS",
-      "name": "pro1484083677037",
-      "plasmid": "pla1484083677037",
+      "name": "pro1484260932827",
+      "plasmid": "pla1484260932828",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159a7",
+      "id": "58780644d4c61eed93f352a3",
       "$$permissions": {
         "mine": [
           "edit",
@@ -361,7 +361,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083689086"
+      "experimentalDesign": "exd1484260950622"
     },
     {
       "author": "user123",
@@ -370,11 +370,11 @@
       "host": "PLAC861",
       "libraryId": "FN-4",
       "measurement": "LCMS",
-      "name": "pro1484083677076",
-      "plasmid": "pla1484083677077",
+      "name": "pro1484260932885",
+      "plasmid": "pla1484260932886",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159ab",
+      "id": "58780644d4c61eed93f352a7",
       "$$permissions": {
         "mine": [
           "edit",
@@ -394,7 +394,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083689807"
+      "experimentalDesign": "exd1484260951257"
     },
     {
       "author": "user123",
@@ -403,11 +403,11 @@
       "host": "PLAC861",
       "libraryId": "BN-5",
       "measurement": "LCMS",
-      "name": "pro1484083677121",
-      "plasmid": "pla1484083677121",
+      "name": "pro1484260932950",
+      "plasmid": "pla1484260932950",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159af",
+      "id": "58780644d4c61eed93f352ab",
       "$$permissions": {
         "mine": [
           "edit",
@@ -427,7 +427,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083690475"
+      "experimentalDesign": "exd1484260952081"
     },
     {
       "author": "user123",
@@ -436,11 +436,11 @@
       "host": "PLAC861",
       "libraryId": "CN-5",
       "measurement": "LCMS",
-      "name": "pro1484083677163",
-      "plasmid": "pla1484083677164",
+      "name": "pro1484260933004",
+      "plasmid": "pla1484260933005",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159b4",
+      "id": "58780645d4c61eed93f352b0",
       "$$permissions": {
         "mine": [
           "edit",
@@ -460,7 +460,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083691096"
+      "experimentalDesign": "exd1484260952825"
     },
     {
       "author": "user123",
@@ -469,11 +469,11 @@
       "host": "PLAC861",
       "libraryId": "FN-5",
       "measurement": "LCMS",
-      "name": "pro1484083677220",
-      "plasmid": "pla1484083677221",
+      "name": "pro1484260933088",
+      "plasmid": "pla1484260933088",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159b8",
+      "id": "58780645d4c61eed93f352b4",
       "$$permissions": {
         "mine": [
           "edit",
@@ -493,7 +493,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083691728"
+      "experimentalDesign": "exd1484260953568"
     },
     {
       "author": "user123",
@@ -502,11 +502,11 @@
       "host": "PLAC861",
       "libraryId": "BN-6",
       "measurement": "LCMS",
-      "name": "pro1484083677267",
-      "plasmid": "pla1484083677268",
+      "name": "pro1484260933147",
+      "plasmid": "pla1484260933148",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159bc",
+      "id": "58780645d4c61eed93f352b8",
       "$$permissions": {
         "mine": [
           "edit",
@@ -526,7 +526,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083692467"
+      "experimentalDesign": "exd1484260954444"
     },
     {
       "author": "user123",
@@ -535,11 +535,11 @@
       "host": "PLAC861",
       "libraryId": "CN-6",
       "measurement": "LCMS",
-      "name": "pro1484083677308",
-      "plasmid": "pla1484083677308",
+      "name": "pro1484260933200",
+      "plasmid": "pla1484260933200",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159c0",
+      "id": "58780645d4c61eed93f352bc",
       "$$permissions": {
         "mine": [
           "edit",
@@ -559,7 +559,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083693279"
+      "experimentalDesign": "exd1484260955277"
     },
     {
       "author": "user123",
@@ -568,11 +568,11 @@
       "host": "PLAC861",
       "libraryId": "FN-6",
       "measurement": "LCMS",
-      "name": "pro1484083677349",
-      "plasmid": "pla1484083677349",
+      "name": "pro1484260933241",
+      "plasmid": "pla1484260933241",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159c4",
+      "id": "58780645d4c61eed93f352c0",
       "$$permissions": {
         "mine": [
           "edit",
@@ -592,7 +592,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083693983"
+      "experimentalDesign": "exd1484260955988"
     },
     {
       "author": "user123",
@@ -601,11 +601,11 @@
       "host": "PLAC861",
       "libraryId": "BN-7",
       "measurement": "LCMS",
-      "name": "pro1484083677393",
-      "plasmid": "pla1484083677393",
+      "name": "pro1484260933285",
+      "plasmid": "pla1484260933285",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159c8",
+      "id": "58780645d4c61eed93f352c4",
       "$$permissions": {
         "mine": [
           "edit",
@@ -625,7 +625,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083694660"
+      "experimentalDesign": "exd1484260956733"
     },
     {
       "author": "user123",
@@ -634,11 +634,11 @@
       "host": "PLAC861",
       "libraryId": "CN-7",
       "measurement": "LCMS",
-      "name": "pro1484083677459",
-      "plasmid": "pla1484083677460",
+      "name": "pro1484260933338",
+      "plasmid": "pla1484260933338",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159cc",
+      "id": "58780645d4c61eed93f352c8",
       "$$permissions": {
         "mine": [
           "edit",
@@ -658,7 +658,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083695459"
+      "experimentalDesign": "exd1484260957468"
     },
     {
       "author": "user123",
@@ -667,11 +667,11 @@
       "host": "PLAC861",
       "libraryId": "FN-7",
       "measurement": "LCMS",
-      "name": "pro1484083677505",
-      "plasmid": "pla1484083677506",
+      "name": "pro1484260933371",
+      "plasmid": "pla1484260933371",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159d0",
+      "id": "58780645d4c61eed93f352cc",
       "$$permissions": {
         "mine": [
           "edit",
@@ -691,7 +691,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083696188"
+      "experimentalDesign": "exd1484260958250"
     },
     {
       "author": "user123",
@@ -700,11 +700,11 @@
       "host": "PLAC861",
       "libraryId": "BN-8",
       "measurement": "LCMS",
-      "name": "pro1484083677557",
-      "plasmid": "pla1484083677557",
+      "name": "pro1484260933401",
+      "plasmid": "pla1484260933401",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159d5",
+      "id": "58780645d4c61eed93f352d1",
       "$$permissions": {
         "mine": [
           "edit",
@@ -724,7 +724,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083696914"
+      "experimentalDesign": "exd1484260959076"
     },
     {
       "author": "user123",
@@ -733,11 +733,11 @@
       "host": "PLAC861",
       "libraryId": "CN-8",
       "measurement": "LCMS",
-      "name": "pro1484083677607",
-      "plasmid": "pla1484083677607",
+      "name": "pro1484260933450",
+      "plasmid": "pla1484260933450",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159d9",
+      "id": "58780645d4c61eed93f352d5",
       "$$permissions": {
         "mine": [
           "edit",
@@ -757,7 +757,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083697577"
+      "experimentalDesign": "exd1484260959804"
     },
     {
       "author": "user123",
@@ -766,11 +766,11 @@
       "host": "PLAC861",
       "libraryId": "FN-8",
       "measurement": "LCMS",
-      "name": "pro1484083677653",
-      "plasmid": "pla1484083677653",
+      "name": "pro1484260933485",
+      "plasmid": "pla1484260933485",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159dd",
+      "id": "58780645d4c61eed93f352d9",
       "$$permissions": {
         "mine": [
           "edit",
@@ -790,7 +790,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083698316"
+      "experimentalDesign": "exd1484260960750"
     },
     {
       "author": "user123",
@@ -799,11 +799,11 @@
       "host": "PLAC861",
       "libraryId": "BN-9",
       "measurement": "LCMS",
-      "name": "pro1484083677702",
-      "plasmid": "pla1484083677702",
+      "name": "pro1484260933542",
+      "plasmid": "pla1484260933543",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159e1",
+      "id": "58780645d4c61eed93f352dd",
       "$$permissions": {
         "mine": [
           "edit",
@@ -823,7 +823,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083699093"
+      "experimentalDesign": "exd1484260962021"
     },
     {
       "author": "user123",
@@ -832,11 +832,11 @@
       "host": "PLAC861",
       "libraryId": "CN-9",
       "measurement": "LCMS",
-      "name": "pro1484083677747",
-      "plasmid": "pla1484083677747",
+      "name": "pro1484260933580",
+      "plasmid": "pla1484260933580",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159e5",
+      "id": "58780645d4c61eed93f352e1",
       "$$permissions": {
         "mine": [
           "edit",
@@ -856,7 +856,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083699815"
+      "experimentalDesign": "exd1484260963293"
     },
     {
       "author": "user123",
@@ -865,11 +865,11 @@
       "host": "PLAC861",
       "libraryId": "FN-9",
       "measurement": "LCMS",
-      "name": "pro1484083677806",
-      "plasmid": "pla1484083677806",
+      "name": "pro1484260933619",
+      "plasmid": "pla1484260933619",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159e9",
+      "id": "58780645d4c61eed93f352e5",
       "$$permissions": {
         "mine": [
           "edit",
@@ -889,7 +889,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083700548"
+      "experimentalDesign": "exd1484260964236"
     },
     {
       "author": "user123",
@@ -898,11 +898,11 @@
       "host": "PLAC861",
       "libraryId": "BN-10",
       "measurement": "LCMS",
-      "name": "pro1484083677862",
-      "plasmid": "pla1484083677862",
+      "name": "pro1484260933664",
+      "plasmid": "pla1484260933665",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159ed",
+      "id": "58780645d4c61eed93f352e9",
       "$$permissions": {
         "mine": [
           "edit",
@@ -922,7 +922,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083701301"
+      "experimentalDesign": "exd1484260965540"
     },
     {
       "author": "user123",
@@ -931,11 +931,11 @@
       "host": "PLAC861",
       "libraryId": "CN-10",
       "measurement": "LCMS",
-      "name": "pro1484083677904",
-      "plasmid": "pla1484083677904",
+      "name": "pro1484260933724",
+      "plasmid": "pla1484260933725",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159f1",
+      "id": "58780645d4c61eed93f352ed",
       "$$permissions": {
         "mine": [
           "edit",
@@ -955,7 +955,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083702066"
+      "experimentalDesign": "exd1484260966701"
     },
     {
       "author": "user123",
@@ -964,11 +964,11 @@
       "host": "PLAC861",
       "libraryId": "FN-10",
       "measurement": "LCMS",
-      "name": "pro1484083677954",
-      "plasmid": "pla1484083677954",
+      "name": "pro1484260933777",
+      "plasmid": "pla1484260933777",
       "purpose": "NRPS production",
       "size": 33,
-      "id": "587551ddd4c6b690d66159f5",
+      "id": "58780645d4c61eed93f352f1",
       "$$permissions": {
         "mine": [
           "edit",
@@ -988,7 +988,7 @@
         },
         "group": {}
       },
-      "experimentalDesign": "exd1484083702846"
+      "experimentalDesign": "exd1484260967586"
     }
   ],
   "Name": "Project"

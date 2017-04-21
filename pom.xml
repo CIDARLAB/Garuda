@@ -136,6 +136,13 @@
             <artifactId>json-path</artifactId>
             <scope>test</scope>
         </dependency>-->
+        
+        <!--BioJava-->
+        <dependency>
+            <groupId>org.biojava</groupId>
+            <artifactId>biojava3-core</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
     
     <!---->

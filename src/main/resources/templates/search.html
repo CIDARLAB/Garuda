@@ -25,20 +25,20 @@ and open the template in the editor.
             <div class="main_container">
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><!--<i class="fa fa-paw"></i>--> <span>GARUDA</span></a>
-                        </div>
+                        <div class="navbar nav_title" style="border:0;"></div>
                         <div class="clearfix"></div>
-                        <!-- menu profile quick info 
-                        <div class="profile">
-                            <div class="profile_pic">
+                        <!-- menu profile quick info -->
+                        <div class="profile" style="text-align:center">
+                            <a href="index.html"><!--<i class="fa fa-paw"></i>--> <img src="images/garuda.png" alt=""/></a>
+                        
+                            <!--<div class="profile_pic">
                                 <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
                             </div>
                             <div class="profile_info">
                                 <span>Welcome,</span>
                                 <h2>John Doe</h2>
-                            </div>
-                        </div>-->
+                            </div>-->
+                        </div>
                         <!-- /menu profile quick info -->
                         <br/>
                         <!-- sidebar menu -->
@@ -179,9 +179,9 @@ and open the template in the editor.
                                 <h3>Search Data</h3>
                             </div>
 
-                            <div class="utitle_right">
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right">
-                                    <button class="btn btn-primary query-add">Add field</button>
+                            <div class="utitle_right" style="text-align:right">
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
+                                    <button class="btn btn-info query-add">Add field</button>
                                 </div>
                             </div>
                         </div>
@@ -232,11 +232,11 @@ and open the template in the editor.
                                                         <input type="text" class="form-control" th:field="*{seqA}"/>
                                                     </div>
                                                     
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                                    <!--<div class="col-md-1 col-sm-1 col-xs-1">
                                                         <ul class="nav panel_toolbox">
                                                             <li><a class="close-query"><i class="fa fa-close"></i></a></li>
                                                         </ul>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
 
                                                 <div class="form-group div-query">
@@ -262,75 +262,6 @@ and open the template in the editor.
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query3" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query4" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" name="query5" class="form-control"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
                                             </div>
 
 
@@ -398,21 +329,16 @@ and open the template in the editor.
         
         <!-- Custom Function: OnClick, OnClose-->
         <script>
+            /*<![CDATA[*/
             $(document).ready(function(){
                 
-                //$(".did1").hide();
-            
             	$(".close-query").click (function () {
-                    alert("hai");
                     var e=$(this).closest(".div-query");
                     e.remove();
                 });
 		
             	$(".query-add").click (function () {
-                    alert("hai");
-                    //$(".did1").show(1000);
-                    //$(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
-                    $(".query-container").append("<h2>TEST GA GUNA</h2>");
+                    $(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
                 });
 			  
                 $(document).on('click', '.close-query', function(){
@@ -420,6 +346,7 @@ and open the template in the editor.
                     e.remove();
                 });
             });
+            /*]]>*/
         </script>
     </body>
 
