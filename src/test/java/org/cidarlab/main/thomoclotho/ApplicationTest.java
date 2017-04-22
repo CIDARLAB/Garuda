@@ -8,7 +8,7 @@ package org.cidarlab.main.thomoclotho;
 import org.cidarlab.main.garuda.RecommendationEngine;
 import java.util.Map;
 import java.util.Random;
-import org.cidarlab.main.garuda.PythonRunner;
+import org.cidarlab.main.garuda.CelloAnalysis.PythonRunner;
 import org.cidarlab.main.ml.CollaborativeFake;
 import org.cidarlab.main.ml.CollaborativeFiltering;
 import org.junit.After;
