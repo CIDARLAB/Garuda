@@ -1,0 +1,10 @@
+pTac            01010101
+pBAD            00110011
+pTet            00001111
+P3_PhlF         pQacR     pHlyIIR   
+Q1_QacR         pSrpR     
+S4_SrpR         pBM3R1    pAmtR     
+H1_HlyIIR       pTet      
+A1_AmtR         pBAD      
+B3_BM3R1        pTac      
+BFP             pPhlF     
