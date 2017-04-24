@@ -19,8 +19,8 @@ import lombok.Setter;
 import net.sf.json.JSONArray;
 import org.cidarlab.main.thomoclotho.Part.Orientation;
 import org.cidarlab.main.thomoclotho.Part.PartType;
-import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothoapi.clotho3javaapi.ClothoConnection;
+//import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.ClothoConnection;
 import org.json.simple.JSONObject;
 
 /**
@@ -29,9 +29,9 @@ import org.json.simple.JSONObject;
  */
 public class ApplicationUsage {
     
-    @Setter
-    @Getter
-    private Clotho clothoObject;
+    //@Setter
+    //@Getter
+    //private Clotho clothoObject;
     
     @Setter
     @Getter
@@ -58,7 +58,7 @@ public class ApplicationUsage {
     
     public void init (String username, String password) {
         
-        ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
+        /*ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////login/////////
@@ -88,7 +88,7 @@ public class ApplicationUsage {
             message = containsAnd (seqA, seqB);
         }
         
-        conn.closeConnection ();
+        conn.closeConnection ();*/
         
         this.message = message;
         
@@ -193,28 +193,27 @@ public class ApplicationUsage {
         
         Map queryMap1 = new HashMap();
         queryMap1.put("sequence", sequence);
-        JSONArray queryResults1 = (JSONArray) clothoObject.query (queryMap1);
+        //JSONArray queryResults1 = (JSONArray) clothoObject.query (queryMap1);
         
         for (int i=0; i<numOfAnno; i++)
         {
             Map queryMap2 = new HashMap();
             queryMap2.put("sequence" + i, sequence);
-            JSONArray queryResults2 = (JSONArray) clothoObject.query (queryMap2);
+            //JSONArray queryResults2 = (JSONArray) clothoObject.query (queryMap2);
             
-            for (int j=0; j<queryResults2.size(); j++) {
-                Map queryResult = (Map) queryResults2.get(j);
-                results.add((String) queryResult.get("name"));
+            //for (int j=0; j<queryResults2.size(); j++) {
+            //    Map queryResult = (Map) queryResults2.get(j);
+            //    results.add((String) queryResult.get("name"));
             }
         }
-        
+        /*
         for (String name : results)
             System.out.println("------- Construct name: " + name + " -------");
         
         System.out.println("========== Found total: " + (queryResults1.size() + results.size()) + " objects satisfying your query! ==========");
-        
-    }
+        */
     
-    public String containsAnd (String sequenceA, String sequenceB) {
+   /* public String containsAnd (String sequenceA, String sequenceB) {
         
         String output = "";
         int numOfAnno = 5;
@@ -260,7 +259,7 @@ public class ApplicationUsage {
         for (Map map : finalMap) { 
             /*output += map.get("name") + "\n"
                     + map.get("description") + "\n"
-                    + "created by: " + map.get("author") + "\n";*/
+                    + "created by: " + map.get("author") + "\n";
             
             List<Integer> annotations = new ArrayList<Integer>();
             List<String> labels = new ArrayList<String>();
@@ -283,7 +282,7 @@ public class ApplicationUsage {
             
             /*for (int i=0; i<annotations.length; i++) {
                 output += annotations[i] + "\n";
-            }*/
+            }
         //    System.out.println("****** " + annotations.size());
         //    System.out.println(map);
         
@@ -413,6 +412,6 @@ public class ApplicationUsage {
                 tmp.add(x);
         }
         return tmp;
-    }
+    }*/
     
 }

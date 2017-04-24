@@ -48,8 +48,10 @@ public class InitParts {
                 seqFSAfile.write(">" + seqname + "\n");
                 seqFSAfile.write(sequence + "\n");
                 
+                json.put("username", "mardian");
+                json.put("objectName", seqname);
                 json.put("sequence", sequence);
-                json.put("length", parLength);
+                //json.put("length", parLength);
                 json.put("role", role);
                 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");

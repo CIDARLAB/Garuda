@@ -14,13 +14,13 @@
     </parent>
     
     <dependencies>
-        <!--Clotho-->
+        <!--Clotho
         <dependency>
             <groupId>org.clothocad</groupId>
             <artifactId>Clotho3JavaAPI</artifactId>
             <version>3.0-SNAPSHOT</version>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
         
         <!--<dependency>
             <groupId>org.clothocad</groupId>
@@ -143,6 +143,15 @@
             <artifactId>biojava3-core</artifactId>
             <version>3.0</version>
         </dependency>
+        
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+            <scope>provided</scope>
+	</dependency>
+        
     </dependencies>
     
     <!---->

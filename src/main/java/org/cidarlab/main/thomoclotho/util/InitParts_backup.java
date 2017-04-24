@@ -17,7 +17,7 @@ import org.cidarlab.main.thomoclotho.model.Feature.FeatureRole;
 import org.cidarlab.main.thomoclotho.model.Person;
 import org.cidarlab.main.thomoclotho.model.Sequence;
 import org.cidarlab.main.thomoclotho.rest.RESTRequest;
-import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,7 +27,7 @@ import org.json.simple.JSONObject;
  */
 public class InitParts_backup {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
         
         try {
         /*    FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
@@ -65,10 +65,10 @@ public class InitParts_backup {
                 
             //    JSONObject seqObj = newSeq.getJSON();
                 Map seqMap = newSeq.getMap();
-                String seqClo = (String) clothoObject.create(seqMap);
+                /*String seqClo = (String) clothoObject.create(seqMap);
                 if (!seqClo.equals(null)) {
                     clothoCount[0]++;
-                }
+                }*/
             //    seqArr.add(seqObj);
                 
                 //write to FASTA file for BLAST local database
@@ -87,10 +87,10 @@ public class InitParts_backup {
                 
             //    JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();
-                String feaClo = (String) clothoObject.create(feaMap);
+                /*String feaClo = (String) clothoObject.create(feaMap);
                 if (!feaClo.equals(null)) {
                     clothoCount[1]++;
-                }
+                }*/
             //    feaArr.add(feaObj);
                 
             }

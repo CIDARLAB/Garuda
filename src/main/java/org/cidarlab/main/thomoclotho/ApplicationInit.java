@@ -23,7 +23,6 @@ import org.cidarlab.main.thomoclotho.model.BioDesign;
 import org.cidarlab.main.thomoclotho.model.Feature;
 import org.cidarlab.main.thomoclotho.model.Person;
 import org.cidarlab.main.thomoclotho.rest.RESTRequest;
-import org.cidarlab.main.thomoclotho.util.InitConstructs;
 import org.cidarlab.main.thomoclotho.util.InitConstructs_backup;
 import org.cidarlab.main.thomoclotho.util.InitGeneratedData;
 import org.cidarlab.main.thomoclotho.util.InitMetadata;
@@ -31,8 +30,7 @@ import org.cidarlab.main.thomoclotho.util.InitParts;
 import org.cidarlab.main.thomoclotho.util.InitParts_backup;
 import org.cidarlab.main.thomoclotho.util.InitQC;
 import org.cidarlab.main.thomoclotho.util.InitRNASeq;
-import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothoapi.clotho3javaapi.ClothoConnection;
+//import org.clothoapi.clotho3javaapi.Clotho;
 
 /**
  *
@@ -56,9 +54,9 @@ public class ApplicationInit {
     @Getter
     private List<BioDesign> genDataID;
     
-    @Setter
+    /*@Setter
     @Getter
-    private Clotho clothoObject;
+    private Clotho clothoObject;*/
     
     @Setter
     @Getter
@@ -306,27 +304,27 @@ public class ApplicationInit {
                 switch (sheetName) {
                     case "Metadata":
                     case "metadata":
-                        InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
+                        //InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
                         break;
                     case "Parts":
                     case "parts":
-                        InitParts_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        //InitParts_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "Constructs":
                     case "constructs":
-                        InitConstructs_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        //InitConstructs_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "Generated Data":
                     case "generated data":
-                        InitGeneratedData.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        //InitGeneratedData.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "RNASeq":
                     case "rnaseq":
-                        InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        //InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     case "QC":
                     case "qc":
-                        InitQC.instantiate (sheet, outputUrl, clothoObject, user, this);
+                        //InitQC.instantiate (sheet, outputUrl, clothoObject, user, this);
                         break;
                     default:
                         break;
@@ -347,7 +345,7 @@ public class ApplicationInit {
     
     public void contains (String sequence) {
         
-        int numOfAnno = 5;
+        /*int numOfAnno = 5;
         Set<String> results = new HashSet<String>();
         
         //String sequence = "ATGAGTGAAAAGAAGAAAGTTCTAATGCTACATGGTTTTGTCCAATCCGATAAGATATTTTCTGCGAAGACTGGAGGATTACGAAAGAATTTGAAGAAGTTAGGTTACGATTTATACTATCCTTGCGCCCCACATTCAATTGATAAAAAAGCGTTATTCCAATCAGAGTCAGAAAAGGGTAGAGATGCTGCGAAGGAATTCAACACCTCAGCGACTAGTGATGAAGTATACGGGTGGTTCTTTAGAAATCCCGAATCTTTCAATTCCTTTCAAATAGATCAAAAGGTGTTTAACTATTTACGTAACTACGTGCTAGAAAATGGACCATTTGATGGTGTCATTGGATTCAGCCAAGGTGCAGGTCTTGGGGGCTACTTAGTCACTGACTTTAACAGAATATTAAATCTTACTGATGAACAACAGCCCGCTTTAAAATTTTTTATTTCATTTAGTGGATTCAAATTAGAAGATCAATCCTACCAGAAAGAATATCATAGGATTATCCAGGTGCCCTCTCTACATGTAAGGGGGGAGTTAGATGAAGTTGTAGCAGAATCTAGAATCATGGCATTGTACGAGTCATGGCCCGATAACAAAAGGACATTGTTGGTTCATCCTGGAGCCCATTTTGTCCCAAACTCGAAACCATTCGTATCCCAAGTTTGCAATTGGATCCAAGGAATTACTAGCAAAGAGGGTCAAGAGCATAATGCCCAACCTGAAGTAGATCGGAAACAATTTGACAAACCTCAATTGGAAGATGATTTGTTAGATATGATCGATTCCTTGGGTAAATTGTAA";
@@ -388,7 +386,7 @@ public class ApplicationInit {
     
     public void containsAnd (String sequenceA, String sequenceB) {
         
-        int numOfAnno = 5;
+        /*int numOfAnno = 5;
         
         Set<String> resultsA = new HashSet<String>();
         Set<String> resultsB = new HashSet<String>();
@@ -425,12 +423,12 @@ public class ApplicationInit {
             System.out.println("------- Construct name: " + name + " -------");
         
         System.out.println("========== Found total: " + (finalResults.size()) + " objects satisfying your query! ==========");
-        
+        */
     }
     
     public void containsSpatial(String sequenceA, String sequenceB, boolean aPrecede) {
         
-        int numOfAnno = 5;
+        /*int numOfAnno = 5;
         
         Set<String> nameA = new HashSet<String>();
         Set<String> nameB = new HashSet<String>();
@@ -516,7 +514,7 @@ public class ApplicationInit {
             System.out.println("------- Construct name: " + name + " -------");
         
         System.out.println("========== Found total: " + (finalResults.size()) + " objects satisfying your query! ==========");
-        
+        */
     }
     
     public static Set<String> union(Set<String> setA, Set<String> setB) {

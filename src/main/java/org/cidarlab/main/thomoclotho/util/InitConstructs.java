@@ -5,20 +5,11 @@
  */
 package org.cidarlab.main.thomoclotho.util;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
-import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.cidarlab.main.thomoclotho.ApplicationInit;
-import org.cidarlab.main.thomoclotho.model.Annotation;
 import org.cidarlab.main.thomoclotho.model.Feature;
-import org.cidarlab.main.thomoclotho.model.Person;
-import org.cidarlab.main.thomoclotho.model.Sequence;
-import org.clothoapi.clotho3javaapi.Clotho;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**

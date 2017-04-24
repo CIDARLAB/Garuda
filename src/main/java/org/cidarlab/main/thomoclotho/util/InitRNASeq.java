@@ -17,7 +17,7 @@ import org.cidarlab.main.thomoclotho.model.BioDesign;
 import org.cidarlab.main.thomoclotho.model.Expression;
 import org.cidarlab.main.thomoclotho.model.Feature;
 import org.cidarlab.main.thomoclotho.model.Person;
-import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,7 +27,7 @@ import org.json.simple.JSONObject;
  */
 public class InitRNASeq {
        
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
        
     /*    try {
             FileWriter expJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-expression.txt");
@@ -82,10 +82,10 @@ public class InitRNASeq {
                             
                         //    JSONObject expObj = newExp.getJSON();
                             Map expMap = newExp.getMap();
-                            String expClo = (String) clothoObject.create(expMap);
+                            /*String expClo = (String) clothoObject.create(expMap);
                             if (!expClo.equals(null)) {
                                 clothoCount++;
-                            }
+                            }*/
                         //    expArr.add(expObj);
                         }
                         catch (Exception ex) {

@@ -16,7 +16,7 @@ import org.cidarlab.main.thomoclotho.model.Institution;
 import org.cidarlab.main.thomoclotho.model.Person;
 import org.cidarlab.main.thomoclotho.model.Project;
 import org.cidarlab.main.thomoclotho.model.Publication;
-import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -26,7 +26,7 @@ import org.json.simple.JSONObject;
  */
 public class InitMetadata {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user) {
         
         //try {
         /*    FileWriter perJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-person.txt");
@@ -65,10 +65,10 @@ public class InitMetadata {
                 
             //    JSONObject perObj = newPer.getJSON();
                 Map perMap = newPer.getMap();
-                String perClo = (String) clothoObject.create(perMap);
+                /*String perClo = (String) clothoObject.create(perMap);
                 if (!perClo.equals(null)) {
                     clothoCount[0]++;
-                }
+                }*/
             //    perArr.add(perObj);
                 
                 //-----institution----- [col 10]
@@ -77,10 +77,10 @@ public class InitMetadata {
                 
             //    JSONObject insObj = newIns.getJSON();
                 Map insMap = newIns.getMap();
-                String insClo = (String) clothoObject.create(insMap);
+                /*String insClo = (String) clothoObject.create(insMap);
                 if (!insClo.equals(null)) {
                     clothoCount[1]++;
-                }
+                }*/
             //    insArr.add(insObj);
                 
                 //-----grant----- [col 11]
@@ -89,10 +89,10 @@ public class InitMetadata {
                 
             //    JSONObject graObj = newGra.getJSON();
                 Map graMap = newGra.getMap();
-                String graClo = (String) clothoObject.create(graMap);
+                /*String graClo = (String) clothoObject.create(graMap);
                 if (!graClo.equals(null)) {
                     clothoCount[2]++;
-                }
+                }*/
             //    graArr.add(graObj);
                 
                 //-----project----- [col 0-8]
@@ -111,10 +111,10 @@ public class InitMetadata {
                     Publication newPub = new Publication(submitted, "", user);
                 //    JSONObject pubObj = newPub.getJSON();
                     Map pubMap = newPub.getMap();
-                    String pubClo = (String) clothoObject.create(pubMap);
+                    /*String pubClo = (String) clothoObject.create(pubMap);
                     if (!pubClo.equals(null)) {
                         clothoCount[3]++;
-                    }
+                    }*/
                 //    pubArr.add(pubObj);
                     newPro.addPublication(newPub);
                 }
@@ -123,20 +123,20 @@ public class InitMetadata {
                     Publication newPub = new Publication(published, "", user);
                 //    JSONObject pubObj = newPub.getJSON();
                     Map pubMap = newPub.getMap();
-                    String pubClo = (String) clothoObject.create(pubMap);
+                    /*String pubClo = (String) clothoObject.create(pubMap);
                     if (!pubClo.equals(null)) {
                         clothoCount[3]++;
-                    }
+                    }*/
                 //    pubArr.add(pubObj);
                     newPro.addPublication(newPub);
                 }
                 
             //   JSONObject proObj = newPro.getJSON();
                 Map proMap = newPro.getMap();
-                String proClo = (String) clothoObject.create(proMap);
+                /*String proClo = (String) clothoObject.create(proMap);
                 if (!proClo.equals(null)) {
                     clothoCount[4]++;
-                }
+                }*/
             //    proArr.add(proObj);
                 
             }

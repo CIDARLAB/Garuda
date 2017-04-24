@@ -18,7 +18,7 @@ import org.cidarlab.main.thomoclotho.model.Feature;
 import org.cidarlab.main.thomoclotho.model.Person;
 import org.cidarlab.main.thomoclotho.model.QC;
 import org.cidarlab.main.thomoclotho.model.Sequence;
-import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -28,7 +28,7 @@ import org.json.simple.JSONObject;
  */
 public class InitQC {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
         
     /*    try {
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
@@ -55,10 +55,10 @@ public class InitQC {
                 
             //    JSONObject seqObj = newSeq.getJSON();
                 Map seqMap = newSeq.getMap();
-                String seqClo = (String) clothoObject.create(seqMap);
+                /*String seqClo = (String) clothoObject.create(seqMap);
                 if (!seqClo.equals(null)) {
                     clothoCount[0]++;
-                }
+                }*/
             //    seqArr.add(seqObj);
                 
                 //-----genData and part ID----- [col 0 & 1]
@@ -88,10 +88,10 @@ public class InitQC {
                 
             //    JSONObject qcObj = newQC.getJSON();
                 Map qcMap = newQC.getMap();
-                String qcClo = (String) clothoObject.create(qcMap);
+                /*String qcClo = (String) clothoObject.create(qcMap);
                 if (!qcClo.equals(null)) {
                     clothoCount[1]++;
-                }
+                }*/
             //    qcArr.add(qcObj);
                 
             }

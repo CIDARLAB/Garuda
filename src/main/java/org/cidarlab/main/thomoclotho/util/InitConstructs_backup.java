@@ -17,7 +17,7 @@ import org.cidarlab.main.thomoclotho.model.Annotation;
 import org.cidarlab.main.thomoclotho.model.Feature;
 import org.cidarlab.main.thomoclotho.model.Person;
 import org.cidarlab.main.thomoclotho.model.Sequence;
-import org.clothoapi.clotho3javaapi.Clotho;
+//import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,7 +27,7 @@ import org.json.simple.JSONObject;
  */
 public class InitConstructs_backup {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
         
         try {
         /*    FileWriter annJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-annotation.txt");
@@ -113,10 +113,10 @@ public class InitConstructs_backup {
                 //    JSONObject annObj = anno.getJSON();
                     Map annMap = anno.getMap();
                 //    annObj.put("lengthOfAnno", seqtemp.length());
-                    String annClo = (String) clothoObject.create(annMap);
+                    /*String annClo = (String) clothoObject.create(annMap);
                     if (!annClo.equals(null)) {
                         clothoCount[0]++;
-                    }
+                    }*/
                 //    annArr.add(annObj);
                 }
                 
@@ -130,10 +130,10 @@ public class InitConstructs_backup {
             //    JSONObject seqObj = newSeq.getJSON();
                 Map seqMap = newSeq.getMap();
             //    seqObj.put("counter", i);
-                String seqClo = (String) clothoObject.create(seqMap);
+                /*String seqClo = (String) clothoObject.create(seqMap);
                 if (!seqClo.equals(null)) {
                     clothoCount[1]++;
-                }
+                }*/
             //    seqArr.add(seqObj);
                 
                 //write to FASTA file for BLAST local database
@@ -151,10 +151,10 @@ public class InitConstructs_backup {
                 
             //    JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();
-                String feaClo = (String) clothoObject.create(feaMap);
+                /*String feaClo = (String) clothoObject.create(feaMap);
                 if (!feaClo.equals(null)) {
                     clothoCount[2]++;
-                }
+                }*/
             //    feaArr.add(feaObj);
                 
             }
