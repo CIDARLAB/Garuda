@@ -1,5 +1,6 @@
 package org.cidarlab.main.thomoclotho.rest;
 
+import org.cidarlab.main.CelloAnalysis.PythonRunner;
 import org.cidarlab.main.thomoclotho.ApplicationInit;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +51,10 @@ public class CelloController {
     @RequestMapping(value = "/api/v1/cello/predict", method = RequestMethod.POST)
     public ResponseEntity<String> calculatePrediction ( @RequestParam Map<String, String> params){
         //TODO: Run the Python scripts and pipe the output here
-        return new ResponseEntity<>("Hello !", HttpStatus.OK);
+        PythonRunner pythonRunner = new PythonRunner();
+        String netlist = params.get("netlist");
+        String response = pythonRunner.runPredictor(netlist);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 
@@ -59,5 +63,18 @@ public class CelloController {
         //TODO: Get user's ucfs and then send the ids to the user
         return new ResponseEntity<>("['Hello', 'World']", HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/api/v1/cello/ucf", method = RequestMethod.POST)
+    public ResponseEntity<String> submitUCF ( @RequestParam Map<String, String> params){
+        //TODO: Upload the UCF
+        return new ResponseEntity<>("['Hello', 'World']", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/v1/cello/generate", method = RequestMethod.POST)
+    public ResponseEntity<String> runSimulations ( @RequestParam Map<String, String> params){
+        //TODO: Upload the UCF
+        return new ResponseEntity<>("['Hello', 'World']", HttpStatus.OK);
+    }
+
 
 }

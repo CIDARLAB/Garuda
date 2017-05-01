@@ -18,6 +18,8 @@ function PredictViewModel(){
 
     self.ucfs = ko.observableArray([]);
 
+    self.prediction = ko.observable("");
+
     self.predict = function(){
         $.post('/api/v1/cello/predict', {
             ucfid: self.ucfid ,
@@ -25,6 +27,7 @@ function PredictViewModel(){
         }, function(response){
             //Update the prediction output
             console.log(response);
+            self.prediction(response);
         });
     }
 
