@@ -18,6 +18,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="/css/nprogress.css"/>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap-progressbar-3.3.4.min.css"/>
+        <script src="/js/knockout-3.4.2.js" type="text/javascript"/>
     </head>
 
     <body class="nav-md">
@@ -194,7 +195,7 @@ and open the template in the editor.
                                         <form id="demo-form2" class="form-horizontal form-label-left">
 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hosts">Select UCF</label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Select UCF</label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                                     <select name="host" class="form-control">
                                                         <option>Autoloaded UCF</option>
@@ -203,16 +204,16 @@ and open the template in the editor.
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="conditions">Netlist
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Netlist
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <textarea type="text" name="netlist" class="form-control col-md-7 col-xs-12"></textarea>
+                                                    <textarea data-bind="textInput:netlist" type="text" name="netlist" class="form-control col-md-7 col-xs-12"></textarea>
                                                 </div>
                                             </div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-success">Predict</button>
+                                                    <button class="btn btn-success" data-bind="click:predict">Predict</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -228,13 +229,23 @@ and open the template in the editor.
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <p></p>
+                                    <p>Linear SVM</p>
                                     <br/>
-                                    <form id="demo-form2" class="form-horizontal form-label-left">
                                       <div>
                                         <h1>Prediction : <span>--</span> <span>--</span>%</h1>
                                       </div>
-                                    </form>
+                                    <br/>
+                                    <p>Linear Weighted SVM</p>
+                                    <br/>
+                                    <div>
+                                        <h1>Prediction : <span>--</span> <span>--</span>%</h1>
+                                    </div>
+                                    T
+                                    <br/>
+                                    <div>
+                                        <h1>Prediction : <span>--</span> <span>--</span>%</h1>
+                                    </div>
+
                                 </div>
                             </div>
                           </div>
@@ -301,7 +312,14 @@ and open the template in the editor.
           $(document).ready(function() {
             autosize($('.resizable_textarea'));
           });
+
+
+
+
         </script>
+
+        <script src="/js/cello/cello_predict.js" type="text/javascript" />
+
         <!-- /Autosize -->
     </body>
 
