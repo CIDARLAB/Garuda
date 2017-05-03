@@ -26,10 +26,15 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/user.css"/>
     </head>
 
-    <body class="login">
+    <body class="login" ng-app="myModule">
         <div>
             <a class="hiddenanchor" id="signup"></a>
             <a class="hiddenanchor" id="signin"></a>
+            
+            <div ng-controller="home as home">
+                <p>The ID is {{home.message.id}}</p>
+                <p>The content is {{home.message.content}}</p>
+            </div>
 
             <div class="login_wrapper">
                 <div class="animate form login_form">
@@ -112,6 +117,10 @@ and open the template in the editor.
         <script src="js/nprogress.js"></script>
         <!-- bootstrap-progressbar -->
         <script src="js/bootstrap-progressbar.min.js"></script>
+        
+        <!-- Angular -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/apps.js'></script>
 
         <!-- Custom Theme Scripts -->
         <script src="js/custom.min.js"></script>
