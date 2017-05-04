@@ -31,6 +31,7 @@ import org.cidarlab.garuda.util.InitParts;
 import org.cidarlab.garuda.util.InitParts_backup;
 import org.cidarlab.garuda.util.InitQC;
 import org.cidarlab.garuda.util.InitRNASeq;
+import org.cidarlab.garuda.util.RWR_Parser;
 //import org.clothoapi.clotho3javaapi.Clotho;
 
 /**
@@ -97,9 +98,6 @@ public class ApplicationInit {
     
     public void register () {
         
-        //user = new Person (username);
-        
-        //RESTRequest rest = new RESTRequest();
         try {
             rest.createUser(username, email, password);
             this.message = "User is succesfully created. Please login to continue!";
@@ -165,10 +163,18 @@ public class ApplicationInit {
         return;
     }
     
-    public void createPart () {
+    public void createPart (String username) {
         
         //try {
-            this.message = RestSheetParser("resources/" + this.filename, "resources/output-", this.username);
+        switch (username) {
+            case "robwarden":
+                this.message = RWR_Parser.parse("resources/" + this.filename, "resources/output-", username);
+                break;
+            default:
+                //this.message = RestSheetParser("resources/" + this.filename, "resources/output-", username);
+                System.out.println("ERROR: username not found!");
+                break;
+        }
         //}
         //catch (Exception e) {e.printStackTrace();}
     }

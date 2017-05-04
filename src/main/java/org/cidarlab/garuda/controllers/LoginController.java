@@ -22,30 +22,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
     
-    @Autowired
+    //@Autowired
     private UserService userService;
 
-    @Autowired
+    //@Autowired
     private NotificationService notifyService;
 
-    @RequestMapping("/users/login")
-    public String login(LoginForm loginForm) {
+    @RequestMapping(value = "/users/login", method=RequestMethod.GET)
+    public String login() {
         return "login_test";
     }
 
-    @RequestMapping(value = "/users/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/login", method=RequestMethod.POST)
     public String loginPage(@Valid LoginForm loginForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-             notifyService.addErrorMessage("Please fill the form correctly!");
-             return "login_test";
+            notifyService.addErrorMessage("Please fill the form correctly!");
+            return "login_test";
         }
 
         if (!userService.authenticate(
-             loginForm.getUsername(), loginForm.getPassword())) {
-             notifyService.addErrorMessage("Invalid login!");
-             return "login_test";
+            loginForm.getUsername(), loginForm.getPassword())) {
+            notifyService.addErrorMessage("Invalid login!");
+            return "login_test";
         }
-
+        System.out.println("*************It got here!!!!");
+        
         notifyService.addInfoMessage("Login successful");
         return "redirect:/";
     }

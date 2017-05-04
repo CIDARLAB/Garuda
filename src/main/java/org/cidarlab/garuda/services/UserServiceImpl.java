@@ -17,6 +17,6 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public boolean authenticate(String username, String password) {
-        return Objects.equals(username, password);
+        return username==password;
     }
 }
