@@ -12,8 +12,12 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.genDataID;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.BioDesign;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.QC;
+import org.cidarlab.main.thomoclotho.model.Sequence;
 import org.clothoapi.clotho3javaapi.Clotho;
 import org.clothocad.model.BioDesign;
 import org.clothocad.model.Feature;
@@ -28,9 +32,9 @@ import org.json.simple.JSONObject;
  * @author mardian
  */
 public class InitQC {
-    
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
-        
+
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+
         try {
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter qcJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-qc.txt");
@@ -69,7 +73,8 @@ public class InitQC {
                 Cell cell = row.getCell(0);
                 if (cell.getCellType()==Cell.CELL_TYPE_NUMERIC) {
                     int bioDesignIdx = (int) cell.getNumericCellValue();
-                    biod = genDataID.get(bioDesignIdx-1);
+
+                    biod = app.getGenDataID().get(bioDesignIdx-1);
                 }
                 cell = row.getCell(1);
                 //somehow the cell data type is not numeric
@@ -77,7 +82,8 @@ public class InitQC {
                 if (!cell.getStringCellValue().equals("NA")) {
                     try {
                         int partIdx = Integer.parseInt(cell.getStringCellValue());
-                        feature = partsID.get(partIdx-1);
+
+                        feature = app.getPartsID().get(partIdx-1);
                     }
                     catch (Exception ex) {
                         System.out.println("Error in parsing number for Part ID...");

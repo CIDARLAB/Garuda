@@ -8,20 +8,21 @@ package org.cidarlab.main.thomoclotho.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
-import java.util.HashSet;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Random;
 import java.util.Set;
+=======
+>>>>>>> origin/spring
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.constructsID;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.Annotation;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.Sequence;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.Annotation;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Person;
-import org.clothocad.model.Sequence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -31,8 +32,8 @@ import org.json.simple.JSONObject;
  */
 public class InitConstructs {
     
-        public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
-      
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+        
         try {
             FileWriter annJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-annotation.txt");
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
@@ -66,6 +67,7 @@ public class InitConstructs {
                 //additional check if the sequence starts with the barcode sequence [col 2]
                 if (!row.getCell(3).getStringCellValue().startsWith(row.getCell(2).getStringCellValue()))
                     System.out.println("There is a barcode error in line " + i);
+
                 
                 //-----sequence [col 3]-----
                 /*String seq_id = "seq" + System.currentTimeMillis(); //sequence id is automatically generated
@@ -103,9 +105,11 @@ public class InitConstructs {
                         partVal = Integer.parseInt(cellstr);
                     
                     //set the beginning and the end of the annotation, instantiate and assign the annotation
-                    String seqtemp = partsID.get(partVal-1).getSequence().getSequence();
+
+                    String seqtemp = app.getPartsID().get(partVal-1).getSequence().getSequence();
                     mark_end = mark_begin + seqtemp.length() - 1;
-                    Annotation anno = new Annotation(anoname, "", mark_begin, mark_end, orientation, partsID.get(partVal-1), user);
+                    Annotation anno = new Annotation(anoname, "", mark_begin, mark_end, orientation, app.getPartsID().get(partVal-1), user);
+
                     //anno.setFeature();
                     //annotations.add(anno);
                     newSeq.addAnnotation(anno);
@@ -151,7 +155,8 @@ public class InitConstructs {
                     role = Feature.FeatureRole.TOXICITY_TEST; //check for other types of role
                 }
                 Feature newFeature = new Feature (feaname, "", newSeq, role, user);
-                constructsID.add(newFeature);
+
+                app.getConstructsID().add(newFeature);
                 
                 JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();

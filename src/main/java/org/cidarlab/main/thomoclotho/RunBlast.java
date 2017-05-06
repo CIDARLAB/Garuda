@@ -28,6 +28,7 @@ public class RunBlast {
     
     private boolean initdb;
     private Filters outputformat;
+<<<<<<< HEAD
     private String path;
     
     public RunBlast(boolean initdb, Filters outputformat, String path) {
@@ -36,18 +37,30 @@ public class RunBlast {
     
     public RunBlast (double evalue, int threshold, double pthreshold, boolean initdb, Filters outputformat, String path) {
         this.initdb = initdb;
+=======
+    
+    public RunBlast(boolean initdb, Filters outputformat) {
+        this(10.0, 820, 99.00, initdb, outputformat);
+    }
+    
+    public RunBlast (double evalue, int threshold, double pthreshold, boolean initdb, Filters outputformat) {
+>>>>>>> origin/spring
         this.output = new HashSet<String>();
         this.evalue = evalue;
         this.threshold = threshold;
         this.pthreshold = pthreshold;
         this.initdb = initdb;
         this.outputformat = outputformat;
+<<<<<<< HEAD
         this.path = path;
+=======
+>>>>>>> origin/spring
     }
         
     
     public String init () {
         
+<<<<<<< HEAD
         String message = "";
         
         if (initdb) {
@@ -104,6 +117,54 @@ public class RunBlast {
         }
         
         return message;
+=======
+        List<String> makedb = new ArrayList();
+        makedb.add("/usr/local/ncbi/blast/bin/makeblastdb");
+        makedb.add("-in");
+        makedb.add("/Users/mardian/NetBeansProjects/ThomoClotho/resources/output-clotho_constructsdb.fsa");
+        makedb.add("-parse_seqids");
+        makedb.add("-dbtype");
+        makedb.add("nucl");
+        
+        //exec(makedb);
+        
+        List<String> runquery = new ArrayList();
+        runquery.add("/usr/local/ncbi/blast/bin/blastn");
+        runquery.add("-db");
+        runquery.add("resources/output-clotho_constructsdb.fsa");
+        runquery.add("-query");
+        runquery.add("/Users/mardian/documents/CIDAR/clothoquery.fsa");
+        
+        if (outputformat!=Filters.DEFAULT) {
+            runquery.add("-outfmt");
+            if (outputformat==Filters.SUBSEQ_ID) {
+                runquery.add("6 sseqid");
+            }
+            else if (outputformat==Filters.SUBSEQ) {
+                runquery.add("6 sseq");
+            }
+            else if (outputformat==Filters.EVALUE) {
+                runquery.add("6 sseqid evalue");
+            }
+            else if (outputformat==Filters.BITSCORE) {
+                runquery.add("6 sseqid bitscore");
+            }
+            else if (outputformat==Filters.RAWSCORE) {
+                runquery.add("6 sseqid score");
+            }
+            else if (outputformat==Filters.PIDENT) {
+                runquery.add("6 sseqid pident");
+            }
+            else if (outputformat==Filters.COVERAGE) {
+                runquery.add("6 sseqid qcovus");
+            }
+            else if (outputformat==Filters.STANDARD) {
+                runquery.add("6");
+            }
+        }
+        
+        return (exec(runquery, outputformat, threshold, pthreshold, evalue));
+>>>>>>> origin/spring
     }
     
     private String exec (List<String> input, Filters format, int threshold, double pthreshold, double evalue) {
@@ -184,7 +245,11 @@ public class RunBlast {
             
             for (String s : output) {
                 //System.out.println(s);
+<<<<<<< HEAD
                 fin_out += s + ";\n";
+=======
+                fin_out += s + ";";
+>>>>>>> origin/spring
             }
         }
         

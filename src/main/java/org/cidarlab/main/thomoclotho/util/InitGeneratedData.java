@@ -16,20 +16,19 @@ import net.sf.json.JSONArray;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.constructsID;
-import static org.cidarlab.main.thomoclotho.Application.genDataID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.BasicModule;
+import org.cidarlab.main.thomoclotho.model.BioDesign;
+import org.cidarlab.main.thomoclotho.model.Compound;
+import org.cidarlab.main.thomoclotho.model.Compound.CompoundType;
+import org.cidarlab.main.thomoclotho.model.ExperimentalDesign;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Medium;
+import org.cidarlab.main.thomoclotho.model.Module.ModuleRole;
+import org.cidarlab.main.thomoclotho.model.Parameter;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.Variable;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.BasicModule;
-import org.clothocad.model.BioDesign;
-import org.clothocad.model.Compound;
-import org.clothocad.model.Compound.CompoundType;
-import org.clothocad.model.ExperimentalDesign;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Medium;
-import org.clothocad.model.Module.ModuleRole;
-import org.clothocad.model.Parameter;
-import org.clothocad.model.Person;
-import org.clothocad.model.Variable;
 import org.json.simple.JSONObject;
 
 /**
@@ -38,7 +37,7 @@ import org.json.simple.JSONObject;
  */
 public class InitGeneratedData {
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
         
         try {
             FileWriter medJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-medium.txt");
@@ -103,7 +102,7 @@ public class InitGeneratedData {
                 //-----module-----
                 String modname = "mod" + System.currentTimeMillis();
                 Set<Feature> features = new HashSet<Feature>();
-                features.add(constructsID.get(bioDesignIdx-1));
+                features.add(app.getConstructsID().get(bioDesignIdx-1));
                 BasicModule newMod = new BasicModule(modname, "", ModuleRole.TRANSCRIPTION, features, user);
                 
                 JSONObject modObj = newMod.getJSON();
@@ -243,7 +242,7 @@ public class InitGeneratedData {
                     }
                     parArr.add(parObj);
                     
-                genDataID.add(newBiod);
+                app.getGenDataID().add(newBiod);
                 
                 //add bioDesign to JSON and clotho later
                 JSONObject bioObj = newBiod.getJSON();

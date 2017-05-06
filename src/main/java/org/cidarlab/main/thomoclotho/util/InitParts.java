@@ -11,12 +11,12 @@ import java.io.FileWriter;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import static org.cidarlab.main.thomoclotho.Application.partsID;
+import org.cidarlab.main.thomoclotho.ApplicationInit;
+import org.cidarlab.main.thomoclotho.model.Feature;
+import org.cidarlab.main.thomoclotho.model.Feature.FeatureRole;
+import org.cidarlab.main.thomoclotho.model.Person;
+import org.cidarlab.main.thomoclotho.model.Sequence;
 import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Feature.FeatureRole;
-import org.clothocad.model.Person;
-import org.clothocad.model.Sequence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -25,14 +25,16 @@ import org.json.simple.JSONObject;
  * @author mardian
  */
 public class InitParts {
-    
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user) {
-    
+
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
+
         try {
             FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter feaJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-feature.txt");
             
             FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
+
+            //BufferedWriter bw = new BufferedWriter(seqFSAfile);
             
             //one JSON object container for each table, one JSON array for all table entries, one JSON object for each entry
             JSONObject seqJSON = new JSONObject();
@@ -81,7 +83,7 @@ public class InitParts {
                 }
                 Feature newFeature = new Feature (feaname, "", newSeq, role, user);
                 //add IDs to the static list, because they will be used in different methods
-                partsID.add(newFeature);
+                app.getPartsID().add(newFeature);
                 
                 JSONObject feaObj = newFeature.getJSON();
                 Map feaMap = newFeature.getMap();
