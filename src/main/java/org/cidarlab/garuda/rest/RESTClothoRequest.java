@@ -23,7 +23,7 @@ import javax.net.ssl.X509TrustManager;
  *
  * @author mardian
  */
-public class RESTRequest {
+public class RESTClothoRequest {
     
     private String url = "https://localhost:8443/data/post";
 

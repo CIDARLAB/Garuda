@@ -11,7 +11,7 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.rest.RESTClothoRequest;
 import org.json.simple.JSONObject;
 
 /**
@@ -24,7 +24,7 @@ public class InitParts {
         
         Map<String, String> parts = new HashMap<String, String>();
         
-        RESTRequest rest = new RESTRequest();
+        RESTClothoRequest rest = new RESTClothoRequest();
         
         JSONObject json = new JSONObject();
             

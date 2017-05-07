@@ -22,7 +22,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.clotho.model.BioDesign;
 import org.cidarlab.clotho.model.Feature;
 import org.cidarlab.clotho.model.Person;
-import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.rest.RESTClothoRequest;
 import org.cidarlab.garuda.util.InitConstructs;
 import org.cidarlab.garuda.util.InitConstructs_backup;
 import org.cidarlab.garuda.util.InitGeneratedData;
@@ -42,7 +42,7 @@ public class ApplicationInit {
     
     @Setter
     @Getter
-    private RESTRequest rest;
+    private RESTClothoRequest rest;
     
     @Setter
     @Getter
@@ -92,7 +92,7 @@ public class ApplicationInit {
     
     public ApplicationInit (String message) {
         
-        rest = new RESTRequest();
+        rest = new RESTClothoRequest();
         this.message = message;
     }
     

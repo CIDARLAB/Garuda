@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.cidarlab.clotho.model.Feature;
-import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.rest.RESTClothoRequest;
 import org.json.simple.JSONObject;
 
 /**
@@ -22,7 +22,7 @@ public class InitConstructs {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts) {
         
-        RESTRequest rest = new RESTRequest();
+        RESTClothoRequest rest = new RESTClothoRequest();
         
         JSONObject json = new JSONObject();
         JSONObject partSearcher = new JSONObject();

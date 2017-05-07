@@ -16,7 +16,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.rest.RESTClothoRequest;
 import org.json.simple.JSONObject;
 
 /**
@@ -28,7 +28,7 @@ public class RWR_Parser {
     private static Map<String, String> parts = new HashMap<String, String>();
     private static Map<String, String> enzymes = new HashMap<String, String>();
     
-    private static RESTRequest rest = new RESTRequest();
+    private static RESTClothoRequest rest = new RESTClothoRequest();
     
     public static String parse (String inputUrl, String outputUrl, String username) {
         
@@ -54,7 +54,7 @@ public class RWR_Parser {
                         //parts = populateParts (sheet, username);
                         break;
                     case "Final Strains":
-                        //enzymes = populateEnzymes (sheet, username);
+                        //git senzymes = populateEnzymes (sheet, username);
                         break;
                     case "Enumerated Constructs":
                         //InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);

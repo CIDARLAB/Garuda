@@ -16,7 +16,7 @@ import org.cidarlab.clotho.model.Feature;
 import org.cidarlab.clotho.model.Feature.FeatureRole;
 import org.cidarlab.clotho.model.Person;
 import org.cidarlab.clotho.model.Sequence;
-import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.rest.RESTClothoRequest;
 //import org.clothoapi.clotho3javaapi.Clotho;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
