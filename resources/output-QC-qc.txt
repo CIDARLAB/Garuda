@@ -3,6 +3,7 @@
     {
       "sequence": "TCATGCAATTGATCGTACAATCAAGGAAGAGCTCTTTCCCGTTGCCTACACTACTGAAGAAGAGCAATATTTCAAAACTAACCCTAAACCTGCCTATATCG",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "feature": "fea1477933886103",
       "author": "user1477933878631",
       "bioDesign": "bio1477933893346",
@@ -13,10 +14,17 @@
       "bioDesign": "bio1477705107417",
       "name": "qc1477705149277",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260933883",
+      "author": "user123",
+      "bioDesign": "bio1484260940160",
+      "name": "qc1484260968052",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "ACGTCCTTGGAGGGGCACTTCCTGCCTACAAGAATTGGAGATACCATAACCGTAGACCTGTCCAAGTTTATGAATAACGTCGTAAAATTTGACAAGCTGGA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887041",
       "author": "user1477933878631",
@@ -28,10 +36,17 @@
       "bioDesign": "bio1477705108715",
       "name": "qc1477705149408",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934506",
+      "author": "user123",
+      "bioDesign": "bio1484260941429",
+      "name": "qc1484260968172",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAGATAGCAAATTATGAACAATTAATTATAAAAGAAAATAGCTCGAACTGTAAAGGAATAACAGAGAAAAATGATGAAAATAAATTTCAAAGAAGTCACAC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886145",
       "author": "user1477933878631",
@@ -43,10 +58,17 @@
       "bioDesign": "bio1477705110030",
       "name": "qc1477705149534",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260933900",
+      "author": "user123",
+      "bioDesign": "bio1484260942311",
+      "name": "qc1484260968306",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAATGCGAGTTATGTGGCAAGCGACTTTTATGCATGTGGTTTTCTGCAAGGGAAAGGTACAGAAACCAATGCGGGAATACATAATACAAGGCCTTCTCATT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886861",
       "author": "user1477933878631",
@@ -58,10 +80,17 @@
       "bioDesign": "bio1477705111031",
       "name": "qc1477705149654",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934434",
+      "author": "user123",
+      "bioDesign": "bio1484260943249",
+      "name": "qc1484260968437",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAGGAGTCTTCAGAAAAGCACCATAAGGAGATATGGGTACAATTTGGCACCCCACATGTTTTTGTTACTACACGTAGATGAGCTATCGATTTTTTCTGCAT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886145",
       "author": "user1477933878631",
@@ -73,10 +102,17 @@
       "bioDesign": "bio1477705112069",
       "name": "qc1477705149771",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260933900",
+      "author": "user123",
+      "bioDesign": "bio1484260944478",
+      "name": "qc1484260968548",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AGTTGAATTTAACTCAAGAGGCCAAGGACTTCTTGGCCAAATATGGTTATTCCGATGATATGGGTGCACGTCCACTGAACAGGTTAATTCAAAACGAAATT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886443",
       "author": "user1477933878631",
@@ -88,10 +124,17 @@
       "bioDesign": "bio1477705113303",
       "name": "qc1477705149893",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934140",
+      "author": "user123",
+      "bioDesign": "bio1484260945543",
+      "name": "qc1484260968663",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "CCAGCATAATTCCTCGAACTTCTAGGAATAAAAAAACCTCCCCATCAAACTATCACCATTCGGTACTTTCACATCGGAAATCAAATGAATGGAATCAGGTC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887298",
       "author": "user1477933878631",
@@ -103,10 +146,17 @@
       "bioDesign": "bio1477705114461",
       "name": "qc1477705150025",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934674",
+      "author": "user123",
+      "bioDesign": "bio1484260946235",
+      "name": "qc1484260968778",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "ACGATTACGATATCAATGCTTTAAAATATGTTTATAAGCTAAGAGAGTTCATGCAATTATCAAATATGTCGTTACAAAATAAATCTTTGGAAGATGGATCC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886686",
       "author": "user1477933878631",
@@ -118,10 +168,17 @@
       "bioDesign": "bio1477705115602",
       "name": "qc1477705150152",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934339",
+      "author": "user123",
+      "bioDesign": "bio1484260947118",
+      "name": "qc1484260968846",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AGATATCCTAACAAATGCCATTGTCATCTCCCGACATAGAAGAAAAGCAGTCAAGATAAATTCTGGTAGAAGAAGTGAAGTTTCTGCGGCTTTAAGAGCCA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886405",
       "author": "user1477933878631",
@@ -133,10 +190,17 @@
       "bioDesign": "bio1477705117030",
       "name": "qc1477705150279",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934111",
+      "author": "user123",
+      "bioDesign": "bio1484260947892",
+      "name": "qc1484260968939",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TGGTATCTTTACTGTCGTCCACCGATCCTGATGTTCAGTACTATTGTACTACTGCTTTATCAAATATAGCAGTGGATGAAGCCAATCGCAAGAAGTTGGCT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887100",
       "author": "user1477933878631",
@@ -148,10 +212,17 @@
       "bioDesign": "bio1477705118306",
       "name": "qc1477705150412",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934526",
+      "author": "user123",
+      "bioDesign": "bio1484260949087",
+      "name": "qc1484260969019",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAAACAGGACGAAGACGGCGCAGAAACTGCCGCTACTACTCCTCTTCCATCTGCCGCTGCTACAAGCACGAAGCTAAATAAAAGCATGATCCTAGAAAAAG",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886313",
       "author": "user1477933878631",
@@ -163,10 +234,17 @@
       "bioDesign": "bio1477705119443",
       "name": "qc1477705150555",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934003",
+      "author": "user123",
+      "bioDesign": "bio1484260950153",
+      "name": "qc1484260969132",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "ATTTCATCAAGAATAAATATGAATATAAGAAGTGGATTGGTGACCTCTCCAGTATTGAAGGGTTAAATGATTCTACTGAACCAGTTCTGCATAAGCCGTCT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886443",
       "author": "user1477933878631",
@@ -178,10 +256,17 @@
       "bioDesign": "bio1477705120659",
       "name": "qc1477705150707",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934140",
+      "author": "user123",
+      "bioDesign": "bio1484260950968",
+      "name": "qc1484260969241",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AATCAAATTTCTAGAGCACCAAGTATTGCTATTTATTCTGTTGAATCCTTGGATATAACAGATAACAAATTTAAGGAAAGAAGTTTGATAGATGATTTGAA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886606",
       "author": "user1477933878631",
@@ -193,10 +278,17 @@
       "bioDesign": "bio1477705121991",
       "name": "qc1477705150840",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934286",
+      "author": "user123",
+      "bioDesign": "bio1484260951721",
+      "name": "qc1484260969394",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TTGAAGTCAAGTACAACTTTATTTAACAGAAGGAAAGACAAGCTTGCGACTTTATTTGGTTCTTTTTTCACGTCCAATTACGTCGCATTATGGGCCAAGTT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886443",
       "author": "user1477933878631",
@@ -208,10 +300,17 @@
       "bioDesign": "bio1477705123302",
       "name": "qc1477705150970",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934140",
+      "author": "user123",
+      "bioDesign": "bio1484260952511",
+      "name": "qc1484260969528",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "CCCACTAAGGACTGATAGCAGAATAGACATATTATTCTCAAACATTAAGAATCTAATTTTTCAATCTTGTAAAGGTGAATTAATTGTCGTCATTCATATTC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887159",
       "author": "user1477933878631",
@@ -223,10 +322,17 @@
       "bioDesign": "bio1477705124551",
       "name": "qc1477705151096",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934567",
+      "author": "user123",
+      "bioDesign": "bio1484260953234",
+      "name": "qc1484260969677",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AGGAACAAAGCTACCTTATTGAGTCCACAATTCAGGACTATAAGAAGCAGCGTAGATTGGAGGAGATCGTCACACTTAATAAGAACTTAGAAGAATTGCAC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886651",
       "author": "user1477933878631",
@@ -238,10 +344,17 @@
       "bioDesign": "bio1477705126276",
       "name": "qc1477705151219",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934308",
+      "author": "user123",
+      "bioDesign": "bio1484260953986",
+      "name": "qc1484260969763",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TATGGGGTTGGAAAACAGAATTACGCAGCGATTCCATTCGGATACAATGTACCATGCAGTTGGACAAGGCGCCCTGGGTATAGAAATTAGAAAGGGTGACA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886975",
       "author": "user1477933878631",
@@ -253,10 +366,17 @@
       "bioDesign": "bio1477705128131",
       "name": "qc1477705151361",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934477",
+      "author": "user123",
+      "bioDesign": "bio1484260954912",
+      "name": "qc1484260969848",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GAAAACTTTGCCAAAGGTGAGCACATTTCGGCAATTGTTCCTGGTCAAAGCATTAGTGGAACATTGGAACTCAGTGCACAATTTAGAGTACCGCGTTATCA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886861",
       "author": "user1477933878631",
@@ -268,10 +388,17 @@
       "bioDesign": "bio1477705129632",
       "name": "qc1477705151528",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934434",
+      "author": "user123",
+      "bioDesign": "bio1484260955632",
+      "name": "qc1484260969984",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GGCGGATGGGTTGGTATTTAATGTGGTAACTCAAGATATGATAAACAAAAGTACTAAACCTTACAGAGGACACCGGTTTACAAAAGAAAATGTCCGAATAC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886545",
       "author": "user1477933878631",
@@ -283,10 +410,17 @@
       "bioDesign": "bio1477705131093",
       "name": "qc1477705151676",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934230",
+      "author": "user123",
+      "bioDesign": "bio1484260956354",
+      "name": "qc1484260970118",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GTATCTAAAAATTTTCAAACAAAAGTGCCACCTTATGCAAAACTTTTGACCAACCTAGACAAGATTAAACAAATAACAAACAATGCTCCATTGACACTAGC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887202",
       "author": "user1477933878631",
@@ -298,10 +432,17 @@
       "bioDesign": "bio1477705132427",
       "name": "qc1477705151819",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934612",
+      "author": "user123",
+      "bioDesign": "bio1484260957136",
+      "name": "qc1484260970239",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GCAACTAGAAGAAAAACATAGGACAAAAAAAAATGAAGAATACACTGCGTTGAAAATTTTAAGGGATGTCATAGGTCCCCTTTTATTAACTATAACTTCGT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887100",
       "author": "user1477933878631",
@@ -313,10 +454,17 @@
       "bioDesign": "bio1477705133805",
       "name": "qc1477705151982",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934526",
+      "author": "user123",
+      "bioDesign": "bio1484260957914",
+      "name": "qc1484260970346",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GGTTGAGAGAAATGAAAAAACTACATTATAAAGATCAATCAATTTTATTTTATTTTAAAAATTTCCGGTTTTTCGACATTATTGAAGCTTTTTATAATTTG",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886782",
       "author": "user1477933878631",
@@ -328,10 +476,17 @@
       "bioDesign": "bio1477705135206",
       "name": "qc1477705152135",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934385",
+      "author": "user123",
+      "bioDesign": "bio1484260958634",
+      "name": "qc1484260970430",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAACTGCTAGACATATTTCACAATTAGAAAAGGAAGTCCAGAGACTCATGGTAATAAAAGAAGCTTCAAAAGATTCAAATTTTCAAACAGCACGGCTTAAA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886812",
       "author": "user1477933878631",
@@ -343,10 +498,17 @@
       "bioDesign": "bio1477705136712",
       "name": "qc1477705152275",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934406",
+      "author": "user123",
+      "bioDesign": "bio1484260959449",
+      "name": "qc1484260970500",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TAGCATACGAACCCCTACGAGCTTGCAGCGGCAAAATTCTGACAGGCAATCTAATATGACATCCGTGTTTACGGATGACATTTCTACCATAGACGACAACT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886606",
       "author": "user1477933878631",
@@ -358,10 +520,17 @@
       "bioDesign": "bio1477705138273",
       "name": "qc1477705152408",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934286",
+      "author": "user123",
+      "bioDesign": "bio1484260960238",
+      "name": "qc1484260970587",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "ATGGCACCGAAAAAGAAATCAAACGATAGAGCCATTCAGGCAAAAGGCTCAGAAG",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886471",
       "author": "user1477933878631",
@@ -373,10 +542,17 @@
       "bioDesign": "bio1477705139814",
       "name": "qc1477705152543",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934173",
+      "author": "user123",
+      "bioDesign": "bio1484260961498",
+      "name": "qc1484260970682",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TCATAAAAGGGTTTGATACCTTCTCCAAGTCACACCACAGCCATGCAGATTCTGCATTCAATAACAATGATCGTATTTTTTCATTAAGTAGTGCTACGTAC",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886471",
       "author": "user1477933878631",
@@ -388,10 +564,17 @@
       "bioDesign": "bio1477705141489",
       "name": "qc1477705152672",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934173",
+      "author": "user123",
+      "bioDesign": "bio1484260962656",
+      "name": "qc1484260970756",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "AAACCAACTGCCGGCTGAAAGAGCTTGTGCAATGGGAGTGCCAATTCAAAGGAGCCGAATACGTCTGCTCGCCTTTTAAGAGGCTTTTTGAACACTGCATT",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886747",
       "author": "user1477933878631",
@@ -403,10 +586,17 @@
       "bioDesign": "bio1477705143124",
       "name": "qc1477705152815",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934362",
+      "author": "user123",
+      "bioDesign": "bio1484260963785",
+      "name": "qc1484260970837",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "TTTAACTAAAAGTTATACTGATAAAGAGGGTGGTTCTGATGAAATTATGCTCGAAGATGAAAGTGGGAGAGTGCTTCTAGTGGGAGATTTTATTCGGTCTA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933887250",
       "author": "user1477933878631",
@@ -418,10 +608,17 @@
       "bioDesign": "bio1477705144663",
       "name": "qc1477705152957",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934643",
+      "author": "user123",
+      "bioDesign": "bio1484260964905",
+      "name": "qc1484260970911",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "CAGCATCAAAGAGCACTCTACAACTATGGATGGTGCCAATGACCTCGGATTCACCGCCTCTGTTTCGAATCAAGAAAATGCAGGAACTGATATTGTGATGG",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886346",
       "author": "user1477933878631",
@@ -433,10 +630,17 @@
       "bioDesign": "bio1477705146121",
       "name": "qc1477705153091",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934055",
+      "author": "user123",
+      "bioDesign": "bio1484260966160",
+      "name": "qc1484260970990",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "sequence": "GACTTCTCTTAGTGCCAATGCGGCTGCCATTTTTACTTTTTTGCACAAATTAGTGGAGGTATTAAGTGACTACTTAAAAACCGTTGAAGAAGAATCTATTA",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886279",
       "author": "user1477933878631",
@@ -448,6 +652,12 @@
       "bioDesign": "bio1477705147682",
       "name": "qc1477705153242",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260933976",
+      "author": "user123",
+      "bioDesign": "bio1484260967160",
+      "name": "qc1484260971099",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     }
   ],

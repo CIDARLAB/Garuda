@@ -7,9 +7,14 @@
       "name": "bio1477933893346",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705107380",
       "name": "bio1477705107417",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260940125",
+      "name": "bio1484260940160",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -21,9 +26,14 @@
       "name": "bio1477933894231",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705108682",
       "name": "bio1477705108715",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260941398",
+      "name": "bio1484260941429",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -35,9 +45,14 @@
       "name": "bio1477933895023",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705109989",
       "name": "bio1477705110030",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260942268",
+      "name": "bio1484260942311",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -49,9 +64,14 @@
       "name": "bio1477933895813",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705110988",
       "name": "bio1477705111031",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260943201",
+      "name": "bio1484260943249",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -63,9 +83,14 @@
       "name": "bio1477933896813",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705112023",
       "name": "bio1477705112069",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260944421",
+      "name": "bio1484260944478",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -77,9 +102,14 @@
       "name": "bio1477933897677",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705113237",
       "name": "bio1477705113303",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260945501",
+      "name": "bio1484260945543",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -91,9 +121,14 @@
       "name": "bio1477933898477",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705114412",
       "name": "bio1477705114461",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260946210",
+      "name": "bio1484260946235",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -105,9 +140,14 @@
       "name": "bio1477933899316",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705115557",
       "name": "bio1477705115602",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260947089",
+      "name": "bio1484260947118",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -119,9 +159,14 @@
       "name": "bio1477933900193",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705116964",
       "name": "bio1477705117030",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260947838",
+      "name": "bio1484260947892",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -133,9 +178,14 @@
       "name": "bio1477933901112",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705118256",
       "name": "bio1477705118306",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260949045",
+      "name": "bio1484260949087",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -147,9 +197,14 @@
       "name": "bio1477933902015",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705119404",
       "name": "bio1477705119443",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260950127",
+      "name": "bio1484260950153",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -161,9 +216,14 @@
       "name": "bio1477933902978",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705120591",
       "name": "bio1477705120659",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260950941",
+      "name": "bio1484260950968",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -175,9 +235,14 @@
       "name": "bio1477933903917",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705121938",
       "name": "bio1477705121991",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260951675",
+      "name": "bio1484260951721",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -189,9 +254,14 @@
       "name": "bio1477933904911",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705123246",
       "name": "bio1477705123302",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260952480",
+      "name": "bio1484260952511",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -203,9 +273,14 @@
       "name": "bio1477933905866",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705124488",
       "name": "bio1477705124551",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260953205",
+      "name": "bio1484260953234",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -217,9 +292,14 @@
       "name": "bio1477933906887",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705126200",
       "name": "bio1477705126276",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260953950",
+      "name": "bio1484260953986",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -231,9 +311,14 @@
       "name": "bio1477933907888",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705127966",
       "name": "bio1477705128131",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260954881",
+      "name": "bio1484260954912",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -245,9 +330,14 @@
       "name": "bio1477933909142",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705129573",
       "name": "bio1477705129632",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260955607",
+      "name": "bio1484260955632",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -259,9 +349,14 @@
       "name": "bio1477933910241",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705130996",
       "name": "bio1477705131093",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260956326",
+      "name": "bio1484260956354",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -273,9 +368,14 @@
       "name": "bio1477933911349",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705132377",
       "name": "bio1477705132427",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260957109",
+      "name": "bio1484260957136",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -287,9 +387,14 @@
       "name": "bio1477933912469",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705133757",
       "name": "bio1477705133805",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260957878",
+      "name": "bio1484260957914",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -301,9 +406,14 @@
       "name": "bio1477933913544",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705135144",
       "name": "bio1477705135206",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260958607",
+      "name": "bio1484260958634",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -315,9 +425,14 @@
       "name": "bio1477933914759",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705136662",
       "name": "bio1477705136712",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260959422",
+      "name": "bio1484260959449",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -329,9 +444,14 @@
       "name": "bio1477933915987",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705138197",
       "name": "bio1477705138273",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260960202",
+      "name": "bio1484260960238",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -343,9 +463,14 @@
       "name": "bio1477933917210",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705139750",
       "name": "bio1477705139814",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260961469",
+      "name": "bio1484260961498",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -357,9 +482,14 @@
       "name": "bio1477933918402",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705141414",
       "name": "bio1477705141489",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260962571",
+      "name": "bio1484260962656",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -371,9 +501,14 @@
       "name": "bio1477933919606",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705143039",
       "name": "bio1477705143124",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260963741",
+      "name": "bio1484260963785",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -385,9 +520,14 @@
       "name": "bio1477933920857",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705144609",
       "name": "bio1477705144663",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260964875",
+      "name": "bio1484260964905",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -399,9 +539,14 @@
       "name": "bio1477933922156",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705146062",
       "name": "bio1477705146121",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260966098",
+      "name": "bio1484260966160",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4
@@ -413,9 +558,14 @@
       "name": "bio1477933923405",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "module": "mod1477705147632",
       "name": "bio1477705147682",
 >>>>>>> origin/spring
+=======
+      "module": "mod1484260967128",
+      "name": "bio1484260967160",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "media": 1,
       "parameters": 4

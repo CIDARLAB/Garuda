@@ -3,6 +3,7 @@
     {
       "software": "Tophat+HTSEQ",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "feature": "fea1477933886606",
       "level": 10.0,
       "author": "user1477933878631",
@@ -15,10 +16,18 @@
       "bioDesign": "bio1477705132427",
       "name": "exp1477705153365",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934286",
+      "level": 10.0,
+      "author": "user123",
+      "bioDesign": "bio1484260957136",
+      "name": "exp1484260971218",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     },
     {
       "software": "Tophat+HTSEQ",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "feature": "fea1477933886686",
       "level": 27.0,
@@ -32,6 +41,13 @@
       "bioDesign": "bio1477705124551",
       "name": "exp1477705153421",
 >>>>>>> origin/spring
+=======
+      "feature": "fea1484260934339",
+      "level": 27.0,
+      "author": "user123",
+      "bioDesign": "bio1484260953234",
+      "name": "exp1484260971322",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": ""
     }
   ],

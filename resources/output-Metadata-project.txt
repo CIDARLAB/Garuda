@@ -12,10 +12,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-1",
-      "name": "pro1477705093142",
+      "name": "pro1484260932288",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093152",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932301",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -32,10 +36,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-1",
-      "name": "pro1477705093367",
+      "name": "pro1484260932353",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093368",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932354",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -52,10 +60,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-1",
-      "name": "pro1477705093523",
+      "name": "pro1484260932402",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093523",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932402",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -72,10 +84,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-2",
-      "name": "pro1477705093668",
+      "name": "pro1484260932446",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093668",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932446",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -92,10 +108,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-2",
-      "name": "pro1477705093768",
+      "name": "pro1484260932509",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093768",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932509",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -112,10 +132,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-2",
-      "name": "pro1477705093863",
+      "name": "pro1484260932550",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705093865",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932551",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -132,10 +156,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-3",
-      "name": "pro1477705094041",
+      "name": "pro1484260932594",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094041",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932594",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -152,10 +180,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-3",
-      "name": "pro1477705094137",
+      "name": "pro1484260932647",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094137",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932647",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -172,10 +204,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-3",
-      "name": "pro1477705094252",
+      "name": "pro1484260932707",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094252",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932707",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -192,10 +228,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-4",
-      "name": "pro1477705094423",
+      "name": "pro1484260932767",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094424",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932767",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -212,10 +252,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-4",
-      "name": "pro1477705094568",
+      "name": "pro1484260932827",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094568",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932828",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -232,10 +276,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-4",
-      "name": "pro1477705094698",
+      "name": "pro1484260932885",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094699",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932886",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -252,10 +300,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-5",
-      "name": "pro1477705094810",
+      "name": "pro1484260932950",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094810",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260932950",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -272,10 +324,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-5",
-      "name": "pro1477705094922",
+      "name": "pro1484260933004",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705094923",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933005",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -292,10 +348,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-5",
-      "name": "pro1477705095070",
+      "name": "pro1484260933088",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095070",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933088",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -312,10 +372,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-6",
-      "name": "pro1477705095196",
+      "name": "pro1484260933147",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095196",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933148",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -332,10 +396,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-6",
-      "name": "pro1477705095247",
+      "name": "pro1484260933200",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095247",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933200",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -352,10 +420,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-6",
-      "name": "pro1477705095525",
+      "name": "pro1484260933241",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095525",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933241",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -372,10 +444,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-7",
-      "name": "pro1477705095665",
+      "name": "pro1484260933285",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095665",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933285",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -392,10 +468,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-7",
-      "name": "pro1477705095766",
+      "name": "pro1484260933338",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095766",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933338",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -412,10 +492,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-7",
-      "name": "pro1477705095862",
+      "name": "pro1484260933371",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095863",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933371",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -432,10 +516,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-8",
-      "name": "pro1477705095982",
+      "name": "pro1484260933401",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705095983",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933401",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -452,10 +540,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-8",
-      "name": "pro1477705096124",
+      "name": "pro1484260933450",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096124",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933450",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -472,10 +564,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-8",
-      "name": "pro1477705096236",
+      "name": "pro1484260933485",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096236",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933485",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -492,10 +588,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-9",
-      "name": "pro1477705096324",
+      "name": "pro1484260933542",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096324",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933543",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -512,10 +612,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-9",
-      "name": "pro1477705096416",
+      "name": "pro1484260933580",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096416",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933580",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -532,10 +636,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-9",
-      "name": "pro1477705096566",
+      "name": "pro1484260933619",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096566",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933619",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -552,10 +660,14 @@
 =======
       "author": "user123",
       "libraryId": "BN-10",
-      "name": "pro1477705096667",
+      "name": "pro1484260933664",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096674",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933665",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -572,10 +684,14 @@
 =======
       "author": "user123",
       "libraryId": "CN-10",
-      "name": "pro1477705096805",
+      "name": "pro1484260933724",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096805",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933725",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"
@@ -592,10 +708,14 @@
 =======
       "author": "user123",
       "libraryId": "FN-10",
-      "name": "pro1477705096921",
+      "name": "pro1484260933777",
       "host": "PLAC861",
+<<<<<<< HEAD
       "plasmid": "pla1477705096921",
 >>>>>>> origin/spring
+=======
+      "plasmid": "pla1484260933777",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "doe": "NA",
       "measurement": "LCMS"

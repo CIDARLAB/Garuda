@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout :: site-head"></head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                
+                <div th:replace="layout :: left-menu"></div>
+
+                <div th:replace="layout :: site-header"></div>
+                
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Add Data</h3>
+                            </div>
+
+                            <div class="utitle_right">
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
+                                    <select id="sheet" class="form-control">
+                                        <!--<option>Choose Schema</option>-->
+                                        <option value="add.html" selected="selected">Metadata</option>
+                                        <option value="add_parts.html">Parts</option>
+                                        <option value="add_constructs.html">Constructs</option>
+                                        <option value="add_gendata.html">Generated Data</option>
+                                        <option value="add_rna.html">RNA Seq</option>
+                                        <option value="add_qc.html">QC</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Create Entry: Metadata <!--<small>Choose your schema</small>--></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <!--<li class="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                              <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                              </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>-->
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <p></p>
+                                        <br/>
+                                        <form id="demo-form2" class="form-horizontal form-label-left">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="library_id">Library ID <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="library_id" required="required" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="purpose">Purpose 
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="purpose" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="size">Size 
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="size" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hosts">Host</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <select name="host" class="form-control">
+                                                        <option>E. Coli</option>
+                                                        <option>Yeast</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doe_vector">DOE Vector 
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="doe_vector" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vector">Vector
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="vector" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="psequence">Plasmid Sequence
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <textarea name="psequence" class="resizable_textarea form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="strain">Strain
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="strain" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="conditions">Measurement Conditions
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="conditions" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pi">PI
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="pi" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sponsor">Sponsor
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="sponsor" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grant">Grant
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="grant" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="submissions">Submissions
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="submissions" class="form-control col-md-7 col-xs-12" placeholder="add comma or semi-colon for multiple entries"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="publications">Publications
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="publications" class="form-control col-md-7 col-xs-12" placeholder="add comma or semi-colon for multiple entries"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Cancel</button>
+                                                    <button type="submit" class="btn btn-success">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <footer th:replace="layout :: site-footer"></footer>
+                
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        <!-- Autosize -->
+        <script src="js/autosize.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+        <!-- Onchange combobox -->
+        <script>
+            $(function(){
+              // bind change event to select
+              $('#sheet').on('change', function () {
+                  var url = $(this).val(); // get selected value
+                  if (url) { // require a URL
+                      window.location = url; // redirect
+                  }
+              });
+            });
+        </script>
+        <!-- /Onchange combobox -->
+        <!-- Autosize -->
+        <script>
+          $(document).ready(function() {
+            autosize($('.resizable_textarea'));
+          });
+        </script>
+        <!-- /Autosize -->
+    </body>
+
+</html>

@@ -9,9 +9,14 @@
       "name": "exd1477933893656",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705107417",
       "name": "exd1477705107947",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260940160",
+      "name": "exd1484260940630",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -25,9 +30,14 @@
       "name": "exd1477933894611",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705108715",
       "name": "exd1477705109212",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260941429",
+      "name": "exd1484260941783",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -41,9 +51,14 @@
       "name": "exd1477933895377",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705110030",
       "name": "exd1477705110510",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260942311",
+      "name": "exd1484260942734",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -57,9 +72,14 @@
       "name": "exd1477933896190",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705111031",
       "name": "exd1477705111522",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260943249",
+      "name": "exd1484260943817",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -73,9 +93,14 @@
       "name": "exd1477933897197",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705112069",
       "name": "exd1477705112541",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260944478",
+      "name": "exd1484260945087",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -89,9 +114,14 @@
       "name": "exd1477933897994",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705113303",
       "name": "exd1477705113871",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260945543",
+      "name": "exd1484260945894",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -105,9 +135,14 @@
       "name": "exd1477933898818",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705114461",
       "name": "exd1477705114977",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260946235",
+      "name": "exd1484260946779",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -121,9 +156,14 @@
       "name": "exd1477933899652",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705115602",
       "name": "exd1477705116164",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260947118",
+      "name": "exd1484260947407",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -137,9 +177,14 @@
       "name": "exd1477933900581",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705117030",
       "name": "exd1477705117614",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260947892",
+      "name": "exd1484260948471",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -153,9 +198,14 @@
       "name": "exd1477933901502",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705118306",
       "name": "exd1477705118846",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260949087",
+      "name": "exd1484260949568",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -169,9 +219,14 @@
       "name": "exd1477933902397",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705119443",
       "name": "exd1477705119973",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260950153",
+      "name": "exd1484260950622",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -185,9 +240,14 @@
       "name": "exd1477933903364",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705120659",
       "name": "exd1477705121290",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260950968",
+      "name": "exd1484260951257",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -201,9 +261,14 @@
       "name": "exd1477933904291",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705121991",
       "name": "exd1477705122544",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260951721",
+      "name": "exd1484260952081",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -217,9 +282,14 @@
       "name": "exd1477933905280",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705123302",
       "name": "exd1477705123827",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260952511",
+      "name": "exd1484260952825",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -233,9 +303,14 @@
       "name": "exd1477933906240",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705124551",
       "name": "exd1477705125420",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260953234",
+      "name": "exd1484260953568",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -249,9 +324,14 @@
       "name": "exd1477933907298",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705126276",
       "name": "exd1477705126967",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260953986",
+      "name": "exd1484260954444",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -265,9 +345,14 @@
       "name": "exd1477933908401",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705128131",
       "name": "exd1477705128904",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260954912",
+      "name": "exd1484260955277",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -281,9 +366,14 @@
       "name": "exd1477933909561",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705129632",
       "name": "exd1477705130257",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260955632",
+      "name": "exd1484260955988",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -297,9 +387,14 @@
       "name": "exd1477933910695",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705131093",
       "name": "exd1477705131680",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260956354",
+      "name": "exd1484260956733",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -313,9 +408,14 @@
       "name": "exd1477933911785",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705132427",
       "name": "exd1477705133019",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260957136",
+      "name": "exd1484260957468",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -329,9 +429,14 @@
       "name": "exd1477933912879",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705133805",
       "name": "exd1477705134425",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260957914",
+      "name": "exd1484260958250",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -345,9 +450,14 @@
       "name": "exd1477933914035",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705135206",
       "name": "exd1477705135834",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260958634",
+      "name": "exd1484260959076",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -361,9 +471,14 @@
       "name": "exd1477933915252",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705136712",
       "name": "exd1477705137355",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260959449",
+      "name": "exd1484260959804",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -377,9 +492,14 @@
       "name": "exd1477933916491",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705138273",
       "name": "exd1477705138977",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260960238",
+      "name": "exd1484260960750",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -393,9 +513,14 @@
       "name": "exd1477933917677",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705139814",
       "name": "exd1477705140580",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260961498",
+      "name": "exd1484260962021",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -409,9 +534,14 @@
       "name": "exd1477933918875",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705141489",
       "name": "exd1477705142231",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260962656",
+      "name": "exd1484260963293",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -425,9 +555,14 @@
       "name": "exd1477933920098",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705143124",
       "name": "exd1477705143888",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260963785",
+      "name": "exd1484260964236",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -441,9 +576,14 @@
       "name": "exd1477933921371",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705144663",
       "name": "exd1477705145360",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260964905",
+      "name": "exd1484260965540",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -457,9 +597,14 @@
       "name": "exd1477933922656",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705146121",
       "name": "exd1477705146873",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260966160",
+      "name": "exd1484260966701",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
@@ -473,9 +618,14 @@
       "name": "exd1477933923924",
 =======
       "author": "user123",
+<<<<<<< HEAD
       "bioDesign": "bio1477705147682",
       "name": "exd1477705148397",
 >>>>>>> origin/spring
+=======
+      "bioDesign": "bio1484260967160",
+      "name": "exd1484260967586",
+>>>>>>> f261f7c429607d3db9d8f04c875078595b666501
       "description": "",
       "responseVariables": 4,
       "controlledVariables": 1
