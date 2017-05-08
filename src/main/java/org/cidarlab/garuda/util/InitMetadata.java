@@ -53,9 +53,6 @@ public class InitMetadata {
             
             //counter for clotho
             int[] clothoCount = new int[5];
-            
-            //counter for clotho
-            int[] clothoCount = new int[5];
 
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 

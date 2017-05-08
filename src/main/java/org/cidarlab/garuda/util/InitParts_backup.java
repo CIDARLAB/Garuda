@@ -25,17 +25,10 @@ import org.json.simple.JSONObject;
  *
  * @author mardian
  */
-<<<<<<< HEAD:src/main/java/org/cidarlab/main/thomoclotho/util/InitParts.java
-public class InitParts {
-
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
-
-=======
 public class InitParts_backup {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
         
->>>>>>> f261f7c429607d3db9d8f04c875078595b666501:src/main/java/org/cidarlab/garuda/util/InitParts_backup.java
         try {
         /*    FileWriter seqJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-sequence.txt");
             FileWriter feaJSONfile = new FileWriter(outputFileUrl + sheet.getSheetName () + "-feature.txt");*/

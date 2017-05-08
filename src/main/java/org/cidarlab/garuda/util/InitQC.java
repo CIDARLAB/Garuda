@@ -12,20 +12,6 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-<<<<<<< HEAD:src/main/java/org/cidarlab/main/thomoclotho/util/InitQC.java
-import org.cidarlab.main.thomoclotho.ApplicationInit;
-import org.cidarlab.main.thomoclotho.model.BioDesign;
-import org.cidarlab.main.thomoclotho.model.Feature;
-import org.cidarlab.main.thomoclotho.model.Person;
-import org.cidarlab.main.thomoclotho.model.QC;
-import org.cidarlab.main.thomoclotho.model.Sequence;
-import org.clothoapi.clotho3javaapi.Clotho;
-import org.clothocad.model.BioDesign;
-import org.clothocad.model.Feature;
-import org.clothocad.model.Person;
-import org.clothocad.model.QC;
-import org.clothocad.model.Sequence;
-=======
 import org.cidarlab.garuda.main.ApplicationInit;
 import org.cidarlab.clotho.model.BioDesign;
 import org.cidarlab.clotho.model.Feature;
@@ -33,7 +19,6 @@ import org.cidarlab.clotho.model.Person;
 import org.cidarlab.clotho.model.QC;
 import org.cidarlab.clotho.model.Sequence;
 //import org.clothoapi.clotho3javaapi.Clotho;
->>>>>>> f261f7c429607d3db9d8f04c875078595b666501:src/main/java/org/cidarlab/garuda/util/InitQC.java
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -42,12 +27,6 @@ import org.json.simple.JSONObject;
  * @author mardian
  */
 public class InitQC {
-<<<<<<< HEAD:src/main/java/org/cidarlab/main/thomoclotho/util/InitQC.java
-
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, Clotho clothoObject, Person user, ApplicationInit app) {
-
-        try {
-=======
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, Person user, ApplicationInit app) {
         
