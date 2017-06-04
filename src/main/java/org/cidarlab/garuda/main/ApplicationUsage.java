@@ -5,6 +5,10 @@
  */
 package org.cidarlab.garuda.main;
 
+import org.cidarlab.garuda.genbank.PartProperty;
+import org.cidarlab.garuda.genbank.Part;
+import org.cidarlab.garuda.genbank.GeneticConstruct;
+import org.cidarlab.garuda.genbank.GenBankExporter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,8 +21,8 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import net.sf.json.JSONArray;
-import org.cidarlab.garuda.main.Part.Orientation;
-import org.cidarlab.garuda.main.Part.PartType;
+import org.cidarlab.garuda.genbank.Part.Orientation;
+import org.cidarlab.garuda.genbank.Part.PartType;
 //import org.clothoapi.clotho3javaapi.Clotho;
 //import org.clothoapi.clotho3javaapi.ClothoConnection;
 import org.json.simple.JSONObject;

@@ -7,7 +7,6 @@ package org.cidarlab.garuda.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,18 +22,14 @@ import org.json.simple.JSONObject;
  *
  * @author mardian
  */
-public class RWR_Parser {
-
+public class RM_Parser {
+    
     private static Map<String, String> parts = new HashMap<String, String>();
     private static Map<String, String> constructs_lvl1 = new HashMap<String, String>();
     
     private static RESTRequest rest = new RESTRequest();
     
-    //variables for recommendation engine part
-    //private static List<Integer> healthy = new ArrayList<Integer>();
-
-    //private static int num_of_parts;
-
+    
     public static String parse(String inputUrl, String username) {
 
         try {
@@ -49,22 +44,32 @@ public class RWR_Parser {
                 System.out.println("-----" + (i + 1) + ". " + sheetName + "-----");
 
                 switch (sheetName) {
-                    case "Rules":
-                        //scarRules(sheet);
-                        populateParts(sheet, username);
+                    case "Glycerol":
+                        populateParts(sheet, "Glycerol", username);
                         break;
-                    case "Parts":
-                        vectorParts(sheet, username);
+                    case "Vectors":
+                        populateParts(sheet, "Vector", username);
+                        break;
+                    case "Promoters":
+                        populateParts(sheet, "Promoter", username);
+                        break;
+                    case "RBS":
+                        populateParts(sheet, "RBS", username);
+                        break;
+                    case "Genes":
+                        populateParts(sheet, "Gene", username);
+                        break;
+                    case "FP":
+                        populateParts(sheet, "Gene", username);
+                        break;
+                    case "Terminators":
+                        populateParts(sheet, "Terminator", username);
+                        break;
+                    case "Level 1":
                         populateConstructsLvl1(sheet, username);
                         break;
-                    case "Enumerated Constructs":
+                    case "Level 2":
                         populateConstructsLvl2(sheet, username);
-                        break;
-                    case "Final Strains":
-                        //generateFitness(sheet);
-                        break;
-                    case "Assemblies":
-                        //InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
                         break;
                     default:
                         System.out.println("WARNING: Found another sheet with unregistered name!! Do nothing...");
@@ -81,104 +86,13 @@ public class RWR_Parser {
         }
     }
 
-    ////uncommented this method if scars are considered parts
-    /*public static void scarRules(XSSFSheet sheet) {
-
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-
-            Row row = sheet.getRow(i);
-
-            try {
-                Cell cell = row.getCell(9);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                String promoter_id = cell.getStringCellValue();
-
-                cell = row.getCell(10);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                String scar_id = cell.getStringCellValue();
-
-                scar_rules.put(promoter_id, scar_id);
-
-            } catch (NullPointerException n) {
-                break;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
-
-    public static void populateParts(XSSFSheet sheet, String username) {
-
-        JSONObject json = new JSONObject();
-
-        List<String> roles = new ArrayList<String>();
-        List<Integer> roles_idx = new ArrayList<Integer>();
-
-        Row firstRow = sheet.getRow(0);
-
-        for (int i = 1; i < firstRow.getLastCellNum() + 1; i++) {   //skip the first column
-
-            try {
-                Cell cell = firstRow.getCell(i);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                String role = cell.getStringCellValue();
-                roles.add(role);
-                roles_idx.add(i);
-            } catch (NullPointerException n) {
-                continue;
-            };
-        }
-
-        List<String> unique = new ArrayList<String>();
-
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-
-            Row row = sheet.getRow(i);
-
-            for (int j = 0; j < roles.size(); j++) {
-
-                String role = roles.get(j);
-                int idx = roles_idx.get(j);
-
-                try {
-
-                    Cell cell = row.getCell(idx);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-
-                    String display_id = cell.getStringCellValue();
-
-                    if (unique.contains(display_id) || display_id.equals("end")) {
-                        continue;
-                    }
-                    unique.add(display_id);
-
-                    json.put("username", username);
-                    json.put("objectName", display_id);
-                    json.put("role", role);
-
-                    String jsonString = json.toJSONString().replaceAll("\"", "'");
-                    System.out.println(jsonString);
-
-                    String part_id = rest.createPart(jsonString);
-                    System.out.println(part_id);
-                    parts.put(display_id, part_id);
-
-                } catch (NullPointerException n) {
-                    continue;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void vectorParts(XSSFSheet sheet, String username) {
+    public static void populateParts(XSSFSheet sheet, String role, String username) {
 
         JSONObject json = new JSONObject();
 
         List<String> unique = new ArrayList<String>();
 
-        for (int i = 1; i < sheet.getLastRowNum(); i++) {   //last row is for H2O = empty part
+        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
 
             Row row = sheet.getRow(i);
 
@@ -196,12 +110,56 @@ public class RWR_Parser {
 
                 json.put("username", username);
                 json.put("objectName", display_id);
-                json.put("role", "Vector");
+                json.put("role", role);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 String part_id = rest.createPart(jsonString);
+                System.out.println(part_id);
+                parts.put(display_id, part_id);
+                
+                //Scar1
+                cell = row.getCell(2);
+                cell.setCellType(Cell.CELL_TYPE_STRING);
+
+                display_id = cell.getStringCellValue();
+
+                if (unique.contains(display_id)) {
+                    continue;
+                }
+                unique.add(display_id);
+
+                json.put("username", username);
+                json.put("objectName", display_id);
+                json.put("role", "Scar");
+
+                jsonString = json.toJSONString().replaceAll("\"", "'");
+                System.out.println(jsonString);
+
+                part_id = rest.createPart(jsonString);
+                System.out.println(part_id);
+                parts.put(display_id, part_id);
+
+                //Scar2
+                cell = row.getCell(3);
+                cell.setCellType(Cell.CELL_TYPE_STRING);
+
+                display_id = cell.getStringCellValue();
+
+                if (unique.contains(display_id)) {
+                    continue;
+                }
+                unique.add(display_id);
+
+                json.put("username", username);
+                json.put("objectName", display_id);
+                json.put("role", "Scar");
+
+                jsonString = json.toJSONString().replaceAll("\"", "'");
+                System.out.println(jsonString);
+
+                part_id = rest.createPart(jsonString);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
@@ -219,13 +177,13 @@ public class RWR_Parser {
 
         List<String> unique = new ArrayList<String>();
 
-        for (int i = 1; i < sheet.getLastRowNum(); i++) {   //last row is for H20 = empty part
+        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {   //last row is for H20 = empty part
 
             Row row = sheet.getRow(i);
 
             try {
 
-                Cell cell = row.getCell(0);
+                Cell cell = row.getCell(1);
                 cell.setCellType(Cell.CELL_TYPE_STRING);
 
                 String display_id = cell.getStringCellValue();
@@ -235,7 +193,7 @@ public class RWR_Parser {
                 }
                 unique.add(display_id);
 
-                int numOfParts = 5; //promoter-enzyme-ribozyme-rbs-terminator, should I include scars?
+                int numOfParts = 5; //promoter-rbs-gene-fp-terminator, should I include scars?
                 List<String> partList = new ArrayList<String>();
 
                 /*cell = row.getCell(9);
@@ -250,8 +208,7 @@ public class RWR_Parser {
                     cell.setCellType(Cell.CELL_TYPE_STRING);
                     String pdisplay_id = cell.getStringCellValue();
 
-                    if (!pdisplay_id.equals("H2O")) {
-                        //System.out.println("****" + parts.get(pdisplay_id) + "   " + pdisplay_id);
+                    if (!pdisplay_id.equals("N/A")) {
                         partList.add(parts.get(pdisplay_id));
                     }
 
@@ -265,7 +222,6 @@ public class RWR_Parser {
                 json.put("username", username);
                 json.put("objectName", display_id);
                 json.put("createSeqFromParts", "true");
-                //json.put("role", row.getCell(1).getStringCellValue());    //no role
                 json.put("partIDs", partIds);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
@@ -289,31 +245,25 @@ public class RWR_Parser {
         JSONObject json = new JSONObject();
 
         for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-
+            
             Row row = sheet.getRow(i);
 
             try {
 
-                Cell cell = row.getCell(0);
+                Cell cell = row.getCell(1);
                 cell.setCellType(Cell.CELL_TYPE_STRING);
 
                 String display_id = cell.getStringCellValue();
 
-                int numOfParts = 6; //cistron 1-6
+                int numOfParts = 2;
                 List<String> partList = new ArrayList<String>();
 
-                /*cell = row.getCell(9);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                String pdisplay_id = cell.getStringCellValue();
-
-                partIds = parts.get(pdisplay_id);*/
-                
                 for (int j = 0; j < numOfParts; j++) {
 
-                    cell = row.getCell(1 + j);     //first cistron starts at column 1
+                    cell = row.getCell(4 + j);     //first cistron starts at column 1
                     cell.setCellType(Cell.CELL_TYPE_STRING);
                     String pdisplay_id = cell.getStringCellValue();
-                    if (!pdisplay_id.equals("H2O")) {
+                    if (!pdisplay_id.equals("N/A")) {
                         partList.add(constructs_lvl1.get(pdisplay_id));
                     }
 
@@ -344,43 +294,4 @@ public class RWR_Parser {
         }
     }
     
-    /*public static void generateFitness(XSSFSheet sheet) {
-        
-        generateList(sheet);
-        
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-            
-            Row row = sheet.getRow(i);
-            
-            try {
-                Cell cell = row.getCell(0);
-                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-                healthy.add((int) cell.getNumericCellValue());
-
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-    
-    private static void generateList(XSSFSheet sheet) {
-        
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-            
-            Row row = sheet.getRow(i);
-            
-            try {
-                Cell cell = row.getCell(0);
-                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-                healthy.add((int) cell.getNumericCellValue());
-
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-    }*/
 }

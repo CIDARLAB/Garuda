@@ -10,7 +10,6 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.cidarlab.clotho.model.Feature;
 import org.cidarlab.garuda.rest.RESTRequest;
 import org.json.simple.JSONObject;
 
@@ -141,11 +140,11 @@ public class InitConstructs {
         //        seqFSAfile.write(sequence + "\n");
                 
                 //feature [role = col 1]
-                String feaname = "fea" + System.currentTimeMillis(); //sequence id is generated
+                /*String feaname = "fea" + System.currentTimeMillis(); //sequence id is generated
                 Feature.FeatureRole role = Feature.FeatureRole.TOXICITY_TEST; //default feature role
                 if (row.getCell(1).getStringCellValue().equals("Toxicity Test")) {
                     role = Feature.FeatureRole.TOXICITY_TEST; //check for other types of role
-                }
+                }*/
                 
         //        Feature newFeature = new Feature (feaname, "", newSeq, role, user);
         //        app.getConstructsID().add(newFeature);

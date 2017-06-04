@@ -16,15 +16,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.clotho.model.BioDesign;
-import org.cidarlab.clotho.model.Feature;
-import org.cidarlab.clotho.model.Person;
 import org.cidarlab.garuda.rest.RESTRequest;
+import org.cidarlab.garuda.util.Guy_Parser;
 import org.cidarlab.garuda.util.InitConstructs;
 import org.cidarlab.garuda.util.InitParts;
 import org.cidarlab.garuda.util.RWR_Parser;
+import org.cidarlab.garuda.util.RWR_RecEngine;
+import org.cidarlab.garuda.util.RM_Parser;
+import org.cidarlab.garuda.util.CategoricalRecEngine;
 //import org.clothoapi.clotho3javaapi.Clotho;
-
 /**
  *
  * @author mardian
@@ -35,7 +35,7 @@ public class ApplicationInit {
     @Getter
     private RESTRequest rest;
     
-    @Setter
+    /*@Setter
     @Getter
     private List<Feature> partsID;
     
@@ -45,15 +45,15 @@ public class ApplicationInit {
     
     @Setter
     @Getter
-    private List<BioDesign> genDataID;
+    private List<BioDesign> genDataID;*/
     
     /*@Setter
     @Getter
     private Clotho clothoObject;*/
     
-    @Setter
+    /*@Setter
     @Getter
-    private Person user;
+    private Person user;*/
     
     @Setter
     @Getter
@@ -85,6 +85,10 @@ public class ApplicationInit {
         
         rest = new RESTRequest();
         this.message = message;
+    }
+    
+    public String test () {
+        return "This works!";
     }
     
     public void register () {
@@ -154,192 +158,59 @@ public class ApplicationInit {
         return;
     }
     
-    public void createPart (String username) {
+    public void populateDB (String username) {
         
-        //try {
         switch (username) {
+            case "mardian":
+                this.message = RM_Parser.parse("resources/" + this.filename, username);
+                break;
             case "robwarden":
-                this.message = RWR_Parser.parse("resources/" + this.filename, "resources/output-", username);
+                this.message = RWR_Parser.parse("resources/" + this.filename, username);
+                break;
+            case "guy":
+                this.message = Guy_Parser.parse("resources/" + this.filename, "resources/output-", username);
                 break;
             default:
-                //this.message = RestSheetParser("resources/" + this.filename, "resources/output-", username);
                 System.out.println("ERROR: username not found!");
                 break;
         }
-        //}
-        //catch (Exception e) {e.printStackTrace();}
     }
     
-    public void createConstruct () {
+    public void recommend (String username) {
         
-        try {
-            
+        switch (username) {
+            case "mardian":
+                
+                int num_of_parts = 21;
+                int num_of_constructs = 14;
+                int size_of_constructs = 2;
+                String labelSheet = "Experiments";
+                String featureSheet = "Experiments";
+                int labelIdx = 22;
+                int[] featuresIdx = new int[]{2, 7};
+                String null_flag = "N/A";
+                
+                CategoricalRecEngine rec = new CategoricalRecEngine(username, "resources/" + this.filename, labelSheet, featureSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
+                this.message = rec.recommend_expert();
+                
+                break;
+                
+            case "robwarden":
+                this.message = RWR_RecEngine.recommend2("resources/" + this.filename, username);
+                break;
+            case "guy":
+                System.out.println("ERROR: recommendation engine is not available for this user!");
+                break;
+            default:
+                System.out.println("ERROR: username not found!");
+                break;
         }
-        catch (Exception e) {e.printStackTrace();}
     }
     
     public void init (String username, String password, String jsonOutput) {
         
-    /*    ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
-        clothoObject = new Clotho(conn);
+        this.message = Guy_Parser.parse("resources/" + this.filename, jsonOutput, this.username);
         
-        /////////login/////////
-        user = new Person (username);
-        Object loginRet = clothoObject.login(username, password);
-        
-        if (loginRet == null) {
-            conn.closeConnection();
-            this.message = "Login failed!";
-            return;
-        }
-        if (loginRet.toString().equals("null")) {
-            conn.closeConnection();
-            this.message = "Login failed!";
-            return;
-        }
-        if (loginRet.toString().startsWith("Authentication attempt failed for username")) {
-            conn.closeConnection();
-            this.message = "Login failed!";
-            return;
-        }*/
-        
-        //query if there has already been a person instance with the same username
-        /////////fix me/////////
-        
-        String message = RestSheetParser("resources/" + this.filename, jsonOutput, this.username);
-        
-        //clothoObject.logout();
-        //conn.closeConnection();
-        
-        this.message = message;
-        
-    }
-    
-    
-    public String RestSheetParser (String inputUrl, String outputUrl, String username) {
-        
-        partsID = new ArrayList<Feature> ();
-        constructsID = new ArrayList<Feature> ();
-        genDataID = new ArrayList<BioDesign> ();
-        
-        try
-        {
-            FileInputStream inputFile = new FileInputStream(inputUrl);
-            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
-             
-            for (int i=0; i<workbook.getNumberOfSheets(); i++) {
-                
-                System.out.println("------" + i + "-----");
-                //Get first/desired sheet from the workbook
-                XSSFSheet sheet = workbook.getSheetAt(i);
-                String sheetName = sheet.getSheetName ();
-                
-                switch (sheetName) {
-                    case "Metadata":
-                    case "metadata":
-                        //InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
-                        break;
-                    case "Parts":
-                    case "parts":
-                        this.parts = InitParts.instantiate (sheet, outputUrl, username);
-                        break;
-                    case "Constructs":
-                    case "constructs":
-                        InitConstructs.instantiate (sheet, outputUrl, username, this.parts);
-                        break;
-                    case "Generated Data":
-                    case "generated data":
-                        //InitGeneratedData.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "RNASeq":
-                    case "rnaseq":
-                        //InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "QC":
-                    case "qc":
-                        //InitQC.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            inputFile.close();
-        } 
-        catch (FileNotFoundException e) {
-            return "File not found! Please enter the correct file name or url!";
-        }
-        catch (Exception ex) {
-            ex.printStackTrace ();
-        }
-        finally {
-            return "Data successfully added!";
-        }
-    }
-    
-    public String XLSReader (String inputUrl, String outputUrl) {
-        
-        partsID = new ArrayList<Feature> ();
-        constructsID = new ArrayList<Feature> ();
-        genDataID = new ArrayList<BioDesign> ();
-        
-        try
-        {
-            FileInputStream inputFile = new FileInputStream(inputUrl);
-            //Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
-            
-            //initiation of static lists that hold shared variables
-            /*partsID = new ArrayList<Feature> ();
-            constructsID = new ArrayList<Feature> ();
-            genDataID = new ArrayList<BioDesign> ();*/
-                
-            for (int i=0; i<workbook.getNumberOfSheets(); i++) {
-                
-                System.out.println("------" + i + "-----");
-                //Get first/desired sheet from the workbook
-                XSSFSheet sheet = workbook.getSheetAt(i);
-                String sheetName = sheet.getSheetName ();
-                
-                switch (sheetName) {
-                    case "Metadata":
-                    case "metadata":
-                        //InitMetadata.instantiate (sheet, outputUrl, clothoObject, user);
-                        break;
-                    case "Parts":
-                    case "parts":
-                        //InitParts_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "Constructs":
-                    case "constructs":
-                        //InitConstructs_backup.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "Generated Data":
-                    case "generated data":
-                        //InitGeneratedData.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "RNASeq":
-                    case "rnaseq":
-                        //InitRNASeq.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    case "QC":
-                    case "qc":
-                        //InitQC.instantiate (sheet, outputUrl, clothoObject, user, this);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            inputFile.close();
-        } 
-        catch (FileNotFoundException e) {
-            return "File not found! Please enter the correct file name or url!";
-        }
-        catch (Exception ex) {
-            ex.printStackTrace ();
-        }
-        finally {
-            return "Data successfully added!";
-        }
     }
     
     public void contains (String sequence) {

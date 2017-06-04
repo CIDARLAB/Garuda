@@ -23,7 +23,7 @@ public class Backpropagation {
 
     private final double LEARN_RATE = 0.2;    // Rho.
     //private final double NOISE_FACTOR = 0.45;
-    private final int TRAINING_REPS = 100000;
+    private final int TRAINING_REPS = 1000;
 
     // Input to Hidden Weights (with Biases).
     private double wih[][];
@@ -41,9 +41,11 @@ public class Backpropagation {
     private double erro[];
     private double errh[];
 
-    private final int MAX_SAMPLES = 300;
+    private final int MAX_SAMPLES = 500;
     
     private List<Data> clusterData;
+    private List<Integer> trainList;
+    private List<Integer> testList;
     
     private double[][] rawData;
     private int numOfTrain;
@@ -68,7 +70,7 @@ public class Backpropagation {
         errh = new double[HIDDEN_NEURONS];
         
         this.rawData = rawData;
-        this.numOfTrain = 300;
+        this.numOfTrain = MAX_SAMPLES;
         this.expThreshold = 0.5;
         
         neuralNetwork();
@@ -120,21 +122,21 @@ public class Backpropagation {
         int column = rawData[0].length;
         double[][] trainData = new double[row][column];
         
-        List<Integer> list = new ArrayList<>();
+        testList = new ArrayList<>();
         for (int i=0; i<rawData.length; i++) {
-            list.add(i);
+            testList.add(i);
         }
         
-        List<Integer> newlist = new ArrayList<>();
+        trainList = new ArrayList<>();
         for (int i=0; i<row; i++) {
-            newlist.add (list.remove((int)(Math.random()*list.size())));
+            trainList.add (testList.remove((int)(Math.random()*testList.size())));
         }
         
         //System.out.println("List of training data:");
         for (int i=0; i<trainData.length; i++) {
             for (int j=0; j<trainData[0].length; j++) {
-                trainData[i][j] = rawData[newlist.get(i)][j];
-                //System.out.println((newlist.get(i)+1) + "     " + trainData[i][j]);
+                trainData[i][j] = rawData[trainList.get(i)][j];
+                //System.out.println((trainList.get(i)+1) + "     " + trainData[i][j]);
             }
         }
         
@@ -369,6 +371,14 @@ public class Backpropagation {
     
     public List<Data> getClusterData () {
         return this.clusterData;
+    }
+
+    public List<Integer> getTrainList () {
+        return this.trainList;
+    }
+
+    public List<Integer> getTestList () {
+        return this.testList;
     }
 
 }

@@ -13,62 +13,17 @@ package org.cidarlab.garuda.rest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import javax.validation.Valid;
-import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.main.ApplicationInit;
 import org.cidarlab.garuda.main.ApplicationUsage;
-import org.cidarlab.garuda.main.RecommendationEngine;
 import org.cidarlab.garuda.main.RunBlast;
-import org.cidarlab.garuda.services.NotificationService;
-import org.cidarlab.garuda.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class RESTController {
-
-    //@Autowired
-    private UserService userService;
-
-    //@Autowired
-    private NotificationService notifyService;
-
-    @RequestMapping(value = "/users/login", method=RequestMethod.GET)
-    public String login(LoginForm login) {
-        return "login_test";
-    }
-    
-    @RequestMapping(value = "/users/login", method=RequestMethod.POST)
-    public String loginPage(@Valid LoginForm loginForm, BindingResult bindingResult) {
-        System.out.println("**********It got here!!!");
-        
-        System.out.println("+++++++++++++++++++++++");
-        boolean test = loginForm.getUsername()==loginForm.getPassword();
-        System.out.println("+++++++++++++++++++++++" + test);
-        
-        if (bindingResult.hasErrors()) {
-            notifyService.addErrorMessage("Please fill the form correctly!");
-            return "login_test";
-        }
-
-        if (!userService.authenticate(
-            loginForm.getUsername(), loginForm.getPassword())) {
-            notifyService.addErrorMessage("Invalid login!");
-            return "login_test";
-        }
-
-        System.out.println("**********It got here!!!");
-        notifyService.addInfoMessage("Login successful");
-        return "redirect:/";
-    }
-    
-    ///for testing purpose
-    
 
     @RequestMapping(value="/blast", method=RequestMethod.GET)
     public String indexBlast (Model model) {
@@ -178,18 +133,16 @@ public class RESTController {
     @RequestMapping(value="/import", method=RequestMethod.POST)
     public String entry (@ModelAttribute ApplicationInit app, Model model) {
         
-        String user = "robwarden";
+        String user = "mardian";
         String pass = "pass";
         
-        //String input = "input";
         String output = "output";
-        //String inputFile = "resources/" + input + ".xlsx";
         String outputFile = "resources/" + output + "-";
         
-        //app.init(user, pass, outputFile);
         long startTime = System.currentTimeMillis();
-        app.createPart(user);
-        System.out.println("*********** Running time for create parts and constructs: " + (System.currentTimeMillis()-startTime) + " ms.");
+        app.populateDB(user);
+        System.out.println("********** Running time for populating data: " + (System.currentTimeMillis()-startTime) + " ms.");
+        
         model.addAttribute("app", app);
         return "import";
     }
@@ -223,13 +176,21 @@ public class RESTController {
     }
     
     @RequestMapping(value="/recommender", method=RequestMethod.GET)
-    public String recommender () {
+    public String recommender (Model model) {
         
+        model.addAttribute("app", new ApplicationInit());
         return "recommender";
     }
     
     @RequestMapping(value="/recommendation", method=RequestMethod.POST)
-    public String recommendation (@ModelAttribute RecommendationEngine app, Model model) {
+    public String recommendation (@ModelAttribute ApplicationInit app, Model model) {
+        
+        String user = "mardian";
+        String pass = "pass";
+        
+        long startTime = System.currentTimeMillis();
+        app.recommend (user);
+        System.out.println("********** Running time for recommendation engine: " + (System.currentTimeMillis()-startTime) + " ms.");
         
         model.addAttribute("app", app);
         return "recommendation";

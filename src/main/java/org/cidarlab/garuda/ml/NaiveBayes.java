@@ -31,9 +31,10 @@ public class NaiveBayes {
         //this.matrixData = matrixData;
         this.cluster = cluster;
         this.participant = participant;
-        this.pnum = 20;
+        this.pnum = participant;
         
-        setMatrixData(inputData);
+        //setMatrixData(inputData);
+        matrixData = inputData;
         
         classList = new ArrayList<Data>();
         toxicList = new ArrayList<Integer>();
@@ -129,5 +130,17 @@ public class NaiveBayes {
     
     public List<Integer> getList() {
         return this.toxicList;
+    }
+    
+    
+    public int error (List<Integer> target) {
+        
+        int error = 0;
+        for (int x=0; x<target.size(); x++) {
+            if (!toxicList.contains(target.get(x))) {
+                error++;
+            }
+        }
+        return error;
     }
 }

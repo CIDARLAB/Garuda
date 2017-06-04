@@ -5,6 +5,7 @@
  */
 package org.cidarlab.garuda.main;
 
+import org.cidarlab.garuda.dom.Pairs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

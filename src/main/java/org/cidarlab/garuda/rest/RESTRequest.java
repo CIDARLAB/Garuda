@@ -107,7 +107,7 @@ public class RESTRequest {
         return output;
     }
     
-    public void createDevice(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
+    public String createDevice(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
         //System.out.println("Testing Create Convenience Device");
 
         /*String jsonString1 = "{'username':'jsmith','objectName':'Test Convenience Device Part1','displayID':'Test Convenience Device Part1','sequence':'tccctatcagtgatagagattgacatccctatcagtgatagagatactgagcac', 'role':'GENE', 'params': [{'name':'n', 'value':'121.5', 'variable':'var', 'units' : 'unit'}]}";
@@ -126,7 +126,8 @@ public class RESTRequest {
 
         String output = HTTPReq(url, jsonString, "POST");
 
-        System.out.println(output);
+        //System.out.println(output);
+        return output;
 
         /*System.out.println("Testing Get Convenience Device");
 
