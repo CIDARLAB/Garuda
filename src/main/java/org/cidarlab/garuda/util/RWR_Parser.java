@@ -274,6 +274,14 @@ public class RWR_Parser {
                 String construct_id = rest.createDevice(jsonString);
                 System.out.println(construct_id);
                 constructs_lvl1.put(display_id, construct_id);
+                
+                
+                JSONObject query_json = new JSONObject();
+                query_json.put("objectName", display_id);
+                String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
+                System.out.print("This is from query: ");
+                rest.getDeviceID(query_jsonString);
+                
 
                 
             } catch (Exception ex) {

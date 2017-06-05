@@ -51,7 +51,7 @@ public class RecommendationEngine {
                     double[][] countData = parser.getCount();
                     
                 //    KMeansClustering kmeans = new KMeansClustering (growthData, cluster);
-                    Backpropagation backprop = new Backpropagation (growthData, cluster);
+                    Backpropagation backprop = new Backpropagation (growthData, data, cluster); //might no be corect
                     ExpertSystem expert = new ExpertSystem (growthData, threshold);
                
                     List<Integer> target = parser.getList();

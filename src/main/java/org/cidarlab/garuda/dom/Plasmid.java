@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.main;
+package org.cidarlab.garuda.dom;
 
 import lombok.Getter;
 import lombok.Setter;

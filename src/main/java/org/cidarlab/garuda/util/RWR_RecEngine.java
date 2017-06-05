@@ -21,6 +21,8 @@ import org.cidarlab.garuda.ml.Backpropagation;
  */
 public class RWR_RecEngine {
 
+    private static final int cluster = 2;
+    
     private static final int num_of_parts = 49; //total unique parts
     private static final int num_of_constructs = 702;
     private static final int size_of_constructs = 6;
@@ -33,7 +35,7 @@ public class RWR_RecEngine {
     private static double[][] data = new double[num_of_constructs][num_of_parts];
     private static double[][] label = new double[num_of_constructs][1];
 
-    public static String recommend(String inputUrl, String username) {
+    public static String nnbackprop(String inputUrl, String username) {
 
         try {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -44,11 +46,14 @@ public class RWR_RecEngine {
 
             sheet = workbook.getSheet("Enumerated Constructs");
             generateMatrix(sheet);
-
+            
             //////////
-            int cluster = 2;
+            
+            for (int k = 0; k < list_of_parts.size(); k++) {
+                System.out.println (k + "   " + list_of_parts.get(k));
+            }
 
-            Backpropagation backprop = new Backpropagation(label, cluster);
+            Backpropagation backprop = new Backpropagation(data, label, cluster);   //hidden neurons = 3
             List<Data> output = backprop.getClusterData();
             List<Integer> trainIdx = backprop.getTrainList();
             
@@ -63,7 +68,7 @@ public class RWR_RecEngine {
                 if (output.get(i).getCluster() != label[i][0]) {
                     error_count++;
                 }
-                System.out.println(output.get(i).getCluster() + "\t" + label[i][0] + "\t" + train);
+        //        System.out.println(output.get(i).getCluster() + "\t" + label[i][0] + "\t" + train);
             }
             System.out.println("*** Accuracy = " + ((double) (row - error_count) / row * 100) + "%");
 
@@ -81,9 +86,9 @@ public class RWR_RecEngine {
         }
     }
 
-    //recommend2 and generateMatrix2 are for expert system
+    //recommend2 and generateMatrix_expert are for expert system
     
-    public static String recommend2(String inputUrl, String username) {
+    public static String expert(String inputUrl, String username) {
 
         try {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -93,7 +98,7 @@ public class RWR_RecEngine {
             generateFitness(sheet);
 
             sheet = workbook.getSheet("Enumerated Constructs");
-            generateMatrix2(sheet);
+            generateMatrix_expert(sheet);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,7 +162,7 @@ public class RWR_RecEngine {
         }
     }
 
-    private static void generateMatrix2(XSSFSheet sheet) {
+    private static void generateMatrix_expert(XSSFSheet sheet) {
 
         List<String> healthyParts = new ArrayList<String>();
         List<String> toxicParts = new ArrayList<String>();

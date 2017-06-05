@@ -196,7 +196,7 @@ public class ApplicationInit {
                 break;
                 
             case "robwarden":
-                this.message = RWR_RecEngine.recommend2("resources/" + this.filename, username);
+                this.message = RWR_RecEngine.nnbackprop("resources/" + this.filename, username);
                 break;
             case "guy":
                 System.out.println("ERROR: recommendation engine is not available for this user!");

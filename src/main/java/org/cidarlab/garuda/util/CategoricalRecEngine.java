@@ -85,7 +85,7 @@ public class CategoricalRecEngine {
             /////backpropagation algorithm from here
             int cluster = 2;
 
-            Backpropagation backprop = new Backpropagation(labelData, cluster);
+            Backpropagation backprop = new Backpropagation(labelData, labelData, cluster);
             List<Data> output = backprop.getClusterData();
             List<Integer> trainIdx = backprop.getTrainList();
 

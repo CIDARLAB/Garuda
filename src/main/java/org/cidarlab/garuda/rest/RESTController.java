@@ -185,7 +185,7 @@ public class RESTController {
     @RequestMapping(value="/recommendation", method=RequestMethod.POST)
     public String recommendation (@ModelAttribute ApplicationInit app, Model model) {
         
-        String user = "mardian";
+        String user = "robwarden";
         String pass = "pass";
         
         long startTime = System.currentTimeMillis();
