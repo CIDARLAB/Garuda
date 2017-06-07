@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout :: site-head"></head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                
+                <div th:replace="layout :: left-menu"></div>
+
+                <div th:replace="layout :: site-header"></div>
+                
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Analysis Results <small></small></h3>
+                            </div>
+
+                            <div class="title_right">
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for..."/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+
+                            <div ng-app="myApp" ng-controller="myCtrl" class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <p class="umessage" th:text="${app.getMessage()}"></p>
+                                        <h2>Some bar graph <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="mybarChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Some line graph<small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="lineChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Some donut Graph <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <canvas id="canvasDoughnut"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- /page content -->
+                
+                <footer th:replace="layout :: site-footer"></footer>
+                
+            </div>
+        </div>
+        
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+         <!-- Angular Plasmid -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/angularplasmid.min.js'></script>
+        
+        <!-- Chart.js -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var ang = angular.module('myApp', ['angularplasmid']);
+            
+            ang.controller('myCtrl', function($scope) {
+                
+                $scope.results = [[${app.test()}]];
+                
+                alert([[${app.test()}]]);
+            });/**/
+          
+            Chart.defaults.global.legend = {
+                enabled: false
+            };
+
+          // Line chart
+          var ctx = document.getElementById("lineChart");
+          var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ["NMT-05", "NMT-13", "rebF", "RHa-18", "RHa-36", "RHa-51", "AAF-18"],
+              datasets: [{
+                label: "My First dataset",
+                backgroundColor: "rgba(38, 185, 154, 0.31)",
+                borderColor: "rgba(38, 185, 154, 0.7)",
+                pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointBorderWidth: 1,
+                data: [31, 74, 6, 39, 20, 85, 7]
+              }, {
+                label: "My Second dataset",
+                backgroundColor: "rgba(3, 88, 106, 0.3)",
+                borderColor: "rgba(3, 88, 106, 0.70)",
+                pointBorderColor: "rgba(3, 88, 106, 0.70)",
+                pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(151,187,205,1)",
+                pointBorderWidth: 1,
+                data: [82, 23, 66, 9, 99, 4, 2]
+              }]
+            },
+          });
+
+          // Bar chart
+          var ctx = document.getElementById("mybarChart");
+          var mybarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ["NMT-05", "NMT-13", "rebF", "RHa-18", "RHa-36", "RHa-51", "AAF-18",
+                        "AAF-20", "AAF-27", "DC-01", "DC-02", "DC-06", "AcT-05", "AcT-09", "AcT-11"],
+              datasets: [{
+                label: '# of Votes',
+                backgroundColor: "#26B99A",
+                data: [51, 30, 40, 28, 92, 50, 45, 41, 56, 25, 48, 72, 34, 12, 15]
+              }]
+            },
+
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+
+          // Doughnut chart
+          var ctx = document.getElementById("canvasDoughnut");
+          var data = {
+            labels: [
+              "Dark Grey",
+              "Purple Color",
+              "Gray Color",
+              "Green Color",
+              "Blue Color"
+            ],
+            datasets: [{
+              data: [120, 50, 140, 180, 100],
+              backgroundColor: [
+                "#455C73",
+                "#9B59B6",
+                "#BDC3C7",
+                "#26B99A",
+                "#3498DB"
+              ],
+              hoverBackgroundColor: [
+                "#34495E",
+                "#B370CF",
+                "#CFD4D8",
+                "#36CAAB",
+                "#49A9EA"
+              ]
+
+            }]
+          };
+
+          var canvasDoughnut = new Chart(ctx, {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: data
+          });
+
+            /*]]>*/
+        </script>
+        <!-- /Chart.js -->
+    </body>
+
+</html>

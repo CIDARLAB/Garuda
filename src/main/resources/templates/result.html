@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout :: site-head"></head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                
+                <div th:replace="layout :: left-menu"></div>
+
+                <div th:replace="layout :: site-header"></div>
+                
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Search results</h3>
+                            </div>
+
+                            <div class="title_right">
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Filter search..."/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Search results</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <!--<li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Settings 1</a>
+                                                    </li>
+                                                    <li><a href="#">Settings 2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>-->
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <p class="umessage" th:text="${app.getMessage()}"></p>
+                                        <div class="row">
+                                            
+                                            <!-- MAIL LIST -->
+                                            <div class="col-sm-3">
+                                                <button id="listview" class="btn btn-sm btn-success btn-block" type="button">LIST VIEW</button>
+                                                <br/>
+                                                <a href="#" th:each="plasmid, iter: ${app.getResults()}" th:class="'entry' + ${iter.index}">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-circle-o-notch"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3 th:text="${plasmid.getId()}"></h3>
+                                                            <p th:text="${plasmid.getDescription()}"></p>
+                                                            <p th:text="${plasmid.getLength()}"></p>
+                                                            <p th:text="${plasmid.getAnnostring()}"></p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <!--<a href="#" class="entry1">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-circle-o-notch"></i> 
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>J04B8GFP_AE <small>3.00 PM</small></h3>
+                                                            <p>Plasmid metadata ...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="entry2">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-arrows-h"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>GFP_CD <small>4.09 PM</small></h3>
+                                                            <p><span class="badge">User123</span> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="mail_list">
+                                                        <div class="left">
+                                                            <i class="fa fa-arrows-h"></i>
+                                                        </div>
+                                                        <div class="right">
+                                                            <h3>GFP_CD <small>4.09 PM</small></h3>
+                                                            <p><span class="badge">User123</span> Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
+                                                        </div>
+                                                    </div>
+                                                </a>-->
+
+                                            </div>
+                                            <!-- /MAIL LIST -->
+
+                                            <!-- CONTENT MAIL -->
+                                            <div ng-app="myApp" ng-controller="myCtrl" class="col-sm-9 mail_view inbox-body ucontainer">
+                                                
+                                                <div class="plasmidx">
+                                                    <div id="uprintable" class="mail_heading row">
+                                                        <h3 class="usearchres">Click on entries to see detailed information</h3>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div ng-repeat="re in results" class="plasmid{{$index}}" style="display:none">
+                                                    <div id="uprintable" class="mail_heading row">
+                                                        <div class="col-md-8">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-circle-o-notch"></i> Map View</button>
+                                                                <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i> Detailed View</button>
+                                                                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print" onclick="printJS('uprintable', 'html')"><i class="fa fa-print"></i> Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 text-right">
+                                                            <button class="btn btn-sm btn-primary" type="button">Edit</button>
+                                                            <button class="btn btn-sm btn-default" type="button"><i class="fa fa-trash-o"></i> Delete</button>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <h4 class="uctitle"> {{re.id}} {{re.length}} bp ds-DNA circular 11-DEC-2016 <span class="badge">{{re.author}}</span></h4>
+                                                        </div>
+                                                        <div align="center">
+                                                            <div>
+                                                                <plasmid sequencelength="{{re.length}}" plasmidheight="500" plasmidwidth="500">
+                                                                    <plasmidtrack trackstyle="#cccccc" width="7" radius="160"></plasmidtrack>
+                                                                    <plasmidtrack trackstyle="fill:rgba(200,200,200,0.7)" radius="150">
+                                                                        <tracklabel text="{{re.id}}" labelstyle='font-size:20px;font-weight:400'></tracklabel>
+                                                                        <tracklabel text="{{re.length}}" labelstyle='font-size:10px' vadjust="20"></tracklabel>
+                                                                        <!--draw the main markers and labels-->
+                                                                        <trackmarker ng-repeat="x in re.annotations" start="{{x.start}}" end="{{x.end}}" markerstyle="fill:{{x.color}}" arrowendlength="5" wadjust="10" vadjust="-4">
+                                                                            <markerlabel text="{{x.label}}" labelclass="featurelabel" valign="outer" vadjust="50" style="font-size:14px" showline="1" linevadjust="-15" linelabelstyle="stroke:#0c0;stroke-dasharray:2,2;stroke-width:2px;"></markerlabel>
+                                                                        </trackmarker>
+                                                                    </plasmidtrack>
+                                                                </plasmid>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!--<button type="button" onclick="printJS('uprintable', 'html')">
+                                                    Print Form
+                                                </button>-->
+
+                                            </div>
+
+                                            <!-- /CONTENT MAIL -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <footer th:replace="layout :: site-footer"></footer>
+                
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+         <!-- Angular Plasmid -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/angularplasmid.min.js'></script>
+	<script src='js/print.min.js'></script>
+	
+	<script th:inline="javascript">
+            /*<![CDATA[*/
+            var ang = angular.module('myApp', ['angularplasmid']);
+            
+            //var annotations = [[${app.getAnnotations()}]];
+            
+            //alert(annotations.length);
+            
+            ang.controller('myCtrl', function($scope) {
+                /*$scope.length = 360;
+                $scope.title = "My Plasmid";
+                $scope.annotations = [{
+                        "start" : 0,
+                        "end" : 80,
+                        "color" : "#F7464A",
+                        "label" : "HSP70"
+                    },{
+                        "start" : 120,
+                        "end" : 190,
+                        "color" : "#46BFBD",
+                        "label" : "NF1 Promote"
+                    },{
+                        "start" : 200,
+                        "end" : 230,
+                        "color" : "#FDB45C",
+                        "label" : "Sig"
+                    },{
+                        "start" : 250,
+                        "end" : 300,
+                        "color" : "#949FB1",
+                        "label" : "ColE1"
+                    },{
+                        "start" : 325,
+                        "end" : 345,
+                        "color" : "#3498db",
+                        "label" : "P3"
+                    }];*/
+                //$scope.test = [[${app.getJSONArray()}]];
+                
+                $scope.results = [[${app.getJSONArray()}]];
+                //alert($scope.dummy[0].length);
+                /*$scope.length = $scope.results[0].length;
+                $scope.name = $scope.results[0].id;
+                $scope.author = $scope.results[0].author;
+                $scope.annotations = [];
+                
+                angular.forEach($scope.results[0].annotations, function(anno, index) {
+                    $scope.annotations.push(anno);
+                });*/
+        
+                
+                $('[class^="entry"]').on('click', function(e){
+                    
+                    e.preventDefault();
+                   
+                    var num = this.className.replace('entry', '');
+                    
+                    /*$scope.length = $scope.results[num].length;
+                    $scope.name = $scope.results[num].id;
+                    $scope.author = $scope.results[num].author;
+                    
+                    angular.forEach($scope.results[num].annotations, function(anno, index) {
+                        $scope.annotations.push(anno);
+                    });*/
+                    
+                    $('[class^="plasmid"]').hide();
+                    $('.plasmid' + num).show();
+                    
+                
+                });
+            });
+            /*]]>*/
+	</script>
+        
+        <!-- Chart.js -->
+        <script>
+            // Doughnut chart
+            var randomScalingFactor = function() {
+                return Math.round(Math.random() * 100);
+            };
+            var randomColorFactor = function() {
+                return Math.round(Math.random() * 255);
+            };
+            var randomColor = function(opacity) {
+                return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
+            };
+
+            var config = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                        ],
+                        backgroundColor: [
+                            "#F7464A",
+                            "#46BFBD",
+                            "#FDB45C",
+                            "#949FB1",
+                            "#4D5360",
+                        ],
+                        label: 'Dataset'
+                    }],
+                    labels: [
+                        "Red",
+                        "Green",
+                        "Yellow",
+                        "Grey",
+                        "Dark Grey"
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'CHART'
+                    },
+                    animation: {
+                        animateScale: false,
+                        animateRotate: true
+                    }
+                }
+            };
+
+            window.onload = function() {
+                var ctx = document.getElementById("canvasDoughnut").getContext("2d");
+                window.myDoughnut = new Chart(ctx, config);
+            };
+
+
+            //Chart.js
+
+            /*$('[class^="entry"]').on('click', function(e){
+                e.preventDefault();
+                var numb = this.className.replace('entry', '');
+                $('[class^="plasmid"]').hide();
+                $('.plasmid' + numb).show();
+            });
+
+            $('.entry1').click(function() {	
+                $.each(config.data.datasets, function(i, dataset) {
+                    dataset.data = [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                        ];
+
+                            //dataset.backgroundColor = dataset.backgroundColor.map(function() {
+                            //	return randomColor(0.7);
+                                    //});
+                });
+                window.myDoughnut.update();
+                alert("test non angular");
+            });*/
+        </script>
+    
+    </body>
+
+</html>
