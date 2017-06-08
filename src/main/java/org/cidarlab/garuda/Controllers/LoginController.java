@@ -6,19 +6,27 @@
 package org.cidarlab.garuda.Controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author jayajr
  */
 @Controller
-@RequestMapping(value={"/", "/index"})
-public class IndexController {
+@RequestMapping(value="/login")
+public class LoginController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getIndexPage() {
-        return "index";
+    public String login () {
+
+        return "login";
     }
+    
+//    @RequestMapping(method=RequestMethod.POST)
+//    public String login_post () {
+//        return "login";
+//    }
 }
