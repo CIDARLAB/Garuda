@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.MongoDb;
+package org.cidarlab.garuda.Database;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author jayajr
  */
+@Repository
 public interface AccountRepository extends MongoRepository<Account, String>{
     
-    public Account findByUserName(String userName);
+    public Account findByUsername(String username);
     public Account findByEmail(String email);
         
 }

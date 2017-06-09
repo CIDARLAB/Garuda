@@ -3,49 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.MongoDb;
+package org.cidarlab.garuda.Database;
 
 import org.springframework.data.annotation.Id;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  * @author jayajr
  */
+@Document(collection = "accounts")
 public class Account {
     
     @Id
+    @Getter
+    @Setter
     public String id;
     
     @Getter
     @Setter
-    private String userName;
+    private String username;
     
     @Getter
     @Setter
     private String email;
     
+    
     @Getter
     @Setter
-    private String encryptedPasswd;
+    private String passwd;
     
-    public Account(){};
+//    @Getter
+//    @Setter
+//    private String encryptedPasswd;
     
     public Account(
-            String userName,
+            String username,
             String email,
-            String passwd)
-            throws NoSuchAlgorithmException{
+            String passwd) {
+            //throws NoSuchAlgorithmException{ //encrypt exception
         
-        this.userName = userName;
+        this.username = username;
         this.email = email;
-        this.encryptedPasswd = encrypt(passwd);
+        this.passwd = passwd;
+        //this.encryptedPasswd = encrypt(passwd);
     }
     
-    private String encrypt(String passwd) throws NoSuchAlgorithmException{
+    public static String encrypt(String passwd) throws NoSuchAlgorithmException{
         
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         messageDigest.update(passwd.getBytes());
@@ -56,7 +64,7 @@ public class Account {
     @Override
     public String toString() {
         return String.format(
-                "Account[id=%s, Username='%s', E-mail='%s']",
-                id, userName, email);
+                "Account{id=%s, userName='%s', email='%s'}",
+                id, username, email);
     }
 }

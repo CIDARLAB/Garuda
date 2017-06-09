@@ -5,7 +5,7 @@
  */
 package org.cidarlab.garuda.Controllers;
 
-import org.cidarlab.garuda.MongoDb.AccountRepository;
+import org.cidarlab.garuda.Database.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +26,13 @@ public class RegisterController {
     @RequestMapping(method=RequestMethod.POST)
     public String Register (String userName, String email, String passwd) {
         
-        if (repository.findByUserName(userName).getUserName() == userName){
+        if (repository.findByUsername(userName).getUsername() == userName){
             System.out.println("Username taken");
             return "login";
         }
         
         
-        if (repository.findByUserName(email).getUserName() == email){
+        if (repository.findByUsername(email).getUsername() == email){
             System.out.println("Email is in use");
             return "login";
         }
