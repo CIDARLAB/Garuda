@@ -22,7 +22,7 @@ public class Account {
     @Id
     @Getter
     @Setter
-    public String id;
+    private String id;
     
     @Getter
     @Setter
