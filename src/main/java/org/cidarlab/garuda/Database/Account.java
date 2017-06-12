@@ -18,12 +18,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "accounts")
 public class Account {
-    
+  
     @Id
-    @Getter
-    @Setter
-    private String id;
-    
     @Getter
     @Setter
     private String username;
@@ -64,7 +60,7 @@ public class Account {
     @Override
     public String toString() {
         return String.format(
-                "Account{id=%s, userName='%s', email='%s'}",
-                id, username, email);
+                "Account{userName='%s', email='%s'}",
+                    username, email);
     }
 }

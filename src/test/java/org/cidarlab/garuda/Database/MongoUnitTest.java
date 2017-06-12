@@ -36,15 +36,9 @@ public class MongoUnitTest {
         Account user1= new Account("username1", "email1@email.com", "thisismypassword1");
         Account user2= new Account("username2", "email2@email.com", "thisismypassword2");
         
-        //save product, verify has ID value after save
-        assertNull(user1.getId());
-        assertNull(user2.getId());//null before save
         
         this.repo.save(user1);
         this.repo.save(user2);
-        
-        assertNotNull(user1.getId());
-        assertNotNull(user2.getId());
     }
      
     @Test

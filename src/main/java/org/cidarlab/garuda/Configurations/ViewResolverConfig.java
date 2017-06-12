@@ -22,7 +22,7 @@ public class ViewResolverConfig {
     @Bean
     public ViewResolver viewResolver() {
         ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setTemplateMode("XHTML");
+        templateResolver.setTemplateMode("HTML5");
         templateResolver.setCacheable(false);
         
         SpringTemplateEngine engine = new SpringTemplateEngine();

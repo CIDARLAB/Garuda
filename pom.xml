@@ -127,6 +127,12 @@
                     <artifactId>spring-data-commons</artifactId>
                     <type>jar</type>
                 </dependency>
+	 <dependency>
+	  <groupId>javax.persistence</groupId>
+	  <artifactId>persistence-api</artifactId>
+	  <version>1.0.2</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>

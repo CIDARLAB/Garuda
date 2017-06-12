@@ -30,26 +30,21 @@ and open the template in the editor.
         <div>
             <a class="hiddenanchor" id="signup"></a>
             <a class="hiddenanchor" id="signin"></a>
-            
-            <div ng-controller="home as home">
-                <p>The ID is {{home.message.id}}</p>
-                <p>The content is {{home.message.content}}</p>
-            </div>
 
             <div class="login_wrapper">
                 <div class="animate form login_form">
-                    <p class="umessage" th:text="${msgInt.getLoginSuccess()}"></p>
+                    
                     <section class="login_content">
-                        <form th:action="@{/login}" th:object="${msgInt}" method="post">
+                        <form th:action="@{/login}" th:object="${loginForm}" method="post">
                             <h1 class="uheader_login">Garuda</h1>
                             <div>
-                                <input type="text" class="form-control" placeholder="Username" required="" th:field="${username}"/>
+                                <input type="text" class="form-control" placeholder="Username" required="" th:field="*{username}"/>
                             </div>
                             <div>
-                                <input type="password" class="form-control" placeholder="Password" required="" th:field="${password}"/>
+                                <input type="password" class="form-control" placeholder="Password" required="" th:field="*{passwd}"/>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-default submit">Submit</button>
+                                <button type="submit" class="btn btn-default submit">Login</button>
                                 <a class="reset_pass">Lost your password?</a>
                             </div>
                         </form>
@@ -74,19 +69,21 @@ and open the template in the editor.
 
                 <div id="register" class="animate form registration_form">
                     <section class="login_content">
-                        <form th:action="@{/register}" th:object="${msgInt}" method="post">
-                            <h1>Create Account</h1>
-                            <div>
-                                <input type="text" class="form-control" placeholder="Username" required="" th:field="${username}"/>
-                            </div>
-                            <div>
-                                <input type="email" class="form-control" placeholder="Email" required="" th:field="${email}"/>
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password" required="" th:field="${password}"/>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-default submit">Submit</button>
+                        <form th:action="@{/register}" th:object="${registerForm}" method="post">
+                            <div class ="form-group">
+                                <h1>Create Account</h1>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Username" required="" th:field="*{username}"/>
+                                </div>
+                                <div>
+                                    <input type="email" class="form-control" placeholder="Email" required="" th:field="*{email}"/>
+                                </div>
+                                <div>
+                                    <input type="password" class="form-control" placeholder="Password" required="" th:field="*{passwd}"/>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-default submit">Register</button>
+                                </div>
                             </div>
                         </form>
 
