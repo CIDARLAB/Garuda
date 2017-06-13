@@ -9,25 +9,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author jayajr
  */
 @Controller
-@RequestMapping(value={"/", "/index", "/home"})
-public class IndexController {
+@RequestMapping(value="/about")
+public class AboutController {
     
+    @ResponseBody
     @RequestMapping(method=RequestMethod.GET)
-    public String getIndexPage(HttpSession session) {
-        if (session.getAttribute("counter") != null){
-            int count = (int)session.getAttribute("counter");
-            session.setAttribute("counter", count += 1);
-        }
-        else {
-            session.setAttribute("counter", 1);
-        }
-        
-        return "index";
+    public String getAboutPage(HttpSession session) {        
+        return "about";
     }
 }

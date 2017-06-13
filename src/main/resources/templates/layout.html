@@ -69,12 +69,12 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-clone"></i> Help <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="page_404.html">Documentation</a></li>
+                                    <li><a href="documentation.html">Documentation</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bug"></i> About <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="page_404.html">Developer Team</a></li>
+                                    <li><a href="about.html">Developer Team</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -94,12 +94,15 @@
                     </div>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="">
+                        <li class="notLoggedIn" th:if="${session.username == null}">
+                            <li><a href="login.html">Log In <i class="fa fa-sign-in fa-align-center"></i></a></li>
+                        </li>
+                        <li class="userLoggedIn" th:if="${session.username != null}">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/user.png" alt=""/>Rizki Mardian
+                                <img src="images/user.png" alt="" th:text="${session.username}"/>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
-                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                            <ul class="dropdown-menu dropdown-usermenu pull-right" >
                                 <li><a href="javascript:;"> Profile</a></li>
                                 <li>
                                     <a href="javascript:;">
@@ -111,7 +114,7 @@
                             </ul>
                         </li>
 
-                        <li role="presentation" class="dropdown">
+                        <li role="presentation" class="dropdown" th:if="${session.username != null}">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <!--<span class="badge bg-green">6</span>-->

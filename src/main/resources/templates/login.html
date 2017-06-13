@@ -37,6 +37,7 @@ and open the template in the editor.
                     <section class="login_content">
                         <form th:action="@{/login}" th:object="${loginForm}" method="post">
                             <h1 class="uheader_login">Garuda</h1>
+                            <h1 th:text="${session.counter}"/>
                             <div>
                                 <input type="text" class="form-control" placeholder="Username" required="" th:field="*{username}"/>
                             </div>

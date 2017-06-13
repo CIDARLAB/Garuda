@@ -15,19 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author jayajr
  */
 @Controller
-@RequestMapping(value={"/", "/index", "/home"})
-public class IndexController {
+@RequestMapping(value="/search")
+public class SearchController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getIndexPage(HttpSession session) {
-        if (session.getAttribute("counter") != null){
-            int count = (int)session.getAttribute("counter");
-            session.setAttribute("counter", count += 1);
-        }
-        else {
-            session.setAttribute("counter", 1);
-        }
-        
-        return "index";
+    public String getSearchPage(HttpSession session) {        
+        return "search";
     }
 }
+

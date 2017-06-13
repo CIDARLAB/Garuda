@@ -5,6 +5,7 @@
  */
 package org.cidarlab.garuda.Controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.cidarlab.garuda.Database.Account;
 import org.cidarlab.garuda.Database.AccountRepository;
@@ -33,7 +34,8 @@ public class RegisterController {
             @Valid LoginForm loginForm,
             @Valid RegisterForm registerForm,
             BindingResult result,
-            Model model){
+            Model model,
+            HttpSession session){
      
         // If Form has error
         if (result.hasErrors()) {

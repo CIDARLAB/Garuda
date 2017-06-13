@@ -5,6 +5,7 @@
  */
 package org.cidarlab.garuda.Controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.cidarlab.garuda.Database.Account;
 import org.cidarlab.garuda.Database.AccountRepository;
@@ -34,9 +35,11 @@ public class LoginController {
     private MessageSource messageSource;
         
     @RequestMapping(method=RequestMethod.GET)
-    public String login (Model model) {
+    public String getLoginPage(Model model, HttpSession session) {
         model.addAttribute("loginForm", new LoginForm());
         model.addAttribute("registerForm", new RegisterForm());
+        
+        session.setAttribute("username", "testuser");
         return "login";
     }
     
