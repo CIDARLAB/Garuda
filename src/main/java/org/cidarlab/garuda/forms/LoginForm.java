@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Forms;
+package org.cidarlab.garuda.forms;
 
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -26,14 +25,31 @@ public class LoginForm {
     @Size(min=5, max = 15)
     @Getter
     @Setter
-    private String passwd;
+    private String password;
 
+    @Getter
+    @Setter
+    private String application;
+    
     public LoginForm(
             String username,
-            String passwd) {
+            String password) {
         this.username=username;
-        this.passwd=passwd;
+        this.password=password;
+        this.application="garuda";
     }
 
-    public LoginForm() {};
+    public LoginForm() {
+        this.application="garuda";
+    };
+
+    @Override
+    public String toString(){
+        return "loginform{"
+                + "username= " + username + ", "
+                + "password= " + password + ", "
+                + "application= " + application
+                + "}";
+                
+    }
 }

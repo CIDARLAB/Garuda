@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Controllers;
+package org.cidarlab.garuda.controllers;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import org.cidarlab.garuda.Database.Account;
-import org.cidarlab.garuda.Database.AccountRepository;
-import org.cidarlab.garuda.Forms.LoginForm;
-import org.cidarlab.garuda.Forms.RegisterForm;
+import org.cidarlab.garuda.rest.clotho.model.Account;
+import org.cidarlab.garuda.forms.LoginForm;
+import org.cidarlab.garuda.forms.RegisterForm;
+import org.cidarlab.garuda.services.ClothoService;
+import org.cidarlab.garuda.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -29,26 +30,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     
     @Autowired
-    private AccountRepository repo;
+    private ClothoService clotho;
     
     @Autowired
+    private MessageService messageService;
+            
+    @Autowired
     private MessageSource messageSource;
+    
         
     @RequestMapping(method=RequestMethod.GET)
     public String getLoginPage(Model model, HttpSession session) {
         model.addAttribute("loginForm", new LoginForm());
         model.addAttribute("registerForm", new RegisterForm());
         
-        session.setAttribute("username", "testuser");
         return "login";
     }
     
     @RequestMapping(method=RequestMethod.POST)
     public String validateFormAndLogin(
             @Valid LoginForm loginForm,
-            @Valid RegisterForm registerForm,
             BindingResult result,
-            Model model ) {
+            Model model,
+            HttpSession session) {
         
         if (result.hasErrors()){
             for (Object object : result.getAllErrors()){
@@ -63,20 +67,17 @@ public class LoginController {
             return "login";
         }
         
-        if (!repo.exists(loginForm.getUsername())){
-            System.out.println("User does not exist");
-            return "login";
+        System.out.println(loginForm.toString());
+        Account myAccount = clotho.login_post(loginForm, session);
+        
+        if (myAccount == null) {
+            model.addAttribute(messageService.getLoginFailure());            
+            return "/login";
         }
         
         else {
-            Account dbUser = repo.findOne(loginForm.getUsername());
-            if (!(loginForm.getPasswd().equals(dbUser.getPasswd()))){
-                System.out.println("Wrong Password");
-                return "login";
-            }
+            model.addAttribute(messageService.getLoginSuccess());
+            return "/index";
         }
-                
-        System.out.println("Success!");
-        return "index";
     }
 }

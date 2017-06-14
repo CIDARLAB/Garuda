@@ -3,26 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Controllers;
+package org.cidarlab.garuda.controllers;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author jayajr
  */
 @Controller
-@RequestMapping(value="/documentation")
-public class DocumentationController {
+@RequestMapping(value="/import")
+public class ImportController {
     
-    @ResponseBody
     @RequestMapping(method=RequestMethod.GET)
-    public String getDocumentationPage(HttpSession session) {        
-        return "documentation";
+    public String getImportPage(HttpSession session) {        
+        return "import";
     }
 }
 

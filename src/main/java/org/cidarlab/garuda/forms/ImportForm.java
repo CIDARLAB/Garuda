@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Interfaces;
+package org.cidarlab.garuda.forms;
 
 /**
  *
  * @author jayajr
  */
-public class MessageInterface {
-    public String getLoginSuccess(){
-        return "Login Successful";
-    }
+public class ImportForm {
+    
 }

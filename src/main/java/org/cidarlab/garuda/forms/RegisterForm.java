@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Forms;
+package org.cidarlab.garuda.forms;
 
 import javax.validation.constraints.Size;
 import lombok.Getter;
@@ -17,21 +17,21 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
     public class RegisterForm {
         
-        @NotEmpty(message="Register: Username may not be empty")
-        @Size(min=5, max=25)
+//        @NotEmpty(message="Register: Username may not be empty")
+//        @Size(min=5, max=25)
         @Getter
         @Setter
         private String username;
 
-        @NotEmpty(message="Register: Email may not be empty")
-        @Email
+//        @NotEmpty(message="Register: Email may not be empty")
+//        @Email
         @Getter
         @Setter
         private String email;
 
 
-        @NotEmpty(message="Register: Password may not be empty")
-        @Size(min=5, max = 15)
+//        @NotEmpty(message="Register: Password may not be empty")
+//        @Size(min=5, max = 15)
         @Getter
         @Setter
         private String passwd;

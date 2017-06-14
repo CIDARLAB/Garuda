@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Database;
+package org.cidarlab.garuda.database;
 
+import org.cidarlab.garuda.database.AccountRepository;
+import org.cidarlab.garuda.database.Account;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

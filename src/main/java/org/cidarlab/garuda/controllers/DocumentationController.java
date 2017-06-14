@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.Controllers;
+package org.cidarlab.garuda.controllers;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author jayajr
  */
 @Controller
-@RequestMapping(value="/about")
-public class AboutController {
+@RequestMapping(value="/documentation")
+public class DocumentationController {
     
     @ResponseBody
     @RequestMapping(method=RequestMethod.GET)
-    public String getAboutPage(HttpSession session) {        
-        return "about";
+    public String getDocumentationPage(HttpSession session) {        
+        return "documentation";
     }
 }
+
