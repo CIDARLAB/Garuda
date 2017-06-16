@@ -17,33 +17,65 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
     public class RegisterForm {
         
-//        @NotEmpty(message="Register: Username may not be empty")
-//        @Size(min=5, max=25)
+        
+        @NotEmpty(message="Register: Name may not be empty")
+        @Email
+        @Getter
+        @Setter
+        private String name;
+        
+        @NotEmpty(message="Register: Email may not be empty")
+        @Email
+        @Getter
+        @Setter
+        private String email;
+                
+        @NotEmpty(message="Register: Username may not be empty")
+        @Size(min=5, max=25)
         @Getter
         @Setter
         private String username;
 
-//        @NotEmpty(message="Register: Email may not be empty")
-//        @Email
+
+        @NotEmpty(message="Register: Password may not be empty")
+        @Size(min=5, max = 15)
         @Getter
         @Setter
-        private String email;
-
-
-//        @NotEmpty(message="Register: Password may not be empty")
-//        @Size(min=5, max = 15)
+        private String password;
+        
+        @NotEmpty(message="Register: Application may not be empty")
+        @Size(min=5, max = 15)
         @Getter
         @Setter
-        private String passwd;
+        private String application;
         
         public RegisterForm(
-                String username,
+                String name,
                 String email,
-                String passwd) {
-            this.username=username;
-            this.email=email;
-            this.passwd=passwd;
+                String username,
+                String password,
+                String application) {
+            this.name = name;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.application = application;
         }
 
-        public RegisterForm() {};
+        public RegisterForm() {
+            this.application = "garuda";
+        }
+        
+        
+        @Override
+        public String toString(){
+        return "registerForm{"
+                + "name= "     + name     + ", "
+                + "email= "    + email    + ", "
+                + "username= " + username + ", "
+                + "password= " + password + ", "
+                + "application= " + application
+                + "}";
+                
+    }
     }

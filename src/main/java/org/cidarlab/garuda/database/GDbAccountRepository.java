@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
  * @author jayajr
  */
 @Repository
-public interface AccountRepository extends MongoRepository<Account, String>{
+public interface GDbAccountRepository extends MongoRepository<GDbAccount, String>{
     
-    public Account findByUsername(String username);
-    public Account findByEmail(String email);
+    public GDbAccount findByUsername(String username);
+    public GDbAccount findByEmail(String email);
         
 }

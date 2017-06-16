@@ -4,3 +4,14 @@ Fix commented input in *{...}.html
     search
     recommender
 
+Getting a 400 on wrong login
+    Try returning ResponseEntity instead of body
+
+    Or try overriding exception handler and create ResponseEntityExceptionHandler class
+    
+    @Override
+    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        log.warn("miss Request Param");
+
+        return new ResponseEntity<>(new FoxResponse(ErrorCode.ARG_INVALID), status);
+    }

@@ -5,8 +5,7 @@
  */
 package org.cidarlab.garuda.database;
 
-import org.cidarlab.garuda.database.AccountRepository;
-import org.cidarlab.garuda.database.Account;
+import org.cidarlab.garuda.database.GDbAccount;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -17,6 +16,16 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import org.cidarlab.garuda.database.GDbAccountRepository;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 /**
  *
@@ -29,14 +38,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class MongoUnitTest {
     
     @Autowired
-    private AccountRepository repo;
+    private GDbAccountRepository repo;
     
     @Before
     public void setUp() throws Exception {
         
         // Create test accounts
-        Account user1= new Account("username1", "email1@email.com", "thisismypassword1");
-        Account user2= new Account("username2", "email2@email.com", "thisismypassword2");
+        GDbAccount user1= new GDbAccount("username1", "email1@email.com", "thisismypassword1");
+        GDbAccount user2= new GDbAccount("username2", "email2@email.com", "thisismypassword2");
         
         
         this.repo.save(user1);
@@ -46,15 +55,15 @@ public class MongoUnitTest {
     @Test
     public void testMongoGet(){
         /*Test data retrieval*/
-        Account userA = repo.findByUsername("username1");
+        GDbAccount userA = repo.findByUsername("username1");
         assertNotNull(userA);
         assertEquals("email1@email.com", userA.getEmail());
         
         /*Get all products, list should only have two*/
-        Iterable<Account> users = repo.findAll();
+        Iterable<GDbAccount> users = repo.findAll();
         
         int count = 0;
-        for(Account a : users){
+        for(GDbAccount a : users){
             count++;
             System.out.println(a.toString());
         }

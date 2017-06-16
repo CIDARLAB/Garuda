@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author jayajr
  */
 @Document(collection = "accounts")
-public class Account {
+public class GDbAccount {
   
     @Id
     @Getter
@@ -37,7 +37,7 @@ public class Account {
 //    @Setter
 //    private String encryptedPasswd;
     
-    public Account(
+    public GDbAccount(
             String username,
             String email,
             String passwd) {

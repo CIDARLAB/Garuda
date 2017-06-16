@@ -7,6 +7,7 @@ package org.cidarlab.garuda.services;
 
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
+import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.rest.clotho.model.Account;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +15,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -54,5 +57,35 @@ public class ClothoService {
         }
         
         return myAccount;
-    }    
+    }
+    
+    public Account signup_post(RegisterForm registerForm, HttpSession session){
+                
+        String URI_SIGNUP = URL + "/signup";
+        ResponseEntity<Account> responseEntity = restTemplate.postForEntity(URI_SIGNUP, registerForm, Account.class, POST_HEADERS);
+      
+        Account myAccount = null;
+        
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            myAccount = responseEntity.getBody();
+        }
+        
+        return myAccount;
+    }
+        
+    public void logout_delete(HttpSession session){
+        String URI_LOGOUT = URL + "/logout";
+
+        session.invalidate();
+        
+        restTemplate.delete(URI_LOGOUT);
+        
+        return;        
+    }
+    
+    @ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="Incorrect username or password")
+    @ExceptionHandler(Exception.class)
+    public void exceptionHandler(){
+
+    }
 }
