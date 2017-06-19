@@ -27,8 +27,6 @@ public class LogoutController {
     public String logOut(
             HttpSession session) {
         
-        clotho.logout_delete(session);
-        
         return "/login";
     }
 }

@@ -14,12 +14,15 @@ import org.cidarlab.garuda.services.ClothoService;
 import org.cidarlab.garuda.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
@@ -54,30 +57,43 @@ public class LoginController {
             Model model,
             HttpSession session) {
         
-        if (result.hasErrors()){
-            for (Object object : result.getAllErrors()){
-                if (object instanceof FieldError) {
-                    FieldError fieldError = (FieldError) object;
-                    
-                    String message = messageSource.getMessage(fieldError, null);
-                    System.out.println(message);
+        try{
+            if (result.hasErrors()){
+                for (Object object : result.getAllErrors()){
+                    if (object instanceof FieldError) {
+                        FieldError fieldError = (FieldError) object;
+
+                        String message = messageSource.getMessage(fieldError, null);
+                        System.out.println(message);
+                    }
                 }
+                System.out.println();
+                return "login";
             }
-            System.out.println();
-            return "login";
-        }
-        
-        System.out.println(loginForm.toString());
-        Account myAccount = clotho.login_post(loginForm, session);
-        
-        if (myAccount == null) {
-            model.addAttribute(messageService.getLoginFailure());            
-            return "/login";
-        }
-        
-        else {
-            model.addAttribute(messageService.getLoginSuccess());
-            return "/index";
+
+            System.out.println(loginForm.toString());
+            Account myAccount = clotho.login_post(loginForm, session);
+
+            if (myAccount == null) {
+                throw new IllegalArgumentException();
+            }
+
+            else {
+                model.addAttribute(messageService.getLoginSuccess());
+                return "/index";
+            }
+        } catch (IllegalArgumentException e) {
+            return "/loginerror";
         }
     }
+    
+    @ResponseStatus(
+            value=HttpStatus.BAD_REQUEST,
+            reason="Incorrect username or password")
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String IllegalArgumentExceptionHandler(){
+        return "/loginerror";
+    }
+    
+
 }

@@ -82,10 +82,4 @@ public class ClothoService {
         
         return;        
     }
-    
-    @ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="Incorrect username or password")
-    @ExceptionHandler(Exception.class)
-    public void exceptionHandler(){
-
-    }
 }
