@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
+import org.cidarlab.garuda.rest.clotho.model.Account;
 import org.cidarlab.garuda.services.ClothoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,30 +31,35 @@ public class RegisterController {
     
     @RequestMapping(method=RequestMethod.POST)
     public String validateFormAndRegister (
-            @Valid LoginForm loginForm,
+            LoginForm loginForm,
             @Valid RegisterForm registerForm,
             BindingResult result,
             Model model,
             HttpSession session){
         
         System.out.println(registerForm.toString());
-     
+        Account myAccount = null;
+                
         // If Form has error
-        if (result.hasErrors()) {
-            model.addAttribute("message","Invalid Form");
-            return "login";
-        }
+//        if (result.hasErrors()) {
+//            model.addAttribute("message","Invalid Form");
+//            return "/login";
+//        }
         
-        else {
-            if (clotho.signup_post(registerForm, session).equals(null)){
-                model.addAttribute("message","This username or email is taken");
+//        else
+        {
+            
+            
+            myAccount = clotho.signup_post(registerForm,session);
+            if (myAccount == null){
+                System.out.println("message: This username or email is taken");
+                return "/login";
             }
             
             else{
-                model.addAttribute("message","Register success");
+                System.out.println("message: Register success");
+                return "/index";
             }
         }
-        
-        return "login";
     }
 }

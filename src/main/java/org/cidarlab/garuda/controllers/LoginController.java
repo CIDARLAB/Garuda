@@ -22,6 +22,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
@@ -52,38 +53,47 @@ public class LoginController {
     
     @RequestMapping(method=RequestMethod.POST)
     public String validateFormAndLogin(
+            RegisterForm registerForm,
             @Valid LoginForm loginForm,
             BindingResult result,
             Model model,
             HttpSession session) {
         
-        try{
-            if (result.hasErrors()){
-                for (Object object : result.getAllErrors()){
-                    if (object instanceof FieldError) {
-                        FieldError fieldError = (FieldError) object;
 
-                        String message = messageSource.getMessage(fieldError, null);
-                        System.out.println(message);
-                    }
-                }
-                System.out.println();
-                return "login";
-            }
-
+//        if (result.hasErrors()){
+//            for (Object object : result.getAllErrors()){
+//                if (object instanceof FieldError) {
+//                    FieldError fieldError = (FieldError) object;
+//
+//                    String message = messageSource.getMessage(fieldError, null);
+//                    System.out.println(message);
+//                }
+//            }
+//            System.out.println();
+//            return "login";
+//        }
+            
+        Account myAccount = null;
+        
+        try {
             System.out.println(loginForm.toString());
-            Account myAccount = clotho.login_post(loginForm, session);
+            myAccount = clotho.login_post(loginForm, session);
 
             if (myAccount == null) {
                 throw new IllegalArgumentException();
             }
 
-            else {
-                model.addAttribute(messageService.getLoginSuccess());
-                return "/index";
-            }
         } catch (IllegalArgumentException e) {
             return "/loginerror";
+        } finally {
+            
+            if (myAccount == null){
+                return "/loginerror";
+            }
+            
+            else {
+                return "/index";
+            }
         }
     }
     
