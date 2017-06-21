@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  *
@@ -46,20 +47,23 @@ public class RegisterController {
 //            return "/login";
 //        }
         
-//        else
-        {
-            
-            
+//        else {
+
+        try {
             myAccount = clotho.signup_post(registerForm,session);
-            if (myAccount == null){
-                System.out.println("message: This username or email is taken");
-                return "/login";
-            }
-            
-            else{
-                System.out.println("message: Register success");
-                return "/index";
-            }
+        } catch (HttpClientErrorException e){
+            System.out.println("message: This username or email is taken");
+            return "/login" ;
+        }
+        
+        if (myAccount == null){
+            System.out.println("message: This username or email is taken");
+            return "/login";
+        }
+
+        else{
+            System.out.println("message: Register success");
+            return "/index";
         }
     }
 }

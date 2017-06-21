@@ -41,6 +41,7 @@ public class ClothoService {
     public ClothoService(RestTemplateBuilder restTemplateBuilder){
         this.restTemplate = restTemplateBuilder.build();
         
+//        DEL_HEADERS.setContentType(MediaType.APPLICATION_JSON);
         POST_HEADERS.setContentType(MediaType.APPLICATION_JSON);
         POST_HEADERS.setCacheControl("no-cache");
     }
@@ -62,8 +63,8 @@ public class ClothoService {
             session.setAttribute("username", myAccount.getUser().getUsername());
             session.setAttribute("authHeader", myAccount.getAuthHeader());
             
-            POST_HEADERS.set("Authorization", myAccount.getAuthHeader());            
-            DEL_HEADERS.set("Authorization", myAccount.getAuthHeader());            
+            POST_HEADERS.add("Authorization", myAccount.getAuthHeader());            
+//            DEL_HEADERS.add("Authorization", myAccount.getAuthHeader());            
         }
         
         return myAccount;
@@ -88,7 +89,8 @@ public class ClothoService {
             session.setAttribute("username", myAccount.getUser().getUsername());
             session.setAttribute("authHeader", myAccount.getAuthHeader());
             
-            POST_HEADERS.set("Authorization", myAccount.getAuthHeader());
+            POST_HEADERS.add("Authorization", myAccount.getAuthHeader());
+//            DEL_HEADERS.add("Authorization", myAccount.getAuthHeader());            
         }
         
         return myAccount;
@@ -97,11 +99,10 @@ public class ClothoService {
     public void logout_delete(HttpSession session){
         String URI_LOGOUT = URL + "/logout";
         
-        String authHeader = (String)session.getAttribute("authHeader");
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-        headers.add("Authorization", authHeader);
+        HttpHeaders DEL_HEADERS = new HttpHeaders();
+        DEL_HEADERS.add("Authorization", (String)session.getAttribute("authHeader"));
         
-        HttpEntity<?> request = new HttpEntity<>(headers);
+        HttpEntity<String> request = new HttpEntity<>(DEL_HEADERS);
         restTemplate.exchange(URI_LOGOUT, HttpMethod.DELETE, request, String.class);
         
         return;        

@@ -15,3 +15,14 @@ Getting a 400 on wrong login
 
         return new ResponseEntity<>(new FoxResponse(ErrorCode.ARG_INVALID), status);
     }
+
+DELETE not supported in HTML5??
+
+https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms
+
+
+Workarounds:
+
+Post tunneling,
+Session destroyed listener 
+
