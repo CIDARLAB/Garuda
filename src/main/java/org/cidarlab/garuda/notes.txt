@@ -4,25 +4,189 @@ Fix commented input in *{...}.html
     search
     recommender
 
-Getting a 400 on wrong login
-    Try returning ResponseEntity instead of body
 
-    Or try overriding exception handler and create ResponseEntityExceptionHandler class
-    
-    @Override
-    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        log.warn("miss Request Param");
+clothoController
+    getPart 
+    CreateDevice 
 
-        return new ResponseEntity<>(new FoxResponse(ErrorCode.ARG_INVALID), status);
+
+
+
+
+
+
+---
+
+1. /create/convenienceDevice
+
+Input: a JSON String consisting of the device's information
+"{
+    'createSeqFromParts':'true',
+    'objectName':'CymRC_NMT-05_J23102',
+    'partIDs':'593b132f4c250206464d42b8,593b132f4c250206464d42b0,593b132f4c250206464d42c0,
+    593b132f4c250206464d42b4,593b13304c250206464d42e8',
+    'username':'robwarden'
+ }"
+
+Response: id of the created object
+    "593b13334c250206464d4418"
+
+Note: with DNAplotlib integration, it should generate an image that represents the device, and create a new field that points to the image location.
+
+"{
+    'createSeqFromParts':'true',
+    'objectName':'CymRC_NMT-05_J23102',
+    'partIDs':'593b132f4c250206464d42b8,593b132f4c250206464d42b0,593b132f4c250206464d42c0,
+    593b132f4c250206464d42b4,593b13304c250206464d42e8',
+    'username':'robwarden',
+    'visual_sbol':'/images/CymRC_NMT-05_J23102.png'
+ }"
+
+2. /get/convenienceDevice
+
+Input: a partial JSON String consisting one or multiple fields
+"{
+    'objectName':'LuxB_RHa-36_Tet'
+}"
+
+Response: Objects with exact match criteria. The query result should eliminate duplication.
+"{
+    "5937ee8f218de2733bf2e1f4": {
+        "sequence": "",
+        "name": "LuxB_RHa-36_Tet",
+        "id": "5937ee8f218de2733bf2e1f4"
+    },
+    "5937e43f218de2733bf2dcc6": {
+        "sequence": "",
+        "name": "LuxB_RHa-36_Tet",
+        "id": "5937e43f218de2733bf2dcc6"
+     }
+}"
+ 
+ Note: the search should be able to retrieve nested fields as well.
+ 
+ "{'params_value':'0.1'}" or "{'params_name':'Lacl-GFP Sensitivity'}"
+ 
+ {
+    'username': 'djtran',
+    'objectName': 'Lacl Sensor',
+    'sequence': 'aacgatcgttggctgtgttgacaattaatcatcggctcgtataatgtgtggaattgtgagcgctcacaattatggtgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggcgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccacaggcaagctgcccgtgccctggcccaccctcgtgaccaccttcggctacggcctgcaatgcttcgcccgctaccccgaccacatgaagctgcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacaccccaatcggcgacggccccgtgctgctgcccgacaaccactaccttagctaccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaagtaa',
+    'role': 'PROMOTER',
+    'params':{
+        'name': 'Lacl-GFP Sensitivity',
+        'value': '0.1',
+        'variable': 'sensitivity',
+        'units': ''
+      },
+    'parts': {
+        {
+            'name': 'p730'
+        },
+        {
+            'name': 'p734'
+        },
+        {
+            'name': 'p73e'
+        }
     }
+}
+ 
+3. /get/convenienceDevice/[field name] (e.g: field_name = ID --> /get/convenienceDevice/ID)
 
-DELETE not supported in HTML5??
+Input: a partial JSON String consisting one or multiple fields
+"{
+    'objectName':'LuxB_RHa-36_Tet'
+}"
 
-https://softwareengineering.stackexchange.com/questions/114156/why-are-there-are-no-put-and-delete-methods-on-html-forms
+Response: a String concatenating all exact match for [field_name] only. For example field_name = ID. The query result should eliminate duplication.
+"5937ee8f218de2733bf2e1f4,5937e43f218de2733bf2dcc6"
 
+4. /get/convenienceDevice/regex
 
-Workarounds:
+Input: a partial JSON String consisting one or multiple regex of fields
+"{
+    'objectName':'LuxB_RHa'
+}"
 
-Post tunneling,
-Session destroyed listener 
+Response: Objects with match criteria. The query result should eliminate duplication.
+"{
+  "5937ee8f218de2733bf2e1f4": {
+    "sequence": "",
+    "name": "LuxB_RHa-36_Tet",
+    "id": "5937ee8f218de2733bf2e1f4"
+ },
+  "5937e43f218de2733bf2dcc6": {
+    "sequence": "",
+    "name": "LuxB_RHa-36_Tet",
+    "id": "5937e43f218de2733bf2dcc6"
+ },
+  "5937d51c218de2723b3351c7": {
+    "sequence": "",
+    "name": "LuxB_RHa-51_CymRC",
+    "id": "5937d51c218de2723b3351c7"
+  }"
+ 
+5. /get/convenienceDevice/[field_name]/regex
 
+Input: a partial JSON String consisting one or multiple regex of fields
+"{'objectName':'LuxB_RHa-36_Tet'}"
+
+Response: a String concatenating all regex match for [field_name] only. For example field_name = ID. The query result should eliminate duplication.
+"5937ee8f218de2733bf2e1f4,5937e43f218de2733bf2dcc6,5937d51c218de2723b3351c7"
+
+ 
+6. /update/convenienceDevice/
+
+Input: a partial JSON String consisting one or multiple fields, and a new JSON String
+"{
+    'objectName':'CymRC_NMT-05_J23102'
+}", 
+"{
+    'createSeqFromParts':'true',
+    'objectName':'CymRC_NMT-05_J23102',
+    'partIDs':'593b132f4c250206464d42b8,593b132f4c250206464d42b0,593b132f4c250206464d42c0,
+    593b132f4c250206464d42b4,593b13304c250206464d42e8',
+    'username':'robwarden'
+    'sequence': 'aacgatcgttggctgtgttgacaattaatcatcggctcgtataatgtgtggaattgtgagcgctcacaattat'
+}"
+
+Response: a String concatenating all updated IDs
+"5937ee8f218de2733bf2e1f4,5937e43f218de2733bf2dcc6,5937d51c218de2723b3351c7"
+
+Note: if the update method creates new objects, the old ones should be archieved and not be indexed during the search
+
+7. /delete/convenienceDevice/
+
+Input: a partial JSON String consisting one or multiple fields, and a new JSON String
+
+Response: a String concatenating all deleted IDs
+"5937ee8f218de2733bf2e1f4,5937e43f218de2733bf2dcc6,5937d51c218de2723b3351c7"
+
+8. /get/ConvenienceDevice/blast
+
+Input: a JSON String consisting sequence information --throw an error if it is not sequence
+"{
+    'sequence': 'aacgatcgttggctgtgttgacaattaatcatcggctcgtataatgtgtggaattgtgagcgctcacaattat'
+}", 
+
+Response: objects with local-alignment match criteria, with additional fields from blast search (e.g: percent match, etc.). The query result should eliminate duplication.
+"{
+  "5937ee8f218de2733bf2e1f4": {
+    "sequence": "",
+    "name": "LuxB_RHa-36_Tet",
+    "sequence": "aacgatcgttggctgtgttgacaattaatcatcggctcgtataatgtgtggaattgtgagcgctcacaattat",
+    "id": "5937ee8f218de2733bf2e1f4",
+    "percent_match": "98",
+    "align_start": "1022",
+    "align_end" : "2763"
+ }”
+
+9. /get/ConvenienceDevice/[field_name]/blast
+
+Input: a JSON String consisting sequence information --throw an error if it is not sequence
+"{
+    'sequence': 'aacgatcgttggctgtgttgacaattaatcatcggctcgtataatgtgtggaattgtgagcgctcacaattat'
+}", 
+
+Response: a String concatenating all local-alignment match for [field_name] only. The query result should eliminate duplication.
+"5937ee8f218de2733bf2e1f4,5937e43f218de2733bf2dcc6"
