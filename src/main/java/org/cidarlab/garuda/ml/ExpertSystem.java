@@ -7,43 +7,44 @@ package org.cidarlab.garuda.ml;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.cidarlab.garuda.dom.Data;
+import org.cidarlab.garuda.dom.Feature;
 
 /**
  *
  * @author mardian
  */
+//use this class to classify data when a threshold is known
 public class ExpertSystem {
-    
+
     private double[][] rawData;
     private double threshold;
-    
-    private List<Data> clusterData;
-    
-    public ExpertSystem (double[][] rawData, double threshold) {
-        
+
+    private List<Feature> clusterData;
+
+    public ExpertSystem(double[][] rawData, double threshold) {
+
         this.rawData = rawData;
         this.threshold = threshold;
-        this.clusterData = new ArrayList<Data>();
-        
-        init ();
+        this.clusterData = new ArrayList<Feature>();
+
+        init();
     }
-    
+
     public void init() {
-        
-        for (int i=0; i<rawData.length; i++) {
+
+        for (int i = 0; i < rawData.length; i++) {
             int cluster = 0;
-            for (int j=0; j<rawData[0].length; j++) {
-                if (rawData[i][j]>threshold) {
+            for (int j = 0; j < rawData[0].length; j++) {
+                if (rawData[i][j] > threshold) {
                     cluster = 1;
                 }
-                clusterData.add(new Data(rawData[i], i, cluster));
+                clusterData.add(new Feature(i, rawData[i], cluster));
             }
         }
     }
-    
-    public List<Data> getClusterData () {
+
+    public List<Feature> getClusterData() {
         return this.clusterData;
     }
-    
+
 }

@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.garuda.dom.Data;
+import org.cidarlab.garuda.dom.Feature;
 import org.cidarlab.garuda.ml.Backpropagation;
 
 /**
@@ -86,7 +86,7 @@ public class CategoricalRecEngine {
             int cluster = 2;
 
             Backpropagation backprop = new Backpropagation(labelData, labelData, cluster);
-            List<Data> output = backprop.getClusterData();
+            List<Feature> output = backprop.getClusterData();
             List<Integer> trainIdx = backprop.getTrainList();
 
             System.out.println("Backprop:");

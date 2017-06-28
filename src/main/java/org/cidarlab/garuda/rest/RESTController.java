@@ -133,7 +133,7 @@ public class RESTController {
     @RequestMapping(value="/import", method=RequestMethod.POST)
     public String entry (@ModelAttribute ApplicationInit app, Model model) {
         
-        String user = "mardian";
+        String user = "robwarden";
         String pass = "pass";
         
         String output = "output";

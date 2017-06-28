@@ -142,16 +142,24 @@ public class RESTRequest {
         
         URL url = new URL(this.url + "/get/conveniencePart/");
         return HTTPReq(url, jsonString, "POST");
-
-        //System.out.println(output);
     }
 
-    public void getDeviceID(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
+    public String getDevice(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
+        
+        URL url = new URL(this.url + "/get/convenienceDevice/");
+        return HTTPReq(url, jsonString, "POST");
+    }
+
+    public String getPartID(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
+        
+        URL url = new URL(this.url + "/get/conveniencePartID/");
+        return HTTPReq(url, jsonString, "POST");
+    }
+
+    public String getDeviceID(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
         
         URL url = new URL(this.url + "/get/convenienceDeviceID/");
-        String output = HTTPReq(url, jsonString, "POST");
-
-        System.out.println(output);
+        return HTTPReq(url, jsonString, "POST");
     }
 
     public String createSequence() throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {

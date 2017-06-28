@@ -60,19 +60,16 @@ public class RecommendationEngine {
                  
                 /*    System.out.println("K-Means:");
                     NaiveBayes kmbayes = new NaiveBayes (kmeans.getClusterData(), data, cluster, parser.getParticipant());
-                    System.out.println("#error: " + error (target, kmbayes.getList()));*/
+                    System.out.println("#error: " + error (target, kmbayes.getToxicList()));*/
                     
                     System.out.println("Backprop:");
-                    NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, parser.getParticipant());
-                    System.out.println("#error: " + error (target, bpbayes.getList()));
+                    NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), cluster, parser.getParticipant());
+                    System.out.println("#error: " + error (target, bpbayes.getToxicList()));
                     
                     System.out.println("Expert:");
-                    NaiveBayes expbayes = new NaiveBayes (expert.getClusterData(), data, cluster, parser.getParticipant());
-                    System.out.println("#error: " + error (target, expbayes.getList()));
+                    NaiveBayes expbayes = new NaiveBayes (expert.getClusterData(), cluster, parser.getParticipant());
+                    System.out.println("#error: " + error (target, expbayes.getToxicList()));
                 
-                
-                
-                    
             /*    //    double[] x = new double[]{2,9,4,7,3,1,5,9,6,6,5,6,8};
                 //    double[] y = new double[]{9,23,13,19,11,7,15,23,17,17,15,17,21};
                 //    LinearRegression.init(x, y);

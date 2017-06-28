@@ -9,19 +9,19 @@ package org.cidarlab.garuda.dom;
  * @author mardian
  */
 
-public class Data
+public class Feature
 {
     private int id;
     private Vector vector;
     private int cluster;
 
-    public Data (double[] newX, int id) {
+    public Feature (int id, double[] newX) {
 
         this.id = id;
         this.vector = new Vector (newX);
     }
 
-    public Data (double[] newX, int id, int cluster) {
+    public Feature (int id, double[] newX, int cluster) {
 
         this.id = id;
         this.vector = new Vector (newX);

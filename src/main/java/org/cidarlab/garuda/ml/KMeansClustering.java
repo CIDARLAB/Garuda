@@ -6,7 +6,7 @@
 package org.cidarlab.garuda.ml;
 
 import org.cidarlab.garuda.dom.Vector;
-import org.cidarlab.garuda.dom.Data;
+import org.cidarlab.garuda.dom.Feature;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +25,7 @@ public class KMeansClustering {
     
     private boolean zeroIsToxic;
             
-    private List<Data> dataSet;
+    private List<Feature> dataSet;
     private List<Vector> centroids;
     
     public KMeansClustering (double[][] inputData, int cluster) {
@@ -37,7 +37,7 @@ public class KMeansClustering {
         
         zeroIsToxic = false;
         
-        dataSet = new ArrayList<Data>();
+        dataSet = new ArrayList<Feature>();
         centroids = new ArrayList<Vector>();
         
         start();
@@ -98,7 +98,7 @@ public class KMeansClustering {
         double distance = 0.0;                        // The current minimum value.
         int cluster = 0;
         boolean isStillMoving = true;
-        Data newData = null;
+        Feature newData = null;
         
         // Add in new data, one at a time, recalculating centroids with each new one. 
         for (int sampleNumber=0; dataSet.size()<TOTAL_DATA; sampleNumber++) {
@@ -108,7 +108,7 @@ public class KMeansClustering {
                 parameters[i] = SAMPLES[sampleNumber][i];
             }
             
-            newData = new Data(parameters, sampleNumber);
+            newData = new Feature(sampleNumber, parameters);
             dataSet.add(newData);
             minimum = bigNumber;
             for (int i=0; i<NUM_CLUSTERS; i++) {
@@ -179,7 +179,7 @@ public class KMeansClustering {
             
             for (int i=0; i<dataSet.size(); i++) {
                 
-                Data tempData = dataSet.get(i);
+                Feature tempData = dataSet.get(i);
                 minimum = bigNumber;
                 
                 for (int j = 0; j<NUM_CLUSTERS; j++) {
@@ -204,11 +204,11 @@ public class KMeansClustering {
     
     /**
      * // Calculate Euclidean distance.
-     * @param d - Data object.
+     * @param d - Feature object.
      * @param c - Centroid object.
      * @return - double value.
      */
-    private static double dist (Data d, Vector c) {
+    private static double dist (Feature d, Vector c) {
         
         double total = 0.0;
         for (int i=0; i<c.getSize(); i++) {
@@ -217,7 +217,7 @@ public class KMeansClustering {
         return Math.sqrt(total);
     }
     
-    public List<Data> getClusterData () {
+    public List<Feature> getClusterData () {
         
         //passed by reference
         return this.dataSet;

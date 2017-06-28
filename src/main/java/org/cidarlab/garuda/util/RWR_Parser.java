@@ -279,10 +279,10 @@ public class RWR_Parser {
                 JSONObject query_json = new JSONObject();
                 query_json.put("objectName", display_id);
                 String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
-                System.out.print("This is from query: ");
-                rest.getDeviceID(query_jsonString);
+                System.out.println(query_jsonString);
                 
-
+                System.out.println("*****Part: " + rest.getPart(query_jsonString));
+                System.out.println("*****Device: " + rest.getDevice(query_jsonString));
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -323,6 +323,18 @@ public class RWR_Parser {
                     String pdisplay_id = cell.getStringCellValue();
                     if (!pdisplay_id.equals("H2O")) {
                         partList.add(constructs_lvl1.get(pdisplay_id));
+                        
+                        System.out.println("***From hack: " + constructs_lvl1.get(pdisplay_id) + "   " + pdisplay_id);
+                        
+                        JSONObject query_json = new JSONObject();
+                        query_json.put("objectName", pdisplay_id);
+                        String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
+
+                        System.out.println("***From search: " + rest.getPart(query_jsonString));
+                        System.out.println("***From device: " + rest.getDevice(query_jsonString));
+                        
+                        System.out.println("***From search ID: " + rest.getPartID(query_jsonString) + "    " + pdisplay_id);
+                        
                     }
 
                 }
