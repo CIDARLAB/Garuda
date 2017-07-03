@@ -36,12 +36,6 @@ public class LoginController {
     @Autowired
     private ClothoService clotho;
     
-    @Autowired
-    private MessageService messageService;
-            
-    @Autowired
-    private MessageSource messageSource;
-    
         
     @RequestMapping(method=RequestMethod.GET)
     public String getLoginPage(Model model, HttpSession session) {

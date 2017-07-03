@@ -10,8 +10,21 @@ clothoController
     CreateDevice 
 
 
+    Getting a list of json
+        Service
+            ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(urlGETList, Object[].class);
+            Object[] objects = responseEntity.getBody();
+            MediaType contentType = responseEntity.getHeaders().getContentType();
+            HttpStatus statusCode = responseEntity.getStatusCode();
 
 
+        Controller
+            @RequestMapping(value="/Object/getList/", method=RequestMethod.GET)
+            public @ResponseBody List<Object> findAllObjects() {
+
+                List<Object> objects = new ArrayList<Object>();
+                return objects;
+            }
 
 
 

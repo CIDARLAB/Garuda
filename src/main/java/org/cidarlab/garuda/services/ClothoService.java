@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.rest.clotho.model.Account;
+import org.cidarlab.garuda.rest.clotho.model.Construct;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -114,9 +115,9 @@ public class ClothoService {
         String URI = URL + "";
         
         HttpHeaders getHeaders = new HttpHeaders();
-        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        //getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
         
-        restTemplate.getForEntity(URI, responseType, getHeaders);
+        restTemplate.getForEntity(URI, Construct.class, getHeaders);
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         

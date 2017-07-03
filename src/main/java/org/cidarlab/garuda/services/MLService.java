@@ -5,20 +5,10 @@
  */
 package org.cidarlab.garuda.services;
 
-import org.springframework.stereotype.Service;
-
 /**
  *
  * @author jayajr
  */
-@Service
-public class MessageService {
-       
-    public String getLoginSuccess(){
-        return "Login Successful";
-    }
+public class MLService {
     
-    public String getLoginFailure(){
-        return "Login Failed!";
-    }
 }

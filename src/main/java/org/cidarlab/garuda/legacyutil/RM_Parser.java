@@ -29,8 +29,8 @@ public class RM_Parser {
     @Autowired
     static ClothoService clotho;
     
-    private static Map<String, String> parts = new HashMap<String, String>();
-    private static Map<String, String> constructs_lvl1 = new HashMap<String, String>();    
+    private static Map<String, String> parts = new HashMap<>();
+    private static Map<String, String> constructs_lvl1 = new HashMap<>();    
     
     public static String parse(String inputUrl, String username) {
 

@@ -19,15 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getIndexPage(HttpSession session) {
-        if (session.getAttribute("counter") != null){
-            int count = (int)session.getAttribute("counter");
-            session.setAttribute("counter", count += 1);
-        }
-        else {
-            session.setAttribute("counter", 1);
-        }
-        
+    public String getIndexPage(HttpSession session) {        
         return "index";
     }
 }
