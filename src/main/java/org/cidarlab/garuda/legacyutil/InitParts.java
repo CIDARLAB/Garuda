@@ -6,12 +6,16 @@
 package org.cidarlab.garuda.legacyutil;
 
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.cidarlab.garuda.forms.AddForm;
+import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +29,7 @@ public class InitParts {
     @Autowired
     static ClothoService clotho;
     
-    public static Map<String, String> instantiate (XSSFSheet sheet, String outputFileUrl, String username) {
+    public static Map<String, String> instantiate (XSSFSheet sheet, String outputFileUrl, String username, HttpSession session) {
         
         Map<String, String> parts = new HashMap<String, String>();
         
@@ -35,6 +39,9 @@ public class InitParts {
             FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
+                
+                AddForm addForm = new AddForm();
+                ArrayList<Parameter> paramList = new ArrayList<>();
                 
                 Row row = sheet.getRow(i);
                 
@@ -66,11 +73,15 @@ public class InitParts {
                 json.put("length", parLength);        //will create error if additional field is added
                 json.put("role", role);
                 
+                addForm.setDisplayId(display_id);
+                addForm.setRole(role);
+                addForm.setSequence(sequence);
+                
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
                 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createPart_post(jsonString);
+                String part_id = clotho.createPart_post(addForm, session);
                 System.out.println(part_id);
                 
                 parts.put(display_id, part_id);

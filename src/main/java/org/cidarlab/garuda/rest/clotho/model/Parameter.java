@@ -3,37 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.forms;
+package org.cidarlab.garuda.rest.clotho.model;
 
-import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
-import org.cidarlab.garuda.rest.clotho.model.Parameter;
 
 /**
  *
  * @author jayajr
  */
-public class AddForm {
-    
+public class Parameter{
+        
     @Getter
     @Setter
     String name;
-    
+
     @Getter
     @Setter
-    String displayId;
-    
+    double value;
+
     @Getter
     @Setter
-    String role;
-    
+    String variable;
+
     @Getter
     @Setter
-    ArrayList<Parameter> parameters;
-    
-    @Getter
-    @Setter
-    String sequence;
-    
+    String units;
 }

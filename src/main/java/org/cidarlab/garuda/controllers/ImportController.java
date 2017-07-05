@@ -82,11 +82,11 @@ public class ImportController {
         String user = (String) session.getAttribute("username");
         
         if (user.equals("robwarden")){
-            parser.getRwrParser().parse(multipartFile.getOriginalFilename(), user);
+            parser.getRwrParser().parse(multipartFile.getOriginalFilename(), user, session);
         } else if (user.equals("guy")){
-            parser.getGuyParser().parse(multipartFile.getOriginalFilename(), "resources/output-", user);
+            parser.getGuyParser().parse(multipartFile.getOriginalFilename(), "resources/output-", user, session);
         } else {
-            parser.getRmParser().parse(multipartFile.getOriginalFilename(), user);
+            parser.getRmParser().parse(multipartFile.getOriginalFilename(), user, session);
         }
     
     //} Parsing the file

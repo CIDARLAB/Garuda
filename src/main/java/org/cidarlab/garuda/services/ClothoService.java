@@ -6,6 +6,7 @@
 package org.cidarlab.garuda.services;
 
 import javax.servlet.http.HttpSession;
+import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.rest.clotho.model.Account;
@@ -127,8 +128,25 @@ public class ClothoService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String createPart_post(String json) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String createPart_post(AddForm addForm, HttpSession session) {
+        
+        String URI = URL + "/part";
+        
+        HttpHeaders postHeaders = new HttpHeaders();
+        
+        postHeaders.add("Authorization", (String)session.getAttribute("authHeader"));
+        
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(URI, addForm, String.class, postHeaders);
+      
+        String constructId = null;
+        
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            
+            constructId = responseEntity.getBody();
+               
+        }
+        
+        return constructId;
     }
 
     public void getDeviceId_get(String query_jsonString) {

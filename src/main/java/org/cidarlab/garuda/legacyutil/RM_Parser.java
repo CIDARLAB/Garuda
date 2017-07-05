@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.cidarlab.garuda.forms.AddForm;
+import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,7 @@ public class RM_Parser {
     private static Map<String, String> parts = new HashMap<>();
     private static Map<String, String> constructs_lvl1 = new HashMap<>();    
     
-    public static String parse(String inputUrl, String username) {
+    public static String parse(String inputUrl, String username, HttpSession session) {
 
         try {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -47,25 +50,25 @@ public class RM_Parser {
 
                 switch (sheetName) {
                     case "Glycerol":
-                        populateParts(sheet, "Glycerol", username);
+                        populateParts(sheet, "Glycerol", username, session);
                         break;
                     case "Vectors":
-                        populateParts(sheet, "Vector", username);
+                        populateParts(sheet, "Vector", username, session);
                         break;
                     case "Promoters":
-                        populateParts(sheet, "Promoter", username);
+                        populateParts(sheet, "Promoter", username, session);
                         break;
                     case "RBS":
-                        populateParts(sheet, "RBS", username);
+                        populateParts(sheet, "RBS", username, session);
                         break;
                     case "Genes":
-                        populateParts(sheet, "Gene", username);
+                        populateParts(sheet, "Gene", username, session);
                         break;
                     case "FP":
-                        populateParts(sheet, "Gene", username);
+                        populateParts(sheet, "Gene", username, session);
                         break;
                     case "Terminators":
-                        populateParts(sheet, "Terminator", username);
+                        populateParts(sheet, "Terminator", username, session);
                         break;
                     case "Level 1":
                         populateConstructsLvl1(sheet, username);
@@ -88,7 +91,7 @@ public class RM_Parser {
         }
     }
 
-    public static void populateParts(XSSFSheet sheet, String role, String username) {
+    public static void populateParts(XSSFSheet sheet, String role, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -99,7 +102,11 @@ public class RM_Parser {
             Row row = sheet.getRow(i);
 
             try {
-
+                
+                AddForm addForm = new AddForm();
+                ArrayList<Parameter> paramList = new ArrayList<>();
+                
+                        
                 Cell cell = row.getCell(1);
                 cell.setCellType(CellType.STRING);
 
@@ -114,13 +121,21 @@ public class RM_Parser {
                 json.put("objectName", display_id);
                 json.put("role", role);
 
+                addForm.setDisplayId(display_id);
+                addForm.setRole(role);
+                addForm.setName(display_id);
+                
+                
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createPart_post(jsonString);
+                String part_id = clotho.createPart_post(addForm, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
+                
+                addForm = new AddForm();
+                paramList = new ArrayList<>();
                 
                 //Scar1
                 cell = row.getCell(2);
@@ -136,18 +151,26 @@ public class RM_Parser {
                 json.put("username", username);
                 json.put("objectName", display_id);
                 json.put("role", "Scar");
+                
+                addForm.setDisplayId(display_id);
+                addForm.setRole(role);
+                addForm.setName(display_id);
 
                 jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
+                
                 //part_id = rest.createPart(jsonString);
-                part_id = clotho.createPart_post(jsonString);
+                part_id = clotho.createPart_post(addForm, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
+                addForm = new AddForm();
+                paramList = new ArrayList<>();
+                
                 //Scar2
                 cell = row.getCell(3);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
+                cell.setCellType(CellType.STRING);
 
                 display_id = cell.getStringCellValue();
 
@@ -160,11 +183,15 @@ public class RM_Parser {
                 json.put("objectName", display_id);
                 json.put("role", "Scar");
 
+                addForm.setDisplayId(display_id);
+                addForm.setRole(role);
+                addForm.setName(display_id);
+                
                 jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 //part_id = rest.createPart(jsonString);
-                part_id = clotho.createPart_post(jsonString);
+                part_id = clotho.createPart_post(addForm, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
@@ -189,7 +216,7 @@ public class RM_Parser {
             try {
 
                 Cell cell = row.getCell(1);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
+                cell.setCellType(CellType.STRING);
 
                 String display_id = cell.getStringCellValue();
 
@@ -210,7 +237,7 @@ public class RM_Parser {
                 for (int j = 0; j < numOfParts; j++) {
 
                     cell = row.getCell(4 + j);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                    cell.setCellType(CellType.STRING);
                     String pdisplay_id = cell.getStringCellValue();
 
                     if (!pdisplay_id.equals("N/A")) {
@@ -257,7 +284,7 @@ public class RM_Parser {
             try {
 
                 Cell cell = row.getCell(1);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
+                cell.setCellType(CellType.STRING);
 
                 String display_id = cell.getStringCellValue();
 
@@ -267,7 +294,7 @@ public class RM_Parser {
                 for (int j = 0; j < numOfParts; j++) {
 
                     cell = row.getCell(4 + j);     //first cistron starts at column 1
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                    cell.setCellType(CellType.STRING);
                     String pdisplay_id = cell.getStringCellValue();
                     if (!pdisplay_id.equals("N/A")) {
                         partList.add(constructs_lvl1.get(pdisplay_id));

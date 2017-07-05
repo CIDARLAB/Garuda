@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.poi.ss.usermodel.Cell;
@@ -19,6 +20,8 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.cidarlab.garuda.forms.AddForm;
+import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +39,7 @@ public class Guy_Parser {
     @Getter
     private static Map<String, String> parts;
     
-    public static String parse (String inputUrl, String outputUrl, String username) {
+    public static String parse (String inputUrl, String outputUrl, String username, HttpSession session) {
         
         try
         {
@@ -57,7 +60,7 @@ public class Guy_Parser {
                         break;
                     case "Parts":
                     case "parts":
-                        parts = populateParts (sheet, outputUrl, username);
+                        parts = populateParts (sheet, outputUrl, session);
                         break;
                     case "Constructs":
                     case "constructs":
@@ -92,7 +95,7 @@ public class Guy_Parser {
         }
     }
     
-    public static Map<String, String> populateParts (XSSFSheet sheet, String outputFileUrl, String username) {
+    public static Map<String, String> populateParts (XSSFSheet sheet, String outputFileUrl, HttpSession session) {
         
         Map<String, String> parts = new HashMap<String, String>();
         
@@ -102,6 +105,9 @@ public class Guy_Parser {
             FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
+                
+                AddForm addForm = new AddForm();
+                ArrayList<Parameter> paramList = new ArrayList<>();
                 
                 Row row = sheet.getRow(i);
                 
@@ -114,6 +120,7 @@ public class Guy_Parser {
                 //sequence [col 2]
                 String seqname = "seq" + System.currentTimeMillis(); //sequence id is generated
                 String sequence = row.getCell(2).getStringCellValue();
+                
                 if (sequence.length()!= parLength) { //additional checking if the part length is not equal to the provided column
                     throw new GarudaException("Error of part length at row " + i + "...");
                 }
@@ -133,11 +140,21 @@ public class Guy_Parser {
                 json.put("length", parLength);        //will create error if additional field is added
                 json.put("role", role);
                 
+                
+                addForm.setDisplayId(display_id);
+                addForm.setName(display_id);
+                addForm.setParameters(paramList);
+                addForm.setRole(role);
+                addForm.setSequence(sequence.toLowerCase());
+                
+                
+                
+                
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
                 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createPart_post(jsonString);
+                String part_id =clotho.createPart_post(addForm, session);
                 System.out.println(part_id);
                 
                 parts.put(display_id, part_id);

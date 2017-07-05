@@ -7,16 +7,18 @@ package org.cidarlab.garuda.legacyutil;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.cidarlab.garuda.forms.AddForm;
+import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class RWR_Parser {
 
     //private static int num_of_parts;
 
-    public static String parse(String inputUrl, String username) {
+    public static String parse(String inputUrl, String username, HttpSession session) {
 
         try {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -54,7 +56,7 @@ public class RWR_Parser {
                 switch (sheetName) {
                     case "Rules":
                         //scarRules(sheet);
-                        populateParts(sheet, username);
+                        populateParts(sheet, username, session);
                         break;
                     case "Parts":
                         vectorParts(sheet, username);
@@ -110,7 +112,7 @@ public class RWR_Parser {
         }
     }*/
 
-    public static void populateParts(XSSFSheet sheet, String username) {
+    public static void populateParts(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -144,9 +146,11 @@ public class RWR_Parser {
                 int idx = roles_idx.get(j);
 
                 try {
+                    AddForm addForm = new AddForm();
+                    ArrayList<Parameter> paramList = new ArrayList<>();
 
                     Cell cell = row.getCell(idx);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                    cell.setCellType(CellType.STRING);
 
                     String display_id = cell.getStringCellValue();
 
@@ -158,12 +162,17 @@ public class RWR_Parser {
                     json.put("username", username);
                     json.put("objectName", display_id);
                     json.put("role", role);
-
+                    
+                    addForm.setDisplayId(display_id);
+                    addForm.setRole(role);
+                    
+                    addForm.setParameters(paramList);
+                            
                     String jsonString = json.toJSONString().replaceAll("\"", "'");
                     System.out.println(jsonString);
 
                     //String part_id = rest.createPart(jsonString);
-                    String part_id = clotho.createPart_post(jsonString);
+                    String part_id = clotho.createPart_post(addForm, session);
                     System.out.println(part_id);
                     parts.put(display_id, part_id);
 
