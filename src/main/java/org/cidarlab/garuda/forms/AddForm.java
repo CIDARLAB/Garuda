@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -16,6 +17,7 @@ import org.cidarlab.garuda.rest.clotho.model.Parameter;
  */
 public class AddForm {
     
+    @NotEmpty(message="Import: Name may not be empty")
     @Getter
     @Setter
     String name;
@@ -35,5 +37,31 @@ public class AddForm {
     @Getter
     @Setter
     String sequence;
+    
+    public AddForm(){
+        this.name = null;
+        this.displayId = null;
+        this.role = null;
+        this.parameters = null;
+        this.sequence = null;
+    }
+    
+    public void clear(){
+        this.name = null;
+        this.displayId = null;
+        this.role = null;
+        this.parameters = null;
+        this.sequence = null;
+    }
+    
+    @Override
+    public String toString(){
+        return "{"
+                + "name: " + this.name +", "
+                + "displayId: " + this.displayId + ", "
+                + "role: " + this.role + ", "
+                + "parameters: ... , "
+                + "sequence: " + this.sequence + "}";
+    }
     
 }

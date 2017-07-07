@@ -8,7 +8,6 @@ package org.cidarlab.garuda.services;
 import lombok.Getter;
 import lombok.Setter;
 import org.cidarlab.garuda.legacyutil.Guy_Parser;
-import org.cidarlab.garuda.legacyutil.RM_Parser;
 import org.cidarlab.garuda.legacyutil.RWR_Parser;
 import org.cidarlab.garuda.legacyutil.RWR_RecEngine;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +26,10 @@ public class ParserService {
     @Setter
     Guy_Parser guyParser;    
     
-    @Getter
-    @Setter
-    RM_Parser rmParser;
+//    @Getter
+//    @Setter
+//    @Autowired
+//    RM_Parser rmParser;
     
     @Getter
     @Setter
@@ -40,12 +40,12 @@ public class ParserService {
     RWR_RecEngine rwrRecEngine;
 
     
-    ParserService(){
-        guyParser = new Guy_Parser();
-        rmParser = new RM_Parser();
-        rwrParser = new RWR_Parser();
-        rwrRecEngine = new RWR_RecEngine();
-    }
+//    ParserService(){
+//        guyParser = new Guy_Parser();
+//        rmParser = new RM_Parser();
+//        rwrParser = new RWR_Parser();
+//        rwrRecEngine = new RWR_RecEngine();
+//    }
         
     
 }

@@ -20,17 +20,25 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
+import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author mardian
  */
+@Service
 public class RM_Parser {
     
-    @Autowired
     static ClothoService clotho;
+    
+    @Autowired
+    public void setClothoService(ClothoService clothoService){
+        clotho = clothoService;
+    }
     
     private static Map<String, String> parts = new HashMap<>();
     private static Map<String, String> constructs_lvl1 = new HashMap<>();    
@@ -117,8 +125,8 @@ public class RM_Parser {
                 }
                 unique.add(display_id);
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", username);
+                json.put("displayId", display_id);
                 json.put("role", role);
 
                 addForm.setDisplayId(display_id);
@@ -127,15 +135,20 @@ public class RM_Parser {
                 
                 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
-                System.out.println(jsonString);
+                //System.out.println(jsonString);
+//                System.out.println("0");
+                System.out.println(addForm.toString());
+//                System.out.println("1");
 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createPart_post(addForm, session);
+                
+                String part_id = clotho.createPart_post(json, session);
+                System.out.println("after clotho");
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
                 
-                addForm = new AddForm();
-                paramList = new ArrayList<>();
+                addForm.clear();
+                paramList.clear();
                 
                 //Scar1
                 cell = row.getCell(2);
@@ -148,8 +161,8 @@ public class RM_Parser {
                 }
                 unique.add(display_id);
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", username);
+                json.put("displayId", display_id);
                 json.put("role", "Scar");
                 
                 addForm.setDisplayId(display_id);
@@ -157,16 +170,19 @@ public class RM_Parser {
                 addForm.setName(display_id);
 
                 jsonString = json.toJSONString().replaceAll("\"", "'");
-                System.out.println(jsonString);
+                //System.out.println(jsonString);
+                System.out.println(addForm.toString());
 
                 
                 //part_id = rest.createPart(jsonString);
-                part_id = clotho.createPart_post(addForm, session);
+                
+                
+                part_id = clotho.createPart_post(json, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
-                addForm = new AddForm();
-                paramList = new ArrayList<>();
+                addForm.clear();
+                paramList.clear();
                 
                 //Scar2
                 cell = row.getCell(3);
@@ -188,16 +204,19 @@ public class RM_Parser {
                 addForm.setName(display_id);
                 
                 jsonString = json.toJSONString().replaceAll("\"", "'");
-                System.out.println(jsonString);
+                //System.out.println(jsonString);
+                System.out.println(addForm.toString());
 
                 //part_id = rest.createPart(jsonString);
-                part_id = clotho.createPart_post(addForm, session);
+                part_id = clotho.createPart_post(json, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
             } catch (NullPointerException n) {
+                System.out.println("Null Pointer!");
                 continue;
             } catch (Exception e) {
+                System.out.println("Undefinted Exception!");
                 e.printStackTrace();
             }
         }

@@ -5,6 +5,7 @@
  */
 package org.cidarlab.garuda.services;
 
+import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.forms.LoginForm;
@@ -127,24 +128,32 @@ public class ClothoService {
     public String createDevice_post(String json){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public String testing(){
+        return "testing!";
+    }
 
-    public String createPart_post(AddForm addForm, HttpSession session) {
-        
+    public String createPart_post(Map addForm, HttpSession session) {
+
         String URI = URL + "/part";
         
         HttpHeaders postHeaders = new HttpHeaders();
+        postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        HttpEntity<Map<String, String>> request = new HttpEntity<>(addForm, postHeaders);
         
-        postHeaders.add("Authorization", (String)session.getAttribute("authHeader"));
-        
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(URI, addForm, String.class, postHeaders);
-      
+
+        ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
+        System.out.println("after restTemplate");
         String constructId = null;
         
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             
+            System.out.println("httpstatus is ok");
             constructId = responseEntity.getBody();
                
         }
+        
+        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
         
         return constructId;
     }
