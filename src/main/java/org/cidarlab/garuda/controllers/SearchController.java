@@ -6,7 +6,10 @@
 package org.cidarlab.garuda.controllers;
 
 import javax.servlet.http.HttpSession;
+import org.cidarlab.garuda.forms.LoginForm;
+import org.cidarlab.garuda.forms.RegisterForm;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +22,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SearchController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getSearchPage(HttpSession session) {        
+    public String getSearchPage(HttpSession session, Model model) {     
+        
+        String user = (String) session.getAttribute("username");
+        String authHeader = (String) session.getAttribute("authHeader");
+        
+        if (user == null || authHeader == null){
+            model.addAttribute("loginForm", new LoginForm());
+            model.addAttribute("registerForm", new RegisterForm());
+        
+            return "login";
+        }
+        
         return "search";
     }
 }

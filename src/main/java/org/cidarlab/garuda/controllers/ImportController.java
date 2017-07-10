@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpSession;
+import org.cidarlab.garuda.forms.LoginForm;
+import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.legacyutil.RM_Parser;
 import org.cidarlab.garuda.services.ParserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,18 @@ public class ImportController {
     private String fileLocation;
     
     @RequestMapping(method=RequestMethod.GET)
-    public String getImportPage(HttpSession session, Model model) {  
+    public String getImportPage(HttpSession session, Model model) { 
+        
+        String user = (String) session.getAttribute("username");
+        String authHeader = (String) session.getAttribute("authHeader");
+        
+        if (user == null || authHeader == null){
+            model.addAttribute("loginForm", new LoginForm());
+            model.addAttribute("registerForm", new RegisterForm());
+        
+            return "login";
+        }
+        
         return "import";
     }
     

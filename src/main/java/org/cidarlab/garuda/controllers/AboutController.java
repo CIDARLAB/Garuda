@@ -21,7 +21,14 @@ public class AboutController {
     
     @ResponseBody
     @RequestMapping(method=RequestMethod.GET)
-    public String getAboutPage(HttpSession session) {        
+    public String getAboutPage(HttpSession session) {
+        String user = (String) session.getAttribute("username");
+        String authHeader = (String) session.getAttribute("authHeader");
+        
+        if (user == null || authHeader == null){
+            return "login";
+        }
+        
         return "about";
     }
 }

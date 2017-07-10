@@ -109,11 +109,7 @@ public class RM_Parser {
 
             Row row = sheet.getRow(i);
 
-            try {
-                
-                AddForm addForm = new AddForm();
-                ArrayList<Parameter> paramList = new ArrayList<>();
-                
+            try {      
                         
                 Cell cell = row.getCell(1);
                 cell.setCellType(CellType.STRING);
@@ -125,92 +121,91 @@ public class RM_Parser {
                 }
                 unique.add(display_id);
 
-                json.put("name", username);
+                json.put("name", display_id);
                 json.put("displayId", display_id);
                 json.put("role", role);
-
-                addForm.setDisplayId(display_id);
-                addForm.setRole(role);
-                addForm.setName(display_id);
                 
                 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
-                //System.out.println(jsonString);
+                System.out.println(jsonString);
 //                System.out.println("0");
-                System.out.println(addForm.toString());
+//                System.out.println(addForm.toString());
 //                System.out.println("1");
 
                 //String part_id = rest.createPart(jsonString);
                 
                 String part_id = clotho.createPart_post(json, session);
-                System.out.println("after clotho");
+//                System.out.println("after clotho");
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
                 
-                addForm.clear();
-                paramList.clear();
-                
-                //Scar1
-                cell = row.getCell(2);
-                cell.setCellType(CellType.STRING);
-
-                display_id = cell.getStringCellValue();
-
-                if (unique.contains(display_id)) {
-                    continue;
-                }
-                unique.add(display_id);
-
-                json.put("name", username);
-                json.put("displayId", display_id);
-                json.put("role", "Scar");
-                
-                addForm.setDisplayId(display_id);
-                addForm.setRole(role);
-                addForm.setName(display_id);
-
-                jsonString = json.toJSONString().replaceAll("\"", "'");
-                //System.out.println(jsonString);
-                System.out.println(addForm.toString());
-
-                
-                //part_id = rest.createPart(jsonString);
-                
-                
-                part_id = clotho.createPart_post(json, session);
-                System.out.println(part_id);
-                parts.put(display_id, part_id);
-
-                addForm.clear();
-                paramList.clear();
-                
-                //Scar2
-                cell = row.getCell(3);
-                cell.setCellType(CellType.STRING);
-
-                display_id = cell.getStringCellValue();
-
-                if (unique.contains(display_id)) {
-                    continue;
-                }
-                unique.add(display_id);
-
-                json.put("username", username);
-                json.put("objectName", display_id);
-                json.put("role", "Scar");
-
-                addForm.setDisplayId(display_id);
-                addForm.setRole(role);
-                addForm.setName(display_id);
-                
-                jsonString = json.toJSONString().replaceAll("\"", "'");
-                //System.out.println(jsonString);
-                System.out.println(addForm.toString());
-
-                //part_id = rest.createPart(jsonString);
-                part_id = clotho.createPart_post(json, session);
-                System.out.println(part_id);
-                parts.put(display_id, part_id);
+//                addForm.clear();
+//                paramList.clear();
+//                
+//                //Scar1
+//                cell = row.getCell(2);
+//                cell.setCellType(CellType.STRING);
+//
+//                display_id = cell.getStringCellValue();
+//
+//                if (unique.contains(display_id)) {
+//                    continue;
+//                }
+//                unique.add(display_id);
+//
+//                json.put("name", display_id);
+//                json.put("displayId", display_id);
+//                json.put("role", role);
+//                
+//                addForm.setDisplayId(display_id);
+//                addForm.setRole(role);
+//                addForm.setName(display_id);
+//
+//                jsonString = json.toJSONString().replaceAll("\"", "'");
+//                //System.out.println(jsonString);
+//                System.out.println(addForm.toString());
+//
+//                
+//                //part_id = rest.createPart(jsonString);
+//                
+//                
+//                part_id = clotho.createPart_post(json, session);
+//                System.out.println(part_id);
+//                parts.put(display_id, part_id);
+//
+//                addForm.clear();
+//                paramList.clear();
+//                
+//                //Scar2
+//                cell = row.getCell(3);
+//                cell.setCellType(CellType.STRING);
+//
+//                display_id = cell.getStringCellValue();
+//
+//                if (unique.contains(display_id)) {
+//                    continue;
+//                }
+//                unique.add(display_id);
+//
+//                json.put("displayId",display_id);
+//                json.put("role",role);
+//                json.put("name",display_id);
+////                json.put("username", username);
+////                json.put("objectName", display_id);
+////                json.put("role", "Scar");
+//
+//                addForm.setDisplayId(display_id);
+//                addForm.setRole(role);
+//                addForm.setName(display_id);
+//                
+//                jsonString = json.toJSONString().replaceAll("\"", "'");
+//                //System.out.println(jsonString);
+//                System.out.println(addForm.toString());
+//
+//                //part_id = rest.createPart(jsonString);
+//                part_id = clotho.createPart_post(json, session);
+//                System.out.println(part_id);
+//                parts.put(display_id, part_id);
 
             } catch (NullPointerException n) {
                 System.out.println("Null Pointer!");

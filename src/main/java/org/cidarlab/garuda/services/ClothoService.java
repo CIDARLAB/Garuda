@@ -143,17 +143,17 @@ public class ClothoService {
         
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
-        System.out.println("after restTemplate");
+//        System.out.println("after restTemplate");
         String constructId = null;
         
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             
-            System.out.println("httpstatus is ok");
+//            System.out.println("httpstatus is ok");
             constructId = responseEntity.getBody();
                
         }
         
-        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
+//        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
         
         return constructId;
     }
