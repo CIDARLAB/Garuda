@@ -25,16 +25,17 @@ import org.cidarlab.garuda.util.RWR_RecEngine;
 import org.cidarlab.garuda.util.RM_Parser;
 import org.cidarlab.garuda.util.CategoricalRecEngine;
 //import org.clothoapi.clotho3javaapi.Clotho;
+
 /**
  *
  * @author mardian
  */
 public class ApplicationInit {
-    
+
     @Setter
     @Getter
     private RESTRequest rest;
-    
+
     /*@Setter
     @Getter
     private List<Feature> partsID;
@@ -46,87 +47,94 @@ public class ApplicationInit {
     @Setter
     @Getter
     private List<BioDesign> genDataID;*/
-    
-    /*@Setter
+ /*@Setter
     @Getter
     private Clotho clothoObject;*/
-    
-    /*@Setter
+ /*@Setter
     @Getter
     private Person user;*/
-    
     @Setter
     @Getter
     private String message;
-    
+
     @Setter
     @Getter
     private String username;
-    
+
     @Setter
     @Getter
     private String password;
-    
+
     @Setter
     @Getter
     private String email;
-    
+
     @Setter
     @Getter
     private String filename;
-    
+
     @Setter
     @Getter
     private Map<String, String> parts;
-    
-    public ApplicationInit() {}
-    
-    public ApplicationInit (String message) {
-        
+
+    @Setter
+    @Getter
+    private String[] partnames;
+
+    @Setter
+    @Getter
+    private double[] probabilities;
+
+    public ApplicationInit() {
+    }
+
+    public ApplicationInit(String message) {
+
         rest = new RESTRequest();
         this.message = message;
     }
-    
-    public String test () {
+
+    public String test() {
         return "This works!";
     }
-    
-    public void register () {
-        
+
+    public int[] retrieveData() {
+
+        return new int[]{51, 30, 40, 28, 92, 50, 45, 41, 56, 25, 48, 72, 34, 12, 15};
+    }
+
+    public void register() {
+
         try {
             rest.createUser(username, email, password);
             this.message = "User is succesfully created. Please login to continue!";
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
-    
-    public void login () {
-        
+
+    public void login() {
+
         //System.out.println("************** It goes here with " + username + "    " + password);
         try {
             long startTime = System.currentTimeMillis();
-            for (int i=0; i<100; i++) {
-                System.out.println ("***" + i + " " + rest.createSequence());
+            for (int i = 0; i < 100; i++) {
+                System.out.println("***" + i + " " + rest.createSequence());
             }
-            System.out.println ("*** Finished at: " + (System.currentTimeMillis()-startTime)/1000 + " seconds.");
-        }
-        catch (Exception e) {
+            System.out.println("*** Finished at: " + (System.currentTimeMillis() - startTime) / 1000 + " seconds.");
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
-        if (username.equals("user123") && password.equals("pass"))
+
+        if (username.equals("user123") && password.equals("pass")) {
             this.message = "login successful";
-        
-        else
+        } else {
             this.message = "login failed";
-        
+        }
+
         //to be added new login/logout function --session login
-        
-    /*    ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
+        /*    ClothoConnection conn = new ClothoConnection("wss://localhost:8443/websocket");
         clothoObject = new Clotho(conn);
         
         /////////create user/////////
@@ -154,12 +162,11 @@ public class ApplicationInit {
         
         //clothoObject.logout();
         conn.closeConnection();*/
-        
         return;
     }
-    
-    public void populateDB (String username) {
-        
+
+    public void populateDB(String username) {
+
         switch (username) {
             case "mardian":
                 this.message = RM_Parser.parse("resources/" + this.filename, username);
@@ -175,31 +182,87 @@ public class ApplicationInit {
                 break;
         }
     }
-    
-    public void recommend (String username) {
-        
+
+    public void recommend(String username) {
+
         switch (username) {
             case "mardian":
-                
+
                 int num_of_parts = 21;
                 int num_of_constructs = 14;
                 int size_of_constructs = 2;
-                String labelSheet = "Experiments";
-                String featureSheet = "Experiments";
-                int labelIdx = 22;
-                int[] featuresIdx = new int[]{2, 7};
+                String labelSheet = "Results";
+                String featuresSheet = "Results";
+                int labelIdx = 17;
+                int[] featuresIdx = new int[]{2, 3};
                 String null_flag = "N/A";
+
+                CategoricalRecEngine rec = new CategoricalRecEngine(username, "resources/" + this.filename, labelSheet, featuresSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
+                //this.message = rec.recommend_expert();
+                List<String> output_ = rec.mRegression();
+
+                String[] part_temp_ = output_.get(0).split(",");
+                String[] prob_string_ = output_.get(1).split(",");
                 
-                CategoricalRecEngine rec = new CategoricalRecEngine(username, "resources/" + this.filename, labelSheet, featureSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
-                this.message = rec.recommend_expert();
+                String[] part_all_ = rec.getPartnames();
+                
+                this.partnames = new String[part_temp_.length];
+                for (int i = 0; i < part_temp_.length; i++) {
+                    int idx = Integer.parseInt(part_temp_[i].substring(1));
+                    this.partnames[i] = part_all_[idx];
+                }
+                
+                this.probabilities = new double[prob_string_.length];
+                for (int i = 0; i < this.probabilities.length; i++) {
+                    //System.out.println (prob_temp[i] + "  " + max + "  " + min);
+                    this.probabilities[i] = Double.parseDouble(prob_string_[i]);
+                }
+
                 
                 break;
-                
+
             case "robwarden":
+                
                 //this.message = RWR_RecEngine.nnbackprop("resources/" + this.filename, username);
                 //this.message = RWR_RecEngine.expert("resources/" + this.filename, username);
                 //this.message = RWR_RecEngine.naivebayes("resources/" + this.filename, username);
-                this.message = RWR_RecEngine.mRegression("resources/" + this.filename, username);
+                
+                List<String> output = RWR_RecEngine.mRegression("resources/" + this.filename, username);
+
+                String[] part_temp = output.get(0).split(",");
+                String[] prob_string = output.get(1).split(",");
+                
+                String[] part_all = RWR_RecEngine.getPartnames();
+                
+                this.partnames = new String[part_temp.length];
+                for (int i = 0; i < part_temp.length; i++) {
+                    int idx = Integer.parseInt(part_temp[i].substring(1));
+                    this.partnames[i] = part_all[idx];
+                }
+                
+                //////
+                double[] prob_temp = new double[prob_string.length];
+                double min = 1/Double.parseDouble(prob_string[0]);
+                double max = 1/Double.parseDouble(prob_string[0]);
+                for (int i = 0; i < prob_string.length; i++) {
+                    prob_temp[i] = 1/Double.parseDouble(prob_string[i]);
+                    if(prob_temp[i] < min) {
+                        min = prob_temp[i];
+                    }
+                    if(prob_temp[i] > max) {
+                        max = prob_temp[i];
+                    }
+                }
+                //////
+                
+                this.probabilities = new double[prob_string.length];
+                for (int i = 0; i < this.probabilities.length; i++) {
+                    //System.out.println (prob_temp[i] + "  " + max + "  " + min);
+                    //double val = 1/Double.parseDouble(prob_string[i]);
+                    //System.out.println(val + "   " + min + "   " + max);
+                    this.probabilities[i] = Double.parseDouble(prob_string[i]);
+                }
+
                 break;
             case "guy":
                 System.out.println("ERROR: recommendation engine is not available for this user!");
@@ -208,16 +271,91 @@ public class ApplicationInit {
                 System.out.println("ERROR: username not found!");
                 break;
         }
+        this.message = "Recommendation generated!";
     }
-    
-    public void init (String username, String password, String jsonOutput) {
-        
+
+    public void recommend_nn(String username) {
+
+        switch (username) {
+            case "mardian":
+
+                int num_of_parts = 21;
+                int num_of_constructs = 14;
+                int size_of_constructs = 2;
+                String labelSheet = "Results";
+                String featuresSheet = "Results";
+                int labelIdx = 17;
+                int[] featuresIdx = new int[]{2, 3};
+                String null_flag = "N/A";
+
+                CategoricalRecEngine rec = new CategoricalRecEngine(username, "resources/" + this.filename, labelSheet, featuresSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
+                //this.message = rec.recommend_expert();
+
+                List<String> output_ = rec.mRegression();
+
+                System.out.println("****Pass this2!!");
+                
+                String[] part_temp_ = output_.get(0).split(",");
+                String[] prob_string_ = output_.get(1).split(",");
+                
+                String[] part_all_ = rec.getPartnames();
+                
+                this.partnames = new String[part_temp_.length];
+                for (int i = 0; i < part_temp_.length; i++) {
+                    int idx = Integer.parseInt(part_temp_[i].substring(1));
+                    this.partnames[i] = part_all_[idx];
+                }
+                
+                this.probabilities = new double[prob_string_.length];
+                for (int i = 0; i < this.probabilities.length; i++) {
+                    //System.out.println (prob_temp[i] + "  " + max + "  " + min);
+                    this.probabilities[i] = Double.parseDouble(prob_string_[i]);
+                }
+
+                
+                break;
+
+            case "robwarden":
+                
+                this.message = RWR_RecEngine.nnbackprop("resources/" + this.filename, username);
+                
+                /*String[] part_temp = output.get(0).split(",");
+                String[] prob_string = output.get(1).split(",");
+                
+                String[] part_all = rec.getPartnames();*/
+                
+                this.partnames = new String[]{"A", "B"};
+                /*for (int i = 0; i < part_temp.length; i++) {
+                    int idx = Integer.parseInt(part_temp_[i].substring(1));
+                    this.partnames[i] = part_all[idx];
+                }*/
+                
+                this.probabilities = new double[]{35.0, 72.0};
+                /*for (int i = 0; i < this.probabilities.length; i++) {
+                    //System.out.println (prob_temp[i] + "  " + max + "  " + min);
+                    this.probabilities[i] = Double.parseDouble(prob_string_[i]);
+                }*/
+
+
+                break;
+            case "guy":
+                System.out.println("ERROR: recommendation engine is not available for this user!");
+                break;
+            default:
+                System.out.println("ERROR: username not found!");
+                break;
+        }
+        this.message = "Recommendation generated!";
+    }
+
+    public void init(String username, String password, String jsonOutput) {
+
         this.message = Guy_Parser.parse("resources/" + this.filename, jsonOutput, this.username);
-        
+
     }
-    
-    public void contains (String sequence) {
-        
+
+    public void contains(String sequence) {
+
         /*int numOfAnno = 5;
         Set<String> results = new HashSet<String>();
         
@@ -254,11 +392,10 @@ public class ApplicationInit {
         
         JSONArray queryResults2 = (JSONArray) clothoObject.query (queryMap);
         System.out.println (queryResults2);*/
-        
     }
-    
-    public void containsAnd (String sequenceA, String sequenceB) {
-        
+
+    public void containsAnd(String sequenceA, String sequenceB) {
+
         /*int numOfAnno = 5;
         
         Set<String> resultsA = new HashSet<String>();
@@ -296,11 +433,11 @@ public class ApplicationInit {
             System.out.println("------- Construct name: " + name + " -------");
         
         System.out.println("========== Found total: " + (finalResults.size()) + " objects satisfying your query! ==========");
-        */
+         */
     }
-    
+
     public void containsSpatial(String sequenceA, String sequenceB, boolean aPrecede) {
-        
+
         /*int numOfAnno = 5;
         
         Set<String> nameA = new HashSet<String>();
@@ -387,43 +524,45 @@ public class ApplicationInit {
             System.out.println("------- Construct name: " + name + " -------");
         
         System.out.println("========== Found total: " + (finalResults.size()) + " objects satisfying your query! ==========");
-        */
+         */
     }
-    
+
     public static Set<String> union(Set<String> setA, Set<String> setB) {
-        
+
         Set<String> tmp = new HashSet<String>(setA);
         tmp.addAll(setB);
         return tmp;
     }
 
     public static Set<Map> unionMap(Set<Map> setA, Set<Map> setB) {
-        
+
         Set<Map> tmp = new HashSet<Map>(setA);
         tmp.addAll(setB);
         return tmp;
     }
 
     public static Set<String> intersection(Set<String> setA, Set<String> setB) {
-        
+
         Set<String> tmp = new HashSet<String>();
         for (String x : setA) {
-            if (setB.contains(x))
+            if (setB.contains(x)) {
                 tmp.add(x);
+            }
         }
         return tmp;
     }
-    
+
     public static Set<Map> intersectionMap(Set<Map> setA, Set<Map> setB) {
-        
+
         Set<Map> tmp = new HashSet<Map>();
         for (Map x : setA) {
-            if (setB.contains(x))
+            if (setB.contains(x)) {
                 tmp.add(x);
+            }
         }
         return tmp;
     }
-    
+
     /*public static <T> Set<T> difference(Set<T> setA, Set<T> setB) {
         Set<T> tmp = new TreeSet<T>(setA);
         tmp.removeAll(setB);
@@ -446,5 +585,4 @@ public class ApplicationInit {
     public static <T> boolean isSuperset(Set<T> setA, Set<T> setB) {
         return setA.containsAll(setB);
     }*/
-    
 }

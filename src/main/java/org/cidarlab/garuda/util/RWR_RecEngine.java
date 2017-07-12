@@ -8,6 +8,8 @@ package org.cidarlab.garuda.util;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -34,8 +36,17 @@ public class RWR_RecEngine {
     private static List<String> list_of_parts = new ArrayList<String>();
     //private static List<Integer> list_of_idx = new ArrayList<Integer>();
 
+    @Getter
+    @Setter
     private static double[][] data = new double[num_of_constructs][num_of_parts];
+    
+    @Getter
+    @Setter
     private static double[][] label = new double[num_of_constructs][1];
+    
+    @Getter
+    @Setter
+    private static String[] partnames = new String[num_of_parts];
 
     public static String nnbackprop(String inputUrl, String username) {
 
@@ -54,6 +65,16 @@ public class RWR_RecEngine {
                 System.out.println ((k+1) + "   " + list_of_parts.get(k));
             }*/
             Backpropagation backprop = new Backpropagation(data, label, cluster);   //hidden neurons = 3
+            
+            double[][] wih = backprop.getWih();
+            for (int i = 0; i < wih.length; i++) {
+                System.out.print("+++ Part " + i + ":");
+                for (int j = 0; j < wih[0].length; j++) {
+                    System.out.print("\t" + wih[i][j]);
+                }
+                System.out.println();
+            }
+            
             List<Feature> output = backprop.getClusterData();
             List<Integer> trainIdx = backprop.getTrainList();
 
@@ -114,7 +135,10 @@ public class RWR_RecEngine {
         }
     }
 
-    public static String mRegression(String inputUrl, String username) {
+    public static List<String> mRegression(String inputUrl, String username) {
+        
+        String message = "Something is not right...";
+        List<String> output = new ArrayList<String>();
         
         try {
             FileInputStream inputFile = new FileInputStream(inputUrl);
@@ -125,14 +149,20 @@ public class RWR_RecEngine {
 
             sheet = workbook.getSheet("Enumerated Constructs");
             generateMatrix(sheet);
+            
+            FormatExchange.writeToCSV(data, "features.csv");
+            FormatExchange.writeToCSV(FormatExchange.nDTo1DArray(label, 0), "label.csv");
+            //FormatExchange.writeToCSV(partnames, "part.csv");
 
             MultipleRegression mReg = new MultipleRegression();
-            mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
+            output = mReg.pyRegression("garuda_reg.py");
+            //mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
             
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return "Recommendation generated!";
+            return output;
+            //return "Recommendation generated!";
         }
     }
 
@@ -202,6 +232,7 @@ public class RWR_RecEngine {
                     int partIdx = list_of_parts.indexOf(part);
 
                     data[constructIdx][partIdx] = 1.0;
+                    partnames[partIdx] = list_of_parts.get(partIdx);
 
                 }
             } catch (Exception e) {

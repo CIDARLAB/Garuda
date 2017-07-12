@@ -13,7 +13,7 @@ public class Feature
 {
     private int id;
     private Vector vector;
-    private int cluster;
+    private int label;
 
     public Feature (int id, double[] newX) {
 
@@ -25,7 +25,7 @@ public class Feature
 
         this.id = id;
         this.vector = new Vector (newX);
-        this.cluster = cluster;
+        this.label = cluster;
     }
 
     public int getId () {
@@ -40,11 +40,11 @@ public class Feature
 
     public void setCluster (int clusterNumber) {
 
-        this.cluster = clusterNumber;
+        this.label = clusterNumber;
     }
 
     public int getCluster () {
 
-        return this.cluster;
+        return this.label;
     }
 }

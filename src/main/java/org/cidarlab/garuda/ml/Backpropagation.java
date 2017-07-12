@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import lombok.Getter;
 import org.cidarlab.garuda.dom.Feature;
 
 /**
@@ -23,9 +24,10 @@ public class Backpropagation {
 
     private final double LEARN_RATE = 0.2;    // Rho.
     //private final double NOISE_FACTOR = 0.45;
-    private final int TRAINING_REPS = 50000;
+    private final int TRAINING_REPS = 100000;
 
     // Input to Hidden Weights (with Biases).
+    @Getter
     private double wih[][];
 
     // Hidden to Output Weights (with Biases).
@@ -59,7 +61,7 @@ public class Backpropagation {
         INPUT_NEURONS = featuresData[0].length;
         HIDDEN_NEURONS = 5;
         OUTPUT_NEURONS = cluster;
-        numOfTrain = 600;
+        numOfTrain = 702;
         MAX_SAMPLES = numOfTrain;
 
         clusterData = new ArrayList<Feature>();

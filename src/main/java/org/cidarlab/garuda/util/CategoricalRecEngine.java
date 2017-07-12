@@ -8,12 +8,15 @@ package org.cidarlab.garuda.util;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.garuda.dom.Feature;
 import org.cidarlab.garuda.ml.Backpropagation;
+import org.cidarlab.garuda.ml.MultipleRegression;
 
 /**
  *
@@ -23,7 +26,7 @@ public class CategoricalRecEngine {
 
     private String username;
     private String inputUrl;
-    private String labelSheet;    //the name of the sheet where labelData data is taken from
+    private String labelSheet;    //the name of the sheet where label data is taken from
     private String featuresSheet;    //the name of the sheet where feature data is taken from
 
     private int labelIdx;
@@ -35,8 +38,8 @@ public class CategoricalRecEngine {
 
     private String null_flag;   //String that is used to represent null part
 
-    private double[][] featuresData = new double[num_of_constructs][num_of_parts];
-    private double[][] labelData = new double[num_of_constructs][1];
+    private double[][] data = new double[num_of_constructs][num_of_parts];
+    private double[][] label = new double[num_of_constructs][1];
 
     private List<Integer> healthy = new ArrayList<Integer>();
     private List<String> list_of_parts = new ArrayList<String>();
@@ -44,6 +47,10 @@ public class CategoricalRecEngine {
     private List<String> cumToxic;
     private List<Integer> cumCount;
     private int cumTotal;
+    
+    @Getter
+    @Setter
+    private String[] partnames;
 
     public CategoricalRecEngine(String username, String inputUrl, String labelSheet, String featuresSheet,
             int labelIdx, int[] featuresIdx, int num_of_parts, int num_of_constructs, int size_of_constructs,
@@ -63,12 +70,45 @@ public class CategoricalRecEngine {
 
         this.null_flag = null_flag;
 
-        this.featuresData = new double[num_of_constructs][num_of_parts];
-        this.labelData = new double[num_of_constructs][1];
+        this.data = new double[num_of_constructs][num_of_parts];
+        this.label = new double[num_of_constructs][1];
 
         this.cumToxic = new ArrayList<String>();
         this.cumCount = new ArrayList<Integer>();
         this.cumTotal = 0;
+        
+        this.partnames = new String[num_of_parts];
+    }
+
+    public List<String> mRegression() {
+        
+        String message = "Something is not right...";
+        List<String> output = new ArrayList<String>();
+        
+        try {
+            FileInputStream inputFile = new FileInputStream(this.inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+
+            XSSFSheet sheet = workbook.getSheet(this.labelSheet);
+            generateLabel(sheet);
+            
+            sheet = workbook.getSheet(this.featuresSheet);
+            generateMatrix(sheet);
+            
+            FormatExchange.writeToCSV(this.data, "features.csv");
+            FormatExchange.writeToCSV(FormatExchange.nDTo1DArray(this.label, 0), "label.csv");
+            //FormatExchange.writeToCSV(partnames, "part.csv");
+
+            MultipleRegression mReg = new MultipleRegression();
+            output = mReg.pyRegression("garuda_reg.py");
+            //mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return output;
+            //return "Recommendation generated!";
+        }
     }
 
     public String recommend(String inputUrl, String username, String fitnessSheet, String featureSheet) {
@@ -77,7 +117,7 @@ public class CategoricalRecEngine {
             XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(inputUrl));
 
             XSSFSheet sheet = workbook.getSheet(fitnessSheet);
-            generateFitness(sheet);
+            generateLabel(sheet);
 
             sheet = workbook.getSheet(featureSheet);
             generateMatrix(sheet);
@@ -85,7 +125,7 @@ public class CategoricalRecEngine {
             /////backpropagation algorithm from here
             int cluster = 2;
 
-            Backpropagation backprop = new Backpropagation(labelData, labelData, cluster);
+            Backpropagation backprop = new Backpropagation(label, label, cluster);
             List<Feature> output = backprop.getClusterData();
             List<Integer> trainIdx = backprop.getTrainList();
 
@@ -97,14 +137,14 @@ public class CategoricalRecEngine {
                 if (trainIdx.contains(i)) {
                     datatype = "training";
                 }
-                if (output.get(i).getCluster() != labelData[i][0]) {
+                if (output.get(i).getCluster() != label[i][0]) {
                     error_count++;
                 }
-                System.out.println(output.get(i).getCluster() + "\t" + (int) labelData[i][0] + "\t" + datatype);
+                System.out.println(output.get(i).getCluster() + "\t" + (int) label[i][0] + "\t" + datatype);
             }
             System.out.println("*** Accuracy = " + ((double) (row - error_count) / row * 100) + "%");
 
-            /*NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), featuresData, cluster, num_of_parts);
+            /*NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, num_of_parts);
             
             List<Integer> toxicList = bpbayes.getList();
             System.out.println ("Number of toxic parts: " + toxicList.size());
@@ -151,17 +191,18 @@ public class CategoricalRecEngine {
         }
     }
 
-    private void generateFitness(XSSFSheet sheet) {
+    private void generateLabel(XSSFSheet sheet) {
 
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+        for (int i = 1; i < 15; i++) {
 
             Row row = sheet.getRow(i);
-
+            
             try {
                 Cell cell = row.getCell(this.labelIdx);
+                
                 cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-                labelData[i - 1][0] = ((cell.getNumericCellValue() >= 1) ? 1.0 : 0.0);
-
+                label[i - 1][0] = ((cell.getNumericCellValue() >= 1) ? 1.0 : 0.0);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -171,7 +212,7 @@ public class CategoricalRecEngine {
 
     private void generateMatrix(XSSFSheet sheet) {
 
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+        for (int i = 1; i < 15; i++) {
 
             Row row = sheet.getRow(i);
 
@@ -192,8 +233,11 @@ public class CategoricalRecEngine {
                         list_of_parts.add(part);
                     }
                     int partIdx = list_of_parts.indexOf(part);
+                    
+                    //System.out.println("**Apakah masalahnya ini? " + partIdx);
 
-                    featuresData[constructIdx][partIdx] = 1.0;
+                    data[constructIdx][partIdx] = 1.0;
+                    partnames[partIdx] = list_of_parts.get(partIdx);
 
                 }
             } catch (Exception e) {
@@ -212,7 +256,7 @@ public class CategoricalRecEngine {
             try {
                 Cell cell = row.getCell(this.labelIdx);
                 cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-                labelData[i - 1][0] = ((cell.getNumericCellValue() >= threshold) ? 1.0 : 0.0);
+                label[i - 1][0] = ((cell.getNumericCellValue() >= threshold) ? 1.0 : 0.0);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -240,7 +284,7 @@ public class CategoricalRecEngine {
                         continue;
                     }
 
-                    if (labelData[i - 1][0] == 1.0) {
+                    if (label[i - 1][0] == 1.0) {
                         if (!healthyParts.contains(part)) {
                             healthyParts.add(part);
                         }

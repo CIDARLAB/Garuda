@@ -28,9 +28,10 @@ public class RESTController {
     @RequestMapping(value="/blast", method=RequestMethod.GET)
     public String indexBlast (Model model) {
         String blastpath = "/Users/mardian/Documents/CIDAR/Garuda/Spring/Garuda";
-        RunBlast runblast = new RunBlast (false, RunBlast.Filters.SUBSEQ_ID, blastpath);
+        RunBlast runblast = new RunBlast (true, RunBlast.Filters.SUBSEQ_ID, blastpath);
+        runblast.init();
         model.addAttribute("runblast", runblast);
-        return runblast.init();
+        return "index";
     }
     
     @RequestMapping(value="/resource")
@@ -182,11 +183,18 @@ public class RESTController {
         return "recommender";
     }
     
+    @RequestMapping(value="/recommendation", method=RequestMethod.GET)
+    public String recommendation_get (Model model) {
+        
+        model.addAttribute("app", new ApplicationInit());
+        return "recommender";
+    }
+    
     @RequestMapping(value="/recommendation", method=RequestMethod.POST)
     public String recommendation (@ModelAttribute ApplicationInit app, Model model) {
         
         String user = "robwarden";
-        String pass = "pass";
+        //String pass = "pass";
         
         long startTime = System.currentTimeMillis();
         app.recommend (user);
