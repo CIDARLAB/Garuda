@@ -6,6 +6,8 @@
 package org.cidarlab.garuda.forms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
@@ -30,9 +32,9 @@ public class AddForm {
     @Setter
     String role;
     
-    @Getter
-    @Setter
-    ArrayList<Parameter> parameters;
+//    @Getter
+//    @Setter
+//    ArrayList<Map> parameters;
     
     @Getter
     @Setter
@@ -42,7 +44,7 @@ public class AddForm {
         this.name = null;
         this.displayId = null;
         this.role = null;
-        this.parameters = null;
+//        this.parameters = null;
         this.sequence = null;
     }
     
@@ -50,7 +52,7 @@ public class AddForm {
         this.name = null;
         this.displayId = null;
         this.role = null;
-        this.parameters = null;
+//        this.parameters = null;
         this.sequence = null;
     }
     
@@ -62,6 +64,19 @@ public class AddForm {
                 + "role: " + this.role + ", "
                 + "parameters: ... , "
                 + "sequence: " + this.sequence + "}";
+    }
+    
+    public Map toMap(){
+        
+        Map map = new HashMap<>();
+        
+        map.put("name", name);
+        map.put("displayId", displayId);
+        map.put("role", role);
+        //map.put("parameters", parameters);
+        map.put("sequence", sequence);
+        
+        return map;
     }
     
 }

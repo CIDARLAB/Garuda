@@ -38,32 +38,23 @@ and open the template in the editor.
                                     <div class="x_title">
                                         <h2>Search query <!--<small>Choose your schema</small>--></h2>
                                         <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
-                                            <!--<li class="dropdown">
-                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                              <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                              </ul>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>-->
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
                                         <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
                                         <br />
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/result}" th:object="${app}" method="post">
+                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/search}" th:object="${searchForm}" method="post">
 
                                             <div class="query-container">
                                                 
                                                 <div class="form-group div-query">
                                                     <div class="col-md-4 col-sm-4 col-xs-11">
                                                         <select class="form-control">
+                                                            <option>Biodesign Id</option>
                                                             <option>Sequence</option>
                                                             <option>Number of Parts</option>
                                                             <option>Medium</option>
@@ -74,7 +65,7 @@ and open the template in the editor.
                                                     </div>
 
                                                     <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <!--<input type="text" class="form-control" th:field="*{seqA}"/>-->
+                                                        <input type="text" class="form-control" th:field="*{biodesignId}"/>
                                                     </div>
                                                     
                                                     <!--<div class="col-md-1 col-sm-1 col-xs-1">
@@ -83,30 +74,6 @@ and open the template in the editor.
                                                         </ul>
                                                     </div>-->
                                                 </div>
-
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <!--<input type="text" class="form-control" th:field="*{seqB}"/>-->
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
                                             </div>
 
 

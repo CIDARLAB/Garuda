@@ -5,21 +5,20 @@
  */
 package org.cidarlab.garuda.services;
 
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
-import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.rest.clotho.model.Account;
-import org.cidarlab.garuda.rest.clotho.model.Construct;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -112,34 +111,41 @@ public class ClothoService {
     */
     
     
-    public void getPart_get(String json){
+    public String getPart_get(HttpSession session, String biodesignId){
         
-        String URI = URL + "";
+        String URI = URL + "/part/" + biodesignId;
         
         HttpHeaders getHeaders = new HttpHeaders();
-        //getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        Map map = new HashMap<>();
         
-        restTemplate.getForEntity(URI, Construct.class, getHeaders);
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+ 
+        String partDetails = null;
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            
+            partDetails = response.getBody();
+            
+        }
+        
+        return partDetails;
         
     }
     
     public String createDevice_post(String json){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public String testing(){
-        return "testing!";
-    }
 
-    public String createPart_post(Map addForm, HttpSession session) {
+    public String createPart_post(Map json, HttpSession session) {
 
         String URI = URL + "/part";
         
         HttpHeaders postHeaders = new HttpHeaders();
         postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        HttpEntity<Map<String, String>> request = new HttpEntity<>(addForm, postHeaders);
+        HttpEntity<Map<String, String>> request = new HttpEntity<>(json, postHeaders);
         
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);

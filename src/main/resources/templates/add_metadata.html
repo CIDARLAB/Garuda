@@ -45,7 +45,7 @@ and open the template in the editor.
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Create Entry: Convenience Part <!--<small>Choose your schema</small>--></h2>
+                                        <h2>Create Entry: Metadata <!--<small>Choose your schema</small>--></h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
@@ -66,42 +66,109 @@ and open the template in the editor.
                                     <div class="x_content">
                                         <p></p>
                                         <br/>
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/add}" method="post" th:object="${addForm}">
+                                        <form id="demo-form2" class="form-horizontal form-label-left">
 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="library_id">Name <span class="required">*</span>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="library_id">Library ID <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{name}"/>
+                                                    <input type="text" name="library_id" required="required" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="displayId">Display Id 
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="purpose">Purpose 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="displayId" class="form-control col-md-7 col-xs-12" th:field="*{displayId}"/>
+                                                    <input type="text" name="purpose" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role 
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="size">Size 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}"/>
+                                                    <input type="text" name="size" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sequence">Sequence</label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hosts">Host</label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                     <input type="text" name="sequence" class="form-control col-md-7 col-xs-12" th:field="*{sequence}"/>
+                                                    <select name="host" class="form-control">
+                                                        <option>E. Coli</option>
+                                                        <option>Yeast</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parameters">Parameters
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="doe_vector">DOE Vector 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <!--<input type="text" name="parameters" class="form-control col-md-7 col-xs-12" th:field="*{parameters}"/>-->
+                                                    <input type="text" name="doe_vector" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vector">Vector
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="vector" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="psequence">Plasmid Sequence
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <textarea name="psequence" class="resizable_textarea form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="strain">Strain
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="strain" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="conditions">Measurement Conditions
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="conditions" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pi">PI
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="pi" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sponsor">Sponsor
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="sponsor" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grant">Grant
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="grant" class="form-control col-md-7 col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="submissions">Submissions
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="submissions" class="form-control col-md-7 col-xs-12" placeholder="add comma or semi-colon for multiple entries"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="publications">Publications
+                                                </label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="publications" class="form-control col-md-7 col-xs-12" placeholder="add comma or semi-colon for multiple entries"/>
+                                                </div>
+                                            </div>
+
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
