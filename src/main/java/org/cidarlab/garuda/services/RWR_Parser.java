@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.legacyutil;
+package org.cidarlab.garuda.services;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,15 +22,21 @@ import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author mardian
  */
+@Service
 public class RWR_Parser {
     
-    @Autowired
     static ClothoService clotho;
+    
+    @Autowired
+    public void setClothoService(ClothoService clothoService){
+        clotho = clothoService;
+    }
 
     private static Map<String, String> parts = new HashMap<String, String>();
     private static Map<String, String> constructs_lvl1 = new HashMap<String, String>();
@@ -59,11 +65,11 @@ public class RWR_Parser {
                         populateParts(sheet, username, session);
                         break;
                     case "Parts":
-                        vectorParts(sheet, username);
-                        populateConstructsLvl1(sheet, username);
+                        vectorParts(sheet, username, session);
+                        populateConstructsLvl1(sheet, username, session);
                         break;
                     case "Enumerated Constructs":
-                        populateConstructsLvl2(sheet, username);
+                        populateConstructsLvl2(sheet, username, session);
                         break;
                     case "Final Strains":
                         //generateFitness(sheet);
@@ -115,6 +121,7 @@ public class RWR_Parser {
     public static void populateParts(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
+        Map jsonmap = new HashMap();
 
         List<String> roles = new ArrayList<String>();
         List<Integer> roles_idx = new ArrayList<Integer>();
@@ -125,7 +132,7 @@ public class RWR_Parser {
 
             try {
                 Cell cell = firstRow.getCell(i);
-                cell.setCellType(Cell.CELL_TYPE_STRING);
+                cell.setCellType(CellType.STRING);
                 String role = cell.getStringCellValue();
                 roles.add(role);
                 roles_idx.add(i);
@@ -158,21 +165,26 @@ public class RWR_Parser {
                         continue;
                     }
                     unique.add(display_id);
-
-                    json.put("username", username);
-                    json.put("objectName", display_id);
+                    
+                    json.put("name", display_id);
+                    json.put("displayId", display_id);
                     json.put("role", role);
                     
+                    
+                    jsonmap.put("name", display_id);
+                    jsonmap.put("displayId", display_id);
+                    jsonmap.put("role", "Vector");
+                
                     addForm.setDisplayId(display_id);
                     addForm.setRole(role);
                     
-                    addForm.setParameters(paramList);
+                    //addForm.setParameters(paramList);
                             
                     String jsonString = json.toJSONString().replaceAll("\"", "'");
                     System.out.println(jsonString);
 
                     //String part_id = rest.createPart(jsonString);
-                    String part_id = clotho.createPart_post(json, session);
+                    String part_id = clotho.createPart_post(jsonmap, session);
                     System.out.println(part_id);
                     parts.put(display_id, part_id);
 
@@ -185,9 +197,10 @@ public class RWR_Parser {
         }
     }
 
-    public static void vectorParts(XSSFSheet sheet, String username) {
+    public static void vectorParts(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
+        Map jsonmap = new HashMap();
 
         List<String> unique = new ArrayList<String>();
 
@@ -207,9 +220,14 @@ public class RWR_Parser {
                 }
                 unique.add(display_id);
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", display_id);
+                json.put("displayId", display_id);
                 json.put("role", "Vector");
+                
+                
+                jsonmap.put("name", display_id);
+                jsonmap.put("displayId", display_id);
+                jsonmap.put("role", "Vector");
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
@@ -227,7 +245,7 @@ public class RWR_Parser {
         }
     }
 
-    public static void populateConstructsLvl1(XSSFSheet sheet, String username) {
+    public static void populateConstructsLvl1(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -267,6 +285,7 @@ public class RWR_Parser {
                     if (!pdisplay_id.equals("H2O")) {
                         //System.out.println("****" + parts.get(pdisplay_id) + "   " + pdisplay_id);
                         partList.add(parts.get(pdisplay_id));
+                        
                     }
 
                 }
@@ -308,7 +327,7 @@ public class RWR_Parser {
         
     }
 
-    public static void populateConstructsLvl2(XSSFSheet sheet, String username) {
+    public static void populateConstructsLvl2(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -339,6 +358,17 @@ public class RWR_Parser {
                     String pdisplay_id = cell.getStringCellValue();
                     if (!pdisplay_id.equals("H2O")) {
                         partList.add(constructs_lvl1.get(pdisplay_id));
+                        
+                        System.out.println("***From hack: " + constructs_lvl1.get(pdisplay_id) + "   " + pdisplay_id);		
+                        		
+                        JSONObject query_json = new JSONObject();		
+                        query_json.put("objectName", pdisplay_id);		
+                        String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");		
+                        //System.out.println("***From search: " + rest.getPart(query_jsonString));		
+                        //System.out.println("***From device: " + rest.getDevice(query_jsonString));		
+                        		
+                        System.out.println("***From search ID: " + clotho.getPart_get(session, query_jsonString) + "    " + pdisplay_id);		
+                        
                     }
 
                 }

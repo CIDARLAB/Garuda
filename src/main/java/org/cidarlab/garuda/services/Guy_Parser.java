@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.legacyutil;
+package org.cidarlab.garuda.services;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,19 +21,27 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.garuda.forms.AddForm;
+import org.cidarlab.garuda.legacyutil.GarudaException;
+import org.cidarlab.garuda.legacyutil.InitConstructs;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author mardian
  */
+@Service
 public class Guy_Parser {
     
-    @Autowired
     static ClothoService clotho;
+    
+    @Autowired
+    public void setClothoService(ClothoService clothoService){
+        clotho = clothoService;
+    }
     
     @Setter
     @Getter
@@ -100,9 +108,10 @@ public class Guy_Parser {
         Map<String, String> parts = new HashMap<String, String>();
         
         JSONObject json = new JSONObject();
+        Map jsonmap = new HashMap();
             
         try {
-            FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
+            //FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 
@@ -131,8 +140,8 @@ public class Guy_Parser {
                 }
                 
                 //write to FASTA file for BLAST local database
-                seqFSAfile.write(">" + seqname + "\n");
-                seqFSAfile.write(sequence + "\n");
+//                seqFSAfile.write(">" + seqname + "\n");
+//                seqFSAfile.write(sequence + "\n");
                 
                 json.put("username", "mardian");
                 json.put("objectName", display_id);
@@ -141,9 +150,15 @@ public class Guy_Parser {
                 json.put("role", role);
                 
                 
+                jsonmap.put("displayId", display_id);
+                jsonmap.put("name", display_id);
+                jsonmap.put("sequence", sequence.toLowerCase());
+                jsonmap.put("role", role);
+                
+                
                 addForm.setDisplayId(display_id);
                 addForm.setName(display_id);
-                addForm.setParameters(paramList);
+                //addForm.setParameters(paramList);
                 addForm.setRole(role);
                 addForm.setSequence(sequence.toLowerCase());
                 
@@ -154,12 +169,12 @@ public class Guy_Parser {
                 System.out.println(jsonString);
                 
                 //String part_id = rest.createPart(jsonString);
-                String part_id =clotho.createPart_post(json, session);
+                String part_id =clotho.createPart_post(jsonmap, session);
                 System.out.println(part_id);
                 
                 parts.put(display_id, part_id);
             }
-            seqFSAfile.close();
+//            seqFSAfile.close();
         }
         
         catch (Exception ex) {
@@ -175,6 +190,8 @@ public class Guy_Parser {
         
         JSONObject json = new JSONObject();
         JSONObject partSearcher = new JSONObject();
+        
+        Map jsonmap = new HashMap();
         
         try {
             FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_constructsdb.fsa");
@@ -231,6 +248,7 @@ public class Guy_Parser {
                 json.put("createSeqFromParts", "true");
                 json.put("role", row.getCell(1).getStringCellValue());
                 json.put("partIDs", partsID);
+                
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 

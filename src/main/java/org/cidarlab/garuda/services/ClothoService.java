@@ -149,7 +149,7 @@ public class ClothoService {
         
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
-//        System.out.println("after restTemplate");
+//       System.out.println("after restTemplate");
         String constructId = null;
         
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
@@ -166,6 +166,10 @@ public class ClothoService {
 
     public void getDeviceId_get(String query_jsonString) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void test(){
+        System.out.println("clotho test");
     }
     
 }

@@ -7,8 +7,6 @@ package org.cidarlab.garuda.services;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.cidarlab.garuda.legacyutil.Guy_Parser;
-import org.cidarlab.garuda.legacyutil.RWR_Parser;
 import org.cidarlab.garuda.legacyutil.RWR_RecEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

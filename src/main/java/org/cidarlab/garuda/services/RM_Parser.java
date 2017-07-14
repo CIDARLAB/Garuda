@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cidarlab.garuda.legacyutil;
+package org.cidarlab.garuda.services;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

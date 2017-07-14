@@ -6,16 +6,12 @@
 package org.cidarlab.garuda.legacyutil;
 
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.cidarlab.garuda.forms.AddForm;
-import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +30,17 @@ public class InitParts {
         Map<String, String> parts = new HashMap<String, String>();
         
         JSONObject json = new JSONObject();
+        Map jsonmap = new HashMap();
             
         try {
             FileWriter seqFSAfile = new FileWriter(outputFileUrl + "clotho_partsdb.fsa");
             
             for (int i=1; i<sheet.getLastRowNum()+1; i++) {
                 
-                AddForm addForm = new AddForm();
-                ArrayList<Parameter> paramList = new ArrayList<>();
-                
                 Row row = sheet.getRow(i);
                 
                 Cell cell = row.getCell(0);
-                cell.setCellType(CellType.STRING);
+                cell.setCellType(Cell.CELL_TYPE_STRING);
                 String display_id = "p" + cell.getStringCellValue();
                 
                 //parts length [col 1]
@@ -73,14 +67,14 @@ public class InitParts {
                 json.put("length", parLength);        //will create error if additional field is added
                 json.put("role", role);
                 
-                addForm.setDisplayId(display_id);
-                addForm.setRole(role);
-                addForm.setSequence(sequence);
+                jsonmap.put("name", display_id);
+                jsonmap.put("displayId", display_id);
+                jsonmap.put("sequence", sequence.toLowerCase());
+                jsonmap.put("role", role);
                 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
                 
-                //String part_id = rest.createPart(jsonString);
                 String part_id = clotho.createPart_post(json, session);
                 System.out.println(part_id);
                 

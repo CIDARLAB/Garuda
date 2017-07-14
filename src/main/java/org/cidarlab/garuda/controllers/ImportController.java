@@ -12,8 +12,9 @@ import java.io.InputStream;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
-import org.cidarlab.garuda.legacyutil.RM_Parser;
-import org.cidarlab.garuda.services.ParserService;
+import org.cidarlab.garuda.services.Guy_Parser;
+import org.cidarlab.garuda.services.RM_Parser;
+import org.cidarlab.garuda.services.RWR_Parser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,10 +32,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImportController {
     
     @Autowired
-    ParserService parser;
+    private static Guy_Parser guyparser;
     
     @Autowired
     private static RM_Parser rmparser;
+    
+    @Autowired
+    private static RWR_Parser rwrparser;
     
     private String fileLocation;
     
@@ -64,7 +68,7 @@ public class ImportController {
         
         if (multipartFile.isEmpty()){
             System.out.println("File empty!");
-            return "import";
+            return "recommender";
         }
         
     //{ Uploading the file
@@ -101,10 +105,10 @@ public class ImportController {
         
         if (user.equals("robwarden")){
             System.out.println("parsing with RW");
-            parser.getRwrParser().parse(fileLocation, user, session);
+            rwrparser.parse(fileLocation, user, session);
         } else if (user.equals("guy")){
             System.out.println("parsing with Guy");
-            parser.getGuyParser().parse(fileLocation, "resources/output-", user, session);
+            guyparser.parse(fileLocation, "resources/output-", user, session);
         } else {
             System.out.println("parsing with RM");
             rmparser.parse(fileLocation, user, session);

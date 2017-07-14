@@ -8,7 +8,6 @@ package org.cidarlab.garuda.legacyutil;
 import java.io.FileWriter;
 import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.cidarlab.garuda.services.ClothoService;
@@ -26,7 +25,6 @@ public class InitConstructs {
     
     public static void instantiate (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts) {
         
-
         JSONObject json = new JSONObject();
         JSONObject partSearcher = new JSONObject();
         
@@ -40,7 +38,7 @@ public class InitConstructs {
                 Row row = sheet.getRow(i);
                 
                 Cell cell = row.getCell(0);
-                cell.setCellType(CellType.STRING);
+                cell.setCellType(Cell.CELL_TYPE_STRING);
                 String display_id = "d" + cell.getStringCellValue();
                 
                 //number of parts [col 5] and construct length [col 4]
@@ -79,7 +77,7 @@ public class InitConstructs {
                     //check whether the part is a forward (true) or reverse strand (false)
                     boolean orientation = true;
                     cell = row.getCell(6+j); 
-                    cell.setCellType(CellType.STRING);
+                    cell.setCellType(Cell.CELL_TYPE_STRING);
                     String cellstr = cell.getStringCellValue();
                     int partVal = -1;
                     if (cellstr.indexOf('c')!=-1) {
@@ -172,7 +170,6 @@ public class InitConstructs {
                 
                 System.out.println(jsonString);
                 
-                //rest.createDevice(jsonString);
                 clotho.createDevice_post(jsonString);
                 
                 

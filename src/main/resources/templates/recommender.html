@@ -40,18 +40,9 @@ and open the template in the editor.
                                     </div>
                                     <div class="x_content">
                                         <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/recommendation}" th:object="${recommendForm}" method="post">
-                                            <p>Make sure that your spreadsheet satisfies the schema</p>
-                                            <div class="form-group">
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <!--<input type="file" name="excel" class="form-control" th:field="*{filename}"/>-->
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <button class="btn btn-success">Submit</button>
-                                                </div>
-                                            </div>
+                                        <form method="POST" th:action="@{/recommendation}" enctype="multipart/form-data">
+                                            <input type="file" name="multipartFile" /><br/>
+                                            <input type="submit" value="Submit" />
                                         </form>
                                     </div>
                                 </div>

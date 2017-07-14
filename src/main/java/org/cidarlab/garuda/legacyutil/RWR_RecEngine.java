@@ -8,12 +8,16 @@ package org.cidarlab.garuda.legacyutil;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.garuda.model.Data;
+import org.cidarlab.garuda.model.Feature;
 import org.cidarlab.garuda.machinelearning.Backpropagation;
+import org.cidarlab.garuda.machinelearning.MultipleRegression;
+import org.cidarlab.garuda.machinelearning.NaiveBayes;
 
 /**
  *
@@ -22,7 +26,7 @@ import org.cidarlab.garuda.machinelearning.Backpropagation;
 public class RWR_RecEngine {
 
     private static final int cluster = 2;
-    
+
     private static final int num_of_parts = 49; //total unique parts
     private static final int num_of_constructs = 702;
     private static final int size_of_constructs = 6;
@@ -32,8 +36,17 @@ public class RWR_RecEngine {
     private static List<String> list_of_parts = new ArrayList<String>();
     //private static List<Integer> list_of_idx = new ArrayList<Integer>();
 
+    @Getter
+    @Setter
     private static double[][] data = new double[num_of_constructs][num_of_parts];
+    
+    @Getter
+    @Setter
     private static double[][] label = new double[num_of_constructs][1];
+    
+    @Getter
+    @Setter
+    private static String[] partnames = new String[num_of_parts];
 
     public static String nnbackprop(String inputUrl, String username) {
 
@@ -42,22 +55,30 @@ public class RWR_RecEngine {
             XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
 
             XSSFSheet sheet = workbook.getSheet("Final Strains");
-            generateFitness(sheet);
+            generateLabel(sheet);
 
             sheet = workbook.getSheet("Enumerated Constructs");
             generateMatrix(sheet);
-            
-            //////////
-            
-            for (int k = 0; k < list_of_parts.size(); k++) {
-                System.out.println (k + "   " + list_of_parts.get(k));
-            }
 
+            //////////
+            /*for (int k = 0; k < list_of_parts.size(); k++) {
+                System.out.println ((k+1) + "   " + list_of_parts.get(k));
+            }*/
             Backpropagation backprop = new Backpropagation(data, label, cluster);   //hidden neurons = 3
-            List<Data> output = backprop.getClusterData();
-            List<Integer> trainIdx = backprop.getTrainList();
             
-            System.out.println("Backprop:");
+            double[][] wih = backprop.getWih();
+            for (int i = 0; i < wih.length; i++) {
+                System.out.print("+++ Part " + i + ":");
+                for (int j = 0; j < wih[0].length; j++) {
+                    System.out.print("\t" + wih[i][j]);
+                }
+                System.out.println();
+            }
+            
+            List<Feature> output = backprop.getClusterData();
+            List<Integer> trainIdx = backprop.getTrainList();
+
+            //System.out.println("Backprop:");
             int row = backprop.getClusterData().size();
             int error_count = 0;
             for (int i = 0; i < row; i++) {
@@ -68,13 +89,13 @@ public class RWR_RecEngine {
                 if (output.get(i).getCluster() != label[i][0]) {
                     error_count++;
                 }
-        //        System.out.println(output.get(i).getCluster() + "\t" + label[i][0] + "\t" + train);
+                //        System.out.println(output.get(i).getCluster() + "\t" + label[i][0] + "\t" + train);
             }
             System.out.println("*** Accuracy = " + ((double) (row - error_count) / row * 100) + "%");
 
             /*NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, num_of_parts);
             
-            List<Integer> toxicList = bpbayes.getList();
+            List<Integer> toxicList = bpbayes.getToxicList();
             System.out.println ("Number of toxic parts: " + toxicList.size());
             for (int i = 0; i< toxicList.size(); i++) {
                 System.out.println ("(possible toxic) " + list_of_parts.get(toxicList.get(i)-1));
@@ -86,8 +107,66 @@ public class RWR_RecEngine {
         }
     }
 
+    public static String naivebayes(String inputUrl, String username) {
+        
+        List<Feature> features = new ArrayList<Feature>();
+
+        try {
+            FileInputStream inputFile = new FileInputStream(inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+
+            XSSFSheet sheet = workbook.getSheet("Final Strains");
+            generateLabel(sheet);
+
+            sheet = workbook.getSheet("Enumerated Constructs");
+            generateMatrix(sheet);
+
+            //////////
+            for (int i = 0; i < num_of_constructs; i++) {
+                features.add(new Feature(i, data[i], (int)label[i][0]));
+            }
+            
+            NaiveBayes bpbayes = new NaiveBayes (features, cluster, num_of_parts);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return "Recommendation generated!";
+        }
+    }
+
+    public static List<String> mRegression(String inputUrl, String username) {
+        
+        String message = "Something is not right...";
+        List<String> output = new ArrayList<String>();
+        
+        try {
+            FileInputStream inputFile = new FileInputStream(inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+
+            XSSFSheet sheet = workbook.getSheet("Final Strains");
+            generateLabel(sheet);
+
+            sheet = workbook.getSheet("Enumerated Constructs");
+            generateMatrix(sheet);
+            
+            FormatExchange.writeToCSV(data, "features.csv");
+            FormatExchange.writeToCSV(FormatExchange.nDTo1DArray(label, 0), "label.csv");
+            //FormatExchange.writeToCSV(partnames, "part.csv");
+
+            MultipleRegression mReg = new MultipleRegression();
+            output = mReg.pyRegression("garuda_reg.py");
+            //mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return output;
+            //return "Recommendation generated!";
+        }
+    }
+
     //recommend2 and generateMatrix_expert are for expert system
-    
     public static String expert(String inputUrl, String username) {
 
         try {
@@ -95,7 +174,7 @@ public class RWR_RecEngine {
             XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
 
             XSSFSheet sheet = workbook.getSheet("Final Strains");
-            generateFitness(sheet);
+            generateLabel(sheet);
 
             sheet = workbook.getSheet("Enumerated Constructs");
             generateMatrix_expert(sheet);
@@ -107,7 +186,7 @@ public class RWR_RecEngine {
         }
     }
 
-    private static void generateFitness(XSSFSheet sheet) {
+    private static void generateLabel(XSSFSheet sheet) {
 
         for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
 
@@ -153,6 +232,7 @@ public class RWR_RecEngine {
                     int partIdx = list_of_parts.indexOf(part);
 
                     data[constructIdx][partIdx] = 1.0;
+                    partnames[partIdx] = list_of_parts.get(partIdx);
 
                 }
             } catch (Exception e) {
@@ -183,14 +263,12 @@ public class RWR_RecEngine {
                         continue;
                     }
 
-                    if (label[i-1][0] == 1.0) {
+                    if (label[i - 1][0] == 1.0) {
                         if (!healthyParts.contains(part)) {
                             healthyParts.add(part);
                         }
-                    } else {
-                        if (!toxicParts.contains(part)) {
-                            toxicParts.add(part);
-                        }
+                    } else if (!toxicParts.contains(part)) {
+                        toxicParts.add(part);
                     }
 
                 }
@@ -200,7 +278,7 @@ public class RWR_RecEngine {
             }
 
         }
-        
+
         for (int j = 0; j < toxicParts.size(); j++) {
             if (!healthyParts.contains(toxicParts.get(j))) {
                 finalToxicParts.add(toxicParts.get(j));

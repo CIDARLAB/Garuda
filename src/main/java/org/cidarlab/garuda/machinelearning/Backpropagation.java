@@ -9,7 +9,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import org.cidarlab.garuda.model.Data;
+import lombok.Getter;
+import org.cidarlab.garuda.model.Feature;
 
 /**
  *
@@ -23,9 +24,10 @@ public class Backpropagation {
 
     private final double LEARN_RATE = 0.2;    // Rho.
     //private final double NOISE_FACTOR = 0.45;
-    private final int TRAINING_REPS = 1000;
+    private final int TRAINING_REPS = 100000;
 
     // Input to Hidden Weights (with Biases).
+    @Getter
     private double wih[][];
 
     // Hidden to Output Weights (with Biases).
@@ -43,7 +45,7 @@ public class Backpropagation {
 
     private int MAX_SAMPLES;
 
-    private List<Data> clusterData;
+    private List<Feature> clusterData;
     private List<Integer> trainList;
     private List<Integer> testList;
 
@@ -57,12 +59,12 @@ public class Backpropagation {
 
         //System.out.println("**number of input neurons " + featuresData[0].length);
         INPUT_NEURONS = featuresData[0].length;
-        OUTPUT_NEURONS = 3;
+        HIDDEN_NEURONS = 5;
         OUTPUT_NEURONS = cluster;
-        numOfTrain = 700;
+        numOfTrain = 702;
         MAX_SAMPLES = numOfTrain;
 
-        clusterData = new ArrayList<Data>();
+        clusterData = new ArrayList<Feature>();
 
         wih = new double[INPUT_NEURONS + 1][HIDDEN_NEURONS];
         who = new double[HIDDEN_NEURONS + 1][OUTPUT_NEURONS];
@@ -86,7 +88,8 @@ public class Backpropagation {
         double[][] trainData = makeTrainData(numOfTrain);
         double[][] trainOut = makeTrainOut(trainData);
         
-        /*for (int i = 0; i < trainData.length; i++) {
+        /*System.out.println("TrainList && TrainOut:");
+        for (int i = 0; i < trainData.length; i++) {
             System.out.println((trainList.get(i)+1) +  "   " + trainOut[i][0] +  "   " + trainOut[i][1]);
         }*/
 
@@ -124,7 +127,7 @@ public class Backpropagation {
 
     private double[][] makeTrainData(int row) {
         
-        int column = featuresData[0].length;
+        int column = INPUT_NEURONS;
         double[][] trainData = new double[row][column];
 
         testList = new ArrayList<>();
@@ -137,7 +140,6 @@ public class Backpropagation {
             trainList.add(testList.remove((int) (Math.random() * testList.size())));
         }
 
-        //System.out.println("Number of training data: " + trainList.size() + ",  and testing data: " + testList.size());
         for (int i = 0; i < trainData.length; i++) {
             for (int j = 0; j < trainData[0].length; j++) {
                 trainData[i][j] = featuresData[trainList.get(i)][j];
@@ -153,7 +155,6 @@ public class Backpropagation {
         int column = 2;
         double[][] trainOut = new double[row][column];
 
-        //System.out.println("List of training data:");
         for (int i = 0; i < inputData.length; i++) {
             for (int j = 0; j < inputData[0].length; j++) {
                 if (labelData[trainList.get(i)][0] == 0) {
@@ -205,11 +206,11 @@ public class Backpropagation {
                 inputs[j] = featuresData[i][j];
             }
 
-            System.out.println((i+1) + "    " + actual[0] + "   " + actual[1] + "    " + featuresData[i][1]);
+            System.out.println((i+1) + "    " + actual[0] + "   " + actual[1] + "    " + labelData[i][0]);
             
             feedForward();
             
-            clusterData.add(new Data(inputs, i, maximum(actual)));
+            clusterData.add(new Feature(i, inputs, maximum(actual)));
         }
 
         return;
@@ -254,6 +255,7 @@ public class Backpropagation {
     }
 
     private void feedForward() {
+        
         double sum = 0.0;
 
         // Calculate input to hidden layer.
@@ -277,6 +279,7 @@ public class Backpropagation {
             sum += who[HIDDEN_NEURONS][out]; // Add in bias.
             actual[out] = sigmoid(sum);
         } // out
+        
         return;
     }
 
@@ -340,7 +343,7 @@ public class Backpropagation {
         return (val * (1.0 - val));
     }
 
-    public List<Data> getClusterData() {
+    public List<Feature> getClusterData() {
         return this.clusterData;
     }
 
