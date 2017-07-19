@@ -51,7 +51,7 @@ public class RWR_Parser {
                     case "Parts":
                         break;
                     case "Rules":
-                        //parts = populateParts (sheet, username);
+                        parts = populateParts (sheet, username);
                         break;
                     case "Final Strains":
                         //git senzymes = populateEnzymes (sheet, username);

@@ -8,29 +8,21 @@ package org.cidarlab.garuda.main;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
-import net.sf.json.JSONArray;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cidarlab.clotho.model.BioDesign;
 import org.cidarlab.clotho.model.Feature;
 import org.cidarlab.clotho.model.Person;
 import org.cidarlab.garuda.rest.RESTClothoRequest;
+import org.cidarlab.garuda.rest.RESTSynbiohubRequest;
 import org.cidarlab.garuda.util.InitConstructs;
-import org.cidarlab.garuda.util.InitConstructs_backup;
-import org.cidarlab.garuda.util.InitGeneratedData;
-import org.cidarlab.garuda.util.InitMetadata;
 import org.cidarlab.garuda.util.InitParts;
-import org.cidarlab.garuda.util.InitParts_backup;
-import org.cidarlab.garuda.util.InitQC;
-import org.cidarlab.garuda.util.InitRNASeq;
 import org.cidarlab.garuda.util.RWR_Parser;
 //import org.clothoapi.clotho3javaapi.Clotho;
 
@@ -42,7 +34,7 @@ public class ApplicationInit {
     
     @Setter
     @Getter
-    private RESTClothoRequest rest;
+    private RESTSynbiohubRequest rest;
     
     @Setter
     @Getter
@@ -92,14 +84,14 @@ public class ApplicationInit {
     
     public ApplicationInit (String message) {
         
-        rest = new RESTClothoRequest();
+        rest = new RESTSynbiohubRequest();
         this.message = message;
     }
     
     public void register () {
         
         try {
-            rest.createUser(username, email, password);
+            //rest.createUser(username, email, password);
             this.message = "User is succesfully created. Please login to continue!";
         }
         catch (Exception e) {
@@ -114,7 +106,7 @@ public class ApplicationInit {
         try {
             long startTime = System.currentTimeMillis();
             for (int i=0; i<100; i++) {
-                System.out.println ("***" + i + " " + rest.createSequence());
+                //System.out.println ("***" + i + " " + rest.createSequence());
             }
             System.out.println ("*** Finished at: " + (System.currentTimeMillis()-startTime)/1000 + " seconds.");
         }

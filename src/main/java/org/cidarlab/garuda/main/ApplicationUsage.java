@@ -19,6 +19,7 @@ import lombok.Setter;
 import net.sf.json.JSONArray;
 import org.cidarlab.garuda.main.Part.Orientation;
 import org.cidarlab.garuda.main.Part.PartType;
+import org.cidarlab.garuda.rest.RESTSynbiohubRequest;
 //import org.clothoapi.clotho3javaapi.Clotho;
 //import org.clothoapi.clotho3javaapi.ClothoConnection;
 import org.json.simple.JSONObject;
@@ -32,6 +33,14 @@ public class ApplicationUsage {
     //@Setter
     //@Getter
     //private Clotho clothoObject;
+    
+    @Setter
+    @Getter
+    private RESTSynbiohubRequest rest;
+    
+    @Setter
+    @Getter
+    private String organization;
     
     @Setter
     @Getter
@@ -54,6 +63,9 @@ public class ApplicationUsage {
     private List<SearchResult> results;
     
     public ApplicationUsage () {
+        
+        rest = new RESTSynbiohubRequest();
+        this.message = message;
     }
     
     public void init (String username, String password) {
@@ -413,5 +425,28 @@ public class ApplicationUsage {
         }
         return tmp;
     }*/
+    
+    public void fetchSynbioHub () {
+        
+        
+        try {
+            this.message = rest.getLibSBOLJ();
+        }
+        catch (Exception e) {e.printStackTrace();}
+    }
+    
+    public void postSynbioHub (String username, String password) {
+        
+        
+        try {
+            this.message = rest.postLibSBOLJ(username, password);
+        }
+        catch (Exception e) {e.printStackTrace();}
+    }
+    
+    public String printSomething () {
+        
+        return "Completed!";
+    }
     
 }

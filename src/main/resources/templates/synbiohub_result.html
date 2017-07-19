@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>GARUDA | SynbioHub</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <!-- Font Awesome 
+        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
+        <!-- NProgress -->
+        <link rel="stylesheet" type="text/css" href="css/nprogress.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-progressbar-3.3.4.min.css"/>
+        <!-- Animate.css-->
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css"/> 
+
+        <!-- Custom Theme Style -->
+        <link rel="stylesheet" type="text/css" href="css/custom.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/user.css"/>
+    </head>
+
+    <body class="login">
+        <div>
+            <a class="hiddenanchor" id="signup"></a>
+            <a class="hiddenanchor" id="signin"></a>
+            
+            <div class="login_wrapper" ng-app="synbioApp" ng-controller="synbioCtrl">
+                
+                <div class="animate form login_form">
+                    <section class="login_content">
+                        <h3 class="uheader_login_top">Results</h3>
+                        <p class="umessage" th:text="${app.getMessage()}"></p>
+                        
+                        <div class="separator"></div>
+                        
+                        <div>
+                            <canvas id="myChart" width="400" height="400"></canvas>
+                        </div>
+                        
+                        <form th:action="@{/synbiohubpost}" th:object="${app}" method="post">
+                            <div>
+                                <button type="submit" class="btn btn-default submit">Register to SynbioHub</button>
+                            </div>
+                        </form>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div>
+                                <!--<h2>Brought to you by <br/>CIDAR Lab</h2>-->
+                                <p>&copy; 2017 All Rights Reserved. CIDAR Lab<br/>Web-UI designed by Rizki Mardian</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        
+        <!-- Angular -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/apps.js'></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+        <!-- Chart.js -->
+        <script src="js/Chart.min.js"></script>
+        
+        <!-- Chart.js -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            
+            var ang = angular.module('synbioApp', []);
+            
+            ang.controller('synbioCtrl', function($scope) {
+                
+                $scope.results = [[${app.printSomething()}]];
+                alert($scope.results);
+                
+                var test = $scope.results.split(",");
+            
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: ["L3S3P31", "ECK120029600", "HlyIIR", "RiboJ53", "BydvJ", "PhlF"],
+                    datasets: [{
+                        label: '% of goodness',
+                        data: [10, 40, 30, 20, 60, 30],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    },
+                    maxBarThickness: 1
+                }
+            });
+            });
+            /*]]>*/
+        </script>
+        <!-- /Chart.js -->
+        
+    </body>
+</html>

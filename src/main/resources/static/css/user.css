@@ -1,5 +1,7 @@
 .uheader{text-align:right;vertical-align:middle;font-family:century gothic;padding-top:70px;padding-right:50px;padding-bottom:30px;font-size:70px;color:#dcdcdc}
 .uheader_login{text-align:center;vertical-align:middle;font-family:century gothic;padding-bottom:20px;font-size:70px;color:#dcdcdc}
+.uheader_login_top{text-align:center;vertical-align:middle;font-family:century gothic;padding-bottom:-10px;font-size:27px;color:#dcdcdc}
+.uheader_login_bottom{text-align:right;vertical-align:middle;font-family:arial;padding-bottom:10px;font-size:15px;color:#dcdcdc}
 .usubheader{text-align:right;vertical-align:middle;font-family:century gothic;padding-right:50px;padding-bottom:70px;font-size:25px;color:#dcdcdc}
 .usearchres{text-align:center;vertical-align:middle;font-family:century gothic;font-size:25px;color:#dcdcdc}
 .uwselect{width:300px}

@@ -6,151 +6,304 @@
 package org.cidarlab.garuda.rest;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import org.sbolstandard.core2.Component;
+import org.sbolstandard.core2.SBOLDocument;
+import org.sbolstandard.core2.ComponentDefinition;
+import org.sbolstandard.core2.Sequence;
+import org.synbiohub.frontend.IdentifiedMetadata;
+import org.synbiohub.frontend.SearchCriteria;
+import org.synbiohub.frontend.SearchQuery;
+import org.synbiohub.frontend.SynBioHubException;
+import org.synbiohub.frontend.SynBioHubFrontend;
 
 /**
  *
  * @author mardian
  */
 public class RESTSynbiohubRequest {
+
+    private List<String> ids;
+    private List<String> unique_parts;
+    private Set<URI> uris;
+    private Set<String> partdetails;
     
-    private String url = "https://localhost:8443/data/post";
+    private int num_of_constructs;
+    private int num_of_parts;
+    private int construct_size;
 
-    TrustManager[] trustAllCerts = new TrustManager[]{
-        new X509TrustManager() {
-            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
+    private double[][] data;
+    private double[][] label;
 
-            public void checkClientTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
+    private List<String> partnames;
+    private List<String> roles;
+    private List<String> sequences;
 
-            public void checkServerTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
-        }
-    };
+    public RESTSynbiohubRequest() {
 
-    public String HTTPReq(URL url, String jsonString, String verb) throws ProtocolException, IOException, KeyManagementException, NoSuchAlgorithmException {
+        uris = new HashSet<URI>();
+        partdetails = new HashSet<String>();
+        ids = new ArrayList<String>();
+        construct_size = 0;
+        num_of_constructs = 0;
+        num_of_parts = 0;
+        unique_parts = new ArrayList<String>();
 
-        SSLContext sc = SSLContext.getInstance("SSL");
-        sc.init(null, trustAllCerts, new java.security.SecureRandom());
-        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-
-        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-        conn.setDoInput(true);
-        conn.setRequestMethod(verb);
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setRequestProperty("Cache-Control", "no-cache");
-        conn.setInstanceFollowRedirects(false);
-        if (!verb.equals("GET")) {
-            conn.setDoOutput(true);
-            OutputStream os = conn.getOutputStream();
-            os.write(jsonString.getBytes());
-            os.flush();
-        }
-
-        int responseCode = conn.getResponseCode();
-
-        if (responseCode != 400 && responseCode != 404 && responseCode != 500) {
-            //print result
-            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-            String output;
-            String alloutput = "";
-            while ((output = br.readLine()) != null) {
-                alloutput += output;
-            }
-            conn.disconnect();
-            return alloutput;
-        } else {
-            conn.disconnect();
-            return "ERROR " + responseCode;
-        }
-
+        partnames = new ArrayList<String>();
+        roles = new ArrayList<String>();
+        sequences = new ArrayList<String>();
     }
 
-    public void createUser(String username, String email, String password) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
-        System.out.println("Testing Create User");
-        String jsonString = "{'username':'" + username + "','password':'" + password + "'}";
-        URL url = new URL(this.url + "/create/user");
+    public String getLibSBOLJ() throws SynBioHubException, URISyntaxException {
 
-        String output = HTTPReq(url, jsonString, "POST");
-
-        System.out.println(output);
-    }
-  
-    public String createPart(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
-        //String jsonString = "{'username':'jsmith','password':'asdf','objectName':'Test Sequence','sequence':'ata'}";
-        //URL url = new URL(this.url + "/create/sequence");
-        //String seqId = HTTPReq(url, jsonString, "POST");
-
-        //System.out.println("Testing Create Part");
-        //jsonString = "{'username':'jsmith','password':'asdf','objectName':'Test Part', 'id':'" + seqId + "'}";
-        URL url = new URL(this.url + "/create/conveniencePart/");
-
-        String output = HTTPReq(url, jsonString, "POST");
-
-        //System.out.println(output);
-        return output;
-    }
-    
-    public void createDevice(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
-        //System.out.println("Testing Create Convenience Device");
-
-        /*String jsonString1 = "{'username':'jsmith','objectName':'Test Convenience Device Part1','displayID':'Test Convenience Device Part1','sequence':'tccctatcagtgatagagattgacatccctatcagtgatagagatactgagcac', 'role':'GENE', 'params': [{'name':'n', 'value':'121.5', 'variable':'var', 'units' : 'unit'}]}";
-        URL url1 = new URL(this.url + "/create/conveniencePart/");
-
-        String jsonString2 = "{'username':'jsmith','objectName':'Test Convenience Device Part2','displayID':'Test Convenience Device Part2', 'sequence':'tccctatcagtgatagagattgacatccctatcgagatactgagcac', 'role':'GENE', 'params': [{'name':'n', 'value':'121.5', 'variable':'var', 'units' : 'unit'}]}";
-        URL url2 = new URL(this.url + "/create/conveniencePart/");
-
-        String partID1 = HTTPReq(url1, jsonString1, "POST");
-        String partID2 = HTTPReq(url2, jsonString2, "POST");
-
-        String partIDs = partID1 + "," + partID2;
-
-        String jsonString = "{'username':'jsmith','objectName':'Test Convenience Device','displayID':'Test Convenience Device', 'createSeqFromParts':'False', 'partIDs':'" + partIDs + "'}";*/
-        URL url = new URL(this.url + "/create/convenienceDevice/");
-
-        String output = HTTPReq(url, jsonString, "POST");
-
-        System.out.println(output);
-
-        /*System.out.println("Testing Get Convenience Device");
-
-        jsonString = "{'objectName':'Test Convenience Device','displayID':'Test Convenience Device','role':'GENE'}";
-        url = new URL(this.url + "/get/convenienceDevice/");
-        output = HTTPReq(url, jsonString, "POST");
-
-        System.out.println(output);*/
-    }
-
-    public String getPart(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
+        String message = "Data retrieved!";
+        String root = "https://synbiohub.programmingbiology.org/";
         
-        URL url = new URL(this.url + "/get/conveniencePart/");
-        return HTTPReq(url, jsonString, "POST");
+        String root_global = "http://synbiohub.org/";
 
-        //System.out.println(output);
+        SynBioHubFrontend sbh = new SynBioHubFrontend(root);
+
+        String key_global = "igem:experience";
+        String value_global = "http://wiki.synbiohub.org/wiki/Terms/igem#experience/Fails";
+        
+        
+        String key_owl = "https://www.cidarlab.org/owl/Synbiohub_Demo/owl_experience";
+        String value_owl = "works";
+        
+        
+        String key = "role";
+        String value = "http://identifiers.org/so/SO:0000804";
+
+        ArrayList<IdentifiedMetadata> metadata = new ArrayList<IdentifiedMetadata>();
+        ArrayList<SearchCriteria> sc_list = new ArrayList<SearchCriteria>();
+
+        SearchCriteria sc = new SearchCriteria();
+        sc.setKey(key_owl);
+        sc.setValue(value_owl);
+        sc_list.add(sc);
+
+        SearchQuery sq = new SearchQuery();
+        sq.setOffset(0);
+        sq.setLimit(10000);
+        sq.setCriteria(sc_list);
+
+        try {
+            metadata = sbh.search(sq);
+        } catch (SynBioHubException e) {
+            e.printStackTrace();
+            message = "Something wrong!";
+        }
+
+        if (metadata.size() == 0) {
+            return "Nothing found!";
+        }
+
+        message = "*** Found " + metadata.size() + " matches ***";
+
+        int max_size = 0;
+        for (int i = 0; i < metadata.size(); i++) {
+
+            System.out.println(">>> iteration:  " + i);
+            max_size = 0;
+            this.num_of_constructs++;
+            ids.add("g" + i);
+
+            SBOLDocument sb = sbh.getSBOL(URI.create(metadata.get(i).getUri()));
+
+            for (ComponentDefinition cd : sb.getComponentDefinitions()) {
+
+                for (Component c : cd.getComponents()) {
+
+                    System.out.println("*** uri: " + c.getDefinitionURI().toString());
+                    uris.add(c.getDefinitionURI());
+                    max_size++;
+
+                    String uri = c.getDefinitionURI().toString();
+                    if (!uri.startsWith(root)) {
+                        continue;
+                    }
+
+                    SBOLDocument sb_in = sbh.getSBOL(c.getDefinitionURI());
+
+                    for (ComponentDefinition cd_in : sb_in.getComponentDefinitions()) {
+
+                        System.out.println("+++ part: " + cd_in.getDisplayId() + ", role uri: " + cd_in.getRoles().iterator().next());
+                        partdetails.add(cd_in.getDisplayId().toString() + "," + cd_in.getRoles().iterator().next().toString() + "," + cd_in.getSequences().iterator().next().getElements());
+
+                        if (!unique_parts.contains(cd_in.getDisplayId())) {
+                            unique_parts.add(cd_in.getDisplayId());
+                        }
+                    }
+                }
+            }
+        }
+
+        this.construct_size = (max_size > this.construct_size) ? max_size : this.construct_size;
+        this.num_of_parts = unique_parts.size();
+
+        System.out.println("Size: " + this.construct_size + "\tConstructs: " + this.num_of_constructs + "\tParts: " + this.num_of_parts);
+
+        write_to_file("resources/uris.txt", "resources/roles.txt");
+
+        return message;
     }
 
-    public String getDevice(String jsonString) throws MalformedURLException, IOException, KeyManagementException, NoSuchAlgorithmException {
-        
-        URL url = new URL(this.url + "/get/conveniencePart/");
-        return HTTPReq(url, jsonString, "POST");
+    /*private void createRecommendation() {
 
-        //System.out.println(output);
+        this.data = new double[num_of_constructs][num_of_parts];
+        this.label = new double[num_of_constructs][1];
+
+        for (int i = 0; i < num_of_constructs; i++) {
+            if (Math.random()) {
+                label[i][0] = 1.0;
+            } else {
+                label[i][0] = 0.0;
+            }
+
+        }
+    }*/
+
+    public String postLibSBOLJ(String username, String password) {
+
+        String message = "Data uploaded!";
+        String root = "https://synbiohub.programmingbiology.org/";
+
+        read_uris_file("resources/uris.txt");
+        read_details_file("resources/roles.txt");
+
+        try {
+            SynBioHubFrontend sbh = new SynBioHubFrontend(root);
+
+            SBOLDocument document = new SBOLDocument();
+            document.setDefaultURIprefix("https://www.cidarlab.org/garuda/synbiohub/");
+            document.setComplete(true);
+            document.setCreateDefaults(true);
+
+            /*Collection col = document.createCollection("Mardian", "");
+            col.setName("Garuda's Magic");
+            col.setDescription("Collection of parts generated by Garuda");
+            
+            for (URI uri : uris) {
+                col.addMember(uri);
+            }*/
+            for (int i = 0; i < partnames.size(); i++) {
+                System.out.println(partnames.get(i) + " 1.0 " + URI.create(roles.get(i)).toString());
+                ComponentDefinition cds = document.createComponentDefinition(partnames.get(i), "1.0", URI.create(roles.get(i)));
+                cds.addSequence(document.createSequence(partnames.get(i) + "_seq", "1.0", sequences.get(i), Sequence.IUPAC_DNA));
+            }
+
+            //SBOLWriter.write(document,(System.out));
+            sbh.login(username, password);
+            sbh.submit("garuda_20170531", "1.0", "Garuda Parts", "This is a description", "", "Garuda_magic", "1", document);
+        
+        } catch (Exception e) {
+            message = "Something wrong!";
+        } finally {
+            return message;
+        }
+    }
+
+    private void write_to_file(String filename, String rolesname) {
+
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+
+        try {
+
+            fw = new FileWriter(filename);
+            bw = new BufferedWriter(fw);
+
+            for (URI uri : uris) {
+
+                bw.write(uri.toString() + "\n");
+
+            }
+
+            System.out.println("***URIs written!!");
+
+            bw.close();
+            fw.close();
+
+            fw = new FileWriter(rolesname);
+            bw = new BufferedWriter(fw);
+
+            for (String s : partdetails) {
+
+                bw.write(s + "\n");
+
+            }
+
+            System.out.println("***Roles written!!");
+
+            bw.close();
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void read_uris_file(String input) {
+
+        BufferedReader br = null;
+        FileReader fr = null;
+
+        try {
+
+            fr = new FileReader(input);
+            br = new BufferedReader(fr);
+
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                uris.add(URI.create(sCurrentLine));
+            }
+
+            br.close();
+            fr.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void read_details_file(String input) {
+
+        BufferedReader br = null;
+        FileReader fr = null;
+
+        try {
+
+            fr = new FileReader(input);
+            br = new BufferedReader(fr);
+
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                String[] st = sCurrentLine.split(",");
+                partnames.add(st[0]);
+                roles.add(st[1]);
+                sequences.add(st[2]);
+            }
+
+            br.close();
+            fr.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

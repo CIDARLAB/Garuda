@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>GARUDA | SynbioHub</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <!-- Font Awesome 
+        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
+        <!-- NProgress -->
+        <link rel="stylesheet" type="text/css" href="css/nprogress.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-progressbar-3.3.4.min.css"/>
+        <!-- Animate.css-->
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css"/> 
+
+        <!-- Custom Theme Style -->
+        <link rel="stylesheet" type="text/css" href="css/custom.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/user.css"/>
+    </head>
+
+    <body class="login">
+        <div>
+            <a class="hiddenanchor" id="signup"></a>
+            <a class="hiddenanchor" id="signin"></a>
+            
+            <div class="login_wrapper">
+                <div class="animate form login_form">
+                    <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
+                    <section class="login_content">
+                        <form th:action="@{/synbiohub}" th:object="${app}" method="post">
+                            <h3 class="uheader_login_top">Baby</h3>
+                            <h1 class="uheader_login">Garuda</h1>
+                            <h4 class="uheader_login_bottom">Powered by SynbioHub</h4>
+                            <div>
+                                <!--<input type="text" class="form-control" placeholder="SynbioHub Organization" required="" th:field="*{organization}"/>-->
+                                
+                                <select class="form-control">
+                                        <option>SynbioHub</option>
+                                        <option selected="selected">Programming Biology</option>
+                                        <option>CIDAR Lab</option>
+                                        <option>iGEM</option>
+                                </select>
+                                <br/>
+                                <button type="submit" class="btn btn-default submit">Submit</button>
+                            </div>
+                        </form>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div>
+                                <!--<h2>Brought to you by <br/>CIDAR Lab</h2>-->
+                                <p>&copy; 2017 All Rights Reserved. CIDAR Lab<br/>Web-UI designed by Rizki Mardian</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        
+        <!-- Angular -->
+	<script src='js/angular.min.js'></script>
+	<script src='js/apps.js'></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+    </body>
+</html>

@@ -235,4 +235,35 @@ public class RESTController {
         return "recommendation";
     }
     
+    
+    @RequestMapping(value="/synbiohub", method=RequestMethod.GET)
+    public String synbiohub_search (Model model) {
+        
+        ApplicationUsage app = new ApplicationUsage();
+        model.addAttribute("app", app);
+        
+        return "synbiohub_search";
+    }
+    
+    @RequestMapping(value="/synbiohub", method=RequestMethod.POST)
+    public String synbiohub_result (@ModelAttribute ApplicationUsage app, Model model) {
+        
+        app.fetchSynbioHub();
+        model.addAttribute("app", app);
+        
+        return "synbiohub_result";
+    }
+    
+    @RequestMapping(value="/synbiohubpost", method=RequestMethod.POST)
+    public String synbiohub_post (@ModelAttribute ApplicationUsage app, Model model) {
+        
+        String username = "mardian@bu.edu";
+        String password = "mardian";
+        
+        app.postSynbioHub(username, password);
+        model.addAttribute("app", app);
+        
+        return "synbiohub_result";
+    }
+    
 }
