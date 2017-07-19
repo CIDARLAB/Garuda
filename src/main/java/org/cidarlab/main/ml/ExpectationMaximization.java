@@ -20,6 +20,8 @@ public class ExpectationMaximization {
     private final int max_iter = 100;
     private final double error = 0.0005;
     
+    private int[] final_cluster;
+    
     //create one distribution with mu=0 and sigma=1
     public ExpectationMaximization () {
         this.distribution = new Distribution[]{new Distribution()};
@@ -89,8 +91,13 @@ public class ExpectationMaximization {
     
     public int iterate (double[] x) {
         
+        this.final_cluster = new int[x.length];
+        
         boolean end_of_iteration = false;
         boolean valid_sigma = true;
+        
+        double[][] p_x_dist = null;
+        double[][] p_dist_x = null;
         
         //int max_iter = 1000;
         System.out.println("Initially picked distributions:");
@@ -103,8 +110,8 @@ public class ExpectationMaximization {
             
             System.out.println("*****" + iter + "*****");
             
-            double[][] p_x_dist = new double[x.length][this.distribution.length];   //P(Xi|distribution)
-            double[][] p_dist_x = new double[this.distribution.length][x.length];   //P(distribution|Xi)
+            p_x_dist = new double[x.length][this.distribution.length];   //P(Xi|distribution)
+            p_dist_x = new double[this.distribution.length][x.length];   //P(distribution|Xi)
 
             double[] p_x = new double[x.length];
             double[] p_dist = new double[this.distribution.length];
@@ -122,12 +129,12 @@ public class ExpectationMaximization {
             for (int i = 0; i < this.distribution.length; i++) {
                 p_dist[i] = 0.0;
                 
-                System.out.println("**Population " + i + "***");
+                //System.out.println("**Population " + i + "***");
                     
                 for (int j = 0; j < x.length; j++) {
                     p_dist_x[i][j] = (p_x_dist[j][i] * this.p_prior[i] / p_x[j]);
                     
-                    System.out.println(x[j] + "\t" + p_dist_x[i][j]);
+                    //System.out.println(x[j] + "\t" + p_dist_x[i][j]);
                     
                     p_dist[i] += p_dist_x[i][j];
                 }
@@ -183,6 +190,17 @@ public class ExpectationMaximization {
             //System.out.println ("**num of iter: " + iter);
         }
         
+        for (int t=0; t<x.length; t++) {
+            //String flag = "toxic";
+            this.final_cluster[t] = 0;
+            if (p_dist_x[1][t]>=0.99)
+            {
+                //flag = "healthy";
+                this.final_cluster[t] = 1;
+            }
+            System.out.println(x[t] + "\t" + ((this.final_cluster[t] == 0) ? "toxic" : "healthy"));
+        }
+        
         //return -1 if ended with sigma<=0.0, 1 if no change in mu&sigma, 0 if reaches max iteration
         
         if (!valid_sigma) return -1;
@@ -193,6 +211,70 @@ public class ExpectationMaximization {
     public Distribution[] getDistribution() {
         
         return this.distribution;
+    }
+    
+    public Distribution[] getInitDistribution() {
+        
+        Distribution[] init = new Distribution[]{new Distribution(0.2, 0.3), new Distribution(0.9, 0.3)};
+        return init;
+    }
+    
+    public int[] getFinalCluster() {
+        
+        return this.final_cluster;
+    }
+    
+    public void overDist (double[] x, double[] mu, double[] sigma) {
+        
+        this.final_cluster = new int[x.length];
+        
+        //boolean end_of_iteration = false;
+        //boolean valid_sigma = true;
+        
+        //int max_iter = 1000;
+        System.out.println("Initially picked distributions:");
+        for (int k=0; k < this.distribution.length; k++) {
+            
+            if (mu.length != this.distribution.length || mu.length != this.distribution.length)
+                System.out.println("There is something wrong...!!");
+            
+            this.distribution[k].setMu(mu[k]);
+            this.distribution[k].setSigma(sigma[k]);
+            System.out.println("** " + k + "-th: mu = " + this.distribution[k].getMu() + ", sigma = " + this.distribution[k].getSigma());
+        }
+        
+        //for (int iter=0; iter<this.max_iter && !end_of_iteration && valid_sigma ; iter++) {
+        
+            
+        //System.out.println("*****" + iter + "*****");
+            
+        double[][] p_x_dist = new double[x.length][this.distribution.length];   //P(Xi|distribution)
+        double[][] p_dist_x = new double[this.distribution.length][x.length];   //P(distribution|Xi)
+
+        double[] p_x = new double[x.length];
+        double[] p_dist = new double[this.distribution.length];
+            
+        //compute P(Xi|distribution)
+        for (int i = 0; i < x.length; i++) {
+            p_x[i] = 0.0;
+            for (int j = 0; j < this.distribution.length; j++) {
+                p_x_dist[i][j] = pdf(x[i], distribution[j].getMu(), distribution[j].getSigma());
+                p_x[i] += (p_x_dist[i][j] * this.p_prior[j]);
+            }
+        }
+        
+        //compute P(distribution|Xi)
+        for (int i = 0; i < this.distribution.length; i++) {
+            p_dist[i] = 0.0;
+
+            //System.out.println("**Population " + i + "***");
+            for (int j = 0; j < x.length; j++) {
+                p_dist_x[i][j] = (p_x_dist[j][i] * this.p_prior[i] / p_x[j]);
+
+                //System.out.println(x[j] + "\t" + p_dist_x[i][j]);
+                p_dist[i] += p_dist_x[i][j];
+            }
+        }
     }
     
 }
