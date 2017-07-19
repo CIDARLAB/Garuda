@@ -36,7 +36,7 @@ public class MultipleRegression {
             //pb.redirectOutput(Redirect.INHERIT);
             Process p = pb.start();
             
-            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             //BufferedReader in = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             String ret = in.readLine();
             while (ret != null) {
