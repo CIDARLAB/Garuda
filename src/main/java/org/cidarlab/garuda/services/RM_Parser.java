@@ -79,10 +79,10 @@ public class RM_Parser {
                         populateParts(sheet, "Terminator", username, session);
                         break;
                     case "Level 1":
-                        populateConstructsLvl1(sheet, username);
+                        populateConstructsLvl1(sheet, username, session);
                         break;
                     case "Level 2":
-                        populateConstructsLvl2(sheet, username);
+                        populateConstructsLvl2(sheet, username, session);
                         break;
                     default:
                         System.out.println("WARNING: Found another sheet with unregistered name!! Do nothing...");
@@ -217,7 +217,7 @@ public class RM_Parser {
         }
     }
 
-    public static void populateConstructsLvl1(XSSFSheet sheet, String username) {
+    public static void populateConstructsLvl1(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -239,7 +239,7 @@ public class RM_Parser {
                 }
                 unique.add(display_id);
 
-                int numOfParts = 5; //promoter-rbs-gene-fp-terminator, should I include scars?
+                int numOfParts = 4; //four columns on table
                 List<String> partList = new ArrayList<String>();
 
                 /*cell = row.getCell(9);
@@ -257,16 +257,21 @@ public class RM_Parser {
                     if (!pdisplay_id.equals("N/A")) {
                         partList.add(parts.get(pdisplay_id));
                     }
-
                 }
 
-                String partIds = partList.get(0);  //parts + scars
-                for (int j = 1; j < partList.size(); j++) {
-                    partIds = partIds + "," + partList.get(j);
+                List<String> partIds = new ArrayList();  //parts + scars
+                for (int j = 0; j < partList.size(); j++) {
+                    String subPartId = partList.get(j);
+                    
+                    if (subPartId != null) { 
+                        partIds.add(subPartId);
+                    } else {
+                        continue;
+                    }
                 }
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", display_id);
+                json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
                 json.put("partIDs", partIds);
 
@@ -274,7 +279,7 @@ public class RM_Parser {
                 System.out.println(jsonString);
 
                 //String construct_id = rest.createDevice(jsonString);
-                String construct_id = clotho.createDevice_post(jsonString);
+                String construct_id = clotho.createDevice_post(json, session);
                 System.out.println(construct_id);
                 constructs_lvl1.put(display_id, construct_id);
 
@@ -287,7 +292,7 @@ public class RM_Parser {
         
     }
 
-    public static void populateConstructsLvl2(XSSFSheet sheet, String username) {
+    public static void populateConstructsLvl2(XSSFSheet sheet, String username, HttpSession session) {
 
         JSONObject json = new JSONObject();
 
@@ -321,17 +326,17 @@ public class RM_Parser {
                     partIds = partIds + "," + partList.get(j);
                 }
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", display_id);
+                json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
-                //json.put("role", row.getCell(1).getStringCellValue());
+                json.put("role", row.getCell(1).getStringCellValue());
                 json.put("partIDs", partIds);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 //String construct_id = rest.createDevice(jsonString);
-                String construct_id = clotho.createDevice_post(jsonString);
+                String construct_id = clotho.createDevice_post(json, session);
                 System.out.println(construct_id);
 
                 

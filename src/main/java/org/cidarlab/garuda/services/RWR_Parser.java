@@ -233,7 +233,7 @@ public class RWR_Parser {
                 System.out.println(jsonString);
 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createDevice_post(jsonString);
+                String part_id = clotho.createDevice_post(json, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
@@ -299,13 +299,13 @@ public class RWR_Parser {
                 json.put("objectName", display_id);
                 json.put("createSeqFromParts", "true");
                 //json.put("role", row.getCell(1).getStringCellValue());    //no role
-                json.put("partIDs", partIds);
+                json.put("partIds", partIds);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 //String construct_id = rest.createDevice(jsonString);
-                String construct_id = clotho.createDevice_post(jsonString);
+                String construct_id = clotho.createDevice_post(json, session);
                 System.out.println(construct_id);
                 constructs_lvl1.put(display_id, construct_id);
                 
@@ -382,13 +382,13 @@ public class RWR_Parser {
                 json.put("objectName", display_id);
                 json.put("createSeqFromParts", "true");
                 //json.put("role", row.getCell(1).getStringCellValue());
-                json.put("partIDs", partIds);
+                json.put("partIds", partIds);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
                 //String construct_id = rest.createDevice(jsonString);-
-                String construct_id = clotho.createDevice_post(jsonString);
+                String construct_id = clotho.createDevice_post(json, session);
                 System.out.println(construct_id);
 
                 

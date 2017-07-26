@@ -7,6 +7,7 @@ package org.cidarlab.garuda.legacyutil;
 
 import java.io.FileWriter;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,7 +24,7 @@ public class InitConstructs {
     @Autowired
     static ClothoService clotho;
     
-    public static void instantiate (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts) {
+    public static void instantiate (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts, HttpSession session) {
         
         JSONObject json = new JSONObject();
         JSONObject partSearcher = new JSONObject();
@@ -170,7 +171,7 @@ public class InitConstructs {
                 
                 System.out.println(jsonString);
                 
-                clotho.createDevice_post(jsonString);
+                clotho.createDevice_post(json, session);
                 
                 
             }

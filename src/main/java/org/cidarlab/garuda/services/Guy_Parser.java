@@ -72,7 +72,7 @@ public class Guy_Parser {
                         break;
                     case "Constructs":
                     case "constructs":
-                        InitConstructs.instantiate (sheet, outputUrl, username, parts);
+                        InitConstructs.instantiate (sheet, outputUrl, username, parts, session);
                         break;
                     case "Generated Data":
                     case "generated data":
@@ -186,7 +186,7 @@ public class Guy_Parser {
         }
     }
     
-    public static void populateConstructs (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts) {
+    public static void populateConstructs (XSSFSheet sheet, String outputFileUrl, String username, Map<String, String> parts, HttpSession session) {
         
         JSONObject json = new JSONObject();
         JSONObject partSearcher = new JSONObject();
@@ -249,13 +249,19 @@ public class Guy_Parser {
                 json.put("role", row.getCell(1).getStringCellValue());
                 json.put("partIDs", partsID);
                 
+                jsonmap.put("name", display_id);
+                jsonmap.put("displayId", display_id);
+                jsonmap.put("createSeqFromParts", "true");
+                jsonmap.put("role", row.getCell(1).getStringCellValue());
+                jsonmap.put("partIDs", partsID);
+                
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 
                 System.out.println(jsonString);
                 
                 //rest.createDevice(jsonString);
-                clotho.createDevice_post(jsonString);
+                clotho.createDevice_post(jsonmap, session);
                 
             }
             seqFSAfile.close();

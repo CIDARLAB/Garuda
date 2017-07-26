@@ -135,8 +135,52 @@ public class ClothoService {
         
     }
     
-    public String createDevice_post(String json){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getPartWithFilter_put(HttpSession session, Map filter){
+        
+        String URI = URL + "/part";
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(filter,getHeaders);
+ 
+        String partDetails = null;
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            
+            partDetails = response.getBody();
+            
+        }
+        
+        return partDetails;
+        
+    }
+    
+    public String createDevice_post(Map json, HttpSession session){
+        String URI = URL + "/device";
+        
+        HttpHeaders postHeaders = new HttpHeaders();
+        postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        HttpEntity<Map<String, String>> request = new HttpEntity<>(json, postHeaders);
+        
+        System.out.println(json);
+        
+        ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
+//       System.out.println("after restTemplate");
+        String constructId = null;
+        
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            
+//            System.out.println("httpstatus is ok");
+            constructId = responseEntity.getBody();
+               
+        }
+        
+//        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
+        
+        return constructId;
     }
 
     public String createPart_post(Map json, HttpSession session) {
