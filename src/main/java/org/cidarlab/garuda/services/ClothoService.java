@@ -31,7 +31,8 @@ public class ClothoService {
     
     private final RestTemplate restTemplate;
     
-    private static final String URL =  "http://localhost:9000/api";
+    private static final String URL = "http://localhost:9000/api";
+//    private static final String URL = "http://beta.clothocad.org/api"
     
     /*
         Constructor
@@ -50,9 +51,7 @@ public class ClothoService {
         
         String URI = URL + "/login";
         
-        HttpHeaders postHeaders = new HttpHeaders();
-                
-        ResponseEntity<Account> responseEntity = restTemplate.postForEntity(URI, loginForm, Account.class, postHeaders);
+        ResponseEntity<Account> responseEntity = restTemplate.postForEntity(URI, loginForm, Account.class);
         
         Account myAccount = null;
         
@@ -61,9 +60,7 @@ public class ClothoService {
             myAccount = responseEntity.getBody();
             
             session.setAttribute("username", myAccount.getUser().getUsername());
-            session.setAttribute("authHeader", myAccount.getAuthHeader());
-            
-            postHeaders.add("Authorization", myAccount.getAuthHeader());        
+            session.setAttribute("authHeader", myAccount.getAuthHeader());     
         }
         
         return myAccount;
@@ -73,9 +70,7 @@ public class ClothoService {
         
         String URI = URL + "/signup";
         
-        HttpHeaders postHeaders = new HttpHeaders();
-        
-        ResponseEntity<Account> responseEntity = restTemplate.postForEntity(URI, registerForm, Account.class, postHeaders);
+        ResponseEntity<Account> responseEntity = restTemplate.postForEntity(URI, registerForm, Account.class);
       
         Account myAccount = null;
         
@@ -84,9 +79,7 @@ public class ClothoService {
             myAccount = responseEntity.getBody();
             
             session.setAttribute("username", myAccount.getUser().getUsername());
-            session.setAttribute("authHeader", myAccount.getAuthHeader());
-            
-            postHeaders.add("Authorization", myAccount.getAuthHeader());       
+            session.setAttribute("authHeader", myAccount.getAuthHeader()); 
         }
         
         return myAccount;
@@ -111,7 +104,7 @@ public class ClothoService {
     */
     
     
-    public String getPart_get(HttpSession session, String biodesignId){
+    public String getPartById_get(HttpSession session, String biodesignId){
         
         String URI = URL + "/part/" + biodesignId;
         
@@ -120,22 +113,20 @@ public class ClothoService {
         Map map = new HashMap<>();
         
         HttpEntity<?> request = new HttpEntity(map,getHeaders);
- 
-        String partDetails = null;
         
         ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
         
+        String partDetails = null;
+        
         if (response.getStatusCode() == HttpStatus.OK){
-            
-            partDetails = response.getBody();
-            
+            partDetails = response.getBody();    
         }
         
         return partDetails;
         
     }
     
-    public String getPartWithFilter_put(HttpSession session, Map filter){
+    public String getPartWithFilter_put(Map filter, HttpSession session){
         
         String URI = URL + "/part";
         
@@ -143,15 +134,13 @@ public class ClothoService {
         getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
         
         HttpEntity<?> request = new HttpEntity(filter,getHeaders);
- 
-        String partDetails = null;
         
         ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
         
+        String partDetails = null;
+        
         if (response.getStatusCode() == HttpStatus.OK){
-            
-            partDetails = response.getBody();
-            
+            partDetails = response.getBody();    
         }
         
         return partDetails;
@@ -159,27 +148,22 @@ public class ClothoService {
     }
     
     public String createDevice_post(Map json, HttpSession session){
+        
         String URI = URL + "/device";
         
         HttpHeaders postHeaders = new HttpHeaders();
         postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
         HttpEntity<Map<String, String>> request = new HttpEntity<>(json, postHeaders);
         
-        System.out.println(json);
-        
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
-//       System.out.println("after restTemplate");
+
         String constructId = null;
         
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
-            
-//            System.out.println("httpstatus is ok");
             constructId = responseEntity.getBody();
-               
         }
-        
-//        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
-        
+
         return constructId;
     }
 
@@ -190,20 +174,14 @@ public class ClothoService {
         HttpHeaders postHeaders = new HttpHeaders();
         postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
         HttpEntity<Map<String, String>> request = new HttpEntity<>(json, postHeaders);
-        
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
-//       System.out.println("after restTemplate");
+        
         String constructId = null;
         
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
-            
-//            System.out.println("httpstatus is ok");
             constructId = responseEntity.getBody();
-               
         }
-        
-//        System.out.println("The status code is: " + responseEntity.getStatusCode().value() + " " + responseEntity.getStatusCodeValue());
         
         return constructId;
     }
@@ -213,7 +191,7 @@ public class ClothoService {
     }
     
     public void test(){
-        System.out.println("clotho test");
+        System.out.println("The ClothoService is connected to this class.");
     }
     
 }

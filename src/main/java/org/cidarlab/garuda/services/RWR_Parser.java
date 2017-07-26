@@ -367,7 +367,7 @@ public class RWR_Parser {
                         //System.out.println("***From search: " + rest.getPart(query_jsonString));		
                         //System.out.println("***From device: " + rest.getDevice(query_jsonString));		
                         		
-                        System.out.println("***From search ID: " + clotho.getPart_get(session, query_jsonString) + "    " + pdisplay_id);		
+                        System.out.println("***From search ID: " + clotho.getPartById_get(session, query_jsonString) + "    " + pdisplay_id);		
                         
                     }
 

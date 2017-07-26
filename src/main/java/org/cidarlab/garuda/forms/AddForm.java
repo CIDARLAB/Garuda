@@ -11,7 +11,6 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -19,7 +18,6 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class AddForm {
     
-    @NotEmpty(message="Import: Name may not be empty")
     @Getter
     @Setter
     String name;

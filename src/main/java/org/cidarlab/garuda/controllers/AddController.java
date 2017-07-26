@@ -44,6 +44,12 @@ public class AddController {
         return "add";
     }
     
+    /*
+     * Note: postAddPage returns a String due to @ResponseBody annotation. 
+     *       Remove to route to a different page.
+     */    
+    
+    
     @RequestMapping(value="/add", method=RequestMethod.POST)
     @ResponseBody
     public String postAddPage(
@@ -54,26 +60,18 @@ public class AddController {
         String result = null;
         
         try {
-            
-            System.out.println("1");
             String partId = clotho.createPart_post(addForm.toMap(), session);
-            System.out.println("2");
+            
             if (partId == null) {
-                System.out.println("null");
                 throw new RuntimeException();
             } else {
-                System.out.println("3");
-                result = clotho.getPart_get(session, partId);
-                System.out.println("4");
+                result = clotho.getPartById_get(session, partId);
             }
 
         } catch (RuntimeException e) {
-            System.out.println("e");
             return "/error";
         } finally {
-            System.out.println("out");
             return result;
-//            return "/index";
         }
     }
     

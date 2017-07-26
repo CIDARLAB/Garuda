@@ -54,7 +54,7 @@ public class SearchController {
         
         if (searchForm.getBiodesignId() != null){
             
-            return clotho.getPart_get(session, searchForm.getBiodesignId());
+            return clotho.getPartById_get(session, searchForm.getBiodesignId());
             
         }
         

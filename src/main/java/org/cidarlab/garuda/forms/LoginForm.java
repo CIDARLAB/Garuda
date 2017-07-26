@@ -5,24 +5,18 @@
  */
 package org.cidarlab.garuda.forms;
 
-import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author jayajr
  */
 public class LoginForm {
-    @NotEmpty(message="Login: Username may not be empty")
-    @Size(min=5, max=15)
     @Getter
     @Setter
     private String username;
 
-    @NotEmpty(message="Login: Password may not be empty")
-    @Size(min=5, max = 15)
     @Getter
     @Setter
     private String password;

@@ -5,11 +5,8 @@
  */
 package org.cidarlab.garuda.forms;
 
-import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -17,34 +14,22 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
     public class RegisterForm {
         
-        
-        @NotEmpty(message="Register: Name may not be empty")
-        @Email
         @Getter
         @Setter
         private String name;
         
-        @NotEmpty(message="Register: Email may not be empty")
-        @Email
         @Getter
         @Setter
         private String email;
                 
-        @NotEmpty(message="Register: Username may not be empty")
-        @Size(min=5, max=25)
         @Getter
         @Setter
         private String username;
 
-
-        @NotEmpty(message="Register: Password may not be empty")
-        @Size(min=5, max = 15)
         @Getter
         @Setter
         private String password;
         
-        @NotEmpty(message="Register: Application may not be empty")
-        @Size(min=5, max = 15)
         @Getter
         @Setter
         private String application;
@@ -77,5 +62,5 @@ import org.hibernate.validator.constraints.NotEmpty;
                 + "application= " + application
                 + "}";
                 
-    }
+        }
     }
