@@ -29,12 +29,12 @@ and open the template in the editor.
                                     <select id="sheet" class="form-control">
                                         <!--<option>Choose Schema</option>-->
                                         <option value="add.html" selected="selected">Convenience Part</option>
-                                        <option value="add_metadata.html">Metadata</option>
+<!--                                        <option value="add_metadata.html">Metadata</option>
                                         <option value="add_parts.html">Parts</option>
                                         <option value="add_constructs.html">Constructs</option>
                                         <option value="add_gendata.html">Generated Data</option>
                                         <option value="add_rna.html">RNA Seq</option>
-                                        <option value="add_qc.html">QC</option>
+                                        <option value="add_qc.html">QC</option>-->
                                     </select>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@ and open the template in the editor.
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parameters">Parameters
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <!--<input type="text" name="parameters" class="form-control col-md-7 col-xs-12" th:field="*{parameters}"/>-->
+                                                    <input type="text" name="parameters" class="form-control col-md-7 col-xs-12" placeholder="Enter valid Parameter LIST in JSON format" th:field="*{parameters}"/>
                                                 </div>
                                             </div>
                                             <div class="ln_solid"></div>

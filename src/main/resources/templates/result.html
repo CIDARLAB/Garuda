@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout :: site-head"></head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                
+                <div th:replace="layout :: left-menu"></div>
+
+                <div th:replace="layout :: site-header"></div>
+                
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Result</h3>
+                            </div>
+
+                            
+                        </div>
+                        <div class="clearfix"></div>
+                        <pre>
+                            <h4 th:text ="*{result}"></h4>
+                        </pre>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <footer th:replace="layout :: site-footer"></footer>
+                
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+        <!-- Autosize -->
+        <script src="js/autosize.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+        <!-- Onchange combobox -->
+        <script>
+            $(function(){
+              // bind change event to select
+              $('#sheet').on('change', function () {
+                  var url = $(this).val(); // get selected value
+                  if (url) { // require a URL
+                      window.location = url; // redirect
+                  }
+              });
+            });
+        </script>
+        <!-- /Onchange combobox -->
+        <!-- Autosize -->
+        <script>
+          $(document).ready(function() {
+            autosize($('.resizable_textarea'));
+          });
+        </script>
+        <!-- /Autosize -->
+    </body>
+
+</html>

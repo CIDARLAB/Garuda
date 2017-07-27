@@ -5,6 +5,8 @@
  */
 package org.cidarlab.garuda.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
@@ -46,18 +48,23 @@ public class SearchController {
     }
     
     @RequestMapping(method=RequestMethod.POST)
-    @ResponseBody
+
     public String resolveSearch(
             SearchForm searchForm,
             HttpSession session,
-            Model model){
+            Model model) throws IOException{
         
+        ObjectMapper mapper = new ObjectMapper();
+
         if (searchForm.getBiodesignId() != null){
             
-            return clotho.getPartById_get(session, searchForm.getBiodesignId());
-            
+            String json = clotho.getPartById_get(session, searchForm.getBiodesignId());
+            Object jsonObj = mapper.readValue(json, Object.class);
+            String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+            model.addAttribute("result", indented);
+        } else {
+            model.addAttribute("result", "BioDesign not found");
         }
-        
         
         return "result";
     }

@@ -5,6 +5,8 @@
  */
 package org.cidarlab.garuda.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.forms.LoginForm;
@@ -51,15 +53,17 @@ public class AddController {
     
     
     @RequestMapping(value="/add", method=RequestMethod.POST)
-    @ResponseBody
     public String postAddPage(
             AddForm addForm,
             HttpSession session,
-            Model model) {
+            Model model) throws IOException {
+        
+        ObjectMapper mapper = new ObjectMapper();
         
         String result = null;
         
         try {
+            System.out.println(addForm.toJsonString());
             String partId = clotho.createPart_post(addForm.toMap(), session);
             
             if (partId == null) {
@@ -71,7 +75,12 @@ public class AddController {
         } catch (RuntimeException e) {
             return "/error";
         } finally {
-            return result;
+            
+            Object jsonObj = mapper.readValue(result, Object.class);
+            String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+            model.addAttribute("result", indented);
+            
+            return "result";
         }
     }
     

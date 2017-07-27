@@ -109,7 +109,7 @@ public class RecommendController {
         
         
         long startTime = System.currentTimeMillis();
-        ml.recommend (user, fileLocation, session);
+        ml.recommend_nn (user, fileLocation, session);
         System.out.println("********** Running time for recommendation engine: " + (System.currentTimeMillis()-startTime) + " ms.");
         
         
