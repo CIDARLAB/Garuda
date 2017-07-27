@@ -229,7 +229,7 @@ public class ApplicationInit {
                 
                 List<String> output = RWR_RecEngine.mRegression("resources/" + this.filename, username);
 
-                String[] part_temp = output.get(0).split(",");
+                /*String[] part_temp = output.get(0).split(",");
                 String[] prob_string = output.get(1).split(",");
                 
                 String[] part_all = RWR_RecEngine.getPartnames();
@@ -261,7 +261,7 @@ public class ApplicationInit {
                     //double val = 1/Double.parseDouble(prob_string[i]);
                     //System.out.println(val + "   " + min + "   " + max);
                     this.probabilities[i] = Double.parseDouble(prob_string[i]);
-                }
+                }*/
 
                 break;
             case "guy":
@@ -291,28 +291,8 @@ public class ApplicationInit {
                 CategoricalRecEngine rec = new CategoricalRecEngine(username, "resources/" + this.filename, labelSheet, featuresSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
                 //this.message = rec.recommend_expert();
 
-                List<String> output_ = rec.mRegression();
+                this.message = rec.nnbackprop("resources/" + this.filename, username);
 
-                System.out.println("****Pass this2!!");
-                
-                String[] part_temp_ = output_.get(0).split(",");
-                String[] prob_string_ = output_.get(1).split(",");
-                
-                String[] part_all_ = rec.getPartnames();
-                
-                this.partnames = new String[part_temp_.length];
-                for (int i = 0; i < part_temp_.length; i++) {
-                    int idx = Integer.parseInt(part_temp_[i].substring(1));
-                    this.partnames[i] = part_all_[idx];
-                }
-                
-                this.probabilities = new double[prob_string_.length];
-                for (int i = 0; i < this.probabilities.length; i++) {
-                    //System.out.println (prob_temp[i] + "  " + max + "  " + min);
-                    this.probabilities[i] = Double.parseDouble(prob_string_[i]);
-                }
-
-                
                 break;
 
             case "robwarden":

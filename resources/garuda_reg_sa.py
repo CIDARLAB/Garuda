@@ -36,6 +36,6 @@ pred_toxic_parts = [x for x in res.pvalues.keys() if res.pvalues[x] < 0.001 and 
 pred_toxic_probs = [res.pvalues[x] for x in pred_toxic_parts]
 
 #print res.summary()
-print ",".join(str(s) for s in pred_toxic_parts)
-print ",".join(str(t) for t in pred_toxic_probs)
+print (",".join(str(s) for s in pred_toxic_parts))
+print (",".join(str(t) for t in pred_toxic_probs))
 

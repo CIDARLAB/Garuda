@@ -193,11 +193,11 @@ public class RESTController {
     @RequestMapping(value="/recommendation", method=RequestMethod.POST)
     public String recommendation (@ModelAttribute ApplicationInit app, Model model) {
         
-        String user = "robwarden";
+        String user = "mardian";
         //String pass = "pass";
         
         long startTime = System.currentTimeMillis();
-        app.recommend (user);
+        app.recommend_nn (user);
         System.out.println("********** Running time for recommendation engine: " + (System.currentTimeMillis()-startTime) + " ms.");
         
         model.addAttribute("app", app);
