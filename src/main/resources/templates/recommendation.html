@@ -42,7 +42,6 @@ and open the template in the editor.
                             <div ng-app="myApp" ng-controller="myCtrl" class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <p class="umessage" th:text="${app.getMessage()}"></p>
                                         <h2>Toxicity Analysis</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -50,11 +49,11 @@ and open the template in the editor.
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div class="x_content">
+<!--                                    <div class="x_content">
                                         <div class="col-md-8 col-sm-8 col-xs-8">
                                             <canvas id="mybarChart"></canvas>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -128,7 +127,7 @@ and open the template in the editor.
 	<script src='js/angularplasmid.min.js'></script>
         
         <!-- Chart.js -->
-        <script th:inline="javascript">
+<!--        <script th:inline="javascript">
             /*<![CDATA[*/
             var ang = angular.module('myApp', ['angularplasmid']);
             
@@ -170,7 +169,7 @@ and open the template in the editor.
           });
 
             /*]]>*/
-        </script>
+        </script>-->
         <!-- /Chart.js -->
     </body>
 

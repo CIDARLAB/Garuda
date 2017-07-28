@@ -14,7 +14,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.garuda.legacyutil.FormatExchange;
 import org.cidarlab.garuda.model.Feature;
 import org.cidarlab.garuda.machinelearning.Backpropagation;
 import org.cidarlab.garuda.machinelearning.MultipleRegression;
@@ -49,6 +48,8 @@ public class CategoricalRecEngine {
     private List<Integer> cumCount;
     private int cumTotal;
     
+    private int cluster;
+    
     @Getter
     @Setter
     private String[] partnames;
@@ -79,6 +80,7 @@ public class CategoricalRecEngine {
         this.cumTotal = 0;
         
         this.partnames = new String[num_of_parts];
+        this.cluster = 2;
     }
 
     public List<String> mRegression() {
@@ -323,6 +325,66 @@ public class CategoricalRecEngine {
             System.out.println("(possible toxic): " + finalToxicParts.get(j));
         }
 
+    }
+
+    
+    public String nnbackprop(String inputUrl, String username) {
+
+        try {
+            FileInputStream inputFile = new FileInputStream(this.inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+
+            XSSFSheet sheet = workbook.getSheet(this.labelSheet);
+            generateLabel(sheet);
+            
+            sheet = workbook.getSheet(this.featuresSheet);
+            generateMatrix(sheet);
+            
+            //////////
+            /*for (int k = 0; k < list_of_parts.size(); k++) {
+                System.out.println ((k+1) + "   " + list_of_parts.get(k));
+            }*/
+            Backpropagation backprop = new Backpropagation(data, label, cluster);   //hidden neurons = 3
+            
+            double[][] wih = backprop.getWih();
+            for (int i = 0; i < wih.length; i++) {
+                System.out.print("+++ Part " + i + ":");
+                for (int j = 0; j < wih[0].length; j++) {
+                    System.out.print("\t" + wih[i][j]);
+                }
+                System.out.println();
+            }
+            
+            List<Feature> output = backprop.getClusterData();
+            List<Integer> trainIdx = backprop.getTrainList();
+
+            //System.out.println("Backprop:");
+            int row = backprop.getClusterData().size();
+            int error_count = 0;
+            for (int i = 0; i < row; i++) {
+                String train = "testing";
+                if (trainIdx.contains(i)) {
+                    train = "training";
+                }
+                if (output.get(i).getCluster() != label[i][0]) {
+                    error_count++;
+                }
+                //        System.out.println(output.get(i).getCluster() + "\t" + label[i][0] + "\t" + train);
+            }
+            System.out.println("*** Accuracy = " + ((double) (row - error_count) / row * 100) + "%");
+
+            /*NaiveBayes bpbayes = new NaiveBayes (backprop.getClusterData(), data, cluster, num_of_parts);
+            
+            List<Integer> toxicList = bpbayes.getToxicList();
+            System.out.println ("Number of toxic parts: " + toxicList.size());
+            for (int i = 0; i< toxicList.size(); i++) {
+                System.out.println ("(possible toxic) " + list_of_parts.get(toxicList.get(i)-1));
+            }*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return "Recommendation generated!";
+        }
     }
 
 }

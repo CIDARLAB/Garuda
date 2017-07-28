@@ -83,6 +83,7 @@ public class RecommendController {
         String path = currDir.getAbsolutePath();
 
         fileLocation = path.substring(0, path.length() - 1) + multipartFile.getOriginalFilename();
+        //fileLocation = "/resources/" + multipartFile.getOriginalFilename();
 
         FileOutputStream f = new FileOutputStream(fileLocation);
         int ch = 0;
