@@ -247,13 +247,13 @@ public class Guy_Parser {
                 json.put("objectName", display_id);
                 json.put("createSeqFromParts", "true");
                 json.put("role", row.getCell(1).getStringCellValue());
-                json.put("partIDs", partsID);
+                json.put("partIds", partsID);
                 
                 jsonmap.put("name", display_id);
                 jsonmap.put("displayId", display_id);
                 jsonmap.put("createSeqFromParts", "true");
                 jsonmap.put("role", row.getCell(1).getStringCellValue());
-                jsonmap.put("partIDs", partsID);
+                jsonmap.put("partIds", partsID);
                 
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");

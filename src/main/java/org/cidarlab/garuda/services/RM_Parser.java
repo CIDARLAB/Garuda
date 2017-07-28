@@ -21,6 +21,7 @@ import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.rest.clotho.model.Parameter;
 import org.cidarlab.garuda.services.ClothoService;
 import org.cidarlab.garuda.services.ClothoService;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -273,7 +274,7 @@ public class RM_Parser {
                 json.put("name", display_id);
                 json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
-                json.put("partIDs", partIds);
+                json.put("partIds", partIds);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
@@ -321,16 +322,18 @@ public class RM_Parser {
 
                 }
                 
+                JSONArray jarray = new JSONArray();
+                
                 String partIds = partList.get(0);  //parts + scars
                 for (int j = 1; j < partList.size(); j++) {
-                    partIds = partIds + "," + partList.get(j);
+                    jarray.add(partList.get(j));
+                    
                 }
 
                 json.put("name", display_id);
                 json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
-                json.put("role", row.getCell(1).getStringCellValue());
-                json.put("partIDs", partIds);
+                json.put("partIds", jarray);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);

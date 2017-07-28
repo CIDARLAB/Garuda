@@ -165,7 +165,7 @@ public class InitConstructs {
                 json.put("objectName", display_id);
                 json.put("createSeqFromParts", "true");
                 json.put("role", row.getCell(1).getStringCellValue());
-                json.put("partIDs", partsID);
+                json.put("partIds", partsID);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 
