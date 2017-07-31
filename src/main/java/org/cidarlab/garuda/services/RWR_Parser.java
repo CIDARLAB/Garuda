@@ -233,7 +233,7 @@ public class RWR_Parser {
                 System.out.println(jsonString);
 
                 //String part_id = rest.createPart(jsonString);
-                String part_id = clotho.createDevice_post(json, session);
+                String part_id = clotho.createPart_post(json, session);
                 System.out.println(part_id);
                 parts.put(display_id, part_id);
 
@@ -290,13 +290,19 @@ public class RWR_Parser {
 
                 }
 
-                String partIds = partList.get(0);  //parts + scars
-                for (int j = 1; j < partList.size(); j++) {
-                    partIds = partIds + "," + partList.get(j);
+                List<String> partIds = new ArrayList();  //parts + scars
+                for (int j = 0; j < partList.size(); j++) {
+                    String subPartId = partList.get(j);
+                    
+                    if (subPartId != null) { 
+                        partIds.add(subPartId);
+                    } else {
+                        continue;
+                    }
                 }
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", display_id);
+                json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
                 //json.put("role", row.getCell(1).getStringCellValue());    //no role
                 json.put("partIds", partIds);
@@ -309,13 +315,13 @@ public class RWR_Parser {
                 System.out.println(construct_id);
                 constructs_lvl1.put(display_id, construct_id);
                 
-                
-                JSONObject query_json = new JSONObject();
-                query_json.put("objectName", display_id);
-                String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
-                System.out.print("This is from query: ");
-                //rest.getDeviceID(query_jsonString);
-                clotho.getDeviceId_get(query_jsonString);
+//                
+//                JSONObject query_json = new JSONObject();
+//                query_json.put("objectName", display_id);
+//                String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
+//                System.out.print("This is from query: ");
+//                //rest.getDeviceID(query_jsonString);
+//                clotho.getDeviceId_get(query_jsonString);
                 
 
                 
@@ -361,25 +367,31 @@ public class RWR_Parser {
                         
                         System.out.println("***From hack: " + constructs_lvl1.get(pdisplay_id) + "   " + pdisplay_id);		
                         		
-                        JSONObject query_json = new JSONObject();		
-                        query_json.put("objectName", pdisplay_id);		
-                        String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");		
+                        //JSONObject query_json = new JSONObject();		
+                        //query_json.put("display_id", pdisplay_id);		
+                        //String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");		
                         //System.out.println("***From search: " + rest.getPart(query_jsonString));		
                         //System.out.println("***From device: " + rest.getDevice(query_jsonString));		
                         		
-                        System.out.println("***From search ID: " + clotho.getPartById_get(session, query_jsonString) + "    " + pdisplay_id);		
+                        //System.out.println("***From search ID: " + clotho.getPartById_get(session, query_jsonString) + "    " + pdisplay_id);		
                         
                     }
 
                 }
                 
-                String partIds = partList.get(0);  //parts + scars
-                for (int j = 1; j < partList.size(); j++) {
-                    partIds = partIds + "," + partList.get(j);
+                List<String> partIds = new ArrayList();  //parts + scars
+                for (int j = 0; j < partList.size(); j++) {
+                    String subPartId = partList.get(j);
+                    
+                    if (subPartId != null) { 
+                        partIds.add(subPartId);
+                    } else {
+                        continue;
+                    }
                 }
 
-                json.put("username", username);
-                json.put("objectName", display_id);
+                json.put("name", display_id);
+                json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
                 //json.put("role", row.getCell(1).getStringCellValue());
                 json.put("partIds", partIds);
