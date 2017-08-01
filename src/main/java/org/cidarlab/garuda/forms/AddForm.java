@@ -47,6 +47,14 @@ public class AddForm {
     @Setter
     String sequence;
     
+    @Getter
+    @Setter
+    String createSeqFromParts;
+    
+    @Getter
+    @Setter
+    String partIds;
+    
     public AddForm(){
         this.name = null;
         this.displayId = null;
@@ -73,20 +81,52 @@ public class AddForm {
                 + "sequence: " + this.sequence + "}";
     }
     
-    public String toJsonString(){
+    public String toPartJsonString(){        
         return "{"
                 + "\"name\": \"" + this.name +"\", "
                 + "\"displayId\": \"" + this.displayId + "\", "
                 + "\"role\": \"" + this.role + "\", "
                 + "\"parameters\": " + this.parameters + ", "
-                + "\"sequence\": \"" + this.sequence + "\"}";
+                + "\"sequence\": \"" + this.sequence + "\""
+                + "}";
     }
     
-    public Map toMap() throws ParseException{
+    public String toDeviceJsonString(){
+        
+        String string = "{";
+        
+        if (this.sequence != null){
+            string += "\"sequence\": \"" + this.sequence + "\",";
+        }
+        
+        if (this.role != null){
+            string += "\"role\": \"" + this.role + "\",";
+        }
+        
+                return string
+                + "\"name\": \"" + this.name +"\", "
+                + "\"displayId\": \"" + this.displayId + "\", "
+                
+                + "\"parameters\": " + this.parameters + ", "
+
+                + "\"partIds\": " + this.partIds + ","
+                + "\"createSeqFromParts\":\"" + this.createSeqFromParts + "\""
+                + "}";
+    }
+    
+    public Map toPartMap() throws ParseException{
         
         JSONParser parser = new JSONParser();
-        JSONObject map = (JSONObject) parser.parse(this.toJsonString());
+        JSONObject map = (JSONObject) parser.parse(this.toPartJsonString());
         
         return map;
-    }    
+    }
+        
+    public Map toDeviceMap() throws ParseException{
+        
+        JSONParser parser = new JSONParser();
+        JSONObject map = (JSONObject) parser.parse(this.toDeviceJsonString());
+        
+        return map;
+    } 
 }

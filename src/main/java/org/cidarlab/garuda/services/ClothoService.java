@@ -147,13 +147,34 @@ public class ClothoService {
         
     }
     
+    public String getDeviceById_get(HttpSession session, String biodesignId){
+        
+        String URI = URL + "/device/" + biodesignId;
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        Map map = new HashMap<>();
+        
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
     public String createDevice_post(Map json, HttpSession session){
         
         String URI = URL + "/device";
         
         HttpHeaders postHeaders = new HttpHeaders();
         postHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        
         HttpEntity<Map<String, String>> request = new HttpEntity<>(json, postHeaders);
         
         ResponseEntity<String> responseEntity = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);

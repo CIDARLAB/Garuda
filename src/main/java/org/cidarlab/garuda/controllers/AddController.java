@@ -42,7 +42,10 @@ public class AddController {
             return "login";
         }
         
-        model.addAttribute("addForm", new AddForm());
+        AddForm form = new AddForm();
+        form.setParameters("[]");
+        
+        model.addAttribute("addForm", form);
         return "add";
     }
     
@@ -58,18 +61,85 @@ public class AddController {
             HttpSession session,
             Model model) throws IOException {
         
+        if (addForm.getParameters() == null){
+            addForm.setParameters("[]");
+        }
+        
         ObjectMapper mapper = new ObjectMapper();
         
         String result = null;
         
         try {
-            System.out.println(addForm.toJsonString());
-            String partId = clotho.createPart_post(addForm.toMap(), session);
+            System.out.println(addForm.toPartJsonString());
+            String partId = clotho.createPart_post(addForm.toPartMap(), session);
             
             if (partId == null) {
                 throw new RuntimeException();
             } else {
                 result = clotho.getPartById_get(session, partId);
+            }
+
+        } catch (RuntimeException e) {
+            return "/error";
+        } finally {
+            
+            Object jsonObj = mapper.readValue(result, Object.class);
+            String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+            model.addAttribute("result", indented);
+            
+            return "result";
+        }
+    }
+    
+    @RequestMapping(value="/add_device", method=RequestMethod.GET)
+    public String getAddDevicePage(HttpSession session, Model model) {
+        
+        String user = (String) session.getAttribute("username");
+        String authHeader = (String) session.getAttribute("authHeader");
+        
+        if (user == null || authHeader == null){
+            model.addAttribute("loginForm", new LoginForm());
+            model.addAttribute("registerForm", new RegisterForm());
+        
+            return "login";
+        }
+        
+        AddForm form = new AddForm();
+        form.setParameters("[]");
+        form.setPartIds("[]");
+        
+        model.addAttribute("addForm", form);
+        return "add_device";
+    }
+    
+    /*
+     * Note: postAddPage returns a String due to @ResponseBody annotation. 
+     *       Remove to route to a different page.
+     */    
+    
+    
+    @RequestMapping(value="/add_device", method=RequestMethod.POST)
+    public String postAddDevicePage(
+            AddForm addForm,
+            HttpSession session,
+            Model model) throws IOException {
+        
+        if (addForm.getParameters() == null){
+            addForm.setParameters("[]");
+        }
+        
+        ObjectMapper mapper = new ObjectMapper();
+        
+        String result = null;
+        
+        try {
+            System.out.println(addForm.toPartJsonString());
+            String partId = clotho.createDevice_post(addForm.toDeviceMap(), session);
+            
+            if (partId == null) {
+                throw new RuntimeException();
+            } else {
+                result = clotho.getDeviceById_get(session, partId);
             }
 
         } catch (RuntimeException e) {
