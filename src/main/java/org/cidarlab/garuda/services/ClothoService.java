@@ -18,7 +18,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -43,9 +42,9 @@ public class ClothoService {
     }
     
     
-    /*
+    /* ===== ===== =====
         Login Services
-    */
+     * ===== ===== ===== */ 
     
     public Account login_post(LoginForm loginForm, HttpSession session) {
         
@@ -99,75 +98,43 @@ public class ClothoService {
     }
     
     
-    /*
+    /* ===== ===== =====
+        Utilities
+     * ===== ===== ===== */ 
+    
+    /* ===== =====
+        BLAST
+     * ===== ===== */
+    
+    public String getBlast_post(Map json, HttpSession session){
+        
+        String URI = URL + "/blast";
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(json,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.POST, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
+    
+    /* ===== ===== =====
         Convenience Methods
-    */
+     * ===== ===== ===== */
     
-    
-    public String getPartById_get(HttpSession session, String biodesignId){
-        
-        String URI = URL + "/part/" + biodesignId;
-        
-        HttpHeaders getHeaders = new HttpHeaders();
-        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        Map map = new HashMap<>();
-        
-        HttpEntity<?> request = new HttpEntity(map,getHeaders);
-        
-        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
-        
-        String partDetails = null;
-        
-        if (response.getStatusCode() == HttpStatus.OK){
-            partDetails = response.getBody();    
-        }
-        
-        return partDetails;
-        
-    }
-    
-    public String getPartWithFilter_put(Map filter, HttpSession session){
-        
-        String URI = URL + "/part";
-        
-        HttpHeaders getHeaders = new HttpHeaders();
-        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        
-        HttpEntity<?> request = new HttpEntity(filter,getHeaders);
-        
-        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
-        
-        String partDetails = null;
-        
-        if (response.getStatusCode() == HttpStatus.OK){
-            partDetails = response.getBody();    
-        }
-        
-        return partDetails;
-        
-    }
-    
-    public String getDeviceById_get(HttpSession session, String biodesignId){
-        
-        String URI = URL + "/device/" + biodesignId;
-        
-        HttpHeaders getHeaders = new HttpHeaders();
-        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        Map map = new HashMap<>();
-        
-        HttpEntity<?> request = new HttpEntity(map,getHeaders);
-        
-        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
-        
-        String partDetails = null;
-        
-        if (response.getStatusCode() == HttpStatus.OK){
-            partDetails = response.getBody();    
-        }
-        
-        return partDetails;
-        
-    }
+    /* ===== ===== 
+         CREATE
+     * ===== =====  */ 
     
     public String createDevice_post(Map json, HttpSession session){
         
@@ -207,9 +174,85 @@ public class ClothoService {
         return constructId;
     }
 
-    public void getDeviceId_get(String query_jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /* ===== ===== 
+         READ
+     * ===== =====  */ 
+    
+    public String getPartById_get(String biodesignId, HttpSession session){
+        
+        String URI = URL + "/part/" + biodesignId;
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        Map map = new HashMap<>();
+        
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
     }
+    
+    public String getPartWithFilter_put(Map json, String filter, HttpSession session){
+        
+        String URI = URL + "/part/" + filter;       
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(json,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
+    
+    
+    public String getDeviceById_get(String biodesignId, HttpSession session){
+        
+        String URI = URL + "/device/" + biodesignId;
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        Map map = new HashMap<>();
+        
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
+    
+    /* ===== ===== 
+         UPDATE
+     * ===== =====  */ 
+    
+    /* ===== ===== 
+         DELETE
+     * ===== =====  */ 
     
     public void test(){
         System.out.println("The ClothoService is connected to this class.");

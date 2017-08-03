@@ -76,7 +76,7 @@ public class AddController {
             if (partId == null) {
                 throw new RuntimeException();
             } else {
-                result = clotho.getPartById_get(session, partId);
+                result = clotho.getPartById_get(partId, session);
             }
 
         } catch (RuntimeException e) {
@@ -139,7 +139,7 @@ public class AddController {
             if (partId == null) {
                 throw new RuntimeException();
             } else {
-                result = clotho.getDeviceById_get(session, partId);
+                result = clotho.getDeviceById_get(partId, session);
             }
 
         } catch (RuntimeException e) {

@@ -102,23 +102,30 @@ public class ImportController {
         
         System.out.println(user);
         
-        
-        if (user.equals("robwarden")){
-            System.out.println("parsing with RW");
-            rwrparser.parse(fileLocation, user, session);
-        } else if (user.equals("guy")){
-            System.out.println("parsing with Guy");
-            guyparser.parse(fileLocation, "resources/output-", user, session);
-        } else {
-            System.out.println("parsing with RM");
-            rmparser.parse(fileLocation, user, session);
+        try {
+            if (user.equals("robwarden")){
+                System.out.println("parsing with RW");
+                rwrparser.parse(fileLocation, user, session);
+            } else if (user.equals("guy")){
+                System.out.println("parsing with Guy");
+                guyparser.parse(fileLocation, "resources/output-", user, session);
+            } else {
+                System.out.println("parsing with RM");
+                rmparser.parse(fileLocation, user, session);
+            }
+            
+            System.out.println("done parsing");
+            model.addAttribute("result", "Import Successful!");
+        } catch (RuntimeException e) {
+            model.addAttribute("result", "Error: Import aborted.");
         }
-        
-        System.out.println("done parsing");
+       
     
     //} Parsing the file
         
-        return "/upload";
+        
+    
+        return "/result";
     }
     
     @RequestMapping(value = "/upload", method=RequestMethod.GET)

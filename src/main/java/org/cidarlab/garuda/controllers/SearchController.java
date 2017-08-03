@@ -7,11 +7,17 @@ package org.cidarlab.garuda.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.forms.SearchForm;
 import org.cidarlab.garuda.services.ClothoService;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,18 +58,70 @@ public class SearchController {
     public String resolveSearch(
             SearchForm searchForm,
             HttpSession session,
-            Model model) throws IOException{
+            Model model) throws IOException, ParseException{
         
         ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            if (searchForm.getBiodesignId() != null && !searchForm.getBiodesignId().isEmpty()){
 
-        if (searchForm.getBiodesignId() != null){
-            
-            String json = clotho.getPartById_get(session, searchForm.getBiodesignId());
-            Object jsonObj = mapper.readValue(json, Object.class);
-            String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
-            model.addAttribute("result", indented);
-        } else {
+                String json = clotho.getPartById_get(searchForm.getBiodesignId(), session);
+                Object jsonObj = mapper.readValue(json, Object.class);
+                String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+                model.addAttribute("result", indented);
+                
+            } else {
+                
+                if (searchForm.getSequence() != null && !searchForm.getSequence().isEmpty()){
+                    searchForm.setBlast(true);
+                
+                    String filter = searchForm.getFilter();
+                    Map json = searchForm.toMap();
+
+                    if (filter != null && !filter.isEmpty()){
+                        model.addAttribute("result", clotho.getPartWithFilter_put(json, filter, session));
+                    } else {
+
+                        String p1 = clotho.getBlast_post(json, session);
+
+                        model.addAttribute("result", p1);
+
+                    }
+                } else {
+                    String filter = searchForm.getFilter();
+                    Map json = searchForm.toMap();
+
+                    if (filter != null && !filter.isEmpty()){
+                        model.addAttribute("result", clotho.getPartWithFilter_put(json, filter, session));
+                    } else {
+
+                        String p1 = clotho.getPartWithFilter_put(json, "_id", session);
+                        String p2 = clotho.getPartWithFilter_put(json, "name", session);
+                        String p3 = clotho.getPartWithFilter_put(json, "subparts", session);
+
+
+                        String[] l1 = p1.split(",");
+                        String[] l2 = p2.split(",");
+                        String[] l3 = p3.split("},");
+
+
+                        String output = "ID\t\t\t\tName\t\tSubparts\n";
+
+                        int length = l1.length;
+
+                        for (int i = 0; i < length; i++){
+                            output = output + l1[i] + "\t" + l2[i]+ "\t\t" + l3[i] + "\n";
+                        }
+
+                        model.addAttribute("result", output);
+
+                    }
+                }
+                
+            }
+        } catch (RuntimeException e){
             model.addAttribute("result", "BioDesign not found");
+            System.out.println(e.getMessage());
         }
         
         return "result";
