@@ -133,7 +133,7 @@ public class AddController {
         String result = null;
         
         try {
-            System.out.println(addForm.toPartJsonString());
+            System.out.println(addForm.toDeviceJsonString());
             String partId = clotho.createDevice_post(addForm.toDeviceMap(), session);
             
             if (partId == null) {

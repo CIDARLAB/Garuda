@@ -95,20 +95,20 @@ public class AddForm {
         
         String string = "{";
         
-        if (this.sequence != null){
-            string += "\"sequence\": \"" + this.sequence + "\",";
+        
+        if (this.role != null || !this.role.isEmpty()){
+            string += "\"role\": \"" + this.role + "\",";
         }
         
-        if (this.role != null){
-            string += "\"role\": \"" + this.role + "\",";
+        if (this.parameters != null || !this.role.isEmpty()){
+            string += "\"parameters\": " + this.parameters + ", ";
+        } else if (this.parameters.equals("[]")) {
+            
         }
         
                 return string
                 + "\"name\": \"" + this.name +"\", "
                 + "\"displayId\": \"" + this.displayId + "\", "
-                
-                + "\"parameters\": " + this.parameters + ", "
-
                 + "\"partIds\": " + this.partIds + ","
                 + "\"createSeqFromParts\":\"" + this.createSeqFromParts + "\""
                 + "}";
