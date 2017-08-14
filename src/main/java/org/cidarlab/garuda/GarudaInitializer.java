@@ -19,6 +19,7 @@ import org.springframework.web.servlet.DispatcherServlet;
  * @author jayajr
  */
 public class GarudaInitializer implements WebApplicationInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         WebApplicationContext context = getContext();

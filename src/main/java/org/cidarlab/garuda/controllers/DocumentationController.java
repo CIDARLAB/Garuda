@@ -19,24 +19,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author jayajr
  */
 @Controller
-@RequestMapping(value="/documentation")
+@RequestMapping(value = "/documentation")
 public class DocumentationController {
-    
+
     @ResponseBody
-    @RequestMapping(method=RequestMethod.GET)
-    public String getDocumentationPage(HttpSession session, Model model) { 
-        
+    @RequestMapping(method = RequestMethod.GET)
+    public String getDocumentationPage(HttpSession session, Model model) {
+
         String user = (String) session.getAttribute("username");
         String authHeader = (String) session.getAttribute("authHeader");
-        
-        if (user == null || authHeader == null){
+
+        if (user == null || authHeader == null) {
             model.addAttribute("loginForm", new LoginForm());
             model.addAttribute("registerForm", new RegisterForm());
-        
+
             return "login";
         }
-        
+
         return "documentation";
     }
 }
-

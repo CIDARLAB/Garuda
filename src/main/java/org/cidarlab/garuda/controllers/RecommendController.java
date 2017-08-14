@@ -110,11 +110,13 @@ public class RecommendController {
         
         
         long startTime = System.currentTimeMillis();
-        ml.recommend_nn (user, fileLocation, session);
+        ml.recommend (user, fileLocation, session);
         System.out.println("********** Running time for recommendation engine: " + (System.currentTimeMillis()-startTime) + " ms.");
         
         
-        System.out.println("done parsing");
+        //model.addAttribute("result", "Recommendation generated!");
+
+        //System.out.println("done parsing");
     
     //} Parsing the file
 

@@ -110,7 +110,7 @@ public class SearchController {
                         int length = l1.length;
 
                         for (int i = 0; i < length; i++){
-                            output = output + l1[i] + "\t" + l2[i]+ "\t\t" + l3[i] + "\n";
+                            output = output + l1[i] + "\t" + l2[i]+ "\t\t\n";
                         }
 
                         model.addAttribute("result", output);

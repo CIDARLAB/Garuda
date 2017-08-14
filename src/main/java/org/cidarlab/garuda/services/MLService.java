@@ -37,8 +37,9 @@ switch (username) {
                 String null_flag = "N/A";
 
                 CategoricalRecEngine rec = new CategoricalRecEngine(username, fileLocation, labelSheet, featuresSheet, labelIdx, featuresIdx, num_of_parts, num_of_constructs, size_of_constructs, null_flag);
-                //this.message = rec.recommend_expert();
-                List<String> output_ = rec.mRegression();
+                this.message = rec.recommend_expert();
+                
+                /*List<String> output_ = rec.mRegression();
 
                 String[] part_temp_ = output_.get(0).split(",");
                 String[] prob_string_ = output_.get(1).split(",");
@@ -55,7 +56,7 @@ switch (username) {
                 for (int i = 0; i < this.probabilities.length; i++) {
                     //System.out.println (prob_temp[i] + "  " + max + "  " + min);
                     this.probabilities[i] = Double.parseDouble(prob_string_[i]);
-                }
+                }*/
 
                 
                 break;
