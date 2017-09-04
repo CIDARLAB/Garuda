@@ -9,9 +9,14 @@ import org.cidarlab.main.garuda.RecommendationEngine;
 import java.util.Map;
 import java.util.Random;
 import org.cidarlab.main.garuda.PythonRunner;
+import org.cidarlab.main.garuda.RWR_RecEngine;
+import org.cidarlab.main.garuda.RWR_RecEngine_New;
 import org.cidarlab.main.ml.CollaborativeFake;
 import org.cidarlab.main.ml.CollaborativeFiltering;
 import org.cidarlab.main.ml.ExpectationMaximization;
+import org.cidarlab.main.ml.GaussJordan;
+import org.cidarlab.main.ml.MulticollinearityCheck;
+import org.cidarlab.main.ml.MultipleLinearRegression;
 import org.cidarlab.main.ml.PrincipleComponentAnalysis;
 import org.cidarlab.main.ml.SupportVectorMachine;
 import org.junit.After;
@@ -83,7 +88,79 @@ public class ApplicationTest {
         new ExpectationMaximization(2, true, true);
     }
     
+    //@Test
+    public void testOLSRegression() {
+        RWR_RecEngine.mRegression("resources/rob.xlsx");
+    }
+    
+    //@Test
+    public void featureGenerator() {
+        RWR_RecEngine_New.mRegression_simplified("resources/rob.xlsx");
+    }
+     
     @Test
+    public void multicollinearityCheck() {
+        
+        int num_of_constructs = 702;
+        int num_of_parts = 49;
+        String filename = "features.csv";
+        
+        new MulticollinearityCheck(num_of_constructs, num_of_parts, filename);
+    }
+     
+    //@Test
+    public void jvRegression() {
+        
+        RWR_RecEngine_New.mRegression_python();
+    }
+    
+    //@Test
+    public void gaussian() {
+        double[][] input = new double[][] {
+            {2, 0, 4, 2, 9},
+            {3, 4, 0, 0, -7},
+            {0, 1, 0, 5, 0}};
+        GaussJordan gj = new GaussJordan(input);
+        System.out.println(gj);
+        gj.eliminate();
+        System.out.println(gj);
+    }
+    
+    //@Test
+    public void testRegression() {
+        double[][] x = {
+                { 1, 1, 1, 1 },
+                { 1, 0, 1, 1 },
+                { 1, 0, 1, 0 },
+                { 1, 0, 1, 1 },
+                { 1, 1, 1, 1 },
+                { 1, 1, 1, 0 },
+                { 1, 0, 1, 1 },
+                { 1, 1, 1, 1 },
+                { 1, 1, 0, 1 },
+                { 1, 0, 1, 1 },
+                { 0, 0, 1, 0 },
+                { 1, 0, 1, 1 },
+                { 1, 1, 0, 1 },
+                { 0, 1, 1, 0 },
+                { 0, 1, 1, 0 },
+                { 1, 1, 0, 1 },
+                { 0, 1, 1, 0 },
+                { 1, 1, 0, 1 },
+                { 1, 0, 1, 1 },
+                { 1, 1, 1, 1 }
+            };
+        
+        double[] y = {1.29059717, 0.70544841, 0.75630101, 0.97549496, 0.43153817, 0.44917647,
+                0.99678689, 0.90981844, 0.80678932, 0.83838037, 1.34614472, 1.43276749, 0.93183209,
+                0.89969879, 0.98147421, 0.66831309, 1.28875777, 0.958625, 0.66133257,  0.71738615};
+        
+        MultipleLinearRegression mlr = new MultipleLinearRegression(x, y);
+        System.out.println(mlr.beta(1));
+        System.out.println(mlr.beta(2));
+        System.out.println(mlr.beta(3));
+    }
+    
     public void testRecEngine() {
         
     /*    String input = "input";
