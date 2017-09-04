@@ -1,0 +1,6 @@
+part_name,type,x_extent,y_extent,start_pad,end_pad,color,hatch,arrowhead_height,arrowhead_length,linestyle,linewidth,label,label_style,label_size,label_y_offset,label_x_offset,label_color
+pBAD_EB,Promoter,,,,,0.9;0.0;0.0,,,,,,pBAD_EB,,4,15,0,
+BCD2_BC,RBS,,,,,0.0;0.9;0.0,,,,,,BCD2_BC,,4,-15,0,
+TetR_CM,CDS,,,,,0.0;0.0;0.9,,,,,,TetR_CM,,4,15,0,
+BFP_MD,CDS,,,,,0.9;0.0;0.0,,,,,,BFP_MD,,4,-15,0,
+B0015_DF,Terminator,,,,,0.0;0.9;0.0,,,,,,B0015_DF,,4,15,0,

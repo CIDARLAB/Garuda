@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
+import org.cidarlab.garuda.forms.RecommendForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.services.MLService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +70,7 @@ public class RecommendController {
     @RequestMapping(value="/recommendation", method=RequestMethod.POST)
     public String recommendation (
             @RequestParam("multipartFile") MultipartFile multipartFile,
+            RecommendForm recommendForm,
             HttpSession session,
             Model model) throws IOException {
         
@@ -108,13 +111,25 @@ public class RecommendController {
         
         System.out.println(user);
         
-        
         long startTime = System.currentTimeMillis();
-        ml.recommend (user, fileLocation, session);
+        List<String> output = ml.recommend (user, fileLocation, session);
+        
+        String[] partnames = output.get(0).split(",");
+        String[] prob_string_ = output.get(1).split(",");
+        double[] probabilities = new double[prob_string_.length];
+        for (int i = 0; i < probabilities.length; i++) {
+            probabilities[i] = Double.parseDouble(prob_string_[i]);
+        }
+
+        recommendForm.setPartnames(partnames);
+        recommendForm.setProbabilities(probabilities);
+        
+        
         System.out.println("********** Running time for recommendation engine: " + (System.currentTimeMillis()-startTime) + " ms.");
         
         
-        //model.addAttribute("result", "Recommendation generated!");
+        //model.addAttribute("partnames", output.get(0));
+        //model.addAttribute("probabilities", output.get(1));
 
         //System.out.println("done parsing");
     

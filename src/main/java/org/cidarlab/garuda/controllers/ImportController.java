@@ -28,50 +28,49 @@ import org.springframework.web.multipart.MultipartFile;
  * @author jayajr
  */
 @Controller
-@RequestMapping(value="/import")
+@RequestMapping(value = "/import")
 public class ImportController {
-    
+
     @Autowired
     private static Guy_Parser guyparser;
-    
+
     @Autowired
     private static RM_Parser rmparser;
-    
+
     @Autowired
     private static RWR_Parser rwrparser;
-    
+
     private String fileLocation;
-    
-    @RequestMapping(method=RequestMethod.GET)
-    public String getImportPage(HttpSession session, Model model) { 
-        
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String getImportPage(HttpSession session, Model model) {
+
         String user = (String) session.getAttribute("username");
         String authHeader = (String) session.getAttribute("authHeader");
-        
-        if (user == null || authHeader == null){
+
+        if (user == null || authHeader == null) {
             model.addAttribute("loginForm", new LoginForm());
             model.addAttribute("registerForm", new RegisterForm());
-        
+
             return "login";
         }
-        
+
         return "import";
     }
-    
-    @RequestMapping(method=RequestMethod.POST)
+
+    @RequestMapping(method = RequestMethod.POST)
     public String importFile(
             @RequestParam("multipartFile") MultipartFile multipartFile,
             HttpSession session,
             Model model)
-            throws IOException{
-        
-        
-        if (multipartFile.isEmpty()){
+            throws IOException {
+
+        if (multipartFile.isEmpty()) {
             System.out.println("File empty!");
             return "recommender";
         }
-        
-    //{ Uploading the file
+
+        //{ Uploading the file
         InputStream in = multipartFile.getInputStream();
         File currDir = new File(".");
 
@@ -82,7 +81,7 @@ public class ImportController {
         FileOutputStream f = new FileOutputStream(fileLocation);
         int ch = 0;
 
-        while ((ch=in.read()) != -1){
+        while ((ch = in.read()) != -1) {
             f.write(ch);
         }
 
@@ -93,44 +92,40 @@ public class ImportController {
         System.out.println("location at " + currDir.getAbsolutePath());
         model.addAttribute("message", "File: " + multipartFile.getOriginalFilename() + " has been uploaded successfully!");
 
-    //} Uploading the file
-        
-        
-    //{ Parsing the file
-        
+        //} Uploading the file
+        //{ Parsing the file
         String user = (String) session.getAttribute("username");
-        
+
         System.out.println(user);
-        
+
         try {
-            if (user.equals("robwarden")){
+            if (user.equals("user")) {
                 System.out.println("parsing with RW");
                 rwrparser.parse(fileLocation, user, session);
-            } else if (user.equals("guy")){
+            } else if (user.equals("robwarden")) {
+                System.out.println("parsing with RW");
+                rwrparser.parse(fileLocation, user, session);
+            } else if (user.equals("guy")) {
                 System.out.println("parsing with Guy");
                 guyparser.parse(fileLocation, "resources/output-", user, session);
             } else {
                 System.out.println("parsing with RM");
                 rmparser.parse(fileLocation, user, session);
             }
-            
+
             System.out.println("done parsing");
             model.addAttribute("result", "Import Successful!");
         } catch (RuntimeException e) {
             model.addAttribute("result", "Error: Import aborted.");
         }
-       
-    
-    //} Parsing the file
-        
-        
-    
-        return "/result";
+
+        //} Parsing the file
+        //return "/result";
+        return "import";
     }
-    
-    @RequestMapping(value = "/upload", method=RequestMethod.GET)
-    public String getUploadPage(HttpSession session, Model model) {  
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String getUploadPage(HttpSession session, Model model) {
         return "upload";
     }
 }
-

@@ -292,4 +292,106 @@ public class RWR_RecEngine {
 
     }
 
+    ////for current usage
+    public static List<String> mRegression_simplified(String inputUrl, String username) {
+        
+        String message = "Something is not right...";
+        List<String> output = new ArrayList<String>();
+        
+        try {
+            FileInputStream inputFile = new FileInputStream(inputUrl);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
+
+            XSSFSheet sheet = workbook.getSheet("Final Strains");
+            List<Integer> ids = generateLabel_simplified(sheet);
+
+            sheet = workbook.getSheet("Enumerated Constructs");
+            double[][] matrix = generateMatrix_simplified(sheet, ids);
+            
+            FormatExchange.writeToCSV(matrix, "features-simplified.csv");
+            //FormatExchange.writeToCSV(FormatExchange.nDTo1DArray(label, 0), "label-simplified.csv");
+            //FormatExchange.writeToCSV(partnames, "part.csv");
+
+            /*MultipleRegression mReg = new MultipleRegression();
+            output = mReg.pyRegression("garuda_reg.py");*/
+            //mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return output;
+            //return "Recommendation generated!";
+        }
+    }
+
+    private static List<Integer> generateLabel_simplified(XSSFSheet sheet) {
+
+        List<Integer> ids = new ArrayList<Integer>();
+        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+
+            Row row = sheet.getRow(i);
+
+            try {
+
+                Cell cell = row.getCell(0);
+                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+                int id = (int) cell.getNumericCellValue();
+                
+                if (!ids.contains(id)) {
+                    ids.add(id);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        return ids;
+    }
+
+    private static double[][] generateMatrix_simplified(XSSFSheet sheet, List<Integer> ids) {
+
+        double[][] matrix = new double[ids.size()][num_of_parts];
+        
+        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+
+            Row row = sheet.getRow(i);
+
+            try {
+
+                Cell cell = row.getCell(0);
+                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+                int constructIdx = (int) cell.getNumericCellValue();
+                
+                if (!ids.contains(constructIdx)) continue;
+                
+                int matrixIdx = ids.indexOf(constructIdx);
+                
+                //healthy.add((int) cell.getNumericCellValue());
+
+                for (int j = 0; j < size_of_constructs; j++) {
+
+                    cell = row.getCell(j + 1);
+                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                    String part = cell.getStringCellValue();
+                    if (part.equals("H2O")) {
+                        continue;
+                    }
+                    if (!list_of_parts.contains(part)) {
+                        list_of_parts.add(cell.getStringCellValue());
+                    }
+                    int partIdx = list_of_parts.indexOf(part);
+
+                    matrix[matrixIdx][partIdx] = 1.0;
+                    partnames[partIdx] = list_of_parts.get(partIdx);
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        return matrix;
+    }
+
 }

@@ -221,8 +221,6 @@ public class ClothoService {
         
     }
     
-    
-    
     public String getDeviceById_get(String biodesignId, HttpSession session){
         
         String URI = URL + "/device/" + biodesignId;
@@ -234,6 +232,27 @@ public class ClothoService {
         HttpEntity<?> request = new HttpEntity(map,getHeaders);
         
         ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
+    public String getDeviceWithFilter_put(Map json, String filter, HttpSession session){
+        
+        String URI = URL + "/part/" + filter;       
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(json,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
         
         String partDetails = null;
         

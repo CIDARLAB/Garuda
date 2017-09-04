@@ -162,8 +162,10 @@ public class CategoricalRecEngine {
     }
 
     //recommend_expert and generateMatrix_expert are for expert system
-    public String recommend_expert() {
+    public List<String> recommend_expert() {
 
+        List<String> output = new ArrayList<String>();
+        
         try {
             FileInputStream inputFile = new FileInputStream(this.inputUrl);
             XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
@@ -180,17 +182,27 @@ public class CategoricalRecEngine {
                 generateMatrix_expert(sheet);
             }
             
-            System.out.println("++++++++++++cumToxic contains:++++++++++");
+            System.out.println("++++++++++++Possible problematic parts :++++++++++");
+            String partnames = "";
+            String probabilities = "";
             for (int i = 0; i < this.cumToxic.size(); i++) {
                 double count = this.cumCount.get(i);
                 double percentage = count/range;
-                System.out.println(this.cumToxic.get(i) + "\t" + percentage);
+                System.out.println(this.cumToxic.get(i) + "\t\t" + percentage);
+                partnames += this.cumToxic.get(i) + ",";
+                probabilities += percentage + ",";
             }
+            
+            partnames = partnames.substring(0, partnames.length()-1);
+            probabilities = probabilities.substring(0, probabilities.length()-1);
+            
+            output.add(partnames);
+            output.add(probabilities);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return "Recommendation generated!";
+            return output;
         }
     }
 

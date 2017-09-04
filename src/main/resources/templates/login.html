@@ -36,7 +36,7 @@ and open the template in the editor.
                     
                     <section class="login_content">
                         <form th:action="@{/login}" th:object="${loginForm}" method="post">
-                            <h1 class="uheader_login"><a th:href="@{/index}">Garuda</a></h1>
+                            <h1 class="uheader_login">Garuda</h1>
                             <div>
                                 <input type="text" class="form-control" placeholder="Username" required="" th:field="*{username}"/>
                             </div>

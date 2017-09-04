@@ -49,11 +49,11 @@ and open the template in the editor.
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
-<!--                                    <div class="x_content">
+                                    <div class="x_content">
                                         <div class="col-md-8 col-sm-8 col-xs-8">
                                             <canvas id="mybarChart"></canvas>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -127,19 +127,10 @@ and open the template in the editor.
 	<script src='js/angularplasmid.min.js'></script>
         
         <!-- Chart.js -->
-<!--        <script th:inline="javascript">
+        <script th:inline="javascript">
             /*<![CDATA[*/
             var ang = angular.module('myApp', ['angularplasmid']);
             
-            /*ang.controller('myCtrl', function($scope) {
-                
-                $scope.results = [[${app.test()}]];
-                
-                $scope.data = [[${app.retrieveData()}]];
-                
-                alert($scope.data[0]);
-            });*/
-          
             Chart.defaults.global.legend = {
                 enabled: false
             };
@@ -149,11 +140,11 @@ and open the template in the editor.
           var mybarChart = new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: [[${app.getPartnames()}]],
+              labels: [[${recommendForm.getPartnames()}]],
               datasets: [{
                 label: 'Probability: ',
                 backgroundColor: "#26B99A",
-                data: [[${app.getProbabilities()}]]
+                data: [[${recommendForm.getProbabilities()}]]
               }]
             },
 
@@ -169,7 +160,7 @@ and open the template in the editor.
           });
 
             /*]]>*/
-        </script>-->
+        </script>
         <!-- /Chart.js -->
     </body>
 

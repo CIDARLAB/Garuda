@@ -5,10 +5,31 @@
  */
 package org.cidarlab.garuda.forms;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *
  * @author jayajr
+ * @author mardian
  */
 public class RecommendForm {
-    
+
+    @Getter
+    @Setter
+    private String[] partnames;
+
+    @Getter
+    @Setter
+    private double[] probabilities;
+
+    public RecommendForm() {
+        this.partnames = null;
+        this.probabilities = null;
+    }
+
+    public String result() {
+        return "TESTING";
+    }
+
 }

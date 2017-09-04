@@ -16,7 +16,7 @@ import org.apache.commons.math3.stat.correlation.Covariance;
  *
  * @author mardian
  */
-public class PrincipleComponentAnalysis1 {
+public class PrincipleComponentAnalysis {
     
     public static double[][] pca(double[][] input, int reduction) {
         

@@ -59,7 +59,7 @@ public class RM_Parser {
 
                 switch (sheetName) {
                     case "Glycerol":
-                        populateParts(sheet, "Glycerol", username, session);
+                        //populateParts(sheet, "Glycerol", username, session);
                         break;
                     case "Vectors":
                         populateParts(sheet, "Vector", username, session);
@@ -240,7 +240,7 @@ public class RM_Parser {
                 }
                 unique.add(display_id);
 
-                int numOfParts = 4; //four columns on table
+                int numOfParts = 5; //five columns on table
                 List<String> partList = new ArrayList<String>();
 
                 /*cell = row.getCell(9);
@@ -260,7 +260,7 @@ public class RM_Parser {
                     }
                 }
 
-                List<String> partIds = new ArrayList();  //parts + scars
+                /*List<String> partIds = new ArrayList();  //parts
                 for (int j = 0; j < partList.size(); j++) {
                     String subPartId = partList.get(j);
                     
@@ -269,12 +269,12 @@ public class RM_Parser {
                     } else {
                         continue;
                     }
-                }
+                }*/
 
                 json.put("name", display_id);
                 json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
-                json.put("partIds", partIds);
+                json.put("partIds", partList);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
@@ -308,7 +308,7 @@ public class RM_Parser {
 
                 String display_id = cell.getStringCellValue();
 
-                int numOfParts = 2;
+                int numOfParts = 4;
                 List<String> partList = new ArrayList<String>();
 
                 for (int j = 0; j < numOfParts; j++) {
@@ -322,18 +322,18 @@ public class RM_Parser {
 
                 }
                 
-                JSONArray jarray = new JSONArray();
+                /*JSONArray jarray = new JSONArray();
                 
-                String partIds = partList.get(0);  //parts + scars
+                String partIds = partList.get(0);  //parts
                 for (int j = 1; j < partList.size(); j++) {
                     jarray.add(partList.get(j));
                     
-                }
+                }*/
 
                 json.put("name", display_id);
                 json.put("displayId", display_id);
                 json.put("createSeqFromParts", "true");
-                json.put("partIds", jarray);
+                json.put("partIds", partList);
 
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);

@@ -54,6 +54,24 @@ public class SearchForm {
     @Setter
     Boolean blast;
     
+    //search results
+    
+    @Getter
+    @Setter
+    String[] results_name;
+    
+    @Getter
+    @Setter
+    String[] results_user;
+    
+    @Getter
+    @Setter
+    String[] results_url;
+    
+    @Getter
+    @Setter
+    String[] results_sub;
+    
     public SearchForm() {
         this.biodesignId = null;
         this.filter = null;
@@ -63,6 +81,11 @@ public class SearchForm {
         this.sequence = null;
         this.userSpace = null;
         this.blast = false;
+        
+        this.results_name = null;
+        this.results_user = null;
+        this.results_url = null;
+        this.results_sub = null;
     }
     
     public String toFilteredQueryString(){
@@ -106,5 +129,44 @@ public class SearchForm {
         JSONObject map = (JSONObject) parser.parse(this.toFilteredQueryString());
         
         return map;
+    } 
+    
+    public void init(int row) {
+        
+        this.results_name = new String[row];
+        this.results_user = new String[row];
+        this.results_url = new String[row];
+        this.results_sub = new String[row];
+    }
+    
+    public void set(String which, String value, int idx) {
+        switch (which) {
+            case "name":
+                this.results_name[idx] = value;
+                break;
+            case "user":
+                this.results_user[idx] = value;
+                break;
+            case "url":
+                this.results_url[idx] = value;
+                break;
+            case "sub":
+                this.results_sub[idx] = value;
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public String getSubName(int idx) {
+        
+        return this.results_name[idx] + "\t\t" + this.results_sub[idx];
+    }
+    
+    public String testUrl() {
+        
+        if (results_url!=null)
+            return results_url[2];
+        return "Empty!!";
     } 
 }

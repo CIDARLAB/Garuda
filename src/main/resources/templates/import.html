@@ -39,9 +39,10 @@ and open the template in the editor.
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                       <form method="POST" th:action="@{/import}" enctype="multipart/form-data">
-                                            <input type="file" name="multipartFile" /><br/>
-                                            <input type="submit" value="Submit" />
+                                        <p>Make sure that your spreadsheet satisfies the schema</p>
+                                        <form method="POST" th:action="@{/import}" enctype="multipart/form-data">
+                                            <input type="file" name="multipartFile" class="form-control" /><br/>
+                                            <input type="submit" value="Submit"  class="btn btn-success"/>
                                         </form>
                                     </div>
                                 </div>
