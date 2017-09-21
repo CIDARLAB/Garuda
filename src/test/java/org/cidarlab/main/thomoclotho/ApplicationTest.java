@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Random;
 import org.cidarlab.main.garuda.PythonRunner;
 import org.cidarlab.main.garuda.RWR_RecEngine;
-import org.cidarlab.main.garuda.RWR_RecEngine_New;
+import org.cidarlab.main.garuda.DataAnalysis;
 import org.cidarlab.main.ml.CollaborativeFake;
 import org.cidarlab.main.ml.CollaborativeFiltering;
 import org.cidarlab.main.ml.ExpectationMaximization;
@@ -50,6 +50,112 @@ public class ApplicationTest {
     @After
     public void tearDown() {
     }
+    
+    /**
+     * Growth curve work-flow.
+     */
+    
+    @Test
+    public void featureGenerator() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+        
+        String rawInput = "rob-small.xlsx";
+        
+        String featuresInput = "features-complete-15parts-424.csv";
+        String labelInput = "label-complete-424.csv";
+        
+        String featuresReduced = "features-complete-15parts-reduced.csv";
+        String labelReduced = "label-complete-reduced.csv";
+        
+        String aveGrowth = "average_growth.csv";
+        
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        
+        da.parseFeatures(rawInput, featuresInput);
+        da.readLabel(labelInput);
+        
+        da.multicollinearity(featuresReduced, labelReduced);
+        
+        da.average_growth(aveGrowth);
+    }
+    
+    //@Test
+    public void multicollinearityCheck() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+        
+        String featuresInput = "features-complete-15parts-424.csv";
+        String labelInput = "label-complete-424.csv";
+        
+        String featuresOutput = "features-complete-15parts-reduced-max.csv";
+        String labelOutput = "label-complete-reduced-max.csv";
+        
+        MulticollinearityCheck mc = new MulticollinearityCheck(num_of_constructs, num_of_parts, featuresInput, labelInput);
+        
+        //remove rows with high correlation
+        mc.removeRows(featuresOutput, labelOutput);
+    }
+    
+    //@Test
+    /*public void averageGrowth() {
+        
+        int num_of_constructs = 424;
+        
+        int reduced_num_of_constructs = 354;
+        int num_of_parts = 15;
+        
+        //int[] idx = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+        
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.average_growth("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
+    }*/
+    
+    //@Test
+    public void testKMeansNaiveBayes() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+        
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.runKMeansNaiveBayes("features-complete-15parts-reduced-max.csv", "label-complete-reduced-max.csv");
+    }
+    
+    //@Test
+    public void testKMeansExpert() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+            
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.runKMeansExpert("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
+    }
+    
+    //@Test
+    public void testNaiveBayes() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+            
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.runNaiveBayes("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
+    }
+    
+    
+    /* End of work-flow */
+    
+    //@Test
+    public void testFeature() {
+        
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+            
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.featureSort();
+    }
+    
 
     /**
      * Test of initiate method, of class Application.
@@ -94,24 +200,13 @@ public class ApplicationTest {
     }
     
     //@Test
-    public void featureGenerator() {
-        RWR_RecEngine_New.mRegression_simplified("resources/rob.xlsx");
-    }
-     
-    @Test
-    public void multicollinearityCheck() {
-        
-        int num_of_constructs = 702;
-        int num_of_parts = 49;
-        String filename = "features.csv";
-        
-        new MulticollinearityCheck(num_of_constructs, num_of_parts, filename);
-    }
-     
-    //@Test
     public void jvRegression() {
         
-        RWR_RecEngine_New.mRegression_python();
+        int num_of_constructs = 424;
+        int num_of_parts = 15;
+            
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        da.mRegression_python();
     }
     
     //@Test

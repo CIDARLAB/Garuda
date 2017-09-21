@@ -10,6 +10,8 @@ import org.cidarlab.main.dom.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -28,6 +30,10 @@ public class KMeansClustering {
     private List<Data> dataSet;
     private List<Vector> centroids;
     
+    @Getter
+    @Setter
+    private int[] listCluster;
+    
     public KMeansClustering (double[][] inputData, int cluster) {
         
         NUM_CLUSTERS = cluster;
@@ -39,6 +45,8 @@ public class KMeansClustering {
         
         dataSet = new ArrayList<Data>();
         centroids = new ArrayList<Vector>();
+        
+        listCluster = new int[inputData.length];
         
         start();
     }
@@ -68,26 +76,39 @@ public class KMeansClustering {
         kMeanCluster();
         
         ////for 2 setCluster only////
-        if (centroids.get(0).getDimension(0)<centroids.get(1).getDimension(0)) {
+        /*if (centroids.get(0).getDimension(0)<centroids.get(1).getDimension(0)) {
             this.zeroIsToxic = true;
-        }
+        }*/
         ////
         
         // Print out clustering results.
-        for (int i=0; i<NUM_CLUSTERS; i++) {
+        //for (int i=0; i<NUM_CLUSTERS; i++) {
             
-            System.out.println("Cluster " + i + " includes:");
+        //    System.out.println("Cluster " + i + " includes:");
+            
             for(int j=0; j<TOTAL_DATA; j++) {
                 
-                if (dataSet.get(j).getCluster()==i) {
-                    
+                //System.out.println(j + "\t" + dataSet.get(j).getVector().getDimension(0));
+                listCluster[j] = dataSet.get(j).getCluster();
+        
+                
+                /*if (dataSet.get(j).getCluster()==i) {
+                       
+                    //System.out.println(dataSet.get(j).getVector().getDimension(0) + "   Get Here?");
+        
+              
                     //System.out.println((dataSet.get(j).getId()+1));
                     System.out.println((dataSet.get(j).getVector().getDimension(0) +
                             "\t" + dataSet.get(j).getVector().getDimension(1)));
-                }
+                    
+                       
+                    System.out.println(i + "   How bout Here?");
+        
+              
+                }*/
             } // j
-            System.out.println();
-        } // i /**/
+        //    System.out.println();
+        //} // i /**/
         
     }
     

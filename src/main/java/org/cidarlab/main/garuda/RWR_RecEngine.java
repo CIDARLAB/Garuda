@@ -92,7 +92,7 @@ public class RWR_RecEngine {
             
             MultipleRegression mReg = new MultipleRegression();
             //List<String> output = mReg.pyRegression("garuda_reg.py");
-            mReg.jvRegression(data, FormatExchange.nDTo1DArray(label, 0));
+            mReg.jvRegression(data, Utilities.nDTo1DArray(label, 0));
             
         } catch (Exception e) {
             e.printStackTrace();

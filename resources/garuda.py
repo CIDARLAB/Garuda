@@ -4,13 +4,13 @@ import statsmodels.api         as sm
 import csv
 
 #read features data
-with open('features-simplified-del199.csv') as csvfile:
+with open('features-complete-15parts-reduced.csv') as csvfile:
     x = list(csv.reader(csvfile))
 features = [[float(j) for j in i] for i in x]
 #print features
 
 #read label data
-with open('label-simplified-del199.csv') as csvfile:
+with open('label-complete-reduced.csv') as csvfile:
     y = list(csv.reader(csvfile))
 label_temp = [[float(j) for j in i] for i in y]
 label = [val for sublist in label_temp for val in sublist]
