@@ -300,7 +300,7 @@ public class ClothoService {
         String URI = URL + "/part/" + biodesignId;
         
         HttpHeaders getHeaders = new HttpHeaders();
-        getHeaders.add("Authorfization", (String) session.getAttribute("authHeader"));
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
         Map map = new HashMap<>();
         
         HttpEntity<?> request = new HttpEntity(map,getHeaders);
