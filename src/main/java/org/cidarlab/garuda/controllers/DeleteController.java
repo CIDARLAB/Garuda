@@ -61,7 +61,7 @@ public class DeleteController {
             Model model) throws IOException, ParseException {
 
         model.addAttribute("searchForm", new SearchForm());
-        System.out.println(deleteForm.getBiodesignId());
+        
         try {
             
             clotho.deleteDeviceById_del(deleteForm.getBiodesignId(), session);
