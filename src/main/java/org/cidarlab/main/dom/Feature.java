@@ -14,7 +14,7 @@ import lombok.Setter;
  * @author mardian
  */
 
-public class Feature implements Comparable<Feature>
+public class Feature
 {
     @Getter
     @Setter
@@ -106,27 +106,4 @@ public class Feature implements Comparable<Feature>
 
         return this.cluster;
     }*/
-    
-    @Override
-    public int compareTo(Feature f) {
-        return Comparators.labelComparator.compare(this, f);
-        //return Double.compare(this.getLabel(), f.getLabel());
-    }
-    
-    public static class Comparators {
-
-        public static Comparator<Feature> nameComparator = new Comparator<Feature>() {
-            @Override
-            public int compare(Feature f1, Feature f2) {
-                return f1.getName().compareTo(f2.getName());
-            }
-        };
-        public static Comparator<Feature> labelComparator = new Comparator<Feature>() {
-            @Override
-            public int compare(Feature f1, Feature f2) {
-                return Double.compare(f1.getLabel(), f2.getLabel());
-            }
-        };
-    }
-
 }

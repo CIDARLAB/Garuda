@@ -37,6 +37,7 @@ public class MulticollinearityCheck {
         this.features = features;
         this.label = label;
         this.fileIndex = indexing("rob-small.xlsx", num_of_constructs, 6);
+        //Utilities.writeToCSV(this.fileIndex, "rob-reduced.csv");
         
         boolean takeMax = true;
         boolean takeAve = false;
@@ -52,7 +53,7 @@ public class MulticollinearityCheck {
         this.label = Utilities.readFromCSV(label_name, num_of_constructs);
         this.fileIndex = indexing("rob-small.xlsx", num_of_constructs, 6);
         
-        boolean takeMax = false;
+        boolean takeMax = true;
         boolean takeAve = false;
         
         performCheck(takeMax);
@@ -78,7 +79,7 @@ public class MulticollinearityCheck {
                 }
                 double coorelation = pc.correlation(firstColumn, secondColumn);
                 if (coorelation > 0.9 || coorelation < -0.9) {
-                    System.out.println("Column between: " + (j + 1) + ", and " + (k + 1) + ": " + coorelation);
+                //    System.out.println("Column between: " + (j + 1) + ", and " + (k + 1) + ": " + coorelation);
                     if (!col_correlated.contains(k)) {
                         col_correlated.add(k);
                     }
@@ -126,6 +127,30 @@ public class MulticollinearityCheck {
         }
     }
 
+    public void removeRows(String featuresOutput, String labelOutput, boolean print) {
+        
+        this.features_reduced = new double[features.length - row_correlated.size()][features[0].length];
+        this.label_reduced = new double[label.length - row_correlated.size()];
+
+        //System.out.println(features.length + "    " + row_correlated.size() + "   " + label_name.length);
+        int lead = 0;
+        for (int i = 0; i < features.length; i++) {
+            if (row_correlated.contains(i)) {
+                continue;
+            }
+            for (int j = 0; j < features[0].length; j++) {
+                features_reduced[lead][j] = features[i][j];
+            }
+            label_reduced[lead] = label[i];
+            lead++;
+        }
+        if (print) {
+            Utilities.writeToCSV(features_reduced, featuresOutput);
+            Utilities.writeToCSV(label_reduced, labelOutput);
+        }
+        
+    }
+
     private void fileIndexCheck() {
 
         this.col_correlated = new ArrayList<Integer>();
@@ -162,29 +187,6 @@ public class MulticollinearityCheck {
                 }
             }
         }
-    }
-
-    
-    public void removeRows(String featuresOutput, String labelOutput) {
-        
-        this.features_reduced = new double[features.length - row_correlated.size()][features[0].length];
-        this.label_reduced = new double[label.length - row_correlated.size()];
-
-        //System.out.println(features.length + "    " + row_correlated.size() + "   " + label_name.length);
-        int lead = 0;
-        for (int i = 0; i < features.length; i++) {
-            if (row_correlated.contains(i)) {
-                continue;
-            }
-            for (int j = 0; j < features[0].length; j++) {
-                features_reduced[lead][j] = features[i][j];
-            }
-            label_reduced[lead] = label[i];
-            lead++;
-        }
-        Utilities.writeToCSV(features_reduced, featuresOutput);
-        Utilities.writeToCSV(label_reduced, labelOutput);
-        
     }
 
     public static String[][] indexing(String input, int rowsize, int colsize) {

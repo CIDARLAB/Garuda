@@ -28,6 +28,9 @@ public class KMeansClustering {
     private boolean zeroIsToxic;
             
     private List<Data> dataSet;
+    
+    @Getter
+    @Setter
     private List<Vector> centroids;
     
     @Getter

@@ -120,6 +120,19 @@ public class Utilities {
         return array;
     }
 
+    public static double[][] _1DTonDArray(double[] _1dArray) {
+
+        int row = _1dArray.length;
+        
+        double[][] array = new double[row][1];
+
+        for (int i = 0; i < row; i++) {
+            array[i][0] = _1dArray[i];
+        }
+
+        return array;
+    }
+
     //String array
     public static void writeToCSV(String[][] ndArray, String filename) {
 

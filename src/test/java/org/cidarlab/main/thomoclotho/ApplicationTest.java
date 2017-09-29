@@ -60,6 +60,9 @@ public class ApplicationTest {
         
         int num_of_constructs = 424;
         int num_of_parts = 15;
+        boolean printFile = false;
+        boolean sampled = true;
+        int numOfTest = 10;
         
         String rawInput = "rob-small.xlsx";
         
@@ -71,18 +74,28 @@ public class ApplicationTest {
         
         String aveGrowth = "average_growth.csv";
         
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //create a new instance of data analysis
+        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts, printFile);
         
+        //parse spreadsheet into features and read label
         da.parseFeatures(rawInput, featuresInput);
         da.readLabel(labelInput);
         
+        //remove the same rows
         da.multicollinearity(featuresReduced, labelReduced);
         
+        //da.reducedRawPart();
+        
+        //compute average growth of each parts
         da.average_growth(aveGrowth);
+        
+        da.runKMeansNaiveBayes(sampled, numOfTest);
+        
+        System.out.println("Sampled? " + sampled + ", Number of testing data: " + numOfTest);/**/
     }
     
     //@Test
-    public void multicollinearityCheck() {
+    /*public void multicollinearityCheck() {
         
         int num_of_constructs = 424;
         int num_of_parts = 15;
@@ -97,7 +110,7 @@ public class ApplicationTest {
         
         //remove rows with high correlation
         mc.removeRows(featuresOutput, labelOutput);
-    }
+    }*/
     
     //@Test
     /*public void averageGrowth() {
@@ -119,8 +132,8 @@ public class ApplicationTest {
         int num_of_constructs = 424;
         int num_of_parts = 15;
         
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
-        da.runKMeansNaiveBayes("features-complete-15parts-reduced-max.csv", "label-complete-reduced-max.csv");
+        //DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //da.runKMeansNaiveBayes("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
     }
     
     //@Test
@@ -129,8 +142,8 @@ public class ApplicationTest {
         int num_of_constructs = 424;
         int num_of_parts = 15;
             
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
-        da.runKMeansExpert("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
+        //DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //da.runKMeansExpert("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
     }
     
     //@Test
@@ -139,8 +152,8 @@ public class ApplicationTest {
         int num_of_constructs = 424;
         int num_of_parts = 15;
             
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
-        da.runNaiveBayes("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
+        //DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //da.runNaiveBayes("features-complete-15parts-reduced.csv", "label-complete-reduced.csv");
     }
     
     
@@ -152,8 +165,8 @@ public class ApplicationTest {
         int num_of_constructs = 424;
         int num_of_parts = 15;
             
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
-        da.featureSort();
+        //DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //da.featureSort();
     }
     
 
@@ -205,8 +218,8 @@ public class ApplicationTest {
         int num_of_constructs = 424;
         int num_of_parts = 15;
             
-        DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
-        da.mRegression_python();
+        //DataAnalysis da = new DataAnalysis(num_of_constructs, num_of_parts);
+        //da.mRegression_python();
     }
     
     //@Test
