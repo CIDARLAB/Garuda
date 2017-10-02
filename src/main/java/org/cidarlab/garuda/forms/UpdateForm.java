@@ -51,6 +51,11 @@ public class UpdateForm {
     @Setter
     Boolean userSpace;
     
+    @Getter
+    @Setter
+    String biodesignId;
+    
+    
     public UpdateForm(){
         this.name = null;
         this.displayId = null;
