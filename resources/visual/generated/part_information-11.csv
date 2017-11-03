@@ -1,0 +1,6 @@
+part_name,type,x_extent,y_extent,start_pad,end_pad,color,hatch,arrowhead_height,arrowhead_length,linestyle,linewidth,label,label_style,label_size,label_y_offset,label_x_offset,label_color
+PhlF,VECTOR,,,,,0.9;0.0;0.0,,,,,,PhlF,,4,15,0,
+DC-01,VECTOR,,,,,0.0;0.9;0.0,,,,,,DC-01,,4,-15,0,
+VtmoJ,VECTOR,,,,,0.0;0.0;0.9,,,,,,VtmoJ,,4,15,0,
+pACYCRBS1,VECTOR,,,,,0.9;0.0;0.0,,,,,,pACYCRBS1,,4,-15,0,
+T3,VECTOR,,,,,0.0;0.9;0.0,,,,,,T3,,4,15,0,
