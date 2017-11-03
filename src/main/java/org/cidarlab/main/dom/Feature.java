@@ -5,7 +5,6 @@
  */
 package org.cidarlab.main.dom;
 
-import java.util.Comparator;
 import lombok.Getter;
 import lombok.Setter;
 

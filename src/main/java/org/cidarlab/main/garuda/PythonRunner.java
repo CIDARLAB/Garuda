@@ -7,6 +7,7 @@ package org.cidarlab.main.garuda;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 /**
  *
@@ -14,13 +15,18 @@ import java.io.InputStreamReader;
  */
 public class PythonRunner {
     
-    public PythonRunner() {
+    public PythonRunner(String filename, List<String> arguments) {
         
-        String path = "resources/garuda_sm.py";
+        String path = "resources/" + filename;
+        
+        for (int i = 0; i < arguments.size(); i++) {
+            path = path + " " + arguments.get(i);
+        }
+        
         try {
 
             Process p = Runtime.getRuntime().exec("python " + path);
-            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             String ret = in.readLine();
             while (ret!=null) {
                 System.out.println("value is : " + ret);

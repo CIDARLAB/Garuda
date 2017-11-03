@@ -23,9 +23,11 @@ public class MulticollinearityCheck {
 
     private double[][] features;
     private double[] label;
+    private double[] label_bin;
     
     private double[][] features_reduced;
     private double[] label_reduced;
+    private double[] label_bin_reduced;
     
     private String[][] fileIndex;
 
@@ -36,6 +38,7 @@ public class MulticollinearityCheck {
 
         this.features = features;
         this.label = label;
+        //this.label_bin = label_bin;
         this.fileIndex = indexing("rob-small.xlsx", num_of_constructs, 6);
         //Utilities.writeToCSV(this.fileIndex, "rob-reduced.csv");
         

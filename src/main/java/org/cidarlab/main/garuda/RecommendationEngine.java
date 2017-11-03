@@ -7,7 +7,7 @@ package org.cidarlab.main.garuda;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.cidarlab.main.ml.Backpropagation;
+import org.cidarlab.main.ml.Backpropagation_old;
 
 /**
  *
@@ -69,7 +69,7 @@ public class RecommendationEngine {
             List<Integer> ntlist = parser.getNonToxicList();    //list of toxic genes
 
             //    KMeansClustering kmeans = new KMeansClustering (growthData, cluster);
-            Backpropagation backprop = new Backpropagation(growthData, cluster, threshold);
+            Backpropagation_old backprop = new Backpropagation_old(growthData, cluster, threshold);
             //    ExpertSystem expert = new ExpertSystem (growthData, threshold);
 
             //    backprop.printClusterData();

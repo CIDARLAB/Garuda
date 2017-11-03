@@ -271,6 +271,7 @@ public class Utilities {
         } catch (Exception e) {
             
             e.printStackTrace();
+            
         } finally {
         
             return data;
@@ -300,9 +301,45 @@ public class Utilities {
         } catch (Exception e) {
             
             e.printStackTrace();
+            
         } finally {
         
             return data;
         }
     }
+    
+    public static double[][] removeRows(double[][] data, List<Integer> removedRows) {
+        
+        double[][] reducedData = new double[data.length - removedRows.size()][data[0].length];
+        
+        int lead = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (removedRows.contains(i)) {
+                continue;
+            }
+            for (int j = 0; j < data[0].length; j++) {
+                reducedData[lead][j] = data[i][j];
+            }
+            lead++;
+        }
+        
+        return reducedData;
+    }
+
+    public static double[] removeRows(double[] data, List<Integer> removedRows) {
+        
+        double[] reducedData = new double[data.length - removedRows.size()];
+        
+        int lead = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (removedRows.contains(i)) {
+                continue;
+            }
+            reducedData[lead] = data[i];
+            lead++;
+        }
+        
+        return reducedData;
+    }
+
 }

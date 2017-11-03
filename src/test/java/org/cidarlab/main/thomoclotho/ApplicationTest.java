@@ -11,6 +11,7 @@ import java.util.Random;
 import org.cidarlab.main.garuda.PythonRunner;
 import org.cidarlab.main.garuda.RWR_RecEngine;
 import org.cidarlab.main.garuda.DataAnalysis;
+import org.cidarlab.main.garuda.Utilities;
 import org.cidarlab.main.ml.CollaborativeFake;
 import org.cidarlab.main.ml.CollaborativeFiltering;
 import org.cidarlab.main.ml.ExpectationMaximization;
@@ -68,6 +69,7 @@ public class ApplicationTest {
         
         String featuresInput = "features-complete-15parts-424.csv";
         String labelInput = "label-complete-424.csv";
+        String labelInputBin = "label-binary-424.csv";
         
         String featuresReduced = "features-complete-15parts-reduced.csv";
         String labelReduced = "label-complete-reduced.csv";
@@ -81,17 +83,21 @@ public class ApplicationTest {
         da.parseFeatures(rawInput, featuresInput);
         da.readLabel(labelInput);
         
+        //compute average growth of each parts
+        da.average_growth(aveGrowth, da.getFeatures(), da.getLabel());
+        
         //remove the same rows
         da.multicollinearity(featuresReduced, labelReduced);
         
-        //da.reducedRawPart();
+        if (printFile) {
+            Utilities.writeToCSV(da.getFeatures_reduced(), featuresReduced);
+            Utilities.writeToCSV(da.getLabel_reduced(), labelReduced);
+        }
         
-        //compute average growth of each parts
-        da.average_growth(aveGrowth);
+        //da.mRegression_python(sampled, numOfTest, false);
         
         da.runKMeansNaiveBayes(sampled, numOfTest);
         
-        System.out.println("Sampled? " + sampled + ", Number of testing data: " + numOfTest);/**/
     }
     
     //@Test

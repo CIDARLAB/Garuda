@@ -17,7 +17,15 @@ public class Part implements Comparable<Part> {
     
     @Setter
     @Getter
+    private String _id;
+    
+    @Setter
+    @Getter
     private String name;
+    
+    @Setter
+    @Getter
+    private int assoc_idx;
     
     @Setter
     @Getter
@@ -29,7 +37,25 @@ public class Part implements Comparable<Part> {
     
     @Setter
     @Getter
+    private double min;
+    
+    @Setter
+    @Getter
+    private double max;
+    
+    @Setter
+    @Getter
     private double probability;
+    
+    @Setter
+    @Getter
+    private double coefficient; //for regression
+    
+    public Part (String name, int assoc_idx) {
+        
+        this.name = name;
+        this.assoc_idx = assoc_idx;
+    }
     
     public Part (String name, double ave_growth, double std_dev, double probability) {
         
@@ -37,6 +63,15 @@ public class Part implements Comparable<Part> {
         this.ave_growth = ave_growth;
         this.std_dev = std_dev;
         this.probability = probability;
+    }
+    
+    public Part (String name, double ave_growth, double std_dev, double probability, double coefficient) {
+        
+        this.name = name;
+        this.ave_growth = ave_growth;
+        this.std_dev = std_dev;
+        this.probability = probability;
+        this.coefficient = coefficient;
     }
     
     @Override
