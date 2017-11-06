@@ -76,7 +76,7 @@ public class Part implements Comparable<Part> {
     
     @Override
     public int compareTo(Part f) {
-        return Comparators.labelComparator.compare(this, f);
+        return Comparators.growthComparator.compare(this, f);
         //return Double.compare(this.getLabel(), f.getLabel());
     }
 
@@ -88,7 +88,8 @@ public class Part implements Comparable<Part> {
                 return f1.getName().compareTo(f2.getName());
             }
         };
-        public static Comparator<Part> labelComparator = new Comparator<Part>() {
+        //sort by 
+        public static Comparator<Part> growthComparator = new Comparator<Part>() {
             @Override
             public int compare(Part f1, Part f2) {
                 return Double.compare(f1.getAve_growth(), f2.getAve_growth());

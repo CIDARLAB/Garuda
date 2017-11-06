@@ -94,9 +94,9 @@ public class ApplicationTest {
             Utilities.writeToCSV(da.getLabel_reduced(), labelReduced);
         }
         
-        //da.mRegression_python(sampled, numOfTest, false);
+        da.mRegression(sampled, numOfTest, false);
         
-        da.runKMeansNaiveBayes(sampled, numOfTest);
+        //da.runKMeansNaiveBayes(sampled, numOfTest);
         
     }
     

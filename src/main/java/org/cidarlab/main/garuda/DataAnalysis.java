@@ -39,21 +39,15 @@ public class DataAnalysis {
 
     @Getter
     private double[][] features;
-    
     @Getter
     private double[][] features_reduced;    //removing the same rows
     private double[][] features_sampled;    //for training data
 
     @Getter
     private double[] label;
-    private double[] label_bin;
-    
     @Getter
     private double[] label_reduced;
     private double[] label_sampled;
-
-    private double[] parts_ave;
-    private double[] parts_std;
 
     private boolean print;
 
@@ -78,12 +72,8 @@ public class DataAnalysis {
         this.features_reduced = null;
         this.features_sampled = null;
         this.label = null;
-        this.label_bin = null;
         this.label_reduced = null;
         this.label_sampled = null;
-
-        this.parts_ave = null;
-        this.parts_std = null;
 
         this.print = print;
 
@@ -104,26 +94,6 @@ public class DataAnalysis {
             if (print) {
                 Utilities.writeToCSV(features, output);
             }
-
-            /*System.out.println("*****CONSTRUCTS*****");
-            for (int i = 0; i < constructs.size(); i++) {
-                Construct c = constructs.get(i);
-                System.out.print((i + 1) + "\t" + c.getName() + "\t");
-                List<String> parts = c.getParts();
-                for(int j = 0; j < parts.size(); j++) {
-                    System.out.print(parts.get(j) + "\t");
-                }
-                System.out.println(c.getPlate_pos());
-            }
-            System.out.println("*****PARTS*****");
-            for (int i = 0; i < parts.size(); i++) {
-                Part p = parts.get(i);
-                System.out.println((i + 1) + "\t" + p.getName() + "\t" + p.getAssoc_idx());
-            }
-            System.out.println("*****PARTNAMES*****");
-            for (int i = 0; i < partnames.length; i++) {
-                System.out.println((i + 1) + "\t" + partnames[i]);
-            }*/
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -291,7 +261,7 @@ public class DataAnalysis {
         }
 
         //multicollinearity
-        boolean takeMax = true;
+        boolean takeMax = false;
         boolean takeAve = false;
         
         List<Integer> col_correlated = new ArrayList<Integer>();
@@ -364,24 +334,6 @@ public class DataAnalysis {
 
     }
    
-    /*public void removeRows(List<Integer> removedRows) {
-        
-        this.features_reduced = new double[features.length - removedRows.size()][features[0].length];
-        this.label_reduced = new double[label.length - removedRows.size()];
-        
-        int lead = 0;
-        for (int i = 0; i < features.length; i++) {
-            if (removedRows.contains(i)) {
-                continue;
-            }
-            for (int j = 0; j < features[0].length; j++) {
-                features_reduced[lead][j] = features[i][j];
-            }
-            label_reduced[lead] = label[i];
-            lead++;
-        }
-    }*/
-
     public void runKMeansNaiveBayes(boolean sampled, int numOfTest) {
 
         testData = generateTestData(numOfTest);
@@ -390,7 +342,7 @@ public class DataAnalysis {
 
         //clustering part
         if (sampled) {
-            features_sampled = Utilities.removeRows(features_reduced, testData); //creating features_sampled and label_sampled
+            features_sampled = Utilities.removeRows(features_reduced, testData);
             label_sampled = Utilities.removeRows(label_reduced, testData);
             
             label_2D = Utilities._1DTonDArray(label_sampled);
@@ -422,7 +374,6 @@ public class DataAnalysis {
             features_loc = Utilities.arrayToFeature(features_reduced, cluster);
         }
         NaiveBayes nb = new NaiveBayes(features_loc, 2, num_of_parts);
-
         List<Feature> classList = nb.getClassList();
 
         for (int j = 0; j < classList.size(); j++) {
@@ -440,17 +391,16 @@ public class DataAnalysis {
             }
             int idx = classList.get(j).getId();
             double probability = classList.get(j).getVector().getDimension(0) * factor;
-            Part newpart = parts.get(idx);
-            results.add(new Part(newpart.getName(), newpart.getAve_growth(), newpart.getStd_dev(), probability));
-
+            
+            parts.get(idx).setProbability(probability);
         }
 
-        makeplot(testData);
+        makeplot();
 
         System.out.println("***Task done with K-Means/Bayes!!!");
     }
 
-    public void makeplot(List<Integer> testData) {
+    public void makeplot() {
 
         System.out.println("***MAKEPLOT***");
 
@@ -462,16 +412,16 @@ public class DataAnalysis {
         String prob_neg = "";
 
         //sort by growth rate
-        Collections.sort(results, Part.Comparators.labelComparator);
+        Collections.sort(parts, Part.Comparators.growthComparator);
         Map<String, Double> part_prob = new HashMap<String, Double>();
 
-        for (int i = results.size() - 1; i >= 0; i--) {
+        for (int i = parts.size() - 1; i >= 0; i--) {
 
-            partstring = partstring + results.get(i).getName() + ",";
-            growth = growth + results.get(i).getAve_growth() + ",";
-            stdev = stdev + results.get(i).getStd_dev() + ",";
+            partstring = partstring + parts.get(i).getName() + ",";
+            growth = growth + parts.get(i).getAve_growth() + ",";
+            stdev = stdev + parts.get(i).getStd_dev() + ",";
 
-            double prob = results.get(i).getProbability();
+            double prob = parts.get(i).getProbability();
             if (prob >= 0) {
                 prob_pos = prob_pos + prob + ",";
                 prob_neg = prob_neg + "0.0,";
@@ -480,8 +430,8 @@ public class DataAnalysis {
                 prob_neg = prob_neg + prob + ",";
             }
 
-            part_prob.put(results.get(i).getName(), results.get(i).getProbability());
-            System.out.println(results.get(i).getName() + "\t" + results.get(i).getAve_growth() + "\t" + results.get(i).getProbability());
+            part_prob.put(parts.get(i).getName(), parts.get(i).getProbability());
+            System.out.println(parts.get(i).getName() + "\t" + parts.get(i).getAve_growth() + "\t" + parts.get(i).getProbability());
         }
 
         //remove the last comma
@@ -503,7 +453,6 @@ public class DataAnalysis {
         System.out.println("Bad: " + prob_neg);
 
         //print test data
-        //List<Double> fitnesses = new ArrayList<Double>();
         String partpy = "";
         String predpy = "";
         String realpy = "";
@@ -515,41 +464,19 @@ public class DataAnalysis {
                 if (features_reduced[testData.get(i)][j] == 1) {
                     System.out.print(parts.get(j).getName() + " ");
                     fitness += part_prob.get(parts.get(j).getName());
-                    //partpy = partpy + partnames[i] + "_";
                 }
             }
-            //partpy = partpy.substring(0, partpy.length()-1) + ",";
             partpy = partpy + (testData.get(i) + 1) + ",";
             predpy = predpy + fitness + ",";
             realpy = realpy + label_reduced[testData.get(i)] + ",";
 
-            //fitnesses.add(fitness);
             System.out.println("= " + fitness + " versus " + label_reduced[testData.get(i)]);
         }
 
-        /*double fitness_min = fitnesses.get(0);
-        double fitness_max = fitnesses.get(0);
-        for (int i = 1; i < fitnesses.size(); i++) {
-            if (fitnesses.get(i) < fitness_min) {
-                fitness_min = fitnesses.get(i);
-            }
-            if (fitnesses.get(i) > fitness_max) {
-                fitness_max = fitnesses.get(i);
-            }
-        }
-        List<Double> fitnesses_norm = new ArrayList<Double>();
-        for (int i = 0; i < fitnesses.size(); i++) {
-            double new_fitness = (fitnesses.get(i) - fitness_min) / (fitness_max - fitness_min);
-            fitnesses_norm.add(new_fitness);
-            //predpy = predpy + new_fitness + ",";
-        }*/
         partpy = partpy.substring(0, partpy.length() - 1);
         predpy = predpy.substring(0, predpy.length() - 1);
         realpy = realpy.substring(0, realpy.length() - 1);
 
-        /*for (int i = 0; i < center.size(); i++) {
-            System.out.println(center.get(i));
-        }*/
         //arguments for python script
         List<String> arguments = new ArrayList<String>();
 
@@ -591,90 +518,26 @@ public class DataAnalysis {
         return test;
     }
 
-    /*public void reducedRawPart() {
-
-        String[][] fileIndex = new String[features_reduced.length][6];
-
-        for (int i = 0; i < features_reduced.length; i++) {
-            int lead = 0;
-            for (int j = 0; j < features_reduced[0].length; j++) {
-                if (features_reduced[i][j] == 1) {
-                    fileIndex[i][lead] = partnames[j];
-                    lead++;
-                }
-            }
-            fileIndex[i][5] = label_reduced[i] + "";
-        }
-
-        Utilities.writeToCSV(fileIndex, "rob-reduced.csv");
-    }*/
-
-    public void subsetMatrix(List<Integer> removedRows) {
-
-        this.features_sampled = new double[features_reduced.length - removedRows.size()][features_reduced[0].length];
-        this.label_sampled = new double[label_reduced.length - removedRows.size()];
-
-        int lead = 0;
-        for (int i = 0; i < features_reduced.length; i++) {
-            if (removedRows.contains(i)) {
-                continue;
-            }
-            for (int j = 0; j < features_reduced[0].length; j++) {
-                features_sampled[lead][j] = features_reduced[i][j];
-            }
-            label_sampled[lead] = label_reduced[i];
-            lead++;
-        }
-    }
-
-    /*public static String[][] indexing(String input, int rowsize, int colsize) {
-
-        String[][] fileIndex = new String[rowsize][colsize];
-
-        try {
-            FileInputStream inputFile = new FileInputStream("resources/" + input);
-            XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
-
-            XSSFSheet sheet = workbook.getSheet("Sheet1");
-            for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-
-                Row row = sheet.getRow(i);
-
-                for (int j = 0; j < 6; j++) {
-
-                    Cell cell = row.getCell(j + 3);
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
-                    String part = cell.getStringCellValue();
-
-                    fileIndex[i - 1][j] = part;
-                    //partnames[partIdx] = allparts.get(partIdx);
-                }
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return fileIndex;
-    }*/
-
-    ////for current usage
-    public void mRegression_python(boolean sampled, int numOfSample, boolean generateFile) {
+    ////mRegression
+    public void mRegression(boolean sampled, int numOfTest, boolean generateFile) {
 
         results = new ArrayList<Part>();
 
         if (generateFile) {
-            testData = generateTestData(numOfSample);
-
+            
+            testData = generateTestData(numOfTest);
+            
             //clustering part
             if (sampled) {
-                subsetMatrix(testData);
+                
+                features_sampled = Utilities.removeRows(features_reduced, testData);
+                label_sampled = Utilities.removeRows(label_reduced, testData);
+                
                 Utilities.writeToCSV(features_sampled, "features_sampled_regression.csv");
                 Utilities.writeToCSV(label_sampled, "label_sampled_regression.csv");
             } else {
-                Utilities.writeToCSV(features_sampled, "features_unsampled_regression.csv");
-                Utilities.writeToCSV(label_sampled, "label_unsampled_regression.csv");
+                Utilities.writeToCSV(features_reduced, "features_unsampled_regression.csv");
+                Utilities.writeToCSV(label_reduced, "label_unsampled_regression.csv");
             }
 
             String[] testDataString = new String[testData.size()];
@@ -684,13 +547,14 @@ public class DataAnalysis {
             Utilities.writeToCSV(testDataString, "testData_python.csv");
 
             System.out.println("***Generating csv files for Regression!!!");
+            
         } else {
+            
+            List<Integer> testDataInt = new ArrayList<Integer>();
+            double[] testDataDouble = Utilities.readFromCSV("testData_python.csv", numOfTest);
 
-            List<Integer> testDataFromFile = new ArrayList<Integer>();
-
-            double[] testDataDouble = Utilities.readFromCSV("testData_python.csv", numOfSample);
             for (int i = 0; i < testDataDouble.length; i++) {
-                testDataFromFile.add((int) testDataDouble[i]);
+                testDataInt.add((int) testDataDouble[i]);
             }
 
             double[] coefficients = Utilities.readFromCSV("params.csv", (num_of_parts + 1)); //+1 for intercept
@@ -703,73 +567,17 @@ public class DataAnalysis {
                 } else {
                     factor = -1;
                 }
-                results.add(new Part(partnames[i - 1], parts_ave[i - 1], parts_std[i - 1], factor * probabilities[i], coefficients[i]));
+                parts.get(i - 1).setProbability(factor * probabilities[i]);
+                parts.get(i - 1).setCoefficient(coefficients[i]);
             }
 
-            makeplotRegression(testDataFromFile, coefficients[0]);
+            makeplotRegression(testDataInt, coefficients[0]);
         }
-
-        /*MultipleRegression mReg = new MultipleRegression();
-        List<String> output = mReg.pyRegression("garuda.py");*/
- /*double[][] data = Utilities.readFromCSV("features-simplified-del199.csv", 323, 49);
-        double[] label = Utilities.nDTo1DArray(Utilities.readFromCSV("label-simplified-del199.csv", 323, 1), 0);
-        mReg.jvRegression(data, label);*/
-    }
-
-    /*public void featureSort() {
-        List<Part> allparts = new ArrayList<Part>();
-        
-        allparts.add(new Part(0, "part1", new double[]{0.1, 0.2, 0.3}, 0.7, 0));
-        allparts.add(new Feature(1, "part2", new double[]{0.2, 0.1, 0.3}, 0.5, 0));
-        allparts.add(new Feature(2, "part3", new double[]{0.2, 0.3, 0.1}, 0.2, 0));
-        allparts.add(new Feature(3, "part4", new double[]{0.3, 0.1, 0.2}, 0.9, 0));
-        
-        Collections.sort(features_loc, Feature.Comparators.labelComparator);
-        
-        for (int i = 0; i < features_loc.size(); i++) {
-            System.out.println (features_loc.get(i).getName());
-        }
-    }*/
-    public int runBackprop(boolean sampled, int numOfSample) {
-
-        //testData = generateTestData(numOfSample);
-        results = new ArrayList<Part>();
-
-        //clustering part
-        /*if (sampled) {
-            subsetMatrix(testData);            //creating features_sampled and label_sampled
-            label_2D = Utilities._1DTonDArray(label_sampled);
-            features_loc = features_sampled;
-        }
-        else {
-            label_2D = Utilities._1DTonDArray(label_reduced);
-            features_loc = features_reduced;
-        }*/
-        Backpropagation bp = new Backpropagation(features_reduced, Utilities._1DTonDArray(label_reduced), 3, features_reduced.length, numOfSample);
-
-        testData = bp.getTestList();
-        List<Feature> clusterData = bp.getClusterData();
-
-        /*System.out.println("***Cluster Data***");
-        for (int i = 0; i < clusterData.size(); i++) {
-            System.out.println(clusterData.get(i).getCluster() +  "\t" + clusterData.get(i).getLabel());
-        }*/
-        int counter = 0;
-        for (int i = 0; i < testData.size(); i++) {
-            int idx = testData.get(i);
-            //System.out.println((idx + 1) + ":\t" + ((int) label_reduced[idx]) + "\t" + clusterData.get(idx).getCluster());
-            if ((int) label_reduced[idx] == clusterData.get(idx).getCluster()) {
-                counter++;
-            }
-        }
-        //System.out.println(counter);
-
-        return counter;
     }
 
     public void makeplotRegression(List<Integer> testData, double intercept) {
 
-        System.out.println("***MAKEPLOT***");
+        System.out.println("***MAKEPLOT REGRESSION***");
 
         String partstring = "";
         String growth = "";
@@ -779,16 +587,16 @@ public class DataAnalysis {
         String prob_neg = "";
 
         //sort by growth rate
-        Collections.sort(results, Part.Comparators.labelComparator);
+        Collections.sort(parts, Part.Comparators.growthComparator);
         Map<String, Double> part_prob = new HashMap<String, Double>();
 
-        for (int i = results.size() - 1; i >= 0; i--) {
+        for (int i = parts.size() - 1; i >= 0; i--) {
 
-            partstring = partstring + results.get(i).getName() + ",";
-            growth = growth + results.get(i).getAve_growth() + ",";
-            stdev = stdev + results.get(i).getStd_dev() + ",";
+            partstring = partstring + parts.get(i).getName() + ",";
+            growth = growth + parts.get(i).getAve_growth() + ",";
+            stdev = stdev + parts.get(i).getStd_dev() + ",";
 
-            double prob = results.get(i).getProbability();
+            double prob = parts.get(i).getProbability();
             if (prob >= 0) {
                 prob_pos = prob_pos + prob + ",";
                 prob_neg = prob_neg + "0.0,";
@@ -797,8 +605,8 @@ public class DataAnalysis {
                 prob_neg = prob_neg + prob + ",";
             }
 
-            part_prob.put(results.get(i).getName(), results.get(i).getCoefficient());
-            System.out.println(results.get(i).getName() + "\t" + results.get(i).getAve_growth() + "\t" + results.get(i).getProbability());
+            part_prob.put(parts.get(i).getName(), parts.get(i).getCoefficient());
+            System.out.println(parts.get(i).getName() + "\t" + parts.get(i).getAve_growth() + "\t" + parts.get(i).getProbability());
         }
 
         //remove the last comma
@@ -819,8 +627,6 @@ public class DataAnalysis {
         System.out.println("Good: " + prob_pos);
         System.out.println("Bad: " + prob_neg);
 
-        //print test data
-        //List<Double> fitnesses = new ArrayList<Double>();
         String partpy = "";
         String predpy = "";
         String realpy = "";
@@ -830,43 +636,21 @@ public class DataAnalysis {
             double fitness = 0.0;
             for (int j = 0; j < features_reduced[0].length; j++) {
                 if (features_reduced[testData.get(i)][j] == 1) {
-                    System.out.print(partnames[j] + " ");
-                    fitness += part_prob.get(partnames[j]);
-                    //partpy = partpy + partnames[i] + "_";
+                    System.out.print(parts.get(j).getName() + " ");
+                    fitness += part_prob.get(parts.get(j).getName());
                 }
             }
-            //partpy = partpy.substring(0, partpy.length()-1) + ",";
             partpy = partpy + (testData.get(i) + 1) + ",";
             predpy = predpy + (fitness + intercept) + ",";
             realpy = realpy + label_reduced[testData.get(i)] + ",";
 
-            //fitnesses.add(fitness);
             System.out.println("= " + fitness + " versus " + label_reduced[testData.get(i)]);
         }
 
-        /*double fitness_min = fitnesses.get(0);
-        double fitness_max = fitnesses.get(0);
-        for (int i = 1; i < fitnesses.size(); i++) {
-            if (fitnesses.get(i) < fitness_min) {
-                fitness_min = fitnesses.get(i);
-            }
-            if (fitnesses.get(i) > fitness_max) {
-                fitness_max = fitnesses.get(i);
-            }
-        }
-        List<Double> fitnesses_norm = new ArrayList<Double>();
-        for (int i = 0; i < fitnesses.size(); i++) {
-            double new_fitness = (fitnesses.get(i) - fitness_min) / (fitness_max - fitness_min);
-            fitnesses_norm.add(new_fitness);
-            //predpy = predpy + new_fitness + ",";
-        }*/
         partpy = partpy.substring(0, partpy.length() - 1);
         predpy = predpy.substring(0, predpy.length() - 1);
         realpy = realpy.substring(0, realpy.length() - 1);
 
-        /*for (int i = 0; i < center.size(); i++) {
-            System.out.println(center.get(i));
-        }*/
         //arguments for python script
         List<String> arguments = new ArrayList<String>();
 
@@ -889,117 +673,27 @@ public class DataAnalysis {
         PythonRunner pr = new PythonRunner("make_barplot.py", arguments);
 
     }
+    
+    public int runBackprop(boolean sampled, int numOfSample) {
 
-    public void runKMeansExpert(String data, String label) {
+        results = new ArrayList<Part>();
 
-        int row = 354;
-        int column = 15;
+        Backpropagation bp = new Backpropagation(features_reduced, Utilities._1DTonDArray(label_reduced), 3, features_reduced.length, numOfSample);
 
-        String[] partnames = new String[]{
-            "DC-01", "RHa-36", "AcT-09", "RHa-51", "AcT-11", "NMT-05", "NMT-17", "DC-02",
-            "AAF-20", "AAF-27", "AcT-05", "RHa-18", "DC-06", "AAF-18", "NMT-13"
-        };
-        List<Integer> goodparts = new ArrayList<Integer>();
+        testData = bp.getTestList();
+        List<Feature> clusterData = bp.getClusterData();
 
-        double[][] data_arr = Utilities.readFromCSV(data, row, column);
-        double[][] label_2d = Utilities.readFromCSV(label, row, 1);
-
-        KMeansClustering kmeans = new KMeansClustering(label_2d, 2);
-
-        int[] cluster = kmeans.getListCluster();
-
-        int total = 0;
-        for (int i = 0; i < cluster.length; i++) {
-            if (cluster[i] == 1) {
-                total++;
-                for (int j = 0; j < data_arr[0].length; j++) {
-                    if (data_arr[i][j] == 1.0 && !goodparts.contains(j)) {
-                        goodparts.add(j);
-                    }
-                }
-            }
-            System.out.println(cluster[i] + "    " + label_2d[i][0]);
-        }
-
-        System.out.println("Total good constructs: " + total + ", and bad constructs: " + (cluster.length - total));
-
-        System.out.println("*****List of good parts:");
-        for (int k = 0; k < goodparts.size(); k++) {
-            System.out.println(partnames[goodparts.get(k)]);
-        }
-
-    }
-
-    public void runNaiveBayes(String data, String label) {
-
-        int row = 354;
-        int column = 15;
-        //double threshold = 0.1;
-        String[] partnames = new String[]{
-            "DC-01", "RHa-36", "AcT-09", "RHa-51", "AcT-11", "NMT-05", "NMT-17", "DC-02",
-            "AAF-20", "AAF-27", "AcT-05", "RHa-18", "DC-06", "AAF-18", "NMT-13"
-        };
-        double[] growth = new double[]{
-            0.609582398, 0.695577196, 0.662406204, 0.712407217, 0.689552324,
-            0.700538101, 0.778724162, 0.6573707, 0.827001054, 0.662825018,
-            0.712291276, 0.713080792, 0.869661337, 0.614503912, 0.829831316
-        };
-        double[][] probabilities = new double[partnames.length][9];
-
-        double[][] data_arr = Utilities.readFromCSV(data, row, column);
-        double[] label_arr = Utilities.nDTo1DArray(Utilities.readFromCSV(label, row, 1), 0);
-
-        for (int threshold = 1; threshold < 10; threshold++) {
-
-            List<Feature> features = Utilities.arrayToFeature(data_arr, label_arr, (double) threshold / 10);
-            NaiveBayes nb = new NaiveBayes(features, 2, column);
-
-            /*List<Integer> list = nb.getToxicList();
-
-            System.out.println("List size: " + list.size());
-            for (int i = 0; i < list.size(); i++) {
-                System.out.println(i + ". " + list.get(i));
-            }*/
-            List<Feature> classList = nb.getClassList();
-
-            //System.out.println ("===threshold: " + threshold);
-            //printing
-            for (int i = 0; i < nb.getClasses(); i++) {
-                //System.out.println("***Toxicity " + i + " contains: ");
-                for (int j = 0; j < classList.size(); j++) {
-                    if (classList.get(j).getCluster() == i) {
-                        if (i == 0) {
-                            int idx = classList.get(j).getId();
-                            double probability = classList.get(j).getVector().getDimension(0) * -1;
-                            //System.out.println(growth[idx] + "\t" + partnames[idx] + "\t\t" + probabilities);
-                            probabilities[j][(int) (threshold - 1)] = probability;
-                        } else if (i == 1) {
-                            int idx = classList.get(j).getId();
-                            double probability = classList.get(j).getVector().getDimension(0);
-                            //System.out.println(growth[idx] + "\t" + partnames[idx] + "\t" + probabilities);
-                            probabilities[j][(int) (threshold - 1)] = probability;
-                        }
-                    }
-                    //add to the toxic list
-                    /*if (classList.get(i).getCluster() == 0) {
-                        toxicList.add(classList.get(i).getId() + 1);
-                    }*/
-                }
+        int counter = 0;
+        for (int i = 0; i < testData.size(); i++) {
+            int idx = testData.get(i);
+            //System.out.println((idx + 1) + ":\t" + ((int) label_reduced[idx]) + "\t" + clusterData.get(idx).getCluster());
+            if ((int) label_reduced[idx] == clusterData.get(idx).getCluster()) {
+                counter++;
             }
         }
+        //System.out.println(counter);
 
-        for (int i = 0; i < probabilities.length; i++) {
-            System.out.println(partnames[i]);
-            for (int j = 0; j < probabilities[0].length; j++) {
-                System.out.print(probabilities[i][j] + ", ");
-            }
-            System.out.println();
-        }
-
-        /*System.out.println("Part: " + partnames.length);
-        for (int i = 0; i < partnames.length; i++) {
-            System.out.println((i + 1) + ". " + partnames[i]);
-        }*/
+        return counter;
     }
 
 }
