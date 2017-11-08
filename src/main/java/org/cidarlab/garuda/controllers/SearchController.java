@@ -39,7 +39,7 @@ public class SearchController {
     ClothoService clotho;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getSearchPage(HttpSession session, Model model) {
+    public String getSearchPage(SearchController searchController, HttpSession session, Model model) {
 
         String user = (String) session.getAttribute("username");
         String authHeader = (String) session.getAttribute("authHeader");

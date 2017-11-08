@@ -39,8 +39,9 @@ public class UpdateController {
 
     @Autowired
     ClothoService clotho;
+
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String getDeletePage(HttpSession session, Model model) {
+    public String getUpdatePage(HttpSession session, Model model) {
 
         String user = (String) session.getAttribute("username");
         String authHeader = (String) session.getAttribute("authHeader");
@@ -52,29 +53,32 @@ public class UpdateController {
         }
         
         model.addAttribute("updateForm", new UpdateForm());
-        
+
         return "update";
     }
 
-    @RequestMapping(value = "/update_in_progress", method = RequestMethod.GET)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String resolveUpdate(
-            DeleteForm deleteForm,
+            UpdateForm updateForm,
             HttpSession session,
-            Model model) throws IOException, ParseException {
+            Model model) throws ParseException {
 
-        model.addAttribute("searchForm", new SearchForm());
-        
+
         try {
-            
-            clotho.deleteDeviceById_del(deleteForm.getBiodesignId(), session);
-            
-            
+
+            System.out.println(updateForm.getBiodesignId());
+            System.out.println(updateForm.toPartJsonString());
+
+            System.out.println(clotho.updateDeviceById_put(updateForm.getBiodesignId(), updateForm.toPartMap(), session));
+
+
         } catch (RuntimeException e) {
             model.addAttribute("result", "BioDesign not found");
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
-        return "result";
+        model.addAttribute("searchForm", new SearchForm());
+        return "search";
     }
-
 }

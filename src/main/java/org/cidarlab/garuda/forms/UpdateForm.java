@@ -63,6 +63,7 @@ public class UpdateForm {
         this.parameters = null;
         this.sequence = null;
         this.userSpace = null;
+        this.biodesignId = null;
     }
     
     public void clear(){
@@ -72,6 +73,7 @@ public class UpdateForm {
         this.parameters = null;
         this.sequence = null;
         this.userSpace = null;
+        this.biodesignId = null;
     }
     
     @Override
@@ -90,7 +92,7 @@ public class UpdateForm {
                 + "\"name\": \"" + this.name +"\", "
                 + "\"displayId\": \"" + this.displayId + "\", "
                 + "\"role\": \"" + this.role + "\", "
-                + "\"parameters\": " + this.parameters + ", "
+                + "\"parameters\": [" + this.parameters + "], "
                 + "\"sequence\": \"" + this.sequence + "\""
                 + "\"userSpace\": \"" + this.userSpace + "\""
                 + "}";

@@ -269,13 +269,12 @@ public class ClothoService {
          UPDATE
      * ===== =====  */ 
     
-        public String updateDeviceById_put(String biodesignId, HttpSession session){
+        public String updateDeviceById_put(String biodesignId, Map map, HttpSession session){
         
         String URI = URL + "/part/update/" + biodesignId;
         
         HttpHeaders getHeaders = new HttpHeaders();
         getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        Map map = new HashMap<>();
         
         HttpEntity<?> request = new HttpEntity(map,getHeaders);
         

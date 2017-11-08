@@ -23,12 +23,6 @@ and open the template in the editor.
                             <div class="title_left utitle">
                                 <h3>Update Data</h3>
                             </div>
-
-                            <div class="utitle_right" style="text-align:right">
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
-                                    <button class="btn btn-info query-add">Add field</button>
-                                </div>
-                            </div>
                         </div>
                         <div class="clearfix"></div>
 
@@ -53,26 +47,54 @@ and open the template in the editor.
                                                 
                                                 <div class="form-group div-query">
                                                     <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Biodesign Id</option>
-                                                            <option selected="selected" >By Filter</option>
-<!--                                                        <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>-->
-                                                        </select>
+                                                        <div class="form-control">
+                                                            <option>Biodesign Id *</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Name *</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Display Id</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Role</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Sequence</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Parameters</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>User Space</option>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-7 col-sm-7 col-xs-11">
+                                                        <div>
                                                         <input type="text" class="form-control" th:field="*{biodesignId}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{name}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{displayId}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{role}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{sequence}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{parameters}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{userSpace}"/>
+                                                    </div>
                                                     </div>
                                                     
-                                                    <!--<div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>-->
+
                                                 </div>
                                             </div>
 
