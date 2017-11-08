@@ -53,6 +53,8 @@ public class Main {
 
         double[][] featuresData = new double[constructCount][featureCount];
         double[][] labelData = new double[constructCount][1];
+        double[][] labelData2 = new double[constructCount][1];
+
         int cluster = 3;
         
         
@@ -94,14 +96,17 @@ public class Main {
             switch(label.toLowerCase().trim()){
                 case "bad":
                     labelData[rowIndex][0] = -1;
+                    labelData2[rowIndex][0] = -1;
                     break;
                     
                 case "ok":
                     labelData[rowIndex][0] = 0;
+                    labelData2[rowIndex][0] = 0;
                     break;
                     
                 case "good":
                     labelData[rowIndex][0] = 1;
+                    labelData2[rowIndex][0] = 1;
                     break;
             }
             /**/
@@ -140,20 +145,23 @@ public class Main {
             System.out.println(thing + ": " + num);
         }
         /**/
-        
+
         // NNet Constructor
         NNet nnet = new NNet(featuresData, labelData, cluster, 420);
         
         System.out.println();
         
-        
+
+        List<Double> out = nnet.getTestData();
         List<Integer> output = nnet.getTestList();
         
         
         for (int i = 0; i < output.size(); i++){
-            System.out.println(output.get(i) + " real:" + labelData[output.get(i)][0]);
+            System.out.println(output.get(i) + " real:" + labelData2[output.get(i)][0] + " gen:" + out.get(i));
+
         }
-        
+
+
         //System.out.println((double)correct/(double)constructCount);
         
         

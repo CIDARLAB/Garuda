@@ -55,6 +55,12 @@ public class NNet {
     
     private double expThreshold;
 
+    private List<Double> testData = new ArrayList<>();
+
+    List<Double> getTestData(){
+        return testData;
+    }
+
     public NNet(double[][] featuresData, double[][] labelData, int cluster, int nOT) {
 
         //System.out.println("**number of input neurons " + featuresData[0].length);
@@ -208,10 +214,14 @@ public class NNet {
                 inputs[j] = featuresData[i][j];
             }
 
-            System.out.println((i+1) + "    " + actual[0] + "   " + actual[1] + "    " + labelData[i][0]);
-            
+            if (testList.contains(i)){
+                System.out.println((i+1) + "    " + actual[0] + "   " + actual[1] + "    " + labelData[i][0]);
+                testData.add(labelData[i][0]);
+            }
+
+
             feedForward();
-            
+
             clusterData.add(new Feature(i, inputs, maximum(actual)));
         }
 
@@ -223,7 +233,7 @@ public class NNet {
         // This function adds a random fractional value to all the training
         // inputs greater than zero.
         DecimalFormat dfm = new java.text.DecimalFormat("###0.0");
-        
+
         for(int i = 0; i < MAX_SAMPLES; i++)
         {
             for(int j = 0; j < INPUT_NEURONS; j++)
