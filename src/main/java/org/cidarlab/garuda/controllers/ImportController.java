@@ -109,8 +109,8 @@ public class ImportController {
                 System.out.println("parsing with Guy");
                 guyparser.parse(fileLocation, "resources/output-", user, session);
             } else {
-                System.out.println("parsing with RM");
-                rmparser.parse(fileLocation, user, session);
+                System.out.println("parsing with RW");
+                rwrparser.parse(fileLocation, user, session);
             }
 
             System.out.println("done parsing");

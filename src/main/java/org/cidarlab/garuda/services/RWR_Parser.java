@@ -153,8 +153,8 @@ public class RWR_Parser {
                 int idx = roles_idx.get(j);
 
                 try {
-                    AddForm addForm = new AddForm();
-                    ArrayList<Parameter> paramList = new ArrayList<>();
+                    /*AddForm addForm = new AddForm();
+                    ArrayList<Parameter> paramList = new ArrayList<>();*/
 
                     Cell cell = row.getCell(idx);
                     cell.setCellType(CellType.STRING);
@@ -168,23 +168,24 @@ public class RWR_Parser {
                     
                     json.put("name", display_id);
                     json.put("displayId", display_id);
-                    json.put("role", role);
+                    json.put("role", role.toUpperCase());
                     
-                    
-                    jsonmap.put("name", display_id);
+                    /*jsonmap.put("name", display_id);
                     jsonmap.put("displayId", display_id);
-                    jsonmap.put("role", "Vector");
+                    jsonmap.put("role", "VECTOR");
                 
                     addForm.setDisplayId(display_id);
-                    addForm.setRole(role);
+                    addForm.setRole(role);*/
                     
+                    System.out.println(display_id + "\t" + json.get("role"));
+                
                     //addForm.setParameters(paramList);
                             
                     String jsonString = json.toJSONString().replaceAll("\"", "'");
                     System.out.println(jsonString);
 
                     //String part_id = rest.createPart(jsonString);
-                    String part_id = clotho.createPart_post(jsonmap, session);
+                    String part_id = clotho.createPart_post(json, session);
                     System.out.println(part_id);
                     parts.put(display_id, part_id);
 
@@ -222,13 +223,14 @@ public class RWR_Parser {
 
                 json.put("name", display_id);
                 json.put("displayId", display_id);
-                json.put("role", "Vector");
+                json.put("role", "VECTOR");
                 
-                
-                jsonmap.put("name", display_id);
+                /*jsonmap.put("name", display_id);
                 jsonmap.put("displayId", display_id);
-                jsonmap.put("role", "Vector");
+                jsonmap.put("role", "VECTOR");*/
 
+                System.out.println("**** " + display_id + "\t" + json.get("role"));
+                
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 

@@ -24,11 +24,11 @@ and open the template in the editor.
                                 <h3>Search Data</h3>
                             </div>
 
-                            <div class="utitle_right" onclick="toggleQueryContainer()" style="text-align:right">
+                            <!--<div class="utitle_right" onclick="toggleQueryContainer()" style="text-align:right">
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
                                     <button class="btn btn-info query-add">Query By Filter</button>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="clearfix"></div>
 
@@ -48,15 +48,23 @@ and open the template in the editor.
                                         <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
                                         <br />
                                         <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/search}" th:object="${searchForm}" method="post">
-                                                
-                                            <div class="form-group div-query" id='biodesignIdContainer'>
-                                                <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{biodesignId}" placeholder="Biodesign Id"/>
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">ID</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="biodesignId" class="form-control col-md-7 col-xs-12" th:field="*{biodesignId}"/>
                                                 </div>
                                             </div>
                                             
-                                            <div id='query-container' style='display:none'>
-                                                <div class='form-group div-query'>
+                                            <!--<div class="form-group div-query" id='biodesignIdContainer'>-->
+                                            <!--<div class='form-group div-query'>
+                                                <div class="col-md-7 col-sm-7 col-xs-11">
+                                                    <input type="text" class="form-control" th:field="*{biodesignId}" placeholder="Biodesign Id"/>
+                                                </div>
+                                            </div>-->
+                                            
+                                            <!--<div id='query-container'>-->
+                                                <!--<div class='form-group div-query'>
                                                     <div class='col-md-7 col-sm-7 col-xs-11'>
                                                             <input type='text' class='form-control' th:field='*{filter}' placeholder='Filter' />
                                                     </div>
@@ -65,9 +73,18 @@ and open the template in the editor.
                                                                     <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                             </ul>
                                                     </div>
+                                                </div>-->
+                                            
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="name" class="form-control col-md-7 col-xs-12" th:field="*{name}"/>
                                                 </div>
-
-                                                <div class='form-group div-query'>
+                                            </div>
+                                            
+                                                
+                                                <!--<div class='form-group div-query'>
                                                         <div class='col-md-7 col-sm-7 col-xs-11'>
                                                                 <input type='text' class='form-control' th:field='*{name}' placeholder='Name' />
                                                         </div>
@@ -76,9 +93,17 @@ and open the template in the editor.
                                                                         <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                                 </ul>
                                                         </div>
-                                                </div>
+                                                </div>-->
 
-                                                <div class='form-group div-query'>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Display ID</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="displayId" class="form-control col-md-7 col-xs-12" th:field="*{displayId}"/>
+                                                </div>
+                                            </div>
+                                            
+                                                
+                                                <!--<div class='form-group div-query'>
                                                         <div class='col-md-7 col-sm-7 col-xs-11'>
                                                                 <input type='text' class='form-control' th:field='*{displayId}' placeholder='Display Id' />
                                                         </div>
@@ -87,9 +112,23 @@ and open the template in the editor.
                                                                         <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                                 </ul>
                                                         </div>
-                                                </div>
+                                                </div>-->
 
-                                                <div class='form-group div-query'>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <select name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}">
+                                                        <option selected="selected" value="">--Choose Role--</option>
+                                                        <option value="Promoter">Promoter</option>
+                                                        <option value="Ribozyme">Ribozyme</option>
+                                                        <option value="RBS">RBS</option>
+                                                        <option value="CDS">CDS</option>
+                                                        <option value="Terminator">Terminator</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                                <!--<div class='form-group div-query'>
                                                         <div class='col-md-7 col-sm-7 col-xs-11'>
                                                                 <input type='text' class='form-control' th:field='*{role}' placeholder='Role' />
                                                         </div>
@@ -98,20 +137,29 @@ and open the template in the editor.
                                                                         <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                                 </ul>
                                                         </div>
+                                                </div>-->
+                                                
+                                                
+                                            <div class='form-group'>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sequence</label>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <textarea style='resize:none;height:200px' class='form-control' th:field='*{sequence}' placeholder='Sequence'></textarea>
                                                 </div>
+                                            </div>
 
-                                                <div class='form-group div-query'>
+
+                                                <!--<div class='form-group div-query'>
                                                         <div class='col-md-7 col-sm-7 col-xs-11'>
-                                                                <input type='text' class='form-control' th:field='*{sequence}' placeholder='Sequence' />
+                                                                <textarea style='resize:none;height:200px' class='form-control' th:field='*{sequence}' placeholder='Sequence'></textarea>
                                                         </div>
                                                         <div class='col-md-1 col-sm-1 col-xs-1'>
                                                                 <ul class='nav panel_toolbox'>
                                                                         <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                                 </ul>
                                                         </div>
-                                                </div>
+                                                </div>-->
 
-                                                <div class='form-group div-query'>
+                                                <!--<div class='form-group div-query'>
                                                         <div class='col-md-7 col-sm-7 col-xs-11'>
                                                                 <input type='text' class='form-control' th:field='*{userSpace}' placeholder='User Space' />
                                                         </div>
@@ -120,9 +168,9 @@ and open the template in the editor.
                                                                         <li><a class='close-query'><i class='fa fa-close'></i></a></li>
                                                                 </ul>
                                                         </div>
-                                                </div>
+                                                </div>-->
 
-                                            </div>
+                                            <!--</div>-->
 
 
                                             <div class="ln_solid"></div>
