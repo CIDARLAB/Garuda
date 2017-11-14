@@ -184,7 +184,7 @@ public class RWR_Parser {
                     System.out.println(jsonString);
 
                     //String part_id = rest.createPart(jsonString);
-                    String part_id = clotho.createPart_post(jsonmap, session);
+                    String part_id = clotho.createPart_post(json, session);
                     System.out.println(part_id);
                     parts.put(display_id, part_id);
 
