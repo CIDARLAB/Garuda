@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.AddForm;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
+import org.cidarlab.garuda.forms.SearchForm;
 import org.cidarlab.garuda.services.ClothoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,9 +86,9 @@ public class AddController {
             
             Object jsonObj = mapper.readValue(result, Object.class);
             String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
-            model.addAttribute("result", indented);
-            
-            return "result";
+
+            model.addAttribute("searchForm", new SearchForm());
+            return "search";
         }
     }
     
@@ -148,7 +149,7 @@ public class AddController {
             
             Object jsonObj = mapper.readValue(result, Object.class);
             String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
-            model.addAttribute("result", indented);
+            model.addAttribute("searchForm", new SearchForm());
             
             return "result";
         }
