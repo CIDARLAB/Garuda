@@ -66,7 +66,7 @@ public class LoginController {
         Account myAccount = null;
         
         try {
-            System.out.println(loginForm.toString());
+            
             myAccount = clotho.login_post(loginForm, session);
 
             if (myAccount == null) {

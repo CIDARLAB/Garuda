@@ -110,7 +110,11 @@ public class RecommendController {
         String user = (String) session.getAttribute("username");
         
         System.out.println(user);
-        
+	if (!(user.equals("robwarden")) || !(user.equals("guy"))){
+		user = "mardian";
+	}
+
+
         long startTime = System.currentTimeMillis();
         List<String> output = ml.recommend (user, fileLocation, session);
         

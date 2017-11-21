@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="layout :: site-head"></head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                
+                <div th:replace="layout :: left-menu"></div>
+
+                <div th:replace="layout :: site-header"></div>
+                
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left utitle">
+                                <h3>Update Data</h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Update<!--<small>Choose your schema</small>--></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
+                                        <br />
+                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/update}" th:object="${updateForm}" method="post">
+
+                                            <div class="query-container">
+                                                
+                                                <div class="form-group div-query">
+                                                    <div class="col-md-4 col-sm-4 col-xs-11">
+                                                        <div class="form-control">
+                                                            <option>Biodesign Id *</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Name *</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Display Id</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Role</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Sequence</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>Parameters</option>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <option>User Space</option>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-7 col-sm-7 col-xs-11">
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{biodesignId}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{name}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{displayId}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{role}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{sequence}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{parameters}"/>
+                                                        </div>
+                                                        <div>
+                                                        <input type="text" class="form-control" th:field="*{userSpace}"/>
+                                                    </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Cancel</button>
+                                                    <button type="submit" class="btn btn-success">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /page content -->
+
+                <footer th:replace="layout :: site-footer"></footer>
+                
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- NProgress -->
+        <script src="js/nprogress.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="js/bootstrap-progressbar.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.min.js"></script>
+        
+        <!-- Custom Function: OnClick, OnClose-->
+        <script>
+            /*<![CDATA[*/
+            $(document).ready(function(){
+                
+            	$(".close-query").click (function () {
+                    var e=$(this).closest(".div-query");
+                    e.remove();
+                });
+		
+            	$(".query-add").click (function () {
+                    $(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
+                });
+			  
+                $(document).on('click', '.close-query', function(){
+                    var e=$(this).closest(".div-query");
+                    e.remove();
+                });
+            });
+            /*]]>*/
+        </script>
+    </body>
+
+</html>

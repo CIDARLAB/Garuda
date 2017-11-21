@@ -22,3 +22,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### DNAPlotLib ###
+src/main/resources/static/images/generated*
+resources/visual/generated

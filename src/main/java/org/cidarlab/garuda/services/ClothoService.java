@@ -31,7 +31,7 @@ public class ClothoService {
     private final RestTemplate restTemplate;
     
     private static final String URL = "http://localhost:9000/api";
-//    private static final String URL = "http://beta.clothocad.org/api"
+//    private static final String URL = "http://alpha.clothocad.org/api"
     
     /*
         Constructor
@@ -269,9 +269,52 @@ public class ClothoService {
          UPDATE
      * ===== =====  */ 
     
+        public String updateDeviceById_put(String biodesignId, Map map, HttpSession session){
+        
+        String URI = URL + "/part/update/" + biodesignId;
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
+    
     /* ===== ===== 
          DELETE
      * ===== =====  */ 
+        
+        public String deleteDeviceById_del(String biodesignId, HttpSession session){
+        
+        String URI = URL + "/part/" + biodesignId;
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        Map map = new HashMap<>();
+        
+        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.DELETE, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
     
     public void test(){
         System.out.println("The ClothoService is connected to this class.");
