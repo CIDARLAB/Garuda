@@ -58,6 +58,7 @@ public class AquariumParser {
             Map json = addForm.toPartMap();
 
             String partId = clotho.createPart_post(json, session);
+            System.out.println("P:"+partId);
             partIds.put(partName, partId);
         }
 
@@ -113,7 +114,8 @@ public class AquariumParser {
 
             Map json = addForm.toDeviceMap();
 
-            String partId = clotho.createDevice_post(json, session);
+            String deviceId = clotho.createDevice_post(json, session);
+            System.out.println("D:"+deviceId);
         }
     }
 

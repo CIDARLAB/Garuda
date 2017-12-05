@@ -12,9 +12,11 @@ import java.io.InputStream;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
+import org.cidarlab.garuda.services.AquariumParser;
 import org.cidarlab.garuda.services.Guy_Parser;
 import org.cidarlab.garuda.services.RM_Parser;
 import org.cidarlab.garuda.services.RWR_Parser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,6 @@ import org.springframework.web.multipart.MultipartFile;
  * @author jayajr
  */
 @Controller
-@RequestMapping(value = "/import")
 public class ImportController {
 
     @Autowired
@@ -40,9 +41,12 @@ public class ImportController {
     @Autowired
     private static RWR_Parser rwrparser;
 
+    @Autowired
+    private static AquariumParser aqparser;
+
     private String fileLocation;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/import", method = RequestMethod.GET)
     public String getImportPage(HttpSession session, Model model) {
 
         String user = (String) session.getAttribute("username");
@@ -58,7 +62,7 @@ public class ImportController {
         return "import";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/import", method = RequestMethod.POST)
     public String importFile(
             @RequestParam("multipartFile") MultipartFile multipartFile,
             HttpSession session,
@@ -127,5 +131,58 @@ public class ImportController {
     @RequestMapping(value = "/upload", method = RequestMethod.GET)
     public String getUploadPage(HttpSession session, Model model) {
         return "upload";
+    }
+
+
+    @RequestMapping(value = "/aquarium", method = RequestMethod.GET)
+    public String getAquariumImport(HttpSession session, Model model) {
+        String user = (String) session.getAttribute("username");
+        String authHeader = (String) session.getAttribute("authHeader");
+
+        if (user == null || authHeader == null) {
+            model.addAttribute("loginForm", new LoginForm());
+            model.addAttribute("registerForm", new RegisterForm());
+
+            return "login";
+        }
+
+        return "aquarium";
+    }
+
+    @RequestMapping(value = "/aquarium", method = RequestMethod.POST)
+    public String postAquariumImport(
+            @RequestParam("multipartFile") MultipartFile multipartFile,
+            HttpSession session,
+            Model model) throws IOException, ParseException {
+
+        if (multipartFile.isEmpty()){
+            return "import";
+        }
+
+        //{ Uploading the file
+        InputStream in = multipartFile.getInputStream();
+        File currDir = new File(".");
+
+        String path = currDir.getAbsolutePath();
+
+        fileLocation = path.substring(0, path.length() - 1) + multipartFile.getOriginalFilename();
+
+        FileOutputStream f = new FileOutputStream(fileLocation);
+        int ch = 0;
+
+        while ((ch = in.read()) != -1) {
+            f.write(ch);
+        }
+
+        f.flush();
+        f.close();
+
+        System.out.println("file uploaded!");
+        System.out.println("location at " + currDir.getAbsolutePath());
+        model.addAttribute("message", "File: " + multipartFile.getOriginalFilename() + " has been uploaded successfully!");
+
+        aqparser.importData(fileLocation, session);
+
+        return "import";
     }
 }
