@@ -37,6 +37,10 @@ public class ParserService {
     @Setter
     RWR_RecEngine rwrRecEngine;
 
+    @Getter
+    @Setter
+    AquariumParser aqParser;
+
     
 //    ParserService(){
 //        guyParser = new Guy_Parser();
