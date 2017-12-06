@@ -44,7 +44,7 @@ public class ImportController {
     @Autowired
     private static AquariumParser aqparser;
 
-    private String fileLocation;
+    protected String fileLocation;
 
     @RequestMapping(value = "/import", method = RequestMethod.GET)
     public String getImportPage(HttpSession session, Model model) {
@@ -112,6 +112,14 @@ public class ImportController {
             } else if (user.equals("guy")) {
                 System.out.println("parsing with Guy");
                 guyparser.parse(fileLocation, "resources/output-", user, session);
+            } else if (user.equals("aquariumbot")) {
+                System.out.println("parsing with Aquarium");
+
+                System.out.println(fileLocation);
+                System.out.println(session.getId());
+                aqparser.test();
+
+                aqparser.importData(fileLocation, session);
             } else {
                 System.out.println("parsing with RM");
                 rmparser.parse(fileLocation, user, session);
@@ -121,6 +129,9 @@ public class ImportController {
             model.addAttribute("result", "Import Successful!");
         } catch (RuntimeException e) {
             model.addAttribute("result", "Error: Import aborted.");
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         //} Parsing the file
@@ -181,7 +192,14 @@ public class ImportController {
         System.out.println("location at " + currDir.getAbsolutePath());
         model.addAttribute("message", "File: " + multipartFile.getOriginalFilename() + " has been uploaded successfully!");
 
-        aqparser.importData(fileLocation, session);
+
+        try {
+            System.out.println("parsing " + fileLocation + " with aquarium");
+            aqparser.importData(fileLocation, session);
+        } catch (RuntimeException e) {
+            model.addAttribute("result", "Error: Import aborted.");
+        }
+
 
         return "import";
     }

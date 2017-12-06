@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,17 +20,23 @@ import java.util.Map;
 @Service
 public class AquariumParser {
 
-    @Autowired
-    static ClothoService clotho;
     static HttpSession session;
     static Map<String, String> partIds;
+    static ClothoService clotho;
 
-    public void importData(String filename, HttpSession session) throws IOException, ParseException {
+    @Autowired
+    public void setClothoService(ClothoService clothoService){
+        clotho = clothoService;
+    }
+
+
+    public void importData(String filename, HttpSession session) throws IOException, ParseException, NullPointerException {
 
         this.session = session;
         this.partIds = new HashMap<>();
 
-        XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(filename));
+        FileInputStream inputFile = new FileInputStream(filename);
+        XSSFWorkbook workbook = new XSSFWorkbook(inputFile);
 
         XSSFSheet part_sheet = workbook.getSheet("Miniprep");
         XSSFSheet tgold_sheet = workbook.getSheet("Transformation Gold");
@@ -42,7 +49,7 @@ public class AquariumParser {
 
     }
 
-    private static void importParts(XSSFSheet sheet) throws IOException, ParseException {
+    private static void importParts(XSSFSheet sheet) throws IOException, ParseException, NullPointerException {
         int num_parts = sheet.getLastRowNum();
 
         for (int i = 0; i < num_parts; i++){
@@ -80,7 +87,7 @@ public class AquariumParser {
                 + ratio_230 + "]";
     }
 
-    private static void importDevices(XSSFSheet tgold_sheet, XSSFSheet moclo_sheet) throws ParseException {
+    private static void importDevices(XSSFSheet tgold_sheet, XSSFSheet moclo_sheet) throws ParseException, NullPointerException {
         int num_constructs = tgold_sheet.getLastRowNum();
         int num_constructs_check = moclo_sheet.getLastRowNum();
 
@@ -202,6 +209,10 @@ public class AquariumParser {
 
         return gson.toJson(param);
 
+    }
+
+    public static void test(){
+        System.out.println("test!");
     }
 
 }
