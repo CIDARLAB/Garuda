@@ -14,10 +14,10 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cidarlab.garuda.dom.Feature;
-import org.cidarlab.garuda.ml.Backpropagation;
-import org.cidarlab.garuda.ml.MultipleRegression;
-import org.cidarlab.garuda.ml.NaiveBayes;
+import org.cidarlab.garuda.model.Feature;
+import org.cidarlab.garuda.machinelearning.Backpropagation;
+import org.cidarlab.garuda.machinelearning.MultipleRegression;
+import org.cidarlab.garuda.machinelearning.NaiveBayes;
 
 /**
  *

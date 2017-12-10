@@ -13,6 +13,7 @@ import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
 import org.cidarlab.garuda.forms.SearchForm;
 import org.cidarlab.garuda.services.ClothoService;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,28 +68,48 @@ public class AddController {
         }
         
         ObjectMapper mapper = new ObjectMapper();
-        
         String result = null;
         
         try {
-            System.out.println(addForm.toPartJsonString());
-            String partId = clotho.createPart_post(addForm.toPartMap(), session);
+            
+            System.out.println(addForm.toPartMap());
+            
+            JSONObject json = new JSONObject();
+            
+            json.put("name", addForm.getName());
+            json.put("displayId", addForm.getDisplayId());
+            json.put("role", addForm.getRole());
+            
+            String partId = clotho.createPart_post(json, session);
             
             if (partId == null) {
+                System.out.println("***Error: failed creating the part!!");
                 throw new RuntimeException();
             } else {
                 result = clotho.getPartById_get(partId, session);
             }
+            
 
         } catch (RuntimeException e) {
+            
+            System.out.println(e);
             return "/error";
+            
         } finally {
             
+<<<<<<< HEAD
             Object jsonObj = mapper.readValue(result, Object.class);
             String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
 
             model.addAttribute("searchForm", new SearchForm());
             return "search";
+=======
+            //Object jsonObj = mapper.readValue(result, Object.class);
+            //String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+            model.addAttribute("add", "1 part succesfully created!");
+            
+            return "add";
+>>>>>>> garudadb_rm
         }
     }
     
@@ -130,14 +151,21 @@ public class AddController {
         }
         
         ObjectMapper mapper = new ObjectMapper();
-        
         String result = null;
         
         try {
             System.out.println(addForm.toDeviceJsonString());
+            
+            /*JSONObject json = new JSONObject();
+            
+            json.put("name", addForm.getName());
+            json.put("displayId", addForm.getDisplayId());
+            json.put("sequence", addForm.getSequence());*/
+            
             String partId = clotho.createDevice_post(addForm.toDeviceMap(), session);
             
             if (partId == null) {
+                System.out.println("***Error: failed creating the device!!");
                 throw new RuntimeException();
             } else {
                 result = clotho.getDeviceById_get(partId, session);
@@ -147,15 +175,21 @@ public class AddController {
             return "/error";
         } finally {
             
+<<<<<<< HEAD
             Object jsonObj = mapper.readValue(result, Object.class);
             String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
             model.addAttribute("searchForm", new SearchForm());
+=======
+            //Object jsonObj = mapper.readValue(result, Object.class);
+            //String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
+            model.addAttribute("add", "1 device succesfully created!");
+>>>>>>> garudadb_rm
             
-            return "result";
+            return "add_device";
         }
     }
     
-    @RequestMapping(value="/add_metadata", method=RequestMethod.GET)
+    /*@RequestMapping(value="/add_metadata", method=RequestMethod.GET)
     public String getAddMetadataPage(HttpSession session, Model model) {
         
         String user = (String) session.getAttribute("username");
@@ -244,6 +278,6 @@ public class AddController {
         }
         
         return "add_rna";
-    }
+    }*/
 }
 

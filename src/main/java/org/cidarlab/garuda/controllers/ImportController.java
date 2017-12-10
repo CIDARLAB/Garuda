@@ -106,6 +106,9 @@ public class ImportController {
             if (user.equals("user")) {
                 System.out.println("parsing with RW");
                 rwrparser.parse(fileLocation, user, session);
+            } else if (user.equals("aquarium")) {
+                System.out.println("parsing with Aquarium");
+                AquariumParser.parse(fileLocation, user, session);
             } else if (user.equals("robwarden")) {
                 System.out.println("parsing with RW");
                 rwrparser.parse(fileLocation, user, session);
@@ -116,8 +119,8 @@ public class ImportController {
                 System.out.println("parsing with Aquarium");
                 aqparser.importData(fileLocation, session);
             } else {
-                System.out.println("parsing with RM");
-                rmparser.parse(fileLocation, user, session);
+                System.out.println("parsing with RW");
+                rwrparser.parse(fileLocation, user, session);
             }
 
             System.out.println("done parsing");

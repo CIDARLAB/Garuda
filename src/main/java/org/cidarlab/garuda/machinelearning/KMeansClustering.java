@@ -5,16 +5,12 @@
  */
 package org.cidarlab.garuda.machinelearning;
 
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/ml/KMeansClustering.java
-import org.cidarlab.garuda.dom.Vector;
-import org.cidarlab.garuda.dom.Feature;
-=======
 import org.cidarlab.garuda.model.Vector;
 import org.cidarlab.garuda.model.Data;
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/machinelearning/KMeansClustering.java
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.cidarlab.garuda.model.Feature;
 
 /**
  *

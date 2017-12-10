@@ -7,11 +7,8 @@ package org.cidarlab.garuda.machinelearning;
 
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/ml/ExpertSystem.java
-import org.cidarlab.garuda.dom.Feature;
-=======
 import org.cidarlab.garuda.model.Data;
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/machinelearning/ExpertSystem.java
+import org.cidarlab.garuda.model.Feature;
 
 /**
  *

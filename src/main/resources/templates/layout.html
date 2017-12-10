@@ -41,9 +41,14 @@
                     <div class="menu_section">
                         <!--<h3>General</h3>-->
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                            <!--<li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="index.html">Dashboard</a></li>
+                                </ul>
+                            </li>-->
+                            <li><a><i class="fa fa-table"></i> Data Search <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="search.html">Query</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Data Entry <span class="fa fa-chevron-down"></span></a>
@@ -52,6 +57,7 @@
                                     <li><a href="import.html">Import Spreadsheet</a></li>
                                 </ul>
                             </li>
+<<<<<<< HEAD
                             <li><a><i class="fa fa-trash"></i> Data Delete <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="delete.html">Delete</a></li>
@@ -67,6 +73,8 @@
                                     <li><a href="search.html">Query</a></li>
                                 </ul>
                             </li>
+=======
+>>>>>>> garudadb_rm
                             <li><a><i class="fa fa-bar-chart-o"></i> Analysis <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="recommender.html">Toxicity Analyzer</a></li>
@@ -109,17 +117,17 @@
                         </li>
                         <li class="userLoggedIn" th:if="${session.username != null}">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/user.png" alt="" th:text="${session.username}"/>
+                                <img src="images/user.png" alt="" th:text="${'Welcome, ' + session.username + '!'}"/>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right" >
-                                <li><a href="javascript:;"> Profile</a></li>
+                                <!--<li><a href="javascript:;"> Profile</a></li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="javascript:;">-->
                                         <!--<span class="badge bg-red pull-right">50%</span>-->
-                                        <span>Settings</span>
+                                        <!--<span>Settings</span>
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
                                     <form action="#" th:action="@{/logout}" th:method="delete" >
                                         <input type="hidden" name="_method" value="delete" />
@@ -131,11 +139,11 @@
                             </ul>
                         </li>
 
-                        <li role="presentation" class="dropdown" th:if="${session.username != null}">
+                        <!--<li role="presentation" class="dropdown" th:if="${session.username != null}">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-envelope-o"></i>
+                                <i class="fa fa-envelope-o"></i>-->
                                 <!--<span class="badge bg-green">6</span>-->
-                            </a>
+                            <!--</a>
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                                 <li>
                                     <a>
@@ -180,7 +188,7 @@
                                     </a>
                                 </div>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
             </div>

@@ -14,15 +14,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/util/CategoricalRecEngine.java
-import org.cidarlab.garuda.dom.Feature;
-import org.cidarlab.garuda.ml.Backpropagation;
-import org.cidarlab.garuda.ml.MultipleRegression;
-=======
 import org.cidarlab.garuda.model.Feature;
 import org.cidarlab.garuda.machinelearning.Backpropagation;
-import org.cidarlab.garuda.machinelearning.MultipleRegression;
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/legacyutil/CategoricalRecEngine.java
+import org.cidarlab.garuda.ml.MultipleRegression;
 
 /**
  *

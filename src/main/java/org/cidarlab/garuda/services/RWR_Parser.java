@@ -153,8 +153,8 @@ public class RWR_Parser {
                 int idx = roles_idx.get(j);
 
                 try {
-                    AddForm addForm = new AddForm();
-                    ArrayList<Parameter> paramList = new ArrayList<>();
+                    /*AddForm addForm = new AddForm();
+                    ArrayList<Parameter> paramList = new ArrayList<>();*/
 
                     Cell cell = row.getCell(idx);
                     cell.setCellType(CellType.STRING);
@@ -168,16 +168,17 @@ public class RWR_Parser {
                     
                     json.put("name", display_id);
                     json.put("displayId", display_id);
-                    json.put("role", role);
+                    json.put("role", role.toUpperCase());
                     
-                    
-                    jsonmap.put("name", display_id);
+                    /*jsonmap.put("name", display_id);
                     jsonmap.put("displayId", display_id);
-                    jsonmap.put("role", "Vector");
+                    jsonmap.put("role", "VECTOR");
                 
                     addForm.setDisplayId(display_id);
-                    addForm.setRole(role);
+                    addForm.setRole(role);*/
                     
+                    System.out.println(display_id + "\t" + json.get("role"));
+                
                     //addForm.setParameters(paramList);
                             
                     String jsonString = json.toJSONString().replaceAll("\"", "'");
@@ -222,13 +223,14 @@ public class RWR_Parser {
 
                 json.put("name", display_id);
                 json.put("displayId", display_id);
-                json.put("role", "Vector");
+                json.put("role", "VECTOR");
                 
-                
-                jsonmap.put("name", display_id);
+                /*jsonmap.put("name", display_id);
                 jsonmap.put("displayId", display_id);
-                jsonmap.put("role", "Vector");
+                jsonmap.put("role", "VECTOR");*/
 
+                System.out.println("**** " + display_id + "\t" + json.get("role"));
+                
                 String jsonString = json.toJSONString().replaceAll("\"", "'");
                 System.out.println(jsonString);
 
@@ -314,25 +316,9 @@ public class RWR_Parser {
                 String construct_id = clotho.createDevice_post(json, session);
                 System.out.println(construct_id);
                 constructs_lvl1.put(display_id, construct_id);
-                
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/util/RWR_Parser.java
-                
-                JSONObject query_json = new JSONObject();
-                query_json.put("objectName", display_id);
-                String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
-                System.out.println(query_jsonString);
-=======
-//                
-//                JSONObject query_json = new JSONObject();
-//                query_json.put("objectName", display_id);
-//                String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
-//                System.out.print("This is from query: ");
-//                //rest.getDeviceID(query_jsonString);
-//                clotho.getDeviceId_get(query_jsonString);
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/services/RWR_Parser.java
-                
-                System.out.println("*****Part: " + rest.getPart(query_jsonString));
-                System.out.println("*****Device: " + rest.getDevice(query_jsonString));
+                  
+                //System.out.println("*****Part: " + rest.getPart(query_jsonString));
+                //System.out.println("*****Device: " + rest.getDevice(query_jsonString));
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -373,30 +359,7 @@ public class RWR_Parser {
                     String pdisplay_id = cell.getStringCellValue();
                     if (!pdisplay_id.equals("H2O")) {
                         partList.add(constructs_lvl1.get(pdisplay_id));
-                        
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/util/RWR_Parser.java
-                        System.out.println("***From hack: " + constructs_lvl1.get(pdisplay_id) + "   " + pdisplay_id);
-                        
-                        JSONObject query_json = new JSONObject();
-                        query_json.put("objectName", pdisplay_id);
-                        String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");
-
-                        System.out.println("***From search: " + rest.getPart(query_jsonString));
-                        System.out.println("***From device: " + rest.getDevice(query_jsonString));
-                        
-                        System.out.println("***From search ID: " + rest.getPartID(query_jsonString) + "    " + pdisplay_id);
-=======
-                        System.out.println("***From hack: " + constructs_lvl1.get(pdisplay_id) + "   " + pdisplay_id);		
-                        		
-                        //JSONObject query_json = new JSONObject();		
-                        //query_json.put("display_id", pdisplay_id);		
-                        //String query_jsonString = query_json.toJSONString().replaceAll("\"", "'");		
-                        //System.out.println("***From search: " + rest.getPart(query_jsonString));		
-                        //System.out.println("***From device: " + rest.getDevice(query_jsonString));		
-                        		
-                        //System.out.println("***From search ID: " + clotho.getPartById_get(session, query_jsonString) + "    " + pdisplay_id);		
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/services/RWR_Parser.java
-                        
+          
                     }
 
                 }

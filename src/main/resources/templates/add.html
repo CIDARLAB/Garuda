@@ -65,7 +65,7 @@ and open the template in the editor.
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <p></p>
+                                        <p class="umessage" th:text="*{add}"></p>
                                         <br/>
                                         <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/add}" method="post" th:object="${addForm}">
 
@@ -73,21 +73,28 @@ and open the template in the editor.
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="library_id">Name <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{name}"/>
+                                                    <input type="text" name="name" required="required" class="form-control col-md-7 col-xs-12" th:field="*{name}" placeholder="Required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="displayId">Display Id 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="displayId" class="form-control col-md-7 col-xs-12" th:field="*{displayId}"/>
+                                                    <input type="text" name="displayId" class="form-control col-md-7 col-xs-12" th:field="*{displayId}" placeholder="Assign a human-readable ID, can be the same with the name"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}"/>
+                                                    <select name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}">
+                                                        <option selected="selected" value="">--Choose Role--</option>
+                                                        <option value="Promoter">Promoter</option>
+                                                        <option value="Ribozyme">Ribozyme</option>
+                                                        <option value="RBS">RBS</option>
+                                                        <option value="CDS">CDS</option>
+                                                        <option value="Terminator">Terminator</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">

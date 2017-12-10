@@ -65,6 +65,7 @@ and open the template in the editor.
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
+                                        <p class="umessage" th:text="*{add}"></p>
                                         <p></p>
                                         <br/>
                                         <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/add_device}" method="post" th:object="${addForm}">
@@ -87,7 +88,10 @@ and open the template in the editor.
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role 
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}"/>
+                                                    <select name="role" class="form-control col-md-7 col-xs-12" th:field="*{role}">
+                                                        <option selected="selected" value="">--Choose Role--</option>
+                                                        <option value="Module">Module</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -104,10 +108,13 @@ and open the template in the editor.
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createSeqFromParts">Create Sequence From Parts
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="createSeqFromParts">Sequence From Parts
                                                 </label>
                                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="createSeqFromParts" class="form-control col-md-7 col-xs-12" placeholder="Enter true or false" th:field="*{createSeqFromParts}"/>
+                                                    <select name="role" class="form-control col-md-7 col-xs-12" th:field="*{createSeqFromParts}">
+                                                        <option selected="selected" value="True">True</option>
+                                                        <option value="False">False</option>
+                                                    </select>
                                                 </div>
                                             </div>
 

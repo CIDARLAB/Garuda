@@ -10,11 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import lombok.Getter;
-<<<<<<< HEAD:src/main/java/org/cidarlab/garuda/ml/Backpropagation.java
-import org.cidarlab.garuda.dom.Feature;
-=======
 import org.cidarlab.garuda.model.Feature;
->>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84:src/main/java/org/cidarlab/garuda/machinelearning/Backpropagation.java
 
 /**
  *

@@ -264,6 +264,26 @@ public class ClothoService {
         
     }
     
+    public String getBioDesignWithFilter_put(Map json, String filter, HttpSession session){
+        
+        String URI = URL + "/bioDesign/search";       
+        
+        HttpHeaders getHeaders = new HttpHeaders();
+        getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
+        
+        HttpEntity<?> request = new HttpEntity(json,getHeaders);
+        
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
+        
+        String partDetails = null;
+        
+        if (response.getStatusCode() == HttpStatus.OK){
+            partDetails = response.getBody();    
+        }
+        
+        return partDetails;
+        
+    }
     
     /* ===== ===== 
          UPDATE
