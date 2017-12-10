@@ -96,9 +96,24 @@ public class AddForm {
         String string = "{";
         
         
-        if (this.role != null || !this.role.isEmpty()){
+        if (this.role == null || this.role.isEmpty()){
+
+        } else {
             string += "\"role\": \"" + this.role + "\",";
         }
+
+        if (this.createSeqFromParts == null || this.createSeqFromParts.isEmpty()){
+
+        } else {
+            string += "\"createSeqFromParts\":\"" + this.createSeqFromParts + "\", ";
+        }
+
+        if (this.displayId == null || this.displayId.isEmpty()){
+
+        } else {
+            string += "\"displayId\": \"" + this.displayId + "\", ";
+        }
+
         
         if (this.parameters != null || !this.role.isEmpty()){
             string += "\"parameters\": " + this.parameters + ", ";
@@ -108,9 +123,7 @@ public class AddForm {
         
                 return string
                 + "\"name\": \"" + this.name +"\", "
-                + "\"displayId\": \"" + this.displayId + "\", "
-                + "\"partIds\": " + this.partIds + ","
-                + "\"createSeqFromParts\":\"" + this.createSeqFromParts + "\""
+                + "\"partIds\": " + this.partIds
                 + "}";
     }
     

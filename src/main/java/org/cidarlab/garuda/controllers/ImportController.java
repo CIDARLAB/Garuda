@@ -114,11 +114,6 @@ public class ImportController {
                 guyparser.parse(fileLocation, "resources/output-", user, session);
             } else if (user.equals("aquariumbot")) {
                 System.out.println("parsing with Aquarium");
-
-                System.out.println(fileLocation);
-                System.out.println(session.getId());
-                aqparser.test();
-
                 aqparser.importData(fileLocation, session);
             } else {
                 System.out.println("parsing with RM");
@@ -129,8 +124,6 @@ public class ImportController {
             model.addAttribute("result", "Import Successful!");
         } catch (RuntimeException e) {
             model.addAttribute("result", "Error: Import aborted.");
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
 
