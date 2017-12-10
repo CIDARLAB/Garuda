@@ -217,7 +217,7 @@ public class AquariumParser {
 
         for (int i = 3; i < 7; i++){
             subpartString += "\"";
-            subpartString += partIds.get(moclo_row.toString());
+            subpartString += partIds.get(moclo_row.getCell(i).toString());
             subpartString += "\"";
 
             if (i != 6){
