@@ -264,17 +264,16 @@ public class ClothoService {
         
     }
     
-    /*public String getBioDesign_get(String biodesignId, HttpSession session){
+    public String getBioDesignWithFilter_put(Map json, String filter, HttpSession session){
         
-        String URI = URL + "/bio-design/" + biodesignId;
+        String URI = URL + "/bioDesign/search";       
         
         HttpHeaders getHeaders = new HttpHeaders();
         getHeaders.add("Authorization", (String) session.getAttribute("authHeader"));
-        Map map = new HashMap<>();
         
-        HttpEntity<?> request = new HttpEntity(map,getHeaders);
+        HttpEntity<?> request = new HttpEntity(json,getHeaders);
         
-        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.GET, request, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(URI, HttpMethod.PUT, request, String.class);
         
         String partDetails = null;
         
@@ -284,8 +283,7 @@ public class ClothoService {
         
         return partDetails;
         
-    }*/
-    
+    }
     
     /* ===== ===== 
          UPDATE

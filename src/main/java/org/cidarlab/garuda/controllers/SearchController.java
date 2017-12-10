@@ -161,14 +161,16 @@ public class SearchController {
                     
                 } else {*/
 
-                    String output = clotho.getDeviceWithFilter_put(json, "name", session);
+                    String output = clotho.getBioDesignWithFilter_put(json, "name", session);
                     
                     Object jsonObj = mapper.readValue(output, Object.class);
                     String indented = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObj);
 
                     String tabular = indented + "\n\nName\t\tSubparts\n\n";
                     
-                    results = new JSONArray(output); //array of match entries
+                    System.out.println(indented);
+                    
+                /*    results = new JSONArray(output); //array of match entries
                     searchForm.init(results.length());  //initialize array of entries as big as the returned results
                     
                     //iterate through all results
@@ -219,81 +221,9 @@ public class SearchController {
                         ////
                         
 
-                        /*boolean flag = true;
-                        try {
-                            
-                            JSONArray subBioDesign = entry.getJSONArray("subBioDesignIds");
-                            if (flag) {
-                                
-                                //DNAPlotLib dnaplotlib = new DNAPlotLib(name);
-                                
-                                
-                                //System.out.println("***PASS THIS? " + subBioDesign.length() + " " + name);
-
-                                for (int k = 0; k < subBioDesign.length(); k++) {
-
-                                    String part = clotho.getPartById_get(subBioDesign.getString(k), session);
-                                    
-                                    JSONObject object = (new JSONArray(part)).getJSONObject(0);
-                                    String type_ = object.getString("type");
-                                    
-                                    System.out.println("Pass this? " + object.getString("name"));
-                                    
-                                    if (type_.equals("PART")) {
-                                        
-                                        String partname = object.getString("name");
-                                        String role = object.getJSONArray("modules").getJSONObject(0).getString("role");
-
-                                        if(role.equals("PROMOTER")) role = "Promoter";
-                                        else if(role.equals("GENE")) role = "CDS";
-                                        else if(role.equals("TERMINATOR")) role = "Terminator";
-
-                                        System.out.println("+++" + role);
-
-                                        //dnaplotlib.addPartRole(partname, role);
-                                        //tabular = tabular + partname + "\t" + role + ",";
-                                        tabular = tabular + partname + ",";
-                                        sub = sub + partname + ",";
-                                    }
-                                    
-                                    else if (type_.equals("DEVICE")) {
-                                        
-                                        String partname = object.getString("name");
-                                        /*String role = object.getJSONArray("modules").getJSONObject(0).getString("role");
-
-                                        if(role.equals("PROMOTER")) role = "Promoter";
-                                        else if(role.equals("GENE")) role = "CDS";
-                                        else if(role.equals("TERMINATOR")) role = "Terminator";
-
-                                        System.out.println("+++" + role);*//*
-
-                                        //dnaplotlib.addPartRole(partname, role);
-                                        //tabular = tabular + partname + "\t" + role + ",";
-                                        tabular = tabular + partname + ",";
-                                        sub = sub + partname + ",";
-                                    }
-                                    //FormatExchange.writeDPL("" + j, dnaplotlib);
-                                }
-                                tabular += "\n";
-
-                                //FormatExchange.dnaplotlib_exec("" + j);
-                                searchForm.set("url", "images/generated/promoter_.png", i);
-                                searchForm.set("sub", sub.substring(0, sub.length()-1), i);
-                            }
-                        } catch (JSONException jx) {
-                            
-                            System.out.println("***One entry does not have subparts! " + name);
-                            
-                            System.out.println(jx.getMessage());
-                            
-                            flag = false;
-                            searchForm.set("url", "", i);
-                            //searchForm.set("sub", "", j);
-                        }*/
-
                 //    }
                     model.addAttribute("result", tabular);
-                }
+                }*/
             }
         }
         catch (RuntimeException e) {

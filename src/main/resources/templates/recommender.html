@@ -40,6 +40,7 @@ and open the template in the editor.
                                     </div>
                                     <div class="x_content">
                                         <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
+                                        <p>Make sure that your spreadsheet satisfies the schema</p>
                                         <form method="POST" th:object="${recommendForm}" th:action="@{/recommendation}" enctype="multipart/form-data">
                                             <input type="file" class="form-control" name="multipartFile" /><br/>
                                             <input type="submit" class="btn btn-success" value="Submit" />

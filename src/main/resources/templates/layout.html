@@ -99,7 +99,7 @@
                         </li>
                         <li class="userLoggedIn" th:if="${session.username != null}">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/user.png" alt="" th:text="${session.username}"/>
+                                <img src="images/user.png" alt="" th:text="${'Welcome, ' + session.username + '!'}"/>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right" >

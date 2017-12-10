@@ -12,6 +12,7 @@ import java.io.InputStream;
 import javax.servlet.http.HttpSession;
 import org.cidarlab.garuda.forms.LoginForm;
 import org.cidarlab.garuda.forms.RegisterForm;
+import org.cidarlab.garuda.services.AquariumParser;
 import org.cidarlab.garuda.services.Guy_Parser;
 import org.cidarlab.garuda.services.RM_Parser;
 import org.cidarlab.garuda.services.RWR_Parser;
@@ -102,6 +103,9 @@ public class ImportController {
             if (user.equals("user")) {
                 System.out.println("parsing with RW");
                 rwrparser.parse(fileLocation, user, session);
+            } else if (user.equals("aquarium")) {
+                System.out.println("parsing with Aquarium");
+                AquariumParser.parse(fileLocation, user, session);
             } else if (user.equals("robwarden")) {
                 System.out.println("parsing with RW");
                 rwrparser.parse(fileLocation, user, session);

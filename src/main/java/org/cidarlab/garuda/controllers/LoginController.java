@@ -74,15 +74,15 @@ public class LoginController {
             }
 
         } catch (IllegalArgumentException e) {
-            return "/loginerror";
+            return "loginerror";
         } finally {
             
             if (myAccount == null){
-                return "/loginerror";
+                return "loginerror";
             }
             
             else {
-                return "/index";
+                return "index";
             }
         }
     }
@@ -92,7 +92,7 @@ public class LoginController {
             reason="Incorrect username or password")
     @ExceptionHandler(IllegalArgumentException.class)
     public String IllegalArgumentExceptionHandler(){
-        return "/loginerror";
+        return "loginerror";
     }
     
 
