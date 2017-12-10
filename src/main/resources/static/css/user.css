@@ -7,3 +7,6 @@
 .ufixed_height_360{height:360px}
 .umessage{color:#bf7e82;font-size:20px}
 .utitle{height:70px}
+.logoutButton{border:none;outline:none;background:none;cursor:pointer;padding:12px 20px;color:#5A738E;width:100%;text-align:left}
+.logoutButton:hover{background-color:#f7f7f7}
+.ucenter{text-align:center;padding:10px}

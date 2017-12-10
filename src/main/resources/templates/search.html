@@ -24,9 +24,9 @@ and open the template in the editor.
                                 <h3>Search Data</h3>
                             </div>
 
-                            <div class="utitle_right" style="text-align:right">
+                            <div class="utitle_right" onclick="toggleQueryContainer()" style="text-align:right">
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group pull-right top_search">
-                                    <button class="btn btn-info query-add">Add field</button>
+                                    <button class="btn btn-info query-add">Query By Filter</button>
                                 </div>
                             </div>
                         </div>
@@ -38,73 +38,88 @@ and open the template in the editor.
                                     <div class="x_title">
                                         <h2>Search query <!--<small>Choose your schema</small>--></h2>
                                         <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
-                                            <!--<li class="dropdown">
-                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                              <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                              </ul>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>-->
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
                                         <!--<p class="umessage" th:text="${app.getMessage()}"></p>-->
                                         <br />
-                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/result}" th:object="${app}" method="post">
-
-                                            <div class="query-container">
+                                        <form id="demo-form2" class="form-horizontal form-label-left" th:action="@{/search}" th:object="${searchForm}" method="post">
                                                 
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
+                                            <div class="form-group div-query" id='biodesignIdContainer'>
+                                                <div class="col-md-7 col-sm-7 col-xs-11">
+                                                        <input type="text" class="form-control" th:field="*{biodesignId}" placeholder="Biodesign Id"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div id='query-container' style='display:none'>
+                                                <div class='form-group div-query'>
+                                                    <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                            <input type='text' class='form-control' th:field='*{filter}' placeholder='Filter' />
                                                     </div>
-
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqA}"/>
+                                                    <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                            <ul class='nav panel_toolbox'>
+                                                                    <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                            </ul>
                                                     </div>
-                                                    
-                                                    <!--<div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>-->
                                                 </div>
 
-                                                <div class="form-group div-query">
-                                                    <div class="col-md-4 col-sm-4 col-xs-11">
-                                                        <select class="form-control">
-                                                            <option>Sequence</option>
-                                                            <option>Number of Parts</option>
-                                                            <option>Medium</option>
-                                                            <option>Type</option>
-                                                            <option>Function</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
+                                                <div class='form-group div-query'>
+                                                        <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                                <input type='text' class='form-control' th:field='*{name}' placeholder='Name' />
+                                                        </div>
+                                                        <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                                <ul class='nav panel_toolbox'>
+                                                                        <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                                </ul>
+                                                        </div>
+                                                </div>
 
-                                                    <div class="col-md-7 col-sm-7 col-xs-11">
-                                                        <input type="text" class="form-control" th:field="*{seqB}"/>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                                        <ul class="nav panel_toolbox">
-                                                            <li><a class="close-query"><i class="fa fa-close"></i></a></li>
-                                                        </ul>
-                                                    </div>
+                                                <div class='form-group div-query'>
+                                                        <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                                <input type='text' class='form-control' th:field='*{displayId}' placeholder='Display Id' />
+                                                        </div>
+                                                        <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                                <ul class='nav panel_toolbox'>
+                                                                        <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                                </ul>
+                                                        </div>
+                                                </div>
+
+                                                <div class='form-group div-query'>
+                                                        <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                                <input type='text' class='form-control' th:field='*{role}' placeholder='Role' />
+                                                        </div>
+                                                        <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                                <ul class='nav panel_toolbox'>
+                                                                        <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                                </ul>
+                                                        </div>
+                                                </div>
+
+                                                <div class='form-group div-query'>
+                                                        <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                                <input type='text' class='form-control' th:field='*{sequence}' placeholder='Sequence' />
+                                                        </div>
+                                                        <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                                <ul class='nav panel_toolbox'>
+                                                                        <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                                </ul>
+                                                        </div>
+                                                </div>
+
+                                                <div class='form-group div-query'>
+                                                        <div class='col-md-7 col-sm-7 col-xs-11'>
+                                                                <input type='text' class='form-control' th:field='*{userSpace}' placeholder='User Space' />
+                                                        </div>
+                                                        <div class='col-md-1 col-sm-1 col-xs-1'>
+                                                                <ul class='nav panel_toolbox'>
+                                                                        <li><a class='close-query'><i class='fa fa-close'></i></a></li>
+                                                                </ul>
+                                                        </div>
                                                 </div>
 
                                             </div>
@@ -155,9 +170,10 @@ and open the template in the editor.
                     e.remove();
                 });
 		
-            	$(".query-add").click (function () {
-                    $(".query-container").append("<div class='form-group div-query'><div class='col-md-4 col-sm-4 col-xs-11'><select class='form-control'><option>Sequence</option><option>Number of Parts</option><option>Medium</option><option>Type</option><option>Function</option><option>...</option></select></div><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
-                });
+//            	$(".query-add").click (function () {
+//                    $(".add-button").remove();
+//                    $(".query-container").append("<div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{filter}' placeholder='Filter'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div><div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{name}' placeholder='Name'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div><div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{displayId}' placeholder='Display Id'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div><div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{role}' placeholder='Role'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div><div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{sequence}' placeholder='Sequence'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div><div class='form-group div-query'><div class='col-md-7 col-sm-7 col-xs-11'><input type='text' class='form-control' th:field='*{userSpace}' placeholder='User Space'/></div><div class='col-md-1 col-sm-1 col-xs-1'><ul class='nav panel_toolbox'><li><a class='close-query'><i class='fa fa-close'></i></a></li></ul></div></div>");
+//                });
 			  
                 $(document).on('click', '.close-query', function(){
                     var e=$(this).closest(".div-query");
@@ -165,6 +181,24 @@ and open the template in the editor.
                 });
             });
             /*]]>*/
+        </script>
+        
+        <script>
+        function toggleQueryContainer(){
+            var query_container = document.getElementById('query-container');
+            if (query_container.style.display === 'none'){
+                query_container.style.display = 'block';
+            } else {
+                query_container.style.display = 'none';
+            }
+            
+            var biodesignIdContainer = document.getElementById('biodesignIdContainer');
+            if (biodesignIdContainer.style.display === 'none'){
+                biodesignIdContainer.style.display = 'block';
+            } else {
+                biodesignIdContainer.style.display = 'none';
+            }
+        }
         </script>
     </body>
 

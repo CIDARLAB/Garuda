@@ -1,5 +1,28 @@
-/target/
 target/
-.DS_Store
+!.mvn/wrapper/maven-wrapper.jar
 
-/nbproject/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### DNAPlotLib ###
+src/main/resources/static/images/generated*
+resources/visual/generated

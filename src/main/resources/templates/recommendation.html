@@ -42,7 +42,10 @@ and open the template in the editor.
                             <div ng-app="myApp" ng-controller="myCtrl" class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
+<<<<<<< HEAD
                                         <p class="umessage" th:text="${app.getMessage()}"></p>
+=======
+>>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84
                                         <h2>Toxicity Analysis</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -132,6 +135,7 @@ and open the template in the editor.
             /*<![CDATA[*/
             var ang = angular.module('myApp', ['angularplasmid']);
             
+<<<<<<< HEAD
             /*ang.controller('myCtrl', function($scope) {
                 
                 $scope.results = [[${app.test()}]];
@@ -141,6 +145,8 @@ and open the template in the editor.
                 alert($scope.data[0]);
             });*/
           
+=======
+>>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84
             Chart.defaults.global.legend = {
                 enabled: false
             };
@@ -150,11 +156,19 @@ and open the template in the editor.
           var mybarChart = new Chart(ctx, {
             type: 'bar',
             data: {
+<<<<<<< HEAD
               labels: [[${app.getPartnames()}]],
               datasets: [{
                 label: 'Probability: ',
                 backgroundColor: "#26B99A",
                 data: [[${app.getProbabilities()}]]
+=======
+              labels: [[${recommendForm.getPartnames()}]],
+              datasets: [{
+                label: 'Probability: ',
+                backgroundColor: "#26B99A",
+                data: [[${recommendForm.getProbabilities()}]]
+>>>>>>> 6761c239d9a6d8462eabb38c3cba5f0862b25f84
               }]
             },
 
